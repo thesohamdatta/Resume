@@ -1,0 +1,63 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{TLCresume}[2026/09/14 Resume Package]
+
+% FONT ENCODING & PACKAGES
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage[12pt]{moresize}
+\RequirePackage{anyfontsize}
+\RequirePackage{csquotes}
+
+% MARGINS AND SPACING (Engineered for 1-page high-density technical resume)
+\RequirePackage[letterpaper, left=0.45in, right=0.45in, top=0.34in, bottom=0.34in]{geometry}
+\raggedright
+\raggedbottom
+
+% COLORS
+\RequirePackage{xcolor}
+\definecolor{highlight}{RGB}{35, 68, 110}    % Refined deep navy
+\definecolor{subtextcol}{RGB}{70, 80, 95}     % Charcoal gray for subtitles
+\definecolor{rulecol}{RGB}{205, 215, 230}    % Subtle divider line tint
+
+% LINKS & METADATA
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=highlight,
+    linkcolor=highlight,
+    pdfauthor={Soham Datta},
+    pdftitle={Soham Datta - Resume}
+}
+
+% BULLET POINTS AND LISTS
+\RequirePackage{enumitem}
+\setlength{\tabcolsep}{0in}
+
+% SECTION FORMATTING
+\RequirePackage[nostruts]{titlesec}
+\titlespacing*{\section}{0em}{0.24em}{0.10em}
+\titleformat{\section}{\color{highlight}\scshape\raggedright\large}{}{0em}{}[\vspace{-0.32em}{\color{rulecol}\rule{\textwidth}{0.5pt}}\vspace{-0.24em}]
+
+% SUBSECTION FORMATTING
+\titlespacing*{\subsection}{0em}{0.14em}{0.01em}
+\titleformat{\subsection}{\bfseries\normalsize}{}{0em}{}[]
+
+% BOLD INLINE SKILLS
+\newcommand{\skills}[1]{{\bfseries\color{highlight} #1}}
+
+% SUBTEXT (Role subtitle / technologies line)
+\newcommand{\subtext}[1]{{\color{subtextcol}\small\textit{#1}}\par\vspace{0.02em}}
+
+% TIGHT ITEMIZE ENVIRONMENT
+\newenvironment{zitemize}{
+\begin{itemize}[leftmargin=1.1em, itemsep=0.4pt, parsep=0pt, topsep=0.4pt, partopsep=0pt]}
+{\end{itemize}\vspace{-0.15em}}
+
+% NO PAGE NUMBERING
+\pagenumbering{gobble}
+
+% PACKAGES FOR TABLES AND LAYOUT
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{import}

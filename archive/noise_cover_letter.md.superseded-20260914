@@ -1,0 +1,25 @@
+Soham Datta
+Pune, India · github.com/thesohamdatta · linkedin.com/in/thesohamdatta
+
+September 2026
+
+Hiring Team
+Noise (Go Noise)
+Gurgaon, India
+
+---
+
+I built a wearable AI pendant from scratch — custom 3D-printed enclosure, ESP32-S3 sensor board, edge audio pipeline, and cloud memory capture. Noise builds wearable hardware for millions of people. That alignment is why I am applying.
+
+**Aura** is my self-funded project. I designed the physical enclosure, packaged the electronics (Seeed XIAO ESP32-S3 Sense, ribbon camera, LiPo, mic), and integrated the device with an open-source wearable AI ecosystem end-to-end. I diagnosed a GPU memory leak in the desktop client, authored a speaker diarization algorithm (offline agglomerative clustering, 52 unit tests) that was later adopted upstream, and learned how hard the gap between "working prototype" and "stable hardware product" actually is. That problem is what Noise solves at scale.
+
+On the software side: I built **Mia**, a TypeScript CLI that runs a structured AI engineering harness with multi-LLM adapters, automated verification gates, and JSONL state tracking. I built **John**, a native Android Kotlin app (Jetpack Compose) talking to a real-time Python voice agent via LiveKit WebRTC. I built **LLM-Council**, a full-stack multi-model consensus engine with a React + FastAPI interface. These are not tutorials — they are things I use.
+
+I work across Python, TypeScript, Kotlin, React, FastAPI, and embedded C basics. I know OpenAI, Anthropic, Gemini, Deepgram, ElevenLabs, LiveKit, and TensorFlow from direct project use. I also interned under the AICTE–Google AI/ML program where I built on-device vision models with TensorFlow and ML Kit for edge classification.
+
+I graduate from SPPU's AI & ML program in June 2026. The 6-month on-site format at your Gurgaon office is exactly the kind of depth I am looking for.
+
+I would like to contribute to whatever sits at the intersection of your wearable hardware and the AI features being built on top of it.
+
+Soham Datta
+sohamdatta.framer.ai · github.com/thesohamdatta

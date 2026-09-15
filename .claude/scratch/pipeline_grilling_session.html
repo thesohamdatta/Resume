@@ -1,0 +1,577 @@
+<title>Pipeline Grilling Session</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --border: #e0e0e0;
+  --text: #1a1a1a;
+  --text-dim: #666666;
+  --accent: #2563eb;
+  --accent-hover: #1e40af;
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --code-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0a0a;
+    --surface: #1a1a1a;
+    --border: #2a2a2a;
+    --text: #e5e5e5;
+    --text-dim: #a0a0a0;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --code-bg: #262626;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --surface: #1a1a1a;
+  --border: #2a2a2a;
+  --text: #e5e5e5;
+  --text-dim: #a0a0a0;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --code-bg: #262626;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  padding: 24px;
+  padding-block: max(24px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-bottom, 0px));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--border);
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 15px;
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 12px;
+  color: var(--accent);
+}
+
+.question {
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.question-label {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.scenario {
+  background: rgba(217, 119, 6, 0.1);
+  border-left: 3px solid var(--warning);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.scenario-label {
+  font-weight: 600;
+  color: var(--warning);
+  margin-bottom: 8px;
+}
+
+.issue {
+  background: rgba(220, 38, 38, 0.1);
+  border-left: 3px solid var(--danger);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.issue-label {
+  font-weight: 600;
+  color: var(--danger);
+  margin-bottom: 8px;
+}
+
+.insight {
+  background: rgba(5, 150, 105, 0.1);
+  border-left: 3px solid var(--success);
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.insight-label {
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  background: var(--code-bg);
+}
+
+code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+.adr-candidate {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.decision-matrix {
+  display: grid;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+@media (min-width: 768px) {
+  .decision-matrix {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.decision-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.decision-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  section {
+    padding: 16px;
+  }
+}
+</style>
+
+<header>
+  <h1>Resume Pipeline Grilling Session</h1>
+  <p class="subtitle">Domain modeling + architectural decisions + edge cases</p>
+</header>
+
+<div class="container">
+  <section>
+    <h2>🎯 Session Scope</h2>
+    <p>Improving the 10-stage resume pipeline through:</p>
+    <ul>
+      <li>Terminology precision (glossary challenges)</li>
+      <li>Edge case scenario testing</li>
+      <li>Architectural decision review</li>
+      <li>Voice.md integration validation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📖 Domain Model Review</h2>
+
+    <h3>Current Glossary (CONTEXT.md)</h3>
+
+    <div class="question">
+      <div class="question-label">Q1: What is a "Track"?</div>
+      <p>Your glossary defines three tracks: <strong>startup</strong>, <strong>mnc</strong>, <strong>mid-level</strong>.</p>
+      <p><strong>Challenge:</strong> Are these three different <em>resume formats</em> (layout/style), three different <em>targeting strategies</em> (audience/tone), or three different <em>output artifacts</em> (different facts emphasized)?</p>
+      <p><strong>Code says:</strong> <code>versions/{track}/_base.md</code> suggests structural templates.</p>
+      <p><strong>voice.md says:</strong> Voice Matrix applies different bullet formulas per track (startup/MNC/mid).</p>
+      <p><strong>Clarify:</strong> Is a track a <em>presentation variant</em> (same facts, different layout) or a <em>selection strategy</em> (different facts foregrounded)?</p>
+    </div>
+
+    <div class="question">
+      <div class="question-label">Q2: What is "Evidence"?</div>
+      <p>You use "evidence" in multiple contexts:</p>
+      <ul>
+        <li><code>content/github/evidence.md</code> — technical proof (file paths, PRs, algorithms)</li>
+        <li>Stage 04 — Evidence Matcher (STRONG/MODERATE/WEAK)</li>
+        <li>Stage 06 — "evidence-first bullets"</li>
+        <li>voice.md — "Evidence Boundaries"</li>
+      </ul>
+      <p><strong>Challenge:</strong> Is "evidence" the <em>raw technical detail</em> (before it enters resume), the <em>matched proof for a JD requirement</em>, or the <em>verifiable claim in the resume</em>?</p>
+      <p><strong>Proposed distinction:</strong></p>
+      <ul>
+        <li><strong>Proof</strong> = raw technical detail (evidence.md, boundaries.md)</li>
+        <li><strong>Match</strong> = JD requirement ↔ proof mapping (Stage 04)</li>
+        <li><strong>Claim</strong> = resume bullet anchored in proof (Stage 06, 07)</li>
+      </ul>
+    </div>
+
+    <div class="question">
+      <div class="question-label">Q3: What is "Positioning"?</div>
+      <p>Stage 05 is called "Positioning Strategy" and produces:</p>
+      <ul>
+        <li>Primary hook (company-specific)</li>
+        <li>Cover letter structure</li>
+        <li>What to foreground/cut</li>
+      </ul>
+      <p><strong>Challenge:</strong> Is positioning a <em>one-time strategic decision per company</em>, or a <em>per-application framing</em>? Can the same company have multiple positionings if targeting different roles?</p>
+      <p><strong>Scenario:</strong> Company X has two openings — "AI Engineer" and "Staff AI Engineer". Same positioning?</p>
+    </div>
+
+    <div class="question">
+      <div class="question-label">Q4: Stage 10 vs voice.md conflict</div>
+      <p>Your <code>pipeline/run.md</code> line 82 still says:</p>
+      <blockquote>"Reads: Stage 09 outputs + both slop skills (stop-slop for resume, no-ai-slop for cover letter)."</blockquote>
+      <p><strong>But we just unified Stage 10 to use voice.md directly.</strong></p>
+      <p><strong>Issue:</strong> <code>run.md</code> is now stale. Design decision comment line 145-150 also references the old dual-skill approach.</p>
+      <p><strong>Fix needed:</strong> Update <code>run.md</code> to reflect voice.md unified approach.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🧪 Edge Case Scenarios</h2>
+
+    <div class="scenario">
+      <div class="scenario-label">Scenario 1: JD changes mid-application</div>
+      <p><strong>Setup:</strong> You run the pipeline for Company X with JD version 1. Two days later, they update the JD (new required skill added).</p>
+      <p><strong>Questions:</strong></p>
+      <ul>
+        <li>Does <code>applications/{Company}_{YYYY-MM}/input.md</code> get updated with new JD?</li>
+        <li>Do you re-run the full pipeline, or just Stage 02 → Stage 10?</li>
+        <li>What happens to <code>pipeline_state.md</code>? Append new sections or overwrite?</li>
+      </ul>
+      <p><strong>Current design:</strong> No clear guidance in <code>run.md</code> or <code>APPLY.md</code>.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-label">Scenario 2: Stage 07 FAIL with no fix path</div>
+      <p><strong>Setup:</strong> Stage 07 Factuality Checker flags a claim as FAIL: "No anchor in facts.yaml or evidence.md".</p>
+      <p><strong>But:</strong> The claim is <em>actually true</em> — it's just not documented yet.</p>
+      <p><strong>Questions:</strong></p>
+      <ul>
+        <li>Does the user manually add to evidence.md, then re-run Stage 07?</li>
+        <li>Or does Stage 07 have a "defer" option (mark as needs-evidence, let it through with warning)?</li>
+        <li>What if the true fact can't be verified externally (e.g., internship project with no public artifact)?</li>
+      </ul>
+      <p><strong>Current design:</strong> Hard stop on any FAIL (line 70). No escape hatch.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-label">Scenario 3: Multiple applications to same company</div>
+      <p><strong>Setup:</strong> Apply to Company X in September (AI Engineer role). Apply again in November (Senior AI Engineer role).</p>
+      <p><strong>Questions:</strong></p>
+      <ul>
+        <li>Do both use <code>research/companies/{Company}.md</code>? (Yes, probably.)</li>
+        <li>Do both live in <code>applications/Company_2026-09/</code> and <code>applications/Company_2026-11/</code>? (Yes, per naming.)</li>
+        <li>But: <code>versions/{track}/resume_Company.md</code> has NO date. Second application overwrites first?</li>
+      </ul>
+      <p><strong>Issue:</strong> <code>versions/{track}/resume_{Company}.md</code> naming loses temporal context. You can't compare "what we sent in Sept" vs "what we sent in Nov".</p>
+      <p><strong>Proposed fix:</strong> Either add date to versions path, or keep outputs ONLY in <code>applications/</code> folder.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-label">Scenario 4: Voice.md banned word in facts.yaml template</div>
+      <p><strong>Setup:</strong> <code>facts.yaml</code> has a pre-written bullet template containing "leveraged" (voice.md banned word).</p>
+      <p><strong>Questions:</strong></p>
+      <ul>
+        <li>Does Stage 06 (Writer) use the template as-is and let Stage 10 fix it?</li>
+        <li>Or does Stage 06 apply voice.md rules upfront?</li>
+        <li>What if Stage 10's fix changes the claim strength (drift)?</li>
+      </ul>
+      <p><strong>Current design:</strong> Stage 06 loads voice.md "as tone authority" but still uses facts.yaml templates. Stage 10 fixes slop. Potential drift between stages.</p>
+    </div>
+
+    <div class="scenario">
+      <div class="scenario-label">Scenario 5: Parallel Stage 01+02+03 — one fails</div>
+      <p><strong>Setup:</strong> Stage 01 (Company Research) hits API rate limit and fails. Stage 02+03 complete successfully.</p>
+      <p><strong>Questions:</strong></p>
+      <ul>
+        <li>Does the pipeline abort entirely?</li>
+        <li>Or does Stage 04 (Evidence Matcher) proceed with incomplete company context?</li>
+        <li>How does <code>pipeline_state.md</code> reflect partial completion?</li>
+      </ul>
+      <p><strong>Current design:</strong> <code>run.md</code> says "run all three simultaneously" but doesn't specify failure handling.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🔍 Architectural Tensions</h2>
+
+    <div class="issue">
+      <div class="issue-label">Tension 1: Facts vs Evidence vs Claims</div>
+      <p><strong>Problem:</strong> Three overlapping sources of truth:</p>
+      <ul>
+        <li><code>data/facts.yaml</code> — "canonical facts" (dates, titles, companies, bullets)</li>
+        <li><code>content/github/evidence.md</code> — technical depth (file paths, algorithms)</li>
+        <li><code>content/github/boundaries.md</code> — constraints (what NOT to claim)</li>
+      </ul>
+      <p><strong>Confusion point:</strong> Stage 06 says "read evidence.md BEFORE facts.yaml" — why are they separate? Why not one master source?</p>
+      <p><strong>Hypothesis:</strong> facts.yaml is <em>biographical skeleton</em> (dates, titles). evidence.md is <em>technical detail</em> (code, PRs, implementations). boundaries.md is <em>negative constraints</em> (don't claim X).</p>
+      <p><strong>Clarity needed:</strong> When does a new piece of information go into which file?</p>
+    </div>
+
+    <div class="issue">
+      <div class="issue-label">Tension 2: Stage 09 vs Stage 10 — redundant polish?</div>
+      <p><strong>Stage 09:</strong> "Final Editor" — reads Stage 07+08 audit, makes edits.</p>
+      <p><strong>Stage 10:</strong> "Slop-Free Polish" — applies voice.md rules, drift gate.</p>
+      <p><strong>Question:</strong> Why two editing stages? Could Stage 09 be merged into Stage 10?</p>
+      <p><strong>Current justification (memory/lessons.md line 11):</strong> "Stage 09 keeps only a quick pre-pass. Stage 10 is terminal."</p>
+      <p><strong>Counter-argument:</strong> If Stage 10 is authoritative, why does Stage 09 exist? What can Stage 09 do that Stage 10 cannot?</p>
+      <p><strong>Possible answer:</strong> Stage 09 handles <em>structural fixes</em> (ATS issues, factual corrections). Stage 10 handles <em>language polish</em> (voice, slop). Different concerns.</p>
+    </div>
+
+    <div class="issue">
+      <div class="issue-label">Tension 3: Human checkpoints — when to stop?</div>
+      <p>Your <code>run.md</code> has 4 human checkpoints:</p>
+      <table>
+        <thead>
+          <tr><th>After Stage</th><th>Review</th><th>When to Stop</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Stage 05</td><td>Primary hook</td><td>If hook is generic</td></tr>
+          <tr><td>Stage 07</td><td>Factuality FAILs</td><td>If any FAIL exists (hard gate)</td></tr>
+          <tr><td>Stage 09</td><td>Final resume</td><td>If pre-pass missed something</td></tr>
+          <tr><td>Stage 10</td><td>Slop polish log</td><td>If drift FAIL</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Question:</strong> Are these checkpoints <em>approval gates</em> (pipeline waits for human "proceed") or <em>audit points</em> (human can review but pipeline continues)?</p>
+      <p><strong>Current wording:</strong> Stage 05 says "Type 'proceed' to continue" (approval gate). Stage 07 says "stop" (hard gate). Stage 09/10 unclear.</p>
+      <p><strong>Design choice needed:</strong> Should the pipeline be <em>fully automated</em> (human reviews outputs after completion) or <em>human-in-the-loop</em> (waits at each gate)?</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>💡 Improvement Recommendations</h2>
+
+    <div class="insight">
+      <div class="insight-label">Recommendation 1: Unify Stage 09 + Stage 10</div>
+      <p><strong>Rationale:</strong> Two separate editing stages create confusion about which is authoritative. Stage 10 already handles voice, slop, and drift — it can also handle ATS fixes.</p>
+      <p><strong>Proposed merge:</strong></p>
+      <ul>
+        <li>Keep Stage 08 (ATS Reviewer) as analyzer only</li>
+        <li>Delete Stage 09 (Final Editor)</li>
+        <li>Expand Stage 10 to handle ATS fixes + voice.md polish + drift gate</li>
+        <li>Rename Stage 10 to "Final Polish" (not "Slop-Free" — broader scope)</li>
+      </ul>
+      <p><strong>Benefit:</strong> Single authoritative editing stage. Clearer pipeline flow.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Recommendation 2: Add date to output filenames</div>
+      <p><strong>Problem:</strong> <code>versions/{track}/resume_Company.md</code> overwrites previous applications to same company.</p>
+      <p><strong>Proposed fix:</strong> Change output to <code>versions/{track}/resume_Company_YYYY-MM.md</code></p>
+      <p><strong>Benefit:</strong> Temporal auditability. Can compare what was sent in Sept vs Nov.</p>
+      <p><strong>Alternative:</strong> Keep outputs ONLY in <code>applications/{Company}_{YYYY-MM}/</code> folder. Don't duplicate in <code>versions/</code>.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Recommendation 3: Clarify facts.yaml vs evidence.md split</div>
+      <p><strong>Add to CONTEXT.md glossary:</strong></p>
+      <ul>
+        <li><strong>Biographical facts</strong> (facts.yaml): dates, titles, companies, education, certifications — things that go on every resume regardless of role.</li>
+        <li><strong>Technical proof</strong> (evidence.md): file paths, function names, algorithms, PR numbers, test counts — deep technical detail used to write evidence-rich bullets.</li>
+        <li><strong>Constraints</strong> (boundaries.md): negative rules — what NOT to claim (e.g., "never say 'built Omi backend from scratch'").</li>
+      </ul>
+      <p><strong>Decision rule:</strong> If it's a <em>date or title</em> → facts.yaml. If it's <em>technical depth</em> → evidence.md. If it's a <em>don't claim X</em> → boundaries.md.</p>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Recommendation 4: Update run.md for voice.md integration</div>
+      <p><strong>Action items:</strong></p>
+      <ol>
+        <li>Update line 82: change "both slop skills" → "voice.md unified"</li>
+        <li>Update lines 145-150: remove dual-skill design decision, replace with voice.md rationale</li>
+        <li>Update Step 8 description to mention voice.md context detection</li>
+      </ol>
+    </div>
+
+    <div class="insight">
+      <div class="insight-label">Recommendation 5: Add Stage 07 "defer" option</div>
+      <p><strong>Problem:</strong> Stage 07 hard-stops on any FAIL, even if the claim is true but just not documented yet.</p>
+      <p><strong>Proposed enhancement:</strong> Stage 07 output has three states per claim:</p>
+      <ul>
+        <li><strong>PASS</strong> — anchored in facts.yaml or evidence.md</li>
+        <li><strong>FAIL</strong> — no anchor, must fix or delete (hard stop)</li>
+        <li><strong>DEFER</strong> — claim marked as "needs evidence" but allowed to proceed with warning flag</li>
+      </ul>
+      <p><strong>Use case:</strong> True internship claim with no public artifact. Flag as DEFER, include in resume with asterisk, add to evidence.md later.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>📝 ADR Candidates</h2>
+
+    <div class="adr-candidate">
+      <h3>ADR-0001: Evidence-first bullet writing</h3>
+      <p><strong>Status:</strong> Decided (documented in <code>pipeline/run.md</code> line 151, memory/lessons.md line 7)</p>
+      <p><strong>Context:</strong> Stage 06 must choose between two sources: pre-written bullets in facts.yaml vs raw technical detail in evidence.md.</p>
+      <p><strong>Decision:</strong> Read evidence.md BEFORE facts.yaml. Bullets derive from evidence technical depth (file names, algorithms), not templates.</p>
+      <p><strong>Rationale:</strong> Evidence-first surfaces invisible technical detail. Templates are skeletal — evidence is specific.</p>
+      <p><strong>Consequences:</strong> Bullets are more technical, more credible, but require evidence.md to be complete.</p>
+      <p><strong>Recommendation:</strong> This is a good ADR candidate — hard to reverse, surprising without context, real trade-off. Consider writing formal ADR.</p>
+    </div>
+
+    <div class="adr-candidate">
+      <h3>ADR-0002: voice.md as single source of truth (NEW)</h3>
+      <p><strong>Status:</strong> Just decided (2026-09-15)</p>
+      <p><strong>Context:</strong> Stage 10 used two separate skills (stop-slop for resume, no-ai-slop for cover). Maintenance burden, context confusion.</p>
+      <p><strong>Decision:</strong> Unify Stage 10 to load voice.md directly. Context-aware via Voice Matrix. Single tone authority.</p>
+      <p><strong>Rationale:</strong> One file to update, no skill dependencies, Voice Matrix auto-selects based on track (startup/MNC/mid).</p>
+      <p><strong>Consequences:</strong> Simpler maintenance, but voice.md must stay complete. Stage 10 now has more responsibility.</p>
+      <p><strong>Recommendation:</strong> Write this as ADR-0002 to document the unified approach.</p>
+    </div>
+
+    <div class="adr-candidate">
+      <h3>ADR-0003: Why Stage 09 + Stage 10 are separate (QUESTIONABLE)</h3>
+      <p><strong>Status:</strong> Implicit (not formally documented)</p>
+      <p><strong>Context:</strong> Two editing stages — Stage 09 (Final Editor) and Stage 10 (Slop-Free Polish) — seem redundant.</p>
+      <p><strong>Claimed rationale:</strong> Stage 09 handles structural fixes (ATS, factuality). Stage 10 handles language polish (voice, slop).</p>
+      <p><strong>Question:</strong> Is this separation really necessary? Or can Stage 10 do both?</p>
+      <p><strong>Recommendation:</strong> Either write formal ADR defending the split, OR merge them per Recommendation 1.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>🎬 Next Steps</h2>
+
+    <div class="decision-matrix">
+      <div class="decision-card">
+        <div class="decision-title">✅ Quick Wins (do now)</div>
+        <ul style="margin-top: 8px;">
+          <li>Update <code>run.md</code> to reflect voice.md integration</li>
+          <li>Add glossary clarifications to CONTEXT.md (Track, Evidence, Positioning)</li>
+          <li>Fix output filename collision (add date or move to applications/)</li>
+        </ul>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-title">🤔 Decisions Needed</div>
+        <ul style="margin-top: 8px;">
+          <li>Merge Stage 09+10 or keep separate? (need rationale)</li>
+          <li>Add Stage 07 DEFER option or keep hard stop?</li>
+          <li>Pipeline = fully automated or human-in-the-loop?</li>
+        </ul>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-title">📋 ADRs to Write</div>
+        <ul style="margin-top: 8px;">
+          <li>ADR-0001: Evidence-first bullets (formalize existing decision)</li>
+          <li>ADR-0002: voice.md unified (document new decision)</li>
+          <li>ADR-0003: Stage 09+10 split (IF keeping separate)</li>
+        </ul>
+      </div>
+
+      <div class="decision-card">
+        <div class="decision-title">🧪 Edge Cases to Test</div>
+        <ul style="margin-top: 8px;">
+          <li>JD changes mid-application (re-run protocol)</li>
+          <li>Stage 07 FAIL with unverifiable-but-true claim</li>
+          <li>Multiple applications to same company (output naming)</li>
+          <li>Parallel stage failure handling (Stage 01 rate limit)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>

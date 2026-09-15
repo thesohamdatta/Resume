@@ -1,0 +1,677 @@
+<title>Voice Integration: Single Source of Truth</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --border: #e0e0e0;
+  --text: #1a1a1a;
+  --text-dim: #666666;
+  --accent: #2563eb;
+  --accent-hover: #1e40af;
+  --success: #059669;
+  --warning: #d97706;
+  --code-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0a0a;
+    --surface: #1a1a1a;
+    --border: #2a2a2a;
+    --text: #e5e5e5;
+    --text-dim: #a0a0a0;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --code-bg: #262626;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --surface: #1a1a1a;
+  --border: #2a2a2a;
+  --text: #e5e5e5;
+  --text-dim: #a0a0a0;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --code-bg: #262626;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  padding: 24px;
+  padding-block: max(24px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-bottom, 0px));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--border);
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  font-size: 15px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--success);
+  color: white;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 12px;
+  color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .grid.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-content {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+code {
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+.highlight {
+  background: var(--accent);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.warning-box {
+  background: rgba(217, 119, 6, 0.1);
+  border-left: 3px solid var(--warning);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+.success-box {
+  background: rgba(5, 150, 105, 0.1);
+  border-left: 3px solid var(--success);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  background: var(--code-bg);
+}
+
+.implementation {
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 24px 0;
+}
+
+.step {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.step:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  section {
+    padding: 16px;
+  }
+}
+</style>
+
+<header>
+  <h1>Voice Integration Strategy</h1>
+  <p class="subtitle">Unify voice.md as the single source of truth — replace dual-skill approach</p>
+  <span class="status">✓ Ready to implement</span>
+</header>
+
+<div class="container">
+  <section>
+    <h2>📊 Current State Analysis</h2>
+
+    <div class="grid two-col">
+      <div class="card">
+        <div class="card-title">⚠️ Problem</div>
+        <div class="card-content">
+          <strong>Stage 10 uses TWO separate skills:</strong>
+          <ul style="margin-top: 8px;">
+            <li><code>stop-slop</code> for resume (strict)</li>
+            <li><code>no-ai-slop</code> for cover letter (voice-preserving)</li>
+          </ul>
+          Result: Context confusion, skill-swap errors, maintenance burden
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">✓ Solution</div>
+        <div class="card-content">
+          <strong>voice.md as single authority:</strong>
+          <ul style="margin-top: 8px;">
+            <li>Core Principles (Simplicity, Clutter, Be Yourself)</li>
+            <li>Banned Words → Zinsser Replacements</li>
+            <li>Evidence Boundaries (hard constraints)</li>
+            <li>Voice Matrix (startup/MNC/mid-level)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>🎯 Integration Approach</h2>
+
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('option1')">Option 1: Direct Injection</button>
+      <button class="tab" onclick="showTab('option2')">Option 2: Skill Wrapper</button>
+      <button class="tab" onclick="showTab('option3')">Option 3: Hybrid</button>
+    </div>
+
+    <div id="option1" class="tab-content active">
+      <h3>Direct voice.md Injection (Recommended)</h3>
+
+      <div class="success-box">
+        <strong>Best for:</strong> Clean replacement, no skill dependencies, single source of truth
+      </div>
+
+      <p><strong>How it works:</strong></p>
+      <ol>
+        <li>Stage 10 loads <code>voice.md</code> directly (full file)</li>
+        <li>Applies context-specific rules from Voice Matrix (§5)</li>
+        <li>Uses Banned Words table + Zinsser replacements inline</li>
+        <li>Runs Pre-Send Checklist before output</li>
+      </ol>
+
+      <pre><code><!-- Stage 10: Slop-Free Polish (voice.md unified) -->
+Reads:
+- versions/{track}/resume_{Company}.md (post-Stage 09)
+- applications/{Company}_{date}/cover_letter.md (post-Stage 09)
+- D:\download\resume\voice.md (FULL — single voice authority)
+- pipeline_state.md ## Stage 05 (for target context detection)
+- data/facts.yaml + content/github/evidence.md (drift anchors)
+
+Produces: final overwrites in place + pipeline_state.md → Stage 10 log
+
+VOICE CONTEXT (loaded from voice.md):
+- Core Principles: Simplicity, Clutter, Be Yourself
+- Banned Words: zero tolerance, auto-replace with Zinsser table
+- Evidence Boundaries: hard constraints per project (never cross)
+- Bullet Formula: Voice Matrix §5 (startup/MNC/mid-level from Stage 05)
+- Pre-Send Checklist: items 1,2,3,9,11 (mandatory)
+
+WORKFLOW:
+1. LOAD: Read voice.md fully before touching drafts
+2. DETECT CONTEXT: Read Stage 05 → target company type (startup/mnc/mid)
+3. SELECT VOICE PROFILE: Voice Matrix §5 → bullet formula + tone
+4. APPLY RULES (both resume + cover letter):
+   - Banned Words scan → replace with voice.md Zinsser alternatives
+   - Core Principles: strip to cleanest, cut 50%, builder identity
+   - Evidence Boundaries: audit claims against facts.yaml/evidence.md
+   - Bullet formula: apply context-specific pattern
+5. RESUME PASS (strict hygiene):
+   - Adverbs out, passive → active with human actor
+   - No Wh- openers, no throat-clearing, no binary contrasts
+   - Varied sentence length, no punchy one-liners
+   - Zero em dashes (comma or period only)
+   - Keep: standard headings, hyperlinks, technical specificity
+6. COVER LETTER PASS (voice-preserving):
+   - Minimum effective edit only
+   - Keep writer's vocabulary, cadence, bluntness
+   - Cap 300 words (trim most padded sentence per paragraph if over)
+   - Banned-outright words (voice.md list) → delete unless quoted
+7. DRIFT GATE:
+   - Diff every edited line vs facts.yaml/evidence.md
+   - Any new claim/number/strengthened verb with no anchor → FAIL
+8. PRE-SEND CHECKLIST (voice.md items 1,2,3,9,11):
+   - Company-specific, evidence-backed, honest scope, Zinsser test, context match
+
+HARD RULE: never invent or alter facts. Numbers, metrics, claim strength
+stay exactly as Stage 07/09 approved. Slop fix that changes meaning = FAIL.
+
+Stage 10 log format:
+## Stage 10 — Slop-Free Polish (voice.md unified)
+Context: {startup|mnc|mid-level} from Stage 05
+Voice profile: {bullet formula from Voice Matrix}
+Banned words replaced: [count]
+Resume edits: [what changed summary]
+Cover edits: [what changed summary]
+Pre-Send Checklist: [PASS/FAIL per item]
+Drift check: [CLEAR / FAIL with anchors]
+Status: COMPLETE</code></pre>
+    </div>
+
+    <div id="option2" class="tab-content">
+      <h3>Create voice-guide Skill Wrapper</h3>
+
+      <div class="warning-box">
+        <strong>Note:</strong> Adds new skill dependency — only if you want centralized reuse across projects
+      </div>
+
+      <p><strong>How it works:</strong></p>
+      <ol>
+        <li>Create <code>.agents/skills/voice-guide/SKILL.md</code></li>
+        <li>Skill wraps voice.md with stage-aware application logic</li>
+        <li>Stage 10 calls: <code>Skill({skill: "voice-guide", args: "{stage:10, context:startup}"})</code></li>
+      </ol>
+
+      <pre><code># .agents/skills/voice-guide/SKILL.md
+
+## Purpose
+Apply voice.md as single tone authority — context-aware voice enforcement.
+
+## Reads
+- D:\download\resume\voice.md (full)
+- {input files from caller}
+- pipeline_state.md (for context detection)
+
+## Parameters
+- stage: pipeline stage number (6|10)
+- context: target company type (startup|mnc|mid-level) — auto-detected if omitted
+- mode: resume | cover | both
+
+## Workflow
+[Same as Option 1 workflow, but packaged as reusable skill]
+
+## Output
+Edited file(s) + log section for pipeline_state.md</code></pre>
+
+      <p><strong>Stage 10 becomes:</strong></p>
+      <pre><code>Reads: [same files]
+Produces: [same outputs]
+
+Skill invocation:
+Skill({
+  skill: "voice-guide",
+  args: "stage:10, mode:both"
+})</code></pre>
+    </div>
+
+    <div id="option3" class="tab-content">
+      <h3>Hybrid: Direct Load + Skill Fallback</h3>
+
+      <p><strong>How it works:</strong></p>
+      <ol>
+        <li>Stage 10 loads voice.md directly (primary)</li>
+        <li>Falls back to existing skills only if voice.md missing/unreadable</li>
+        <li>Best of both: no new dependencies, graceful degradation</li>
+      </ol>
+
+      <pre><code>PREFLIGHT:
+1. Try: Read D:\download\resume\voice.md
+2. If success → use voice.md workflow (Option 1)
+3. If fail → fallback to stop-slop + no-ai-slop (current dual-skill)
+4. Log which path was taken
+
+[Rest same as Option 1]</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>🚀 Implementation Steps</h2>
+
+    <div class="implementation">
+      <div class="step">
+        <h3><span class="step-number">1</span>Update Stage 10</h3>
+        <p>Replace dual-skill approach with unified voice.md loading:</p>
+        <ul>
+          <li>File: <code>pipeline/stages/10_slop_free_polish.md</code></li>
+          <li>Remove: Skill A/B references, separate resume/cover passes</li>
+          <li>Add: Direct voice.md load, unified workflow with context detection</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">2</span>Update Stage 06 (Optional Enhancement)</h3>
+        <p>Strengthen voice.md reference in bullet writing:</p>
+        <ul>
+          <li>File: <code>pipeline/stages/06_resume_writer.md</code></li>
+          <li>Current: "load voice.md as tone authority"</li>
+          <li>Enhanced: Load Core Principles + Banned Words + Evidence Boundaries inline</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">3</span>Update DONT.MD Cross-Reference</h3>
+        <p>Link voice.md as the language/voice authority:</p>
+        <ul>
+          <li>File: <code>DONT.MD</code></li>
+          <li>Section: E12 (Language / Anti-Slop Engine)</li>
+          <li>Add: "Voice authority: D:\download\resume\voice.md (Core Principles, Banned Words, Evidence Boundaries)"</li>
+        </ul>
+      </div>
+
+      <div class="step">
+        <h3><span class="step-number">4</span>Test on Existing Application</h3>
+        <p>Run updated Stage 10 on a completed application:</p>
+        <ul>
+          <li>Target: <code>applications/LexsiLabs_2026-09/</code> or <code>Noise_Fullstack_2026-09/</code></li>
+          <li>Verify: Banned words replaced, Evidence Boundaries enforced, context match correct</li>
+          <li>Compare: Old dual-skill output vs new unified voice.md output</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>📋 Quick Reference: voice.md Integration Points</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Current</th>
+          <th>With voice.md Unified</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Stage 06</strong><br>Resume Writer</td>
+          <td>Loads voice.md as "tone authority" (vague)</td>
+          <td>Loads Core Principles + Banned Words + Evidence Boundaries (explicit rules)</td>
+        </tr>
+        <tr>
+          <td><strong>Stage 10</strong><br>Slop-Free Polish</td>
+          <td>stop-slop (resume) + no-ai-slop (cover) — dual skills</td>
+          <td>voice.md unified — single source, context-aware via Voice Matrix</td>
+        </tr>
+        <tr>
+          <td><strong>DONT.MD</strong><br>E12 Anti-Slop</td>
+          <td>No cross-reference to voice.md</td>
+          <td>Links voice.md as language/voice authority</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>✅ Validation Checklist</h2>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">Before Implementation</div>
+        <div class="card-content">
+          <ul style="margin-top: 8px; margin-left: 20px;">
+            <li>voice.md exists at D:\download\resume\voice.md</li>
+            <li>Voice Matrix (§5) has all three contexts (startup/MNC/mid)</li>
+            <li>Banned Words table complete with Zinsser replacements</li>
+            <li>Evidence Boundaries table has all projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">After Stage 10 Update</div>
+        <div class="card-content">
+          <ul style="margin-top: 8px; margin-left: 20px;">
+            <li>No references to stop-slop or no-ai-slop skills</li>
+            <li>Direct voice.md load in workflow</li>
+            <li>Context detection from Stage 05</li>
+            <li>Drift gate enforces facts.yaml/evidence.md anchors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Test Output Quality</div>
+        <div class="card-content">
+          <ul style="margin-top: 8px; margin-left: 20px;">
+            <li>Resume: Zero banned words, evidence boundaries respected</li>
+            <li>Cover: ≤300 words, writer's voice preserved</li>
+            <li>Both: Context-correct bullet formula applied</li>
+            <li>Log: Pre-Send Checklist PASS, Drift check CLEAR</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Documentation Updated</div>
+        <div class="card-content">
+          <ul style="margin-top: 8px; margin-left: 20px;">
+            <li>pipeline/stages/10_slop_free_polish.md</li>
+            <li>pipeline/stages/06_resume_writer.md (optional)</li>
+            <li>DONT.MD E12 cross-reference added</li>
+            <li>pipeline/run.md reflects new Stage 10 (if needed)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>💡 Why This Works</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Problem</th>
+          <th>Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dual skills cause context confusion</td>
+          <td>Single voice.md authority — no skill-swap errors</td>
+        </tr>
+        <tr>
+          <td>Context (startup vs MNC) unclear to skills</td>
+          <td>Voice Matrix auto-selects from Stage 05 target</td>
+        </tr>
+        <tr>
+          <td>Complex skill loading + dependencies</td>
+          <td>One file read, inline rules, no skill overhead</td>
+        </tr>
+        <tr>
+          <td>Drift from evidence.md facts</td>
+          <td>Evidence Boundaries = hard constraint, drift gate enforces</td>
+        </tr>
+        <tr>
+          <td>Voice inconsistency (resume vs cover)</td>
+          <td>Unified Core Principles + Eve filter + Zinsser test</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+function showTab(tabId) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.classList.remove('active');
+  });
+
+  // Show selected tab
+  document.getElementById(tabId).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>

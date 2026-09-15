@@ -1,0 +1,134 @@
+# Boundary rules — single source of truth for all factuality checks
+# Stage 07 reads this file directly. Do not duplicate these rules elsewhere.
+# Last updated: 2026-09-14
+
+projects:
+
+  aura:
+    allowed:
+      - "Designed and 3D-printed custom CAD enclosures for wearable pendant"
+      - "Integrated physical device with Omi Glass open-source ecosystem"
+      - "Built ESP32-S3 firmware (I2S audio, Opus compression, OTA updates)"
+      - "Built FastAPI backend with memory/transcription/knowledge graph routers"
+      - "Self-hosted Deepgram ASR via Kubernetes Helm charts"
+      - "Diagnosed GPU memory leak (Issue #8438) → merged downstream (PR #8902)"
+      - "Authored speaker clustering algorithm with 52 tests (PR #8919) → adopted downstream (PR #12471)"
+    forbidden:
+      - pattern: "(VC|venture|funded|raised|seed|Series [A-Z]|investor)"
+        context: "near Aura"
+        message: "Aura is self-funded. No VC funding claim."
+      - pattern: "(customer|user|client|deployed to production|enterprise)"
+        context: "near Aura"
+        message: "No customers, users, or production deployment."
+      - pattern: "(architected from scratch|built.*backend from scratch)"
+        context: "near Aura"
+        message: "Backend was adapted from existing Omi infrastructure. Use: integrated, adapted, extended."
+      - pattern: "team (of|size)"
+        context: "near Aura"
+        message: "Aura is a solo self-funded project."
+    backend_depth_language:
+      allowed: ["integrated", "adapted", "extended", "set up", "configured", "deployed"]
+      forbidden: ["architected", "designed from scratch", "built from scratch", "engineered"]
+
+  omi_contributions:
+    allowed:
+      - "Authored 21 issues including 5 architectural RFCs"
+      - "Authored 7 pull requests with 120+ unit tests"
+      - "3 PRs approved by maintainers"
+      - "Diagnosed WebGL GPU memory leak (Issue #8438) → maintainer fixed in merged PR #8902"
+      - "Authored offline hierarchical clustering for speaker diarization (PR #8919) → adopted downstream in PR #12471"
+    forbidden:
+      - pattern: "(merged|shipped|landed).*(PR #(8919|7379|7654|8442|4649|8918|8917))"
+        message: "All 7 authored PRs were closed unmerged. Cannot say 'merged'."
+      - pattern: "core contributor|maintainer"
+        message: "Not a core contributor or maintainer."
+      - pattern: "PR #(8902|12471|12089|12927).*authored|I.*authored.*(PR #(8902|12471|12089|12927))"
+        message: "These PRs were authored by others. Candidate diagnosed/proposed; others implemented."
+    truth_tested_phrasing:
+      correct:
+        - "Diagnosed GPU memory leak (Issue #8438), merged downstream in PR #8902"
+        - "Authored speaker clustering algorithm (PR #8919), adopted downstream in PR #12471"
+      incorrect:
+        - "Fixed GPU memory leak in PR #8902"
+        - "Merged diarization improvements"
+
+  mia:
+    allowed:
+      - "Built TypeScript CLI with 5-stage harness (grill → spec → plan → review → ship)"
+      - "Implemented multi-host LLM adapters (Claude, Codex, local models)"
+      - "Immutable JSONL state tracking"
+      - "Automated verification gates (lint, typecheck, Vitest)"
+      - "Eliminated daemon architecture (ADR-0001)"
+    forbidden:
+      - pattern: "AGI|artificial general intelligence"
+        message: "Mia is a personal agent system / developer CLI. Not AGI."
+      - pattern: "(production-ready|stable|used by others|adoption)"
+        message: "Mia is working but rapidly changing. Not production-ready."
+
+  voice_ai:
+    allowed:
+      - "Built real-time WebRTC voice agents using LiveKit"
+      - "Implemented Silero VAD for barge-in and turn detection"
+      - "John: Native Android Kotlin app + Python LiveKit agent with tool calling"
+      - "voicecoder: VS Code extension with multi-provider fallback and token tracking"
+    forbidden:
+      - pattern: "(production|real users|deployed)"
+        message: "These are experiments/prototypes. Not in production."
+
+experience:
+
+  aicte_google:
+    allowed:
+      - "Built and evaluated computer vision models with TensorFlow and ML Kit"
+      - "Applied transfer learning and data augmentation"
+    forbidden:
+      - pattern: "(Google Engineer|ML Engineer at Google|worked at Google)"
+        message: "This was an AICTE program. Not direct Google employment."
+
+  freelancer:
+    allowed:
+      - "Built custom AI agent workflows for student/community projects"
+    forbidden:
+      - pattern: "(consulting|clients|revenue|enterprise)"
+        message: "Freelance work was for students/community. No clients or revenue claims."
+
+  reliance:
+    notes: "Low signal for AI roles. Keep ultra-concise or omit from startup resume."
+
+  pes_research:
+    notes: "Low signal for AI roles. Keep ultra-concise or omit from startup resume."
+
+general:
+  banned_words:
+    - passionate
+    - innovative
+    - cutting-edge
+    - leveraged
+    - spearheaded
+    - transformative
+    - next-generation
+    - disruptive
+    - game-changing
+    - revolutionary
+
+  banned_metrics:
+    - pattern: "\\d+[%x]+ (improvement|faster|accuracy)"
+      message: "No fabricated performance metrics."
+    - pattern: "\\d+ (users|customers|clients)"
+      message: "No user/customer count claims."
+    - pattern: "(production scale|enterprise deployment|millions of)"
+      message: "No scale claims without evidence."
+
+  approved_verbs:
+    - built
+    - designed
+    - implemented
+    - integrated
+    - diagnosed
+    - authored
+    - adapted
+    - extended
+    - wrote
+    - deployed
+    - configured
+    - developed

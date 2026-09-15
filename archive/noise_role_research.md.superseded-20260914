@@ -1,0 +1,21 @@
+# Noise — Intern Fullstack & AI Innovation — Role Research
+
+## Company
+Noise (Go Noise): Indian consumer tech brand best known for smartwatches, earbuds, and TWS audio.  
+Gurgaon HQ. ~2,000+ employees. Hardware + software ecosystem; building AI features into wearables.
+
+## Why Soham fits exceptionally well
+- Noise makes **wearable hardware with embedded software** — Soham built Aura, a self-funded wearable AI pendant (ESP32-S3, hardware enclosure, edge integration). This is the exact intersection.
+- Noise is expanding into AI features — Soham has built AI agents, voice AI, multi-LLM systems.
+- Android SDK matters for companion apps — Soham built John (Kotlin/Jetpack Compose + Python LiveKit agent).
+- Full-stack (React + FastAPI) — LLM-Council covers this.
+
+## Key gaps to be honest about
+- No Flutter/Swift experience
+- Docker/CI/CD not prominent in profile
+- Not familiar with Noise's internal stack
+
+## Positioning angle for Noise
+Lead with Aura: "I built a wearable device from hardware to cloud — you make wearables, I already understand that problem."
+Second hook: real-time voice AI (relevant to future earbuds/smartwatch AI features).
+Third: full-stack proven across React, Python, Kotlin.

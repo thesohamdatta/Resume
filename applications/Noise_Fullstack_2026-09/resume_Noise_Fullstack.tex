@@ -1,0 +1,236 @@
+%-------------------------
+% Soham Datta — tailored for Noise, Intern Fullstack & AI Innovation (Gurgaon)
+% Template: Rezume (Nanu Panchamurthy, MIT) from D:\Donwload\rezume.tex
+% Certifications section omitted: nothing anchored in facts.yaml/evidence.md
+%-------------------------
+
+
+
+%------------PACKAGES----------------
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{verbatim} % reimplements the "verbatim" and "verbatim*" environments
+
+\usepackage{titlesec} % provides an interface to sectioning commands i.e. custom elements
+
+\usepackage{color} % provides both foreground and background color management
+
+\usepackage{enumitem} % provides control over enumerate, itemize and description
+
+\usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
+
+\usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
+
+\usepackage{latexsym} % provides mathematical symbols
+
+\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
+
+\usepackage[empty]{fullpage} % sets margins to one inch and removes headers, footers etc..
+
+\usepackage[hidelinks]{hyperref} % removes color and shadow of hyperlinks
+
+\usepackage[normalem]{ulem} % provides "\ul" (uline) command which will break at line breaks
+
+\usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
+%-----------------------------------------
+
+\input glyphtounicode % converts glyph names to unicode
+\pdfgentounicode=1 % ensures pdfs generated are ats readable
+
+%----------FONT OPTIONS-------------------
+\usepackage[default]{sourcesanspro} % uses the font source sans pro
+\urlstyle{same} % changes url font from default urlfont to font being used by the document
+%-----------------------------------------
+
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy} % set page style to one configured by fancyhdr
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0in} % sets thickness of linerule under header to zero
+\renewcommand{\footrulewidth}{0in} % sets thickness of linerule over footer to zero
+
+\setlength{\tabcolsep}{0in} % sets thickness of column separator in tables to zero
+
+% origin of the document is one inch from the top and from and the left
+% oddsidemargin and evensidemargin both refer to the left margin
+% right margin is indirectly set using oddsidemargin
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+
+\addtolength{\textwidth}{1.0in} % sets width of text area in the page to one inch
+\addtolength{\textheight}{1.0in} % sets height of text area in the page to one inch
+
+\raggedbottom{} % makes all pages the height of current page, no extra vertical space added
+\raggedright{} % makes all pages the width of current page, no extra horizontal space added
+%------------------------------------------
+
+
+%--------SECTIONING COMMANDS---------
+\titleformat{\section}
+  {\scshape\large}{}
+    {0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+
+%--------REDEFINITIONS----------------
+% redefines the style of the bullet point
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% redefines the underline depth to 2pt
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+
+%--------CUSTOM COMMANDS--------------
+%\vspace{} defines a vertical space of given size, modifying this in custom commands can help stretch or shrink resume to remove or add content
+
+% resumeItem renders a bullet point
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+% commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% resumeSectionType renders a bolded type to be used under a section, used as skill type here, middle element is used to keep ":"s in the same vertical line
+\newcommand{\resumeSectionType}[3]{
+  \item\begin{tabular*}{0.96\textwidth}[t]{
+    p{0.15\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+  }
+    \textbf{#1} & #2 & #3
+  \end{tabular*}\vspace{-2pt}
+}
+
+% resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
+\newcommand{\resumeTrioHeading}[3]{
+  \item\small{
+    \begin{tabular*}{0.96\textwidth}[t]{
+      l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+    }
+      \textbf{#1} & \textit{#2} & #3
+    \end{tabular*}
+  }
+}
+
+% resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
+\newcommand{\resumeQuadHeading}[4]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}
+}
+
+% resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
+\newcommand{\resumeQuadHeadingChild}[2]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\small#1} & {\small#2} \\
+  \end{tabular*}
+}
+
+% commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
+\newcommand{\resumeHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+
+
+%__________________RESUME____________________
+\begin{document}
+
+%-----------CONTACT DETAILS------------------
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Huge Soham Datta \vspace{2pt}} & % row = 1, col = 1
+  Location: Pune, India \\ % row = 1, col = 2
+  \href{https://sohamdatta.framer.ai}{\uline{sohamdatta.framer.ai}} $|$ % row = 2, col = 1
+  \href{https://www.linkedin.com/in/thesohamdatta/}{\uline{LinkedIn}} $|$ % row = 2, col = 1
+  \href{https://github.com/thesohamdatta}{\uline{GitHub}} & % row = 2, col = 1
+  Email: \href{mailto:thesohamdatta@gmail.com}{\uline{thesohamdatta@gmail.com}} $|$ % row = 2, col = 2
+  Mobile: +91 9420984066 \\ % row = 2, col = 2
+\end{tabular*}
+%--------------------------------------------
+
+
+%-----------SUMMARY--------------------------
+
+\section{Summary}
+\small{
+  AI engineering graduate (B.E. AI \& ML, SPPU 2026) building wearable and voice AI systems end to end: ESP32-S3 firmware, FastAPI backends, React frontends, and native Android clients. Open-source contributor in the Omi wearable ecosystem.
+}
+%--------------------------------------------
+
+
+%--------------SKILLS------------------------
+
+\section{Technical Skills}
+  \resumeHeadingListStart{}
+    \resumeSectionType{Languages}{:}{Python, TypeScript/JavaScript, Kotlin, C/C++}
+    \resumeSectionType{Frameworks}{:}{React, Node.js, FastAPI, Android Jetpack Compose}
+    \resumeSectionType{AI/ML}{:}{LLM tool calling (MCP), RAG, multi-agent orchestration, TensorFlow, PyTorch, ML Kit}
+    \resumeSectionType{Dev Tools}{:}{Git/GitHub, REST APIs, Vitest, Supabase/pgvector, Kubernetes Helm}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+
+%-----------EXPERIENCE-----------------------
+
+\section{Experience}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Aura --- Founder}{Jun 2025 -- Present}
+  {Wearable AI Pendant: ESP32-S3 Firmware, FastAPI Backend, Open Source}{Pune, India}
+    \resumeItemListStart{}
+      \resumeItem{Designed and 3D-printed custom enclosures packaging a Seeed XIAO ESP32-S3 Sense, ribbon camera, LiPo battery, and mic into a wearable AI pendant. Wrote FreeRTOS event loops for I2S DMA audio capture at 16 kHz with Opus on-device compression and OTA firmware updates}
+      \resumeItem{Integrated the device with the Omi Glass ecosystem via a FastAPI backend (memory, transcription, knowledge graph, and speaker identification routers) and self-hosted Deepgram Nova-3 ASR on Kubernetes Helm charts}
+      \resumeItem{Diagnosed an Electron WebGL GPU memory leak on Windows caused by CSS backdrop filters over a React Three Fiber canvas (\href{https://github.com/BasedHardware/omi/issues/8438}{\uline{Issue \#8438}}, merged downstream in \href{https://github.com/BasedHardware/omi/pull/8902}{\uline{PR \#8902}})}
+      \resumeItem{Authored offline agglomerative hierarchical clustering (SciPy cosine linkage, 52 unit tests) fixing speaker drift in 3+ person meetings (\href{https://github.com/BasedHardware/omi/pull/8919}{\uline{PR \#8919}}, adopted downstream in \href{https://github.com/BasedHardware/omi/pull/12471}{\uline{PR \#12471}})}
+    \resumeItemListEnd{}
+
+  \resumeQuadHeading{AI \& ML Intern --- AICTE via Google}{Oct 2024 -- Dec 2024}
+  {Computer Vision: TensorFlow, ML Kit, Edge Deployment}{Remote, India}
+    \resumeItemListStart{}
+      \resumeItem{Built and evaluated on-device vision models with TensorFlow and Google ML Kit for mobile edge classification}
+      \resumeItem{Applied transfer learning and data augmentation to trade inference latency against accuracy under mobile memory limits}
+    \resumeItemListEnd{}
+
+  \resumeQuadHeadingChild{Freelance --- AI \& Automation}{Sep 2024 -- Present}
+    \resumeItemListStart{}
+      \resumeItem{Built custom AI agent workflows and automation scripts for student and developer projects}
+      \resumeItem{Earlier: Associate at Reliance (Jul--Oct 2024); Research Assistant at PES Modern College (Sep 2023--Mar 2024)}
+    \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+%---------------------------------------------
+
+
+%-----------EDUCATION-------------------------
+
+\section{Education}
+  \resumeHeadingListStart{}
+    \resumeQuadHeading{University of Pune (SPPU)}{Pune, India}
+    {B.E. in Artificial Intelligence \& Machine Learning}{2022 -- Jun 2026}
+  \resumeHeadingListEnd{}
+%---------------------------------------------
+
+
+%-----------PROJECTS--------------------------
+
+\section{Projects}
+  \resumeHeadingListStart{}
+    \resumeTrioHeading{\href{https://github.com/thesohamdatta/John}{\uline{John --- Android Voice Client}}}{Kotlin, Jetpack Compose, Python, LiveKit}{\href{https://github.com/thesohamdatta/John}{\uline{Source Code}}}
+      \resumeItemListStart{}
+        \resumeItem{Native Android Kotlin app (Jetpack Compose) connected to a Python LiveKit agent via WebRTC, with client-side Silero VAD for instant barge-in, semantic turn detection, and tool calling for calendar, tasks, and telephony}
+      \resumeItemListEnd{}
+
+      \resumeTrioHeading{\href{https://github.com/thesohamdatta/LLM-Council}{\uline{LLM-Council --- Multi-Model Consensus Engine}}}{Python, FastAPI, React, Vite}{\href{https://github.com/thesohamdatta/LLM-Council}{\uline{Source Code}}}
+      \resumeItemListStart{}
+        \resumeItem{Full-stack multi-LLM system querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesize answers via a 3-stage critique pipeline (Analyst, Skeptic, Synthesizer)}
+        \resumeItem{React/Vite frontend visualizes step-by-step model agreement with streaming output per provider}
+      \resumeItemListEnd{}
+  \resumeHeadingListEnd{}
+%--------------------------------------------
+
+\end{document}
