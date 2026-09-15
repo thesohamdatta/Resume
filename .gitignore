@@ -1,0 +1,43 @@
+# Generated HTML outputs
+resume_*.html
+!templates/
+
+# PDFs (reference materials and books)
+*.pdf
+
+# Architecture/design documents (move to docs/)
+resume_architecture_design.html
+
+# Temporary and scratch files
+*.tmp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if any)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
