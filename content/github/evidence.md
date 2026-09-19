@@ -220,3 +220,12 @@
 ### AI & ML Intern | AICTE via Google
 **Dates:** Oct 2024 – Dec 2024  
 **Focus:** Computer vision with TensorFlow and Google ML Kit for on-device edge classification
+
+### PES Modern College / PS Modern Institute | Research Assistant
+**Dates:** Sep 2023 – Mar 2024  
+**Evidence:** Research support, digital-resource research, student guidance, workshops and awareness activities
+
+- Researched literature, digital learning platforms, and freely available resources across computer science, healthcare, mechanical engineering, electrical engineering, and other student learning domains.
+- Gathered and organised information on open courseware, free coding-learning resources, research repositories such as arXiv, books, articles, and the college's own digital archive.
+- Helped students discover and use these resources through guidance, workshops, and digital-awareness campaigns focused on learning and research in the digital era.
+- Supported library and research documentation, including organisation of books/articles and reporting on annual activities.
