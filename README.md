@@ -87,3 +87,8 @@ All three pull bullets from `data/facts.yaml` per-track keys (`startup` | `mnc` 
 ## Maintenance
 
 Workflows (update a fact, add evidence, add a constraint, tailor a track) live in **`AGENTS.md` → Maintenance workflows** — single owner, read there.
+
+
+## Agent Handoff
+
+The repository is designed to be usable by humans and coding agents. Start with `MAP.md`, then load `AGENTS.md` and `CONTEXT.md`. Candidate facts live in `data/facts.yaml`; technical proof lives in `content/github/evidence.md`; claim constraints live in `content/github/boundaries.md`. The detailed PES Modern College / PS Modern Institute evidence is in `content/github/experience_ps_modern_institute.md`. Do not treat the detailed evidence file as a second source of truth: it is supporting evidence, while `data/facts.yaml` remains canonical for resume facts.
