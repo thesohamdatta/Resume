@@ -220,16 +220,3 @@
 ### AI & ML Intern | AICTE via Google
 **Dates:** Oct 2024 – Dec 2024  
 **Focus:** Computer vision with TensorFlow and Google ML Kit for on-device edge classification
-
-### Freelancer | AI & Automation
-**Dates:** Sep 2024 – Present  
-**Nature:** Custom AI agent workflows and automation scripts for student/community projects
-
----
-
-## Education
-
-**University of Pune (SPPU)**  
-Bachelor of Engineering (B.E.) in Artificial Intelligence & Machine Learning  
-**Dates:** 2022 – Jun 2026  
-**Location:** Pune, India
