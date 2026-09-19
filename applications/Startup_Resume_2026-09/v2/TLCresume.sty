@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{TLCresume}[2026/09/19 Minimal Startup Resume]
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage{anyfontsize}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{titlesec}
+\RequirePackage[letterpaper,left=0.72in,right=0.72in,top=0.62in,bottom=0.62in]{geometry}
+\definecolor{ink}{RGB}{28,28,28}
+\definecolor{muted}{RGB}{128,128,128}
+\definecolor{rulecol}{RGB}{220,220,220}
+\hypersetup{colorlinks=true,urlcolor=ink,linkcolor=ink,pdfauthor={Soham Datta},pdftitle={Soham Datta - Startup Resume}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+\newcommand{\sectionlabel}[1]{\textcolor{ink}{\sffamily\bfseries\fontsize{8.5pt}{10pt}\selectfont\MakeUppercase{#1}}}
+\newcommand{\name}[1]{{\sffamily\bfseries\fontsize{27pt}{30pt}\selectfont #1}}
+\newcommand{\role}[1]{{\sffamily\bfseries\fontsize{11.2pt}{13pt}\selectfont #1}}
+\newcommand{\meta}[1]{{\sffamily\fontsize{8.8pt}{10.5pt}\selectfont\textcolor{muted}{#1}}}
+\newcommand{\body}[1]{{\sffamily\fontsize{9.4pt}{12pt}\selectfont #1}}
+\newcommand{\skilllabel}[1]{{\sffamily\bfseries\fontsize{8.9pt}{10.5pt}\selectfont #1}}
+\newcommand{\spacer}{\vspace{0.18in}}
+\newenvironment{resumeitems}{\begin{itemize}[leftmargin=1.15em,itemsep=2pt,topsep=2pt,parsep=0pt,partopsep=0pt]}{\end{itemize}}
