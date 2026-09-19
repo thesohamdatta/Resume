@@ -1074,6 +1074,7 @@ headings
 bolding
 
 alignment
+
 consistent.
 
 F4
@@ -1614,39 +1615,30 @@ E21. OUTPUT STANDARD
 The finished resume should be:
 
 Truthful
-
 every claim defensible
 
 Relevant
-
 optimized for the specific role
 
 Evidence-backed
-
 concrete work and outcomes
 
 Readable
-
 fast human scanning
 
 ATS-compatible
-
 simple, searchable structure
 
 Human
-
 specific, natural, candidate-owned
 
 Concise
-
 no wasted space
 
 Consistent
-
 no avoidable sloppiness
 
 Tailored
-
 selected for this job, not copied from a universal template
 
 E22. FINAL PRINCIPLE
@@ -1656,3 +1648,17 @@ Do not make the resume sound impressive. Make the evidence impossible to misunde
 A strong resume is not the one with the most keywords, adjectives, sections, graphics, or AI polish.
 
 It is the smallest clear document that makes the strongest truthful case for this candidate and this role.
+
+E23. REPOSITORY HANDOFF RULE
+
+When the repository is handed to another agent without conversation history:
+
+1. Start with `MAP.md`.
+2. Read `AGENTS.md` and `CONTEXT.md`.
+3. Treat `data/facts.yaml` as the canonical biography.
+4. Read `content/github/evidence.md` and `content/github/boundaries.md` before changing claims.
+5. Use detailed evidence files under `content/github/` only as supporting proof; they do not override canonical dates, titles, employers, or ownership.
+6. Run the defined pipeline and final BOOM gate before producing a submission-ready resume.
+7. Keep unresolved facts explicit instead of guessing.
+
+This rule exists so the repository remains usable when an agent enters from GitHub alone, without this conversation.
