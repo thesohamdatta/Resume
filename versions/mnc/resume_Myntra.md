@@ -20,11 +20,6 @@ Target: Apprenticeship (Operations, Fwd Brands), Bangalore. Seeking to learn PO 
 - Built and evaluated lightweight on-device vision models with TensorFlow and Google ML Kit for mobile edge classification.
 - Applied transfer learning and data augmentation to optimize inference latency under mobile memory constraints.
 
-### Freelancer · AI & Automation
-**Sep 2024 – Present**
-
-- Built custom AI agent workflows and automation scripts for student and community developer projects.
-
 ### Associate · Reliance
 **Jul 2024 – Oct 2024**
 
