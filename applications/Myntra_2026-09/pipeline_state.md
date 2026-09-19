@@ -56,7 +56,6 @@ Operations apprentice (catalogue/PO ops, internal-systems learner, TAT coordinat
 | Project | Evidence |
 |---|---|
 | PES Modern College RA (Sep 2023-Mar 2024) | Coordinated literature digitization and archival workflows |
-| Freelancer AI and Automation (Sep 2024-Present) | Built agent workflows/automation scripts for student/community projects |
 | Mia | TypeScript CLI, 5-stage harness, JSONL state tracking, verification gates (lint/typecheck/Vitest), ADR-0001 |
 
 ### Hard boundaries (NEVER claim — from boundaries.md)
@@ -64,7 +63,6 @@ Operations apprentice (catalogue/PO ops, internal-systems learner, TAT coordinat
 - Omi: all 7 authored PRs closed unmerged (3 approved); downstream merges are others' authorship; PR #12927 draft NOT merged
 - Mia: no AGI, no production/adoption claims
 - Voice AI: experiments/prototypes, no users/production
-- Freelancer: no clients/consulting/revenue/enterprise claims; Reliance/PES: concise, no inflation
 - No invented metrics, users, Excel proficiency, PO-creation experience, or Myntra-system knowledge
 
 ### Track-specific notes
@@ -83,7 +81,6 @@ mnc: ASCII-only (no arrow glyphs), single column, standard headings, conventiona
 ### Moderate matches (real but less specific to JD phrasing)
 | JD Requirement | Evidence item | Strength |
 |---|---|---|
-| Coordination within team and stakeholders | Freelancer: built automation scripts for student/community projects (light coordination signal) | MODERATE |
 | Daily operational issues | Aura: diagnosed GPU leak root cause (CSS backdrop-filter over WebGL), issue-to-fix discipline | MODERATE |
 
 ### Confirmed gaps
@@ -103,7 +100,7 @@ mnc: ASCII-only (no arrow glyphs), single column, standard headings, conventiona
 Ran store inventory, POS, and daily floor operations at Reliance and learns internal systems fast, which maps directly to learning PO creation and Myntra-system issue resolution for Fwd Brands within TAT.
 
 ### Secondary angles (2-3 max)
-- Coordination habit: archival digitization workflows plus community automation work show follow-through with others to finish tasks on time
+- Coordination habit: archival digitization workflows plus customer-service coordination show follow-through with others to finish tasks on time
 - Systems-learning proof: adapted an existing FastAPI backend and verified end-to-end streaming rather than claiming greenfield builds
 
 ### Track confirmed
@@ -141,7 +138,6 @@ Flagged stretch: "task follow-through within deadlines" in skills (directionally
 | GPU leak Issue #8438, merged downstream PR #8902 | boundaries.md truth-tested phrasing | PASS | Keep |
 | Kept solo build working across hardware/firmware/backend | facts.yaml aura (solo self-funded note) + evidence.md | PASS | Keep (fixed from "coordinated solo build") |
 | AICTE vision models + transfer learning/augmentation | facts.yaml aicte_google | PASS | Keep |
-| Freelancer agent workflows for student/community projects | facts.yaml freelancer | PASS | Keep |
 | Reliance inventory/POS/floor ops | facts.yaml reliance verbatim | PASS | Keep |
 | PES digitization coordination | facts.yaml pes_research verbatim | PASS | Keep |
 | Operations skills line | facts.yaml reliance + pes_research | PASS | Keep (softened, dropped "within deadlines") |
@@ -170,7 +166,6 @@ Boundaries audit (all 9): no funding/customers/revenue/production near Aura; no 
 | Bangalore | Yes | None |
 
 ### Issues
-- 1-bullet roles (Freelancer, Reliance, PES): noted; single bullets are verbatim from facts.yaml, second bullets would be invented
 - No tables, columns, graphics, headers/footers, arrows, or em-dashes in resume
 
 ### Suggestions
