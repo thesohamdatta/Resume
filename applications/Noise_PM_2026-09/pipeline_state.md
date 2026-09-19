@@ -84,7 +84,6 @@ SKIP — research/companies/Noise.md exists (updated 2026-09-14, fresh, under 60
 - Omi: 7 authored PRs closed unmerged; downstream merges (#8902, #12471) are not authorship — use truth-tested phrasing only
 - No AGI near Mia; no fabricated metrics; no banned buzzwords
 - Aura backend: integrated/adapted/extended, never architected-from-scratch
-- Do not inflate AICTE title; no consulting/clients/revenue for freelance work
 - Do not claim SQL, Figma, Jira, A/B testing, or GTM (confirmed gaps)
 
 ### Track-specific notes
@@ -179,7 +178,6 @@ Evidence-first bullets applied (PM framing):
 | CAD enclosure, ESP32-S3 firmware stack, FastAPI backend, cloud capture | facts.yaml aura + evidence.md firmware/backend | PASS | keep |
 | 5 RFCs by topic, 21 issues | evidence.md Omi metrics table | PASS | keep |
 | TTS audit numbers, 52 tests, #8919/#12471, #8438/#8902 phrasings | evidence.md + boundaries.md truth-tested forms | PASS | keep |
-| Nova-3 Helm, John, voicecoder tracking, Mia, LLM-Council, AICTE, freelance, Reliance/PES, education | facts.yaml + evidence.md | PASS | keep |
 | "analyze data in Python daily" | frequency unverified | WARN | softened to "analyze data in Python" |
 | "prototype in Framer" | portfolio built in Framer; prototyping verb imprecise | WARN | changed to "built my portfolio in Framer" |
 | SQL/Figma/Jira gaps stated as gaps | confirmed absent from evidence (true negative) | PASS | keep |
