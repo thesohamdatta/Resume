@@ -31,13 +31,6 @@ Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub
 - Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device edge classification.
 - Applied transfer learning and data augmentation pipelines to optimize model inference latency and accuracy under mobile memory constraints.
 
-### Freelancer · AI & Automation
-*Sep 2024 – Present*  
-*Workflow Automation · LLMs · Rapid Prototyping*
-- Built custom AI agent workflows and automation scripts for student and community developer projects.
-
----
-
 ## Featured Projects
 
 ### Mia · Personal AI Engineering OS
