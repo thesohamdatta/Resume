@@ -26,7 +26,10 @@ Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub
 ### Past Experience
 
 - **Associate · Reliance** *(Jul 2024 – Oct 2024)*: Handled the customer service desk across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up. Worked with brand managers, HR, store managers, and store teams to clarify customer issues and coordinate resolutions.
-- **Research Assistant · PES Modern College** *(Sep 2023 – Mar 2024)*: Supported research and library work with Prof. Sumit Kanfadi, including documentation, article and book organisation, and day-to-day research activities. Helped students use digitised learning resources and supported workshops, library activities, and annual activity reporting.
+- **Research Assistant · PES Modern College** *(Sep 2023 – Mar 2024)* | Research Support · Digital Learning · Workshops · Documentation
+
+- Researched literature, digital learning platforms, and free resources across computer science, healthcare, mechanical engineering, electrical engineering, and related domains; gathered and organised course, book, article, and research resources.
+- Worked with the college archive and guided students to use digital learning resources through workshops and awareness campaigns covering open courseware, arXiv, free coding resources, and related platforms.
 
 ---
 

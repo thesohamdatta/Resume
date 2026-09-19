@@ -34,11 +34,11 @@ Domain terms, positioning, and writing rules: `CONTEXT.md` (load it with this fi
 ## Maintenance workflows
 
 - Update a fact: edit `data/facts.yaml` only → regenerate outputs → validate against `boundaries.md`.
-- Add evidence: `content/github/evidence.md` with verifiable proof (repo links, file paths, code refs).
+- Add evidence: `content/github/evidence.md` with verifiable proof (repo links, file paths, code refs). Detailed role dossiers MAY live beside it when a role needs more context; those files support the evidence layer but do not replace the canonical fact source.
 - Add a constraint: `content/github/boundaries.md` + regex if automatable.
 - New company run: fill INPUT in `pipeline/APPLY.md` and send it to the agent (creates `applications/{Company}_{YYYY-MM}/input.md` and runs the full workflow).
 - Deep research (new/stale dossier, people + outreach intel needed): fill INPUT in `research/SWARM_RESEARCH.md` and send it as-is before APPLY.md.
-- Roadmap (human-owned, see README): build script rendering tracks from `facts.yaml`; `validate.py` against `boundaries.md` patterns.
+- Roadmap (human-owned, see README): build script rendering tracks from `facts.yaml`; `validate.py` against `boundaries.md`.
 
 ## Learning loop (controlled)
 
@@ -46,8 +46,18 @@ After meaningful work, distill durable lessons into `memory/lessons.md` ONLY wit
 
 ## Where new knowledge belongs
 
-Resume rule → `DONT.MD`. Fact → `facts.yaml`. Proof → `evidence.md`. Constraint → `boundaries.md`. Company dossier → `research/companies/{Company}.md` (Stage 01 schema). Run trace → `applications/*/pipeline_state.md`. Durable agent lesson → `memory/lessons.md`. Everything else → ask whether it earns a file.
+Resume rule → `DONT.MD`. Fact → `facts.yaml`. Proof → `evidence.md` (with detailed role evidence where needed). Constraint → `boundaries.md`. Company dossier → `research/companies/{Company}.md` (Stage 01 schema). Run trace → `applications/*/pipeline_state.md`. Durable agent lesson → `memory/lessons.md`. Everything else → ask whether it earns a file.
+
+## Agent handoff contract
+
+When an agent receives this repository without conversation history:
+1. Read `MAP.md`, `AGENTS.md`, and `CONTEXT.md`.
+2. Treat `data/facts.yaml` as the canonical biography.
+3. Read `content/github/evidence.md` and `content/github/boundaries.md` before editing claims.
+4. Use detailed evidence files under `content/github/` only to expand or clarify existing facts, never to silently change dates, titles, employers, or ownership.
+5. Run the repository's defined validation workflow before producing a submission-ready resume.
+6. Keep unresolved facts as explicit gaps. Do not guess.
 
 ## Dependency note
 
-This file requires `CONTEXT.md`. `CONTEXT.md` requires nothing (its mention of this file is discovery, not a dependency). No load cycles.
+This file requires `CONTEXT.md`. `CONTEXT.md` requires nothing (its mention of this file is discovery, not a dependency).

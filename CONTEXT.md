@@ -29,6 +29,7 @@ Domain-specific context:
 - **Voice AI Agents**: Experiments with LiveKit, ElevenLabs, Gemini Live, Deepgram. Focus: natural personal-assistant interaction.
 - **Omi contribution**: Frontend/design work, issues/PRs in `BasedHardware/omi`. Mention inside Aura only, never as separate experience. All 7 authored PRs were closed unmerged; 3 approved. Downstream merges by others (e.g. PR #8902 GPU fix, PR #12471 diarization, PR #12089 grounding, PR #12927 markdown export) are not direct authorship.
 - **LLM-Council**: Multi-LLM compare/critique/synthesize system. Supporting project, MNC track.
+- **PES Modern College / PS Modern Institute — Research Assistant**: Researched literature, digital learning platforms, open courseware, free coding resources, research repositories such as arXiv, books, articles, and the college's own digital archive. Helped students discover and use resources across computer science, healthcare, mechanical engineering, electrical engineering, and related domains through guidance, workshops, and digital-awareness campaigns. Do not claim ownership of platforms/archive or unverified audience or outcome metrics.
 - **Positioning**: AI Engineer · Personal AI · Wearable Systems. Story: built wearable system → built agent system → works across software/AI/hardware/product.
 
 ## Writing rules

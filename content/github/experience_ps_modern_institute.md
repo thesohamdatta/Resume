@@ -12,6 +12,10 @@
 - Conducted workshops, guided students, and supported digital-awareness campaigns focused on open courseware, arXiv, and the college's digital archive.
 - Supported library and research activities, including documentation, organisation of books and articles, and reporting on annual activities.
 
+## Naming
+
+The candidate has referred to this role as both **PES Modern College** and **PS Modern Institute**. The canonical resume company name remains `PES Modern College`; `PS Modern Institute` is retained here as a source alias until independently reconciled.
+
 ## Evidence Boundaries
 
 - Do not claim that the user created or owned the platforms or archive.

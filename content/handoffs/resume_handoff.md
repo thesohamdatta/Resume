@@ -109,3 +109,11 @@ The user explicitly requested a grilling mode:
 - Added detailed Reliance customer-service, coordination, POS, documentation, voucher, membership, card, exchange, and complaint-handling evidence supplied by the candidate.
 - Added detailed PES Modern College research, library, documentation, workshop, digital-learning, student-support, and annual-reporting evidence supplied by the candidate.
 - Kept the writing system evidence-first and the Stop Slop / Voice Guide gates unchanged.
+
+
+## Update — 2026-09-19 — repository consolidation
+
+- Clarified the PES Modern College / PS Modern Institute Research Assistant scope: literature and digital-platform research, cross-domain learning resources, open courseware, free coding resources, arXiv, college archive work, student guidance, workshops, and awareness campaigns.
+- Added a dedicated evidence file at `content/github/experience_ps_modern_institute.md` so future agents can retrieve the detailed role context without inflating the resume surface.
+- Updated the canonical fact, evidence, boundary, and base-track layers together. Future edits should follow the same source-of-truth flow.
+- Do not treat the external platform names or the college archive as candidate-owned products; the candidate researched, organised, explained, and promoted access to these resources.
