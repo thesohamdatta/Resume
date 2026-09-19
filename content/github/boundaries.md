@@ -127,85 +127,16 @@ Never use these words:
 - ✅ Applied transfer learning and data augmentation
 - ❌ Do NOT inflate to "ML Engineer" or "Google Engineer"
 
-### Freelancer AI & Automation (Sep 2024–Present)
-- ✅ Built custom AI agent workflows for student/community projects
-- ❌ Do NOT claim "consulting" or "clients" or revenue
-- ❌ Do NOT inflate to "AI solutions for enterprises"
 
-### Reliance Associate (Jul–Oct 2024)
-- ✅ Managed store inventory, POS workflows, floor operations
-- ❌ Low signal for AI roles — keep ultra-concise or omit from startup resume
+## Experience Update — 2026-09-19
 
-### PES Modern College Research Assistant (Sep 2023–Mar 2024)
-- ✅ Coordinated literature digitization and archival workflows
-- ❌ Low signal for AI roles — keep ultra-concise or omit from startup resume
+### Reliance | Associate
+- CAN claim customer-service desk work, complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, daily follow-up, and coordination with brand managers, HR, store managers, and store teams.
+- Do not use unsupported numeric claims from older drafts.
 
----
+### PES Modern College | Research Assistant
+- CAN claim research and library support, work with Prof. Sumit Kanfadi, documentation, article/book organisation, workshops, digital-awareness activities, student support for digitised learning resources, and annual activity reporting.
+- Do not add publication, quantified research-output, or programme-impact claims without direct evidence.
 
-## Education
-
-### University of Pune (SPPU)
-- ✅ B.E. in Artificial Intelligence & Machine Learning
-- ✅ 2022 – Jun 2026
-- ❌ Do NOT claim "graduating 2026" after Jun 2026 has passed
-- ❌ Do NOT add GPA unless verified and strong
-
----
-
-## Validation Patterns (for automated checking)
-
-Forbidden patterns in final resume text:
-
-```regex
-# Funding claims
-/(VC|venture|funded|raised|seed|Series [A-Z]|investor)/i near "Aura"
-
-# Customer/user claims
-/(customer|user|client|deployed|production|enterprise)/i near "Aura" or "Mia"
-
-# Merged PR claims
-/(merged|shipped|landed)/i near "PR #(8919|7379|7654|8442|4649|8918|8917)"
-
-# AGI claims
-/AGI|artificial general intelligence/i near "Mia"
-
-# Scale metrics without evidence
-/\d+[%x]+ (improvement|faster|accuracy|users|customers)/
-
-# Buzzwords
-/(passionate|innovative|cutting-edge|leveraged|spearheaded|transformative|next-generation)/i
-```
-
----
-
-## Attribution Clarity
-
-When discussing Omi contributions in interviews or detailed contexts:
-
-**CORRECT:**
-> "I diagnosed a GPU memory leak in the Omi desktop app (Issue #8438) by identifying that CSS backdrop filters over WebGL canvases were forcing compositor re-blending. A maintainer implemented the fix in PR #8902 which was merged."
-
-**INCORRECT:**
-> "I fixed the GPU memory leak and it was merged in PR #8902."
-
-**CORRECT:**
-> "I authored an offline speaker diarization algorithm using SciPy agglomerative hierarchical clustering (PR #8919, 52 unit tests). The approach was adopted by another contributor in a downstream merged PR."
-
-**INCORRECT:**
-> "I contributed speaker diarization that was merged into Omi."
-
----
-
-## Resume Audit Checklist
-
-Before publishing any resume variant, verify:
-
-- [ ] No VC/funding/investor language near Aura
-- [ ] No customer/user/production claims for personal projects
-- [ ] Omi PR claims accurately distinguish between authored vs downstream adoption
-- [ ] No "AGI" near Mia
-- [ ] No fabricated metrics (%, users, speed improvements)
-- [ ] No buzzwords from banned list
-- [ ] Dates are accurate (check against `data/facts.yaml`)
-- [ ] All technical claims trace to `evidence.md` proof
-- [ ] Backend depth claims are modest ("integrated", "adapted", not "architected from scratch")
+### Removed experience
+- Freelancer / AI & Automation is removed from the active profile and should not appear in active resume generations.
