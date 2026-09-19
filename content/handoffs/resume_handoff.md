@@ -101,3 +101,11 @@ The user explicitly requested a grilling mode:
 - Web research for current company/job-specific hiring signals
 - Figma-editable document/layout structuring
 - Technical interview-style evidence grilling for AI/agent/backend systems
+
+
+## Update — 2026-09-19
+
+- Removed Freelancer / AI & Automation from the active experience model and future resume generation.
+- Added detailed Reliance customer-service, coordination, POS, documentation, voucher, membership, card, exchange, and complaint-handling evidence supplied by the candidate.
+- Added detailed PES Modern College research, library, documentation, workshop, digital-learning, student-support, and annual-reporting evidence supplied by the candidate.
+- Kept the writing system evidence-first and the Stop Slop / Voice Guide gates unchanged.
