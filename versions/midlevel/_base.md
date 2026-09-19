@@ -29,11 +29,10 @@
 - Worked with brand managers, HR, store managers, and store teams to clarify customer issues, coordinate resolutions, and keep the service desk running.
 
 ### Research Assistant · PES Modern College
-**Sep 2023 – Mar 2024** | Research Support · Digital Library · Workshops · Documentation
+**Sep 2023 – Mar 2024** | Research Support · Digital Learning · Workshops · Documentation
 
-- Supported research and library work with Prof. Sumit Kanfadi, including documentation, article and book organisation, and day-to-day research activities.
-- Helped students use digitised learning resources and supported workshops, library activities, and annual activity reporting.
-
+- Researched literature, digital learning platforms, and free resources across computer science, healthcare, mechanical engineering, electrical engineering, and related domains; gathered and organised course, book, article, and research resources.
+- Worked with the college archive and guided students to use digital learning resources through workshops and awareness campaigns covering open courseware, arXiv, free coding resources, and related platforms.
 ---
 
 ## Projects
