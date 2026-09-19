@@ -17,3 +17,7 @@ Distilled, evidence-backed learnings. History stays in `content/handoffs/`; only
 ## Changelog
 
 - 2026-09-14: seeded from iteration + refactor handoffs (7 lessons, no rule changes).
+
+
+10. **Active experience threshold.** Informal or insufficiently substantial freelance work should stay out of the active professional history even when technically relevant. Strong project evidence can carry the technical signal instead.
+11. **Non-tech experience can be useful when specific.** For Reliance and PES, concrete responsibilities and coordination work provide better evidence than generic "store operations" or "research support" wording.
