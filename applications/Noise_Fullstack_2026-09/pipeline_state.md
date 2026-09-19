@@ -22,7 +22,6 @@ Track fit: startup — breadth + shipped prototypes + open-source R&D matches.
 Inventory: Aura (wearable pendant, ESP32-S3 firmware, FastAPI backend, Omi OSS specs/issues);
 John (Kotlin/Compose Android + Python LiveKit agent); I-am-Mia + voicecoder (voice AI tooling);
 Mia (TS/Bun CLI, 5-stage harness); LLM-Council (React+FastAPI multi-LLM); AICTE-Google
-(TF/ML Kit on-device vision); Freelancer (agent workflows); Reliance/PES (low-signal, concise).
 
 ## Stage 04 — Evidence Match
 | JD signal | Evidence | Strength |
