@@ -22,7 +22,6 @@ Mia (TS/Bun 5-stage harness, Vitest gates, ADR-0001); LLM-Council (React+FastAPI
 4-provider critique pipeline, agreement viz); John (Kotlin/Compose + LiveKit, tool
 calling); voicecoder (multi-provider fallback, cost tracking); I-am-Mia (voice agent);
 Aura (wearable system, Omi OSS: 21 issues, 5 adopted, 3/7 approved); AICTE-Google
-(TF/ML Kit edge); Freelancer (agent workflows); Reliance/PES (low-signal).
 
 ## Stage 04 — Evidence Match
 | JD signal | Evidence | Strength |
@@ -30,7 +29,6 @@ Aura (wearable system, Omi OSS: 21 issues, 5 adopted, 3/7 approved); AICTE-Googl
 | Harness design, eval gates | Mia: grill→spec→plan→review→ship, lint/typecheck/Vitest gates | STRONG |
 | Evaluation systems, benchmarks | LLM-Council: Analyst→Skeptic→Synthesizer + agreement viz | STRONG |
 | Agents over tools/data, multi-step | John: tool calling calendar/tasks/telephony; voicecoder fallback | STRONG |
-| Fast prototyping, ambiguity | Aura end-to-end device→cloud; freelancer agent workflows | STRONG |
 | Research reading/writing | RFCs, ADR-0001, 21 issue reports with root causes | MODERATE |
 | OSS tools | Omi contributions record | STRONG |
 | Python backend | FastAPI routers, asyncio (Aura, LLM-Council) | STRONG |
