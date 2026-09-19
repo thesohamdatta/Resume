@@ -140,3 +140,17 @@ Never use these words:
 
 ### Removed experience
 - Freelancer / AI & Automation is removed from the active profile and should not appear in active resume generations.
+
+
+## PES Modern College / PS Modern Institute | Research Assistant
+
+### What You CAN Claim
+- Research into literature, digital learning platforms, open courseware, free coding-learning resources, research repositories such as arXiv, books, articles, and the college's own digital archive.
+- Resource discovery across student learning domains including computer science, healthcare, mechanical engineering, electrical engineering, and related areas.
+- Student guidance, workshops, digital-awareness campaigns, and helping students use online and college-hosted digital learning resources.
+- Library/research documentation and organisation of books, articles, and related materials.
+
+### What You CANNOT Claim
+- Do not claim ownership or creation of the external platforms or the college archive.
+- Do not claim specific numbers of students reached, workshops run, campaign reach, adoption, or measurable learning outcomes unless separately verified.
+- Do not claim publications, research findings, or authored academic work unless directly evidenced.
