@@ -27,8 +27,6 @@ Bachelor of Engineering, Artificial Intelligence & Machine Learning | 2022 - Jun
 - Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
 - Applied transfer learning and data augmentation under mobile memory constraints.
 
-**Freelance AI & Automation Developer** | Pune, India | Sep 2024 - Present
-
 - Built Python automation scripts and LLM workflows for student and community developer projects.
 
 ## Selected Projects
