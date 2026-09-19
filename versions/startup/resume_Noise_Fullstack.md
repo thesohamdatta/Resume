@@ -35,14 +35,6 @@ AI engineering graduate (B.E. AI & ML, SPPU 2026) building wearable and voice AI
 - Built and evaluated on-device vision models with TensorFlow and Google ML Kit for mobile edge classification.
 - Applied transfer learning and data augmentation to trade inference latency against accuracy under mobile memory limits.
 
-### Freelance — AI & Automation
-*Sep 2024 – Present*
-
-- Built custom AI agent workflows and automation scripts for student and developer projects.
-- Earlier: Associate at Reliance (Jul–Oct 2024); Research Assistant at PES Modern College (Sep 2023–Mar 2024).
-
----
-
 ## Education
 
 **University of Pune (SPPU)** · Pune, India  
