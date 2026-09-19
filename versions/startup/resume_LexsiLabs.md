@@ -14,11 +14,6 @@ Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub
 - Contribute to the 13.5k-star Omi open-source ecosystem: 21 issue reports with root causes, 5 adopted downstream (speaker clustering fix with 52 unit tests, WebGL leak diagnosis, action-item grounding), 3 of 7 authored PRs maintainer-approved.
 - Authored architectural RFCs and decision records (Mia ADR-0001) covering voice pipelines, memory systems, and harness design tradeoffs.
 
-### Freelancer · AI & Automation
-*Sep 2024 – Present*
-
-- Built custom AI agent workflows and automation scripts for student and developer projects, including multi-provider LLM fallback and token cost tracking per feature use.
-
 ### AI & ML Intern · AICTE via Google
 *Oct 2024 – Dec 2024 · Computer Vision · TensorFlow · ML Kit · Edge Deployment*
 
