@@ -1,9 +1,10 @@
 \documentclass[10pt]{article}
 \usepackage{TLCresume}
+\usepackage{microtype}
 \begin{document}
-\begin{tabularx}{\textwidth}{@{}p{0.23\textwidth}@{\hspace{0.035\textwidth}}X@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}@{\hspace{0.03\textwidth}}X@{}}
 \begin{minipage}[t]{\linewidth}
-\name{Soham Datta}\\[4pt]
+\name{Soham Datta}\\[3pt]
 \meta{Pune, India}
 \end{minipage}
 &
@@ -16,34 +17,34 @@
 \meta{\href{https://sohamdatta.framer.ai}{sohamdatta.framer.ai}}
 \end{minipage}
 \end{tabularx}
-\vspace{0.22in}
+\vspace{0.12in}
 
-\begin{tabularx}{\textwidth}{@{}p{0.23\textwidth}@{\hspace{0.035\textwidth}}X@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}@{\hspace{0.03\textwidth}}X@{}}
 \sectionlabel{Experience}
 &
 \begin{minipage}[t]{\linewidth}
-\role{Aura} \meta{\hfill Founder · Jun 2025 -- Present}\\[-1pt]
+\role{Aura} \meta{\hfill Founder, Jun 2025 -- Present}\\[-1pt]
 \meta{Wearable AI · Embedded Systems · Open Source}
 \begin{resumeitems}
 \item \body{Designed and 3D-printed a wearable pendant around Seeed Studio XIAO ESP32-S3 Sense, camera, LiPo battery, and microphone.}
 \item \body{Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, Opus compression, and OTA updates.}
 \item \body{Integrated the device with the Omi Glass open-source ecosystem for audio streaming, transcription, and memory capture.}
-\item \body{Diagnosed a Windows Electron/WebGL GPU memory leak in Omi (\href{https://github.com/BasedHardware/omi/issues/8438}{Issue \#8438}), resolved downstream in \href{https://github.com/BasedHardware/omi/pull/8902}{PR \#8902}. Built offline agglomerative speaker clustering with 52 unit tests (\href{https://github.com/BasedHardware/omi/pull/8919}{PR \#8919}), later adopted in PR \#12471.}
+\item \body{Diagnosed a Windows Electron/WebGL GPU memory leak in Omi (\href{https://github.com/BasedHardware/omi/issues/8438}{Issue \#8438}), resolved downstream in \href{https://github.com/BasedHardware/omi/pull/8902}{PR \#8902}. Built offline agglomerative speaker clustering with 52 unit tests (\href{https://github.com/BasedHardware/omi/pull/8919}{PR \#8919}), later adopted downstream in PR \#12471.}
 \end{resumeitems}
-\role{AI \& ML Intern} \meta{\hfill AICTE via Google · Oct 2024 -- Dec 2024}\\[-1pt]
+\role{AI \& ML Intern} \meta{\hfill AICTE via Google, Oct 2024 -- Dec 2024}\\[-1pt]
 \meta{Computer Vision · TensorFlow · ML Kit}
 \begin{resumeitems}
 \item \body{Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device classification.}
 \item \body{Applied transfer learning and data augmentation under mobile memory constraints.}
 \end{resumeitems}
 \meta{\textbf{Past Experience}}\\[-1pt]
-\body{\textbf{Associate · Reliance} · Jul 2024 -- Oct 2024. Customer service desk, complaints, memberships, digital vouchers, exchanges, documentation, and daily coordination with store teams.}\\[4pt]
-\body{\textbf{Research Assistant · PES Modern College} · Sep 2023 -- Mar 2024. Researched digital learning resources, organised research material, and guided students through workshops and digital-awareness activities.}
+\body{\textbf{Associate · Reliance} · Jul 2024 -- Oct 2024. Customer service desk, complaints, memberships, vouchers, exchanges, documentation, and store-team coordination.}\\[2pt]
+\body{\textbf{Research Assistant · PES Modern College} · Sep 2023 -- Mar 2024. Researched digital learning resources, organised material, and guided students through workshops and awareness activities.}
 \end{minipage}
-\\[0.20in]
+\\[-1pt]
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{@{}p{0.23\textwidth}@{\hspace{0.035\textwidth}}X@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}@{\hspace{0.03\textwidth}}X@{}}
 \sectionlabel{Projects}
 &
 \begin{minipage}[t]{\linewidth}
@@ -63,27 +64,25 @@
 \item \body{Built John, an Android client connected to a Python LiveKit agent with tool calling; built voicecoder, a VS Code extension with multi-provider fallback.}
 \end{resumeitems}
 \role{LLM-Council} \meta{\hfill Multi-Model Consensus}\\[-1pt]
-\meta{Python · FastAPI · React · Vite · \href{https://github.com/thesohamdatta/LLM-Council}{github.com/thesohamdatta/LLM-Council}}
-\begin{resumeitems}
-\item \body{Built a concurrent multi-LLM pipeline across OpenAI, Anthropic, Gemini, and Groq with Analyst, Skeptic, and Synthesizer stages.}
-\end{resumeitems}
+\meta{Python · FastAPI · React · Vite · \href{https://github.com/thesohamdatta/LLM-Council}{github.com/thesohamdatta/LLM-Council}}\\[-1pt]
+\body{Concurrent multi-LLM pipeline across OpenAI, Anthropic, Gemini, and Groq with Analyst, Skeptic, and Synthesizer stages.}
 \end{minipage}
-\\[0.20in]
+\\[-1pt]
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{@{}p{0.23\textwidth}@{\hspace{0.035\textwidth}}X@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}@{\hspace{0.03\textwidth}}X@{}}
 \sectionlabel{Skills}
 &
 \begin{minipage}[t]{\linewidth}
-\body{\skilllabel{AI / LLM} · AI Agents · Tool Calling (MCP) · RAG · Memory Graphs · Multi-Agent Systems}\\[3pt]
-\body{\skilllabel{Voice / Multimodal} · LiveKit · WebRTC · Silero VAD · Streaming STT/TTS · TensorFlow · ML Kit}\\[3pt]
-\body{\skilllabel{Engineering} · Python · FastAPI · PyTorch · TypeScript · React · Kotlin · C/C++ · Git · Vitest}\\[3pt]
+\body{\skilllabel{AI / LLM} · AI Agents · Tool Calling (MCP) · RAG · Memory Graphs · Multi-Agent Systems}\\[2pt]
+\body{\skilllabel{Voice / Multimodal} · LiveKit · WebRTC · Silero VAD · Streaming STT/TTS · TensorFlow · ML Kit}\\[2pt]
+\body{\skilllabel{Engineering} · Python · FastAPI · PyTorch · TypeScript · React · Kotlin · C/C++ · Git · Vitest}\\[2pt]
 \body{\skilllabel{Hardware} · ESP32-S3 · FreeRTOS · 3D CAD · Rapid Prototyping}
 \end{minipage}
-\\[0.20in]
+\\[-1pt]
 \end{tabularx}
 
-\begin{tabularx}{\textwidth}{@{}p{0.23\textwidth}@{\hspace{0.035\textwidth}}X@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}@{\hspace{0.03\textwidth}}X@{}}
 \sectionlabel{Education}
 &
 \begin{minipage}[t]{\linewidth}
