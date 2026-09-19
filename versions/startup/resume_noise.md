@@ -20,12 +20,6 @@ Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub
 
 - Built and evaluated on-device vision models with TensorFlow and Google ML Kit for mobile edge classification; applied transfer learning and data augmentation to reduce inference latency under mobile memory constraints.
 
-### Freelancer · AI & Automation  &  Past Roles
-*Sep 2024 – Present · Built AI agent workflows and automation scripts for student and developer projects.*  
-*Earlier: Associate at Reliance (Jul–Oct 2024) · Research Assistant, PES Modern College (Sep 2023–Mar 2024)*
-
----
-
 ## Projects
 
 ### Voice AI Systems · Real-Time Voice Agents & Mobile Clients
