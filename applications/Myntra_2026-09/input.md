@@ -20,7 +20,7 @@ jd: |
 
 notes: |
   Candidate is BE AI&ML 2026 (SPPU), AI Engineer profile. This is an operations apprenticeship, not a tech role.
-  Positioning: lead with real operations evidence (Reliance inventory/POS/floor ops) + coordination habits (PES archival, freelancer, Aura solo build discipline).
+  Positioning: lead with real operations evidence (Reliance inventory/POS/floor ops) + coordination habits (PES archival, Aura solo build discipline).
   Do NOT claim PO creation, Myntra-system knowledge, or Excel proficiency. JD frames all three as learn-on-the-job; cover letter states readiness to learn.
   Track mnc: ATS-first single-column, conventional headings, ASCII-only per lessons.
   Suppress deep AI technical depth; keep one compact systems-learning proof point only.
