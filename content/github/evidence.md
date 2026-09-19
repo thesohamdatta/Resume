@@ -221,6 +221,14 @@
 **Dates:** Oct 2024 – Dec 2024  
 **Focus:** Computer vision with TensorFlow and Google ML Kit for on-device edge classification
 
+
+### Reliance | Associate
+**Dates:** Jul 2024 – Oct 2024  
+**Evidence:** Customer service desk, store/POS workflows, documentation, and cross-team coordination
+
+- Handled customer-service work across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up.
+- Worked with brand managers, HR, store managers, and store teams to clarify customer issues and coordinate resolutions.
+
 ### PES Modern College / PS Modern Institute | Research Assistant
 **Dates:** Sep 2023 – Mar 2024  
 **Evidence:** Research support, digital-resource research, student guidance, workshops and awareness activities
