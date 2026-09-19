@@ -1,6 +1,6 @@
 # Soham Datta
 
-**Pune, India**  
+**Pune, India**
 [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub](https://github.com/thesohamdatta) · [Portfolio](https://sohamdatta.framer.ai)
 
 ---
@@ -20,49 +20,46 @@
 **Oct 2024 – Dec 2024** | Computer Vision · TensorFlow · ML Kit · Edge Deployment
 
 - Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device edge classification.
-- Applied transfer learning and data augmentation pipelines to optimize model inference latency and accuracy under mobile memory constraints.
-
-### Freelancer · AI & Automation
-**Sep 2024 – Present** | Workflow Automation · LLMs · Rapid Prototyping
-
-- Built custom AI agent workflows and automation scripts for student and community developer projects.
+- Applied transfer learning and data augmentation pipelines to optimise model inference latency and accuracy under mobile memory constraints.
 
 ### Associate · Reliance
-**Jul 2024 – Oct 2024**
+**Jul 2024 – Oct 2024** | Customer Service · Store Operations · POS · Documentation
 
-- Managed store inventory systems, POS workflows, and daily floor operations.
+- Handled the customer service desk across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up.
+- Worked with brand managers, HR, store managers, and store teams to clarify customer issues, coordinate resolutions, and keep the service desk running.
 
 ### Research Assistant · PES Modern College
-**Sep 2023 – Mar 2024**
+**Sep 2023 – Mar 2024** | Research Support · Digital Library · Workshops · Documentation
 
-- Coordinated academic literature digitization and digital library archival workflows.
+- Supported research and library work with Prof. Sumit Kanfadi, including documentation, article and book organisation, and day-to-day research activities.
+- Helped students use digitised learning resources and supported workshops, library activities, and annual activity reporting.
 
 ---
 
 ## Projects
 
 ### Mia · Personal AI Engineering OS
-**TypeScript · Bun · Multi-Host LLM Adapters · Vitest · JSONL State Engine**  
+**TypeScript · Bun · Multi-Host LLM Adapters · Vitest · JSONL State Engine**
 [GitHub](https://github.com/thesohamdatta/Mia)
 
-- Built compiled, local-first developer CLI in TypeScript (single Bun binary) automating 5-stage AI engineering harness (grill → spec → plan → review → ship).
+- Built compiled, local-first developer CLI in TypeScript (single Bun binary) automating 5-stage AI engineering harness (grill to spec to plan to review to ship).
 - Implemented unified host adapters for Anthropic Claude, OpenAI Codex, and local models with automated verification gates (lint, typecheck, Vitest) and immutable JSONL state tracking.
-- Eliminated fragile background daemon architecture in favor of stateless event-driven execution ([ADR-0001](https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md)).
+- Eliminated fragile background daemon architecture in favour of stateless event-driven execution ([ADR-0001](https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md)).
 
 ### Voice AI Systems · Real-Time Voice Agents & Copilots
-**LiveKit WebRTC · Silero VAD · ElevenLabs · Python · Kotlin (Android Compose)**  
+**LiveKit WebRTC · Silero VAD · ElevenLabs · Python · Kotlin (Android Compose)**
 [John](https://github.com/thesohamdatta/John) · [I-am-Mia](https://github.com/thesohamdatta/I-am-Mia) · [voicecoder](https://github.com/thesohamdatta/voicecoder)
 
-- Built real-time WebRTC conversational voice agents using LiveKit, implementing client-side Silero VAD for instant barge-in interruption and semantic turn detection.
+- Built real-time WebRTC conversational voice agents using LiveKit, implementing client-side Silero VAD for barge-in interruption and semantic turn detection.
 - Developed **John**: native Android Kotlin client (Jetpack Compose) connected to Python LiveKit agent with tool calling for calendar and task automation.
 - Developed **voicecoder**: VS Code extension for voice-driven code editing with multi-provider fallback (Claude, GPT-4o, Gemini, local Ollama) and real-time token cost tracking.
 
 ### LLM-Council · Multi-Model Consensus Engine
-**Python · FastAPI · React · Vite · Multi-Agent Orchestration**  
+**Python · FastAPI · React · Vite · Multi-Agent Orchestration**
 [GitHub](https://github.com/thesohamdatta/LLM-Council)
 
-- Built multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesize peer-reviewed answers.
-- Implemented 3-stage critique pipeline (Analyst → Skeptic → Synthesizer) with interactive React frontend visualizing step-by-step model agreement.
+- Built multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesise peer-reviewed answers.
+- Implemented 3-stage critique pipeline (Analyst → Skeptic → Synthesizer) with interactive React frontend visualising step-by-step model agreement.
 
 ---
 
@@ -80,5 +77,5 @@
 
 ## Education
 
-**Bachelor of Engineering (B.E.) · Artificial Intelligence & Machine Learning**  
+**Bachelor of Engineering (B.E.) · Artificial Intelligence & Machine Learning**
 University of Pune (SPPU) · 2022 – Jun 2026 · Pune, India
