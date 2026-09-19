@@ -2,6 +2,19 @@
 
 One page that answers "where does X live?" Read this before exploring.
 
+## Agent entry
+
+For a fresh agent with no conversation history, use this order:
+
+1. `MAP.md`
+2. `AGENTS.md`
+3. `CONTEXT.md`
+4. `data/facts.yaml`
+5. `content/github/evidence.md`
+6. `content/github/boundaries.md`
+
+Detailed role evidence lives under `content/github/`; it supports the evidence layer but does not override `data/facts.yaml`.
+
 ## Run something
 | I want to… | Open this |
 |---|---|
@@ -19,6 +32,7 @@ One page that answers "where does X live?" Read this before exploring.
 | What is true about the candidate? | `data/facts.yaml` |
 | What is proven (repos/PRs/files)? | `content/github/evidence.md` |
 | What must never be claimed? | `content/github/boundaries.md` |
+| Detailed PES research-role evidence? | `content/github/experience_ps_modern_institute.md` |
 
 ## Pipeline stages (in order)
 01 company research → 02 JD analysis → 03 candidate context → 04 evidence match →
