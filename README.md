@@ -52,9 +52,11 @@ All other files reference this. Changing a date or title requires editing one fi
 - Mia: CLI harness, multi-host adapters, state engine
 - Voice AI: LiveKit agents, Android app, VS Code extension
 - Omi: 21 issues, 7 PRs, 120+ tests, downstream adoption
+- PES Modern College: research, digital-resource discovery, college archive work, student guidance, workshops and awareness campaigns
 
 **`content/github/boundaries.md`** — validation constraints:
-- What you can vs cannot claim per project
+- What you can vs cannot claim per project and experience
+- PES claim boundaries for platform/archive ownership, audience metrics, publications, and outcomes
 - Forbidden buzzwords and patterns
 - Attribution clarity rules
 - Resume audit checklist with regex patterns for automated validation
