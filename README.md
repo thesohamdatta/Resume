@@ -38,7 +38,7 @@ D:\download\resume\
 **`data/facts.yaml`** contains:
 - Personal info (name, location, links)
 - Education (dates, degree, institution)
-- Experience (5 roles with dates, titles, companies, bullets per track)
+- Experience (4 active roles)
 - Projects (3 systems with repos, technical tags, bullets per track)
 - Skills (categorized by domain)
 - Truth boundaries (what NOT to claim)
