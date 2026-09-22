@@ -1,4 +1,3 @@
-<!-- Stage 3: Candidate Context — Read by pipeline/run.md -->
 # STAGE 03: CANDIDATE CONTEXT
 
 Read:
@@ -8,16 +7,33 @@ Read:
 
 Only report supported candidate evidence.
 
-## Track-specific notes
+## Candidate inventory
+
+Classify useful evidence by:
+- project/experience
+- evidence type
+- technical area/domain
+- proof strength
+- known constraints
+
+Evidence types:
+- Implementation
+- Design
+- Problem-solving
+- Research
+- Product
+
+Do not downgrade technical proof because a target resume may later use less detail. Preserve the strongest verified evidence here.
+
+## Track
 
 The only active tracks are:
 - `local`
 - `mnc`
 
-For both tracks, identify evidence relevant to the required resume order:
-Header → Summary → Experience → Projects → Education → Technical Skills → Certifications when verified.
+## Domain readiness
 
-Do not infer certifications, skills, metrics, ownership, or outcomes from names alone.
+Do not choose a final domain here unless the JD is explicit. Inventory evidence so Stage 05 can make the domain decision.
 
 ## Output
 
@@ -27,17 +43,21 @@ Append to `applications/{Company}_{YYYY-MM}/pipeline_state.md`:
 ## Stage 03 — Candidate Inventory
 
 ### Strongest evidence
-| Project | Evidence | Type |
-|---|---|---|
+| Project | Domain | Evidence | Type | Proof |
+|---|---|---|---|---|
 
 ### Secondary evidence
-| Project | Evidence | Type |
-|---|---|---|
+| Project | Domain | Evidence | Type | Proof |
+|---|---|---|---|---|
 
 ### Hard boundaries
 - [from boundaries.md]
 
-### Track-specific notes
-- Track: local | mnc
-- Structure: Header → Summary → Experience → Projects → Education → Technical Skills → Certifications when verified
+### Candidate gaps / unknowns
+- [material uncertainty only]
+
+### Track
+- [local | mnc]
 ```
+
+Never infer certifications, skills, metrics, ownership, or outcomes from names alone.
