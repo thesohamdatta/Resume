@@ -1,56 +1,63 @@
 <!-- Stage 06: Resume Writer — Read by pipeline/run.md -->
-# STAGE 06: RESUME WRITER INSTRUCTIONS
+# STAGE 06: RESUME WRITER
 
-This is the most important stage. Evidence-first bullet writing.
+This stage owns the draft, not the facts.
 
-Reads:
-1. pipeline_state.md ## Stage 04 — Evidence Match (which evidence items are matched)
-2. pipeline_state.md ## Stage 05 — Positioning Strategy (what to foreground, what to cut, headline, cover letter structure)
-3. content/github/evidence.md (DEEP technical detail — read this first before writing any bullet)
-4. data/facts.yaml (truth-tested templates and hard facts — use as constraint, not as bullet source)
-5. versions/{track}/_base.md (base resume structure to modify)
+## Read first
 
-Produces:
-- versions/{track}/resume_{Company}.md
-- applications/{Company}_{date}/cover_letter.md
-- pipeline_state.md → section ## Stage 06 — Writer Notes (decisions made, things flagged for Stage 07)
+1. Stage 04 — Evidence Match
+2. Stage 05 — Positioning
+3. `content/github/evidence.md`
+4. `data/facts.yaml`
+5. Active base:
+   - `versions/local/_base.md`
+   - `versions/mnc/_base.md`
 
-The prompt should instruct:
+## Required resume order
 
-STEP 1 — Evidence lookup (before writing anything):
-For each matched evidence item in Stage 04, go to evidence.md and extract the SPECIFIC technical details:
-- Function names, file paths, data structures (e.g. firmware/src/mic.cpp, I2S DMA circular buffer)
-- Algorithms at the specific level (not "clustering" — "agglomerative hierarchical clustering (SciPy cosine linkage)")
-- Exact numbers from evidence (52 unit tests, 120+ tests, 16 kHz)
-- Specific tools at the version/API level (FreeRTOS, Opus compression, Deepgram Nova-3, pgvector)
+The generated resume MUST use this exact default order:
 
-STEP 2 — Bullet writing rules:
-- Start from the evidence detail, work backward to the bullet
-- Every bullet must have: WHAT was built + WHAT technology specifically + WHY it matters or WHAT it does
-- Max 2 lines per bullet
-- No passive voice. No "was built" — "built"
-- Language: DONT.MD §E12 (anti-slop) + boundaries.md banned list — no buzzwords
-- Voice: load `D:\download\voice\voice.md` as tone authority
-  - Core Principles: Simplicity (strip to cleanest), Clutter (cut 50%), Be Yourself (builder identity)
-  - Banned Words: zero tolerance — auto-replace with Zinsser table (voice.md §Banned Words → Zinsser Replacements)
-  - Evidence Boundaries: hard constraints per project (voice.md §Evidence Boundaries table) — never overclaim
-  - Facts/skills still come ONLY from evidence.md + facts.yaml — voice.md example blocks are illustrative, never claim sources
-- Metrics: DONT.MD §5 metric rule — never invent numbers, users, scale, or production status
-- Cap bullets per role: 3-4 max
+1. Header / Contact
+2. Summary
+3. Experience
+4. Projects
+5. Education
+6. Technical Skills
+7. Certifications, only when verified certification data exists
 
-STEP 3 — Cover letter rules:
-- Follow the structure from Stage 05 Positioning Strategy exactly
-- 4 paragraphs max
-- Opening paragraph: name the specific company product + the candidate's specific overlap
-- Never open with "I am writing to apply" or "I am excited to"
-- Read aloud mentally — if any sentence sounds like AI wrote it, rewrite it
-- Length: ≤300 words total
+This order applies to both local and MNC tracks.
 
-STEP 4 — Writer Notes for Stage 07:
-- List every claim that came from evidence.md (not facts.yaml templates) so Stage 07 can verify them
-- Flag anything that felt like a stretch
+## Track treatment
 
-Hard rules (non-negotiable):
-1. No bullet may appear in the resume if it has no anchor in facts.yaml OR evidence.md
-2. Enforce content/github/boundaries.md in full — audit checklist, truth-tested phrasing, backend-verb and Omi-attribution constraints (never restated here; that file is canonical)
-3. Final gate: DONT.MD §E19 HARD GATE before producing outputs
+### Local
+- One page.
+- Clean and human-readable.
+- Keep strong technical detail.
+- Give projects enough context for a local IT/product recruiter to understand what was built.
+- Avoid unnecessary ATS keyword repetition.
+
+### MNC
+- One page.
+- Single column.
+- Conventional headings.
+- ATS-safe plain text structure.
+- Use standard technical terminology and concise bullets.
+- No visual formatting that can hide or confuse important text.
+
+## Evidence-first bullet rules
+
+- Start from evidence, then write the bullet.
+- Include what was built/done, the concrete technology/method, and the observable result or purpose.
+- Use exact numbers only when verified.
+- Keep most bullets to 1–2 lines.
+- Avoid passive voice and generic duty statements.
+- Enforce `DONT.MD` and `content/github/boundaries.md`.
+- Never change dates, titles, ownership, employer names, or project scope.
+
+## Certifications
+
+Only create the Certifications section when verified certification data exists in an approved source. A course, badge, or listed skill is not automatically a certification.
+
+## Output
+
+Write `versions/{local|mnc}/resume_{Company}.md` and the application cover letter.
