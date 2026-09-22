@@ -2,154 +2,90 @@
 
 # Resume Pipeline — Run
 
-## What this does
-
-Given `applications/{Company}_{YYYY-MM}/input.md`, this orchestrates all 10 stages to produce:
-- `versions/{track}/resume_{Company}.md`
+Given `applications/{Company}_{YYYY-MM}/input.md`, run all 10 stages to produce:
+- `versions/{local|mnc}/resume_{Company}.md`
 - `applications/{Company}_{YYYY-MM}/cover_letter.md`
 
-## How to invoke
+## Step 1 — Read input
 
-Tell the agent:
-> Run the resume pipeline for [Company] application in `applications/{Company}_{YYYY-MM}/`.
+Extract:
+- `company:`
+- `track:` MUST be `local` or `mnc`
+- `jd:`
+- `notes:`
 
-The agent reads this file and executes the stages in order.
+Initialize the application state with the selected track.
 
----
+## Step 2 — Parallel research
 
-## Stage Execution Order
+Run Stages 01, 02, and 03 in parallel.
 
-### Step 1 — Read input
-Read `applications/{Company}_{YYYY-MM}/input.md`. Extract:
-- `company:` → determines which company context file to use/create
-- `track:` → determines which base resume to modify (`startup` | `mnc` | `midlevel`)
-- `jd:` → full job description text
-- `notes:` → special framing instructions
+## Step 3 — Evidence matching
 
-Initialize `applications/{Company}_{YYYY-MM}/pipeline_state.md` with a header:
+Run Stage 04.
+
+## Step 4 — Positioning
+
+Run Stage 05.
+
+Positioning may change emphasis, but never the resume's factual history.
+
+## Step 5 — Draft
+
+Run Stage 06 using:
+- Stage 05 positioning
+- `content/github/evidence.md` first
+- `data/facts.yaml` as factual constraint
+- `versions/{local|mnc}/_base.md` as the structural contract
+
+The writer MUST preserve this section order:
+
 ```
-# Pipeline State — {Company} — {YYYY-MM-DD}
-Track: {track}
-Input: applications/{Company}_{YYYY-MM}/input.md
+Header / Contact
+Summary
+Experience
+Projects
+Education
+Technical Skills
+Certifications (only when verified)
 ```
 
-### Step 2 — Parallel block (run all three simultaneously)
+For local applications, use slightly more product/project context and less ATS keyword density.
 
-Execute all three stages at once — they do not depend on each other:
+For MNC applications, use conventional headings, single-column ATS-safe structure, searchable text, and concise technical bullets.
 
-- **Stage 01**: Read and execute `pipeline/stages/01_company_researcher.md`
-- **Stage 02**: Read and execute `pipeline/stages/02_jd_analyzer.md`  
-- **Stage 03**: Read and execute `pipeline/stages/03_candidate_context.md`
+## Step 6 — Parallel verification
 
-Each appends its section to `pipeline_state.md`.
+Run Stage 07 and Stage 08.
 
-### Step 3 — Evidence matching
+Any Stage 07 FAIL stops the pipeline.
 
-Execute `pipeline/stages/04_evidence_matcher.md`.  
-Reads: pipeline_state.md §Stage 01, §Stage 02, §Stage 03.
+## Step 7 — Final edit
 
-### Step 4 — Positioning
+Run Stage 09.
 
-Execute `pipeline/stages/05_positioning.md`.  
-Reads: pipeline_state.md §Stage 04 + company context file.
+## Step 8 — Slop-free polish
 
-**⚠ Human checkpoint**: Read `pipeline_state.md ## Stage 05 — Positioning Strategy`. If the primary hook or cover letter structure is wrong, edit Stage 05's output before continuing. Type "proceed" to continue.
+Run Stage 10.
 
-### Step 5 — Draft
-
-Execute `pipeline/stages/06_resume_writer.md`.  
-Reads: pipeline_state.md §Stage 05 + evidence.md + facts.yaml + `versions/{track}/_base.md`.
-
-### Step 6 — Parallel verification (run both simultaneously)
-
-- **Stage 07**: Execute `pipeline/stages/07_factuality_checker.md`
-- **Stage 08**: Execute `pipeline/stages/08_ats_reviewer.md`
-
-Both append to `pipeline_state.md`.
-
-**⚠ Gate**: If Stage 07 produces any FAIL items, stop. Do not proceed to Stage 09. Surface the FAILs to the human for resolution.
-
-### Step 7 — Final edit
-
-Execute `pipeline/stages/09_final_editor.md`.  
-Reads: pipeline_state.md §Stage 07 + §Stage 08.
-
-Stage 09 writes `Status: READY_FOR_STAGE_10` (not COMPLETE).
-
-### Step 8 — Slop-free polish (terminal)
-
-Execute `pipeline/stages/10_slop_free_polish.md`.  
-Reads: Stage 09 outputs + voice.md (unified voice authority with context-aware Voice Matrix).
-
-**⚠ Gate**: If Stage 10 logs any drift FAIL, stop. Revert the flagged edit and surface to the human.
-
-When Stage 10 writes `Status: COMPLETE`, the pipeline is done.
-
----
+Any drift FAIL stops the pipeline. COMPLETE is reached only after the final gate passes.
 
 ## Outputs
 
 ```
-versions/{track}/resume_{Company}.md     ← tailored resume
+versions/{local|mnc}/resume_{Company}.md
 applications/{Company}_{YYYY-MM}/
-  cover_letter.md                         ← cover letter
-  pipeline_state.md                       ← full stage trace (keep for audit)
+  cover_letter.md
+  pipeline_state.md
+  interview_prep.md
 ```
 
----
+## Design decisions
 
-## Human checkpoints
+- Local and MNC are the only active tracks.
+- The section order is shared by both tracks.
+- The base file defines presentation structure; evidence defines technical truth.
+- No new track may be introduced without an explicit repository-level decision.
+- Legacy startup/midlevel material is not an input for new applications.
 
-| After stage | What to review | When to stop |
-|---|---|---|
-| Stage 05 | Primary hook, cover letter structure | If hook is generic or wrong angle |
-| Stage 07 | Factuality audit FAILs | If any FAIL exists |
-| Stage 09 | Final resume + cover letter | If pre-pass missed something (Stage 10 is authoritative) |
-| Stage 10 | Slop polish log + drift check | If any drift FAIL, or voice was flattened |
-
----
-
-## Shortcuts
-
-**Re-run one stage only** (e.g., after editing positioning):
-> Re-run Stage 06 using the current pipeline_state.md for `applications/{Company}_{YYYY-MM}/`.
-
-**Re-run slop polish only** (e.g., after hand-editing the resume):
-> Re-run Stage 10 using the current pipeline_state.md for `applications/{Company}_{YYYY-MM}/`.
-
-**Skip company research** (company context file already exists and is fresh):
-> Skip Stage 01 for this run — use existing `research/companies/{Company}.md`.
-
-**Start from scratch for a company**:
-> Delete `research/companies/{Company}.md` and re-run the full pipeline.
-
----
-
-## Stage dependency graph
-
-```
-01 (company research) ─┐
-02 (JD analysis)       ├─→ 04 (evidence match) → 05 (positioning) → 06 (writer)
-03 (candidate context) ┘                                                  ↓
-                                                               07 (factuality) ─┐
-                                                               08 (ATS review)  ─┤→ 09 (final editor) → 10 (slop-free polish)
-```
-
-Stages 01+02+03 run in parallel.
-Stages 07+08 run in parallel.
-
----
-
-## Design decisions (do not re-litigate per run)
-
-**Voice.md as single source of truth (Stage 10).** Unified tone authority:
-- Loads `voice.md` directly (no external skill dependencies)
-- Context-aware via Voice Matrix: auto-selects bullet formula based on track (startup/MNC/mid-level from Stage 05)
-- Applies Core Principles (Simplicity, Clutter, Be Yourself) + Banned Words → Zinsser replacements
-- Enforces Evidence Boundaries (hard constraints per project — never overclaim)
-- Resume pass: strict hygiene, technical specificity preserved
-- Cover letter pass: minimum effective edit, writer voice preserved, cap 300 words
-
-Hard rule overriding all edits: no invented or altered facts — every edited line must still anchor in `data/facts.yaml` or `content/github/evidence.md`. Drift = FAIL, stop for human. Stage 09 keeps only a quick pre-pass; Stage 10 is the authoritative slop gate.
-
-**Evidence-first bullets.** Stage 06 reads `content/github/evidence.md` BEFORE writing any bullet. Bullets derive from evidence technical depth (file names, algorithms, implementation details), not from the pre-written templates in `facts.yaml`. See [ADR note in archive/pipeline_old/PIPELINE_spec_v1.md] for the prior approach.
+Evidence-first writing remains mandatory. No claim without an anchor in `facts.yaml` or `content/github/evidence.md`.
