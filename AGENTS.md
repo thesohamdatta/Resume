@@ -12,24 +12,25 @@ Two active resume tracks are maintained from one factual source:
 
 Legacy `startup` and `midlevel` folders may remain for history/recovery, but they are not active generation targets.
 
-Domain terms, positioning, and writing rules: `CONTEXT.md`.
+Domain terms, positioning, evidence architecture, and writing rules: `CONTEXT.md`.
 
 ## Load policy
 
 - START: `MAP.md`.
 - ALWAYS: this file + `CONTEXT.md` + the task's `applications/{Company}_{YYYY-MM}/input.md`.
-- PER TASK: `pipeline/run.md`, then only the stages it names. Read `data/facts.yaml`, `content/github/evidence.md`, and `content/github/boundaries.md` when writing or checking claims.
+- PER TASK: `pipeline/run.md`, then only the stages it names.
+- Before candidate claims: read `data/facts.yaml`, `content/github/evidence.md`, and `content/github/boundaries.md`.
 - GATES: `DONT.MD` §9 + §E19 for final validation.
-- NEVER auto-load other runs' audit traces, `archive/`, or PDFs unless required by the task.
+- NEVER auto-load other runs' audit traces, `archive/`, or PDFs unless required.
 
 ## Ownership
 
-- Agent behaviour/loading/precedence/learning: this file.
-- Project map, domain, positioning, active tracks: `CONTEXT.md`.
+- Agent behavior/loading/precedence/learning: this file.
+- Project map, active tracks, domain model, depth model, evidence taxonomy: `CONTEXT.md`.
 - Resume rules/failure prevention: `DONT.MD`.
 - Facts: `data/facts.yaml`.
-- Proof: `content/github/evidence.md`.
-- Constraints: `content/github/boundaries.md`.
+- Proof/evidence: `content/github/evidence.md`.
+- Claim constraints: `content/github/boundaries.md`.
 - Execution order: `pipeline/run.md`.
 - Active outputs: `versions/local/` and `versions/mnc/`.
 - Legacy outputs: `versions/startup/` and `versions/midlevel/`, history only.
@@ -42,7 +43,7 @@ Truth and explicit requirements override inference. Never manufacture facts to s
 
 ## Resume structure contract
 
-Both active tracks use this default order:
+Both active tracks default to:
 
 1. Header / contact
 2. Summary
@@ -52,43 +53,71 @@ Both active tracks use this default order:
 6. Technical Skills
 7. Certifications, only when verified certification data exists
 
-Do not reorder these sections for visual novelty.
+Do not reorder sections for visual novelty.
 
-### Local track
+## Domain-first application model
 
-Use a clean, one-page, human-readable technical resume for local Indian IT/product companies.
-Keep the exact section order above. Allow slightly more product/project context and a less ATS-dense writing style than MNC.
+Every application MUST choose one **Primary Technical Domain** before drafting.
 
-### MNC track
+The domain is an emphasis lens, not a new resume track. Examples include:
+- AI/ML
+- LLM/Agent Systems
+- Voice/Realtime AI
+- Backend/Platform
+- Embedded/Edge
+- Computer Vision
 
-Use a one-page, single-column, ATS-safe resume.
-Use conventional headings, searchable text, standard formatting, and concise technical bullets.
+The chosen domain determines which verified evidence is foregrounded and which strong but less relevant evidence is compressed or omitted.
 
-## Maintenance workflows
+Do not assume the domain from a company name alone. Derive it from the JD and candidate evidence. If the JD does not make the domain clear, mark it `unknown` and ask before finalizing.
 
-- Update a fact: edit `data/facts.yaml` only, then regenerate and validate.
-- Add evidence: update `content/github/evidence.md` with verifiable proof.
-- Add a constraint: update `content/github/boundaries.md`.
-- New application: fill INPUT in `pipeline/APPLY.md`.
-- New runs MUST select `local` or `mnc`.
+## Depth model
 
-## Agent handoff contract
+Technical detail is **adaptive**, not globally shallow or globally deep.
 
-When entering without conversation history:
+Use three output depths:
+- **D1 — Executive/scan:** outcome, scope, core technology. Minimal implementation detail.
+- **D2 — Engineering:** outcome + important implementation method + technology. Default for technical hiring.
+- **D3 — Technical-proof:** implementation details, architecture, algorithms, tests, constraints, or debugging evidence. Use selectively when the JD rewards technical depth.
 
-1. Read `MAP.md`, `AGENTS.md`, `CONTEXT.md`.
-2. Treat `data/facts.yaml` as canonical biography.
-3. Read `content/github/evidence.md` and `content/github/boundaries.md` before changing claims.
-4. Use detailed evidence files only as supporting proof.
-5. Select only `local` or `mnc`.
-6. Apply the section-order contract before drafting.
-7. Run the defined pipeline and final BOOM gate before delivery.
-8. Keep unresolved facts explicit rather than guessing.
+Rule: the evidence layer may be D3 even when the resume output is D1/D2. Never throw away evidence simply because one resume does not show it.
 
-## Learning loop
+Track defaults:
+- Local: D2 by default; D3 for a clearly technical role or a primary-domain project.
+- MNC: D1–D2 by default; D3 only where the JD explicitly rewards implementation depth or research/engineering proof.
 
-After meaningful work, distill durable lessons into `memory/lessons.md` only with evidence. Prefer consolidating existing entries.
+## Evidence taxonomy
 
-## Dependency note
+Treat candidate proof as typed evidence:
+1. **Implementation** — code, architecture, integration, tests, infrastructure.
+2. **Design** — specs, RFCs, ADRs, workflows, interface contracts.
+3. **Problem-solving** — bugs, debugging, root-cause analysis, fixes.
+4. **Research** — literature review, experiments, papers, evaluation.
+5. **Product** — requirements, user stories, UX/product decisions, prototypes.
 
-This file requires `CONTEXT.md`. `CONTEXT.md` requires nothing.
+Evidence types are complementary. A resume bullet may combine types, but the pipeline should preserve the underlying type.
+
+## Ask-before-assume rule
+
+Ask the user when a missing fact would materially change:
+- primary technical domain,
+- depth level,
+- ownership/attribution,
+- certification status,
+- employment dates/title,
+- quantified outcomes,
+- project scope,
+- whether a prototype was deployed/productionized.
+
+Never invent a bridge across a missing fact. Record `[needs user confirmation]` and proceed only where the uncertainty does not affect correctness.
+
+## Human checkpoint
+
+Before final resume writing, Stage 05 must produce:
+- Primary Technical Domain
+- Output Depth
+- Evidence mix
+- Foreground / compress / omit decisions
+- Any material question for the user
+
+If a material question is unresolved, stop before Stage 06.
