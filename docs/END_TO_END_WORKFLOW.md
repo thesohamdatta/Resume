@@ -1,200 +1,208 @@
 # End-to-End Workflow: Job Description → PDF Resume
 
-**Goal**: Simple, complete workflow from job posting to final PDF resume, handling all necessary research, analysis, matching, writing, validation, and rendering.
+## Goal
 
----
+Turn a company + job description into a targeted, factual, one-page resume, cover letter, interview prep, and final PDF.
 
-## Overview: The Complete Journey
+## Active tracks
 
-```
-INPUT                    PIPELINE                           OUTPUT
-┌─────────────┐         ┌──────────────────────┐          ┌─────────────┐
-│ Job URL or  │         │  10-Stage Pipeline   │          │  PDF Resume │
-│ JD Text     │────────▶│  + Research Swarm    │─────────▶│  + Cover    │
-│ + Company   │         │  + LaTeX Rendering   │          │  + Prep Doc │
-└─────────────┘         └──────────────────────┘          └─────────────┘
-```
+Only two tracks are active:
 
-**Time**: ~5-10 minutes (automated with 2-3 human checkpoints)
-**Input**: Job description URL or text + company name
-**Output**: ATS-optimized PDF resume + cover letter + interview prep document
+- `local`: Indian local IT/product companies and smaller engineering teams.
+- `mnc`: multinational and enterprise hiring.
 
----
+Legacy `startup` and `midlevel` outputs are not used for new applications.
 
-## Phase 1: Input Collection (Manual)
+## Required resume structure
 
-### What You Provide
+Both tracks use this default order:
+
+1. Header / Contact
+2. Summary
+3. Experience
+4. Projects
+5. Education
+6. Technical Skills
+7. Certifications, only when verified
+
+Do not move Experience, Projects, Education, or Skills around just to imitate another resume.
+
+## Phase 1: Input
 
 Create `applications/{Company}_{YYYY-MM}/input.md`:
 
 ```yaml
 company: [Company Name]
 track: [local | mnc]
-jd_url: [optional - job posting URL for auto-extraction]
-jd: |
-  [Full job description text - paste entire posting]
-  
-notes: |
-  [Optional - special targeting instructions]
-  - Role: Senior AI Engineer
-  - Focus: emphasize Voice AI + real-time systems
-  - De-emphasize: backend/infrastructure work
-```
-
-**Decision Points**:
-- **Track selection: `local` or `mnc` only.
-
-### Research Swarm (Pre-Pipeline)
-- **WebSearch**: Company news, funding, tech blog
-- **WebFetch**: Job posting HTML, company careers page
-- **Read**: Existing company dossiers (if <60 days old)
-
-### Stage 01: Company Researcher
-- **Read**: `research/companies/{Company}.md` (if exists)
-- **WebSearch**: Company + "tech stack", "engineering blog", "recent news"
-- **Write**: Company dossier (if new)
-
-### Stage 02: JD Analyzer
-- **Read**: `input.md` (JD text)
-- **Grep**: Keyword extraction via patterns
-
-### Stage 03: Candidate Context
-- **Read**: `facts.yaml`, `evidence.md`, `boundaries.md`
-
-### Stages 04-10: Pipeline Core
-- **Read**: Progressive file loading per stage
-- **Write**: `pipeline_state.md` (append per stage)
-- **Edit**: Resume/cover drafts (Stages 06, 09, 10)
-
-### LaTeX Rendering
-- **Read**: Markdown resume
-- **Bash**: `pdflatex` compilation (3 passes)
-- **Write**: PDF output
-
----
-
-## File Structure: Where Everything Lives
-
-```
-applications/{Company}_{YYYY-MM}/
-├── input.md                    ← YOUR INPUT (JD + track + notes)
-├── pipeline_state.md           ← Full audit trace (keep for reference)
-├── cover_letter.md             ← Generated cover letter
-└── interview_prep.md           ← Interview preparation document
-
-versions/{track}/
-├── _base.md                    ← Track template (local/mnc)
-├── resume_{Company}.md         ← Markdown resume (tailored)
-└── resume_{Company}.pdf        ← Final PDF (rendered from .md)
-
-research/companies/
-└── {Company}.md                ← Company dossier (60-day freshness)
-
-data/
-├── facts.yaml                  ← Biographical skeleton (dates, titles)
-└── evidence.md                 ← Technical proof (PRs, files, algorithms)
-
-content/github/
-├── evidence.md                 ← Deep technical detail
-└── boundaries.md               ← Constraints (what NOT to claim)
-
-voice.md                        ← Voice authority (tone, banned words, formulas)
-DONT.MD                         ← Resume rules (E0-E22 engines)
-```
-
----
-
-## Quick Start: First Application
-
-### Step 1: Create input file
-```bash
-mkdir -p applications/Acme_2026-09
-nano applications/Acme_2026-09/input.md
-```
-
-Paste:
-```yaml
-company: Acme Inc
-track: mnc
+jd_url: [optional]
 jd: |
   [Full job description]
+notes: |
+  [Optional targeting notes]
 ```
 
-### Step 2: Run pipeline
+## Phase 2: Research
+
+Use `research/SWARM_RESEARCH.md` for deep company research when the dossier is missing or stale.
+
+Research should establish:
+- company/product context
+- role requirements
+- engineering/technology signals
+- recent relevant developments
+- candidate↔company evidence overlap
+
+Never use company research as a source of candidate facts.
+
+## Phase 3: Pipeline
+
+Run the 10 stages in `pipeline/run.md`:
+
 ```
-Run the resume pipeline for Acme application in applications/Acme_2026-09/
+01 company research
+02 JD analysis
+03 candidate context
+04 evidence match
+05 positioning
+06 resume writer
+07 factuality
+08 ATS review
+09 final editor
+10 slop-free polish
 ```
 
-### Step 3: Review checkpoints
-- After Stage 05: Check positioning, type "proceed"
-- After Stage 07: No FAILs? Proceed automatically
-- After Stage 10: Review final PDF
+Stages 01–03 run in parallel. Stages 07–08 run in parallel.
 
-### Step 4: Render PDF
-```bash
-cd templates/v2-comma-titles
-# Convert markdown → LaTeX → PDF
-pdflatex -interaction=nonstopmode resume_Acme.tex
+## Phase 4: Writing
+
+Stage 06 must read technical proof before drafting:
+
+1. `content/github/evidence.md`
+2. `data/facts.yaml`
+3. `content/github/boundaries.md`
+4. selected base file:
+   - `versions/local/_base.md`
+   - `versions/mnc/_base.md`
+
+Write from evidence, not from generic skill names.
+
+Every bullet should make clear:
+- what was built/done
+- the concrete technology or method
+- why it mattered or what it enabled
+
+Never invent metrics, users, ownership, employers, dates, production status, funding, or outcomes.
+
+## Track treatment
+
+### Local
+
+- One page.
+- Clean, technical, human-readable.
+- Same section order as MNC.
+- Slightly more product/project context is acceptable.
+- Avoid repetitive keyword stuffing.
+
+### MNC
+
+- One page by default.
+- Single column.
+- Standard section headings.
+- Plain searchable text.
+- ATS-safe formatting.
+- No tables, graphics, or decorative symbols carrying important meaning.
+
+## Phase 5: Validation
+
+Stage 07 checks every claim against `facts.yaml`, `evidence.md`, and `boundaries.md`.
+
+Any factuality FAIL stops the pipeline.
+
+Stage 08 checks:
+- required section order
+- ATS readability
+- keyword coverage
+- contact completeness
+- bullet count
+- one-page fit
+- verified certification status
+
+## Phase 6: Final edit
+
+Stages 09 and 10:
+- resolve factuality/ATS issues
+- preserve claim strength
+- remove slop and generic phrasing
+- preserve candidate voice
+- keep the required section order
+
+Any drift FAIL stops delivery.
+
+## Phase 7: Rendering
+
+Render the selected markdown resume through the repository LaTeX template.
+
+Validate:
+- PDF opens
+- text is selectable
+- important terms are searchable
+- links work
+- no overflow/cutoff
+- no blank page
+- one page
+- correct filename
+
+Default filename:
+
+```
+Soham_Datta_Resume.pdf
 ```
 
-### Step 5: Submit
-- Upload PDF to application portal
-- Save interview_prep.md for later
+For company-specific files:
 
----
+```
+Soham_Datta_Resume_{Company}.pdf
+```
 
-## Advanced: Multi-Company Batch Processing
+## Phase 8: Delivery
 
-### Workflow for 5+ Applications
+Deliver:
+- final resume
+- cover letter
+- interview prep
+- any unresolved gaps or factual warnings
 
-**Day 1: Research Batch**
-- Compile list of 5-10 target companies
-- Run research swarm for all (parallel)
-- Review dossiers for accuracy
+Do not deliver a resume that has unresolved factual FAILs.
 
-**Day 2-3: Application Batch**
-- Create `input.md` for each (JD + track)
-- Run pipelines in parallel (5 at once)
-- Review Stage 05 positioning for all
-- Fix Stage 07 FAILs as they appear
+## Repository outputs
 
-**Day 4: Rendering Batch**
-- Compile all PDFs
-- Review for formatting consistency
-- Submit applications
+```
+versions/{local|mnc}/resume_{Company}.md
+versions/{local|mnc}/resume_{Company}.pdf
 
-**Efficiency gain**: Amortize research/setup cost across batch
+applications/{Company}_{YYYY-MM}/
+  input.md
+  pipeline_state.md
+  cover_letter.md
+  interview_prep.md
+```
 
----
+## Human checkpoints
 
-## Metrics: Pipeline Performance
+- After Stage 05: positioning and primary hook
+- After Stage 07: factuality FAILs
+- After Stage 10: final PDF and claim integrity
 
-**Target benchmarks**:
-- Stage 01-03 (parallel): 2-3 minutes
-- Stage 04-06: 2-3 minutes
-- Stage 07-08 (parallel): 1-2 minutes
-- Stage 09-10: 1-2 minutes
-- PDF rendering: 30 seconds
-- **Total**: 5-10 minutes per application
+## Source authority
 
-**Quality benchmarks**:
-- Stage 07 FAIL rate: <10% (good evidence.md coverage)
-- Stage 10 drift FAIL rate: <5% (clean Stage 06 writing)
-- Human edit rate at Stage 05: ~30% (positioning refinement)
+```
+data/facts.yaml                  = biographical facts
+content/github/evidence.md       = technical proof
+content/github/boundaries.md     = claim constraints
+versions/local/_base.md          = local structure
+versions/mnc/_base.md            = MNC structure
+pipeline/run.md                  = execution order
+DONT.MD                          = resume rules
+```
 
----
-
-## Next Steps: Research Integration
-
-**Pending research agent completion**:
-- Internet best practices for resume generation workflows
-- ATS optimization techniques (2024-2026)
-- Context management strategies for large pipelines
-- Quality assurance approaches (factuality, slop prevention)
-- Markdown→PDF rendering options (LaTeX vs Pandoc vs Typst)
-
-**Will inform**:
-- Refinements to stage ordering
-- Additional validation gates
-- Alternative rendering pipelines
-- Batch processing optimizations
+Evidence before inference. Structure before decoration. Truth before polish.
