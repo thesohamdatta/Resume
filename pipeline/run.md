@@ -1,5 +1,3 @@
-<!-- run.md — Pipeline Entry Point: reads input.md and chains all 10 stages -->
-
 # Resume Pipeline — Run
 
 Given `applications/{Company}_{YYYY-MM}/input.md`, run all 10 stages to produce:
@@ -14,7 +12,7 @@ Extract:
 - `jd:`
 - `notes:`
 
-Initialize the application state with the selected track.
+Initialize application state with the selected track.
 
 ## Step 2 — Parallel research
 
@@ -24,11 +22,18 @@ Run Stages 01, 02, and 03 in parallel.
 
 Run Stage 04.
 
-## Step 4 — Positioning
+## Step 4 — Positioning gate
 
 Run Stage 05.
 
-Positioning may change emphasis, but never the resume's factual history.
+Stage 05 MUST determine:
+- Primary Technical Domain
+- Output Depth (D1/D2/D3)
+- Evidence mix
+- Foreground / compress / omit decisions
+- Material questions
+
+**Do not enter Stage 06 while a material question is unresolved.**
 
 ## Step 5 — Draft
 
@@ -36,23 +41,13 @@ Run Stage 06 using:
 - Stage 05 positioning
 - `content/github/evidence.md` first
 - `data/facts.yaml` as factual constraint
-- `versions/{local|mnc}/_base.md` as the structural contract
+- `versions/{local|mnc}/_base.md` as structural contract
 
 The writer MUST preserve this section order:
 
-```
-Header / Contact
-Summary
-Experience
-Projects
-Education
-Technical Skills
-Certifications (only when verified)
-```
+Header / Contact → Summary → Experience → Projects → Education → Technical Skills → Certifications when verified.
 
-For local applications, use slightly more product/project context and less ATS keyword density.
-
-For MNC applications, use conventional headings, single-column ATS-safe structure, searchable text, and concise technical bullets.
+Use adaptive depth rather than a universal technical-detail level.
 
 ## Step 6 — Parallel verification
 
@@ -84,7 +79,9 @@ applications/{Company}_{YYYY-MM}/
 
 - Local and MNC are the only active tracks.
 - The section order is shared by both tracks.
-- The base file defines presentation structure; evidence defines technical truth.
+- Primary Technical Domain is selected per application.
+- Technical depth is adaptive per application.
+- Evidence is typed and preserved in the evidence layer.
 - No new track may be introduced without an explicit repository-level decision.
 - Legacy startup/midlevel material is not an input for new applications.
 
