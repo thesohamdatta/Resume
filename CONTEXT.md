@@ -36,13 +36,72 @@ Certifications (only when verified data exists)
 
 This is the default architecture for local and MNC resumes. Do not reorder sections merely to imitate another template.
 
-## Domain terms
+## Domain model
 
-**Biographical facts:** `data/facts.yaml`  
-**Technical proof:** `content/github/evidence.md`  
-**Constraints:** `content/github/boundaries.md`
+**Primary Technical Domain** = the one technical area an application is allowed to foreground.
 
-Decision rule: dates/titles/employers/education → `facts.yaml`; technical depth/proof → `evidence.md`; prohibited claims → `boundaries.md`.
+Select it from the JD + verified candidate evidence. Do not infer it from company brand, generic title, or a single keyword.
+
+Suggested controlled vocabulary:
+- AI/ML
+- LLM/Agent Systems
+- Voice/Realtime AI
+- Backend/Platform
+- Embedded/Edge
+- Computer Vision
+- Full-Stack AI
+- Research/Applied AI
+- Unknown
+
+A domain is an application-level focus, not a third resume track.
+
+## Evidence model
+
+Candidate evidence is preserved in five classes:
+
+| Type | Meaning | Typical proof |
+|---|---|---|
+| Implementation | building/integration | code, architecture, tests, infra |
+| Design | system/product design | specs, RFCs, ADRs, contracts |
+| Problem-solving | diagnosis and resolution | bugs, root-cause, fixes |
+| Research | inquiry/evaluation | literature, experiments, papers |
+| Product | user/product decisions | requirements, UX, prototypes |
+
+The same project can carry multiple evidence types. Preserve those types in Stage 03/04 so the writer can choose the right proof for the role.
+
+## Technical depth model
+
+The repository has two layers:
+
+**Evidence layer:** preserve D3 technical proof where supported.
+
+**Resume layer:** adapt output depth to the application.
+
+- D1 — Executive/scan: scope + outcome + core technology.
+- D2 — Engineering: outcome + important method + technology.
+- D3 — Technical-proof: implementation details, architecture, algorithms, tests, constraints, debugging.
+
+Defaults:
+- Local: D2. Use D3 for a strongly technical JD or the primary technical domain.
+- MNC: D1–D2. Use D3 only when the JD explicitly calls for implementation, research, debugging, architecture, systems, or comparable depth.
+
+Never globally flatten the evidence repository to match the MNC resume.
+
+## Domain/depth decision process
+
+```
+JD signals
+   ↓
+Primary Technical Domain
+   ↓
+Evidence classes relevant to the domain
+   ↓
+Output Depth (D1/D2/D3)
+   ↓
+Foreground → Compress → Omit
+   ↓
+Resume
+```
 
 ## Domain-specific context
 
