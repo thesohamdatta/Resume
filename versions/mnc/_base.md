@@ -6,16 +6,16 @@ Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub
 
 ## Summary
 
-AI engineer building practical systems across wearable AI, real-time voice, LLM tooling, computer vision, and software engineering. Hands-on across Python, TypeScript, C/C++, Kotlin, FastAPI, LiveKit, ESP32/FreeRTOS, and Git/GitHub.
+AI engineer building AI systems across wearable hardware, embedded software, real-time voice, LLM tooling, computer vision, and developer tooling. Hands-on across Python, TypeScript, C/C++, Kotlin, FastAPI, LiveKit, ESP32/FreeRTOS, and Git/GitHub.
 
 ## Experience
 
 ### Founder · Aura
 **Jun 2025 – Present** | Wearable AI · Hardware Prototyping · Edge Integration · Open Source
 
-- Designed and 3D-printed custom enclosures for a wearable AI pendant using Seeed XIAO ESP32-S3 Sense, camera, LiPo battery, and microphone; wrote FreeRTOS event loops for 16 kHz I2S DMA audio capture, Opus compression, and OTA updates.
-- Adapted FastAPI backend from the Omi ecosystem with memory, transcription, knowledge graph, and speaker-identification routers; integrated pgvector migrations and Kubernetes-hosted Deepgram Nova-3 ASR; verified hardware-to-cloud audio streaming.
-- Diagnosed an Electron WebGL GPU memory leak on Windows caused by CSS backdrop filters over a 3D graph canvas; authored Omi Issue #8438, later resolved downstream in PR #8902.
+- Designed and 3D-printed a wearable AI pendant enclosure around Seeed XIAO ESP32-S3 Sense, camera, LiPo battery, and microphone; wrote FreeRTOS event loops for 16 kHz I2S DMA capture, Opus compression, and OTA updates.
+- Adapted FastAPI services from the Omi ecosystem across memory, transcription, knowledge-graph, MCP, and speaker-identification paths; integrated pgvector storage and Kubernetes-hosted Deepgram Nova-3 ASR.
+- Diagnosed a Windows Electron WebGL GPU memory leak caused by CSS backdrop filters over a 3D graph canvas; authored Omi Issue #8438, later resolved in downstream PR #8902.
 - Authored offline SciPy agglomerative clustering with 52 tests for 3+ speaker diarization; the approach was adopted downstream in PR #12471.
 
 ### AI & ML Intern · AICTE via Google
@@ -42,8 +42,8 @@ AI engineer building practical systems across wearable AI, real-time voice, LLM 
 **TypeScript · Bun · Vitest · JSONL**
 [GitHub](https://github.com/thesohamdatta/Mia)
 
-- Built a compiled TypeScript CLI with a 5-stage engineering harness: grill, spec, plan, review, ship.
-- Unified LLM adapters for Claude, OpenAI Codex, and local models with automated lint, typecheck, and Vitest verification gates plus immutable JSONL state tracking.
+- Built a compiled TypeScript CLI around a 5-stage engineering harness: grill, spec, plan, review, ship.
+- Unified Anthropic Claude, OpenAI Codex, and local-model adapters with automated lint, typecheck, and Vitest verification gates plus immutable JSONL state tracking.
 
 ### Voice AI Systems · Real-Time Voice Agents & Copilots
 **LiveKit · WebRTC · Silero VAD · Python · Kotlin**
