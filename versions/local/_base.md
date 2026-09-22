@@ -6,17 +6,17 @@ Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub
 
 ## Summary
 
-AI engineer building practical systems across wearable AI, real-time voice, LLM tooling, and computer vision. Works across software, AI integrations, backend systems, and embedded hardware.
+AI engineer building AI systems across wearable hardware, embedded software, real-time voice, LLM tooling, and computer vision. Works from device-level firmware through backend services, model integrations, and developer tooling.
 
 ## Experience
 
 ### Founder · Aura
 **Jun 2025 – Present** | Wearable AI · Hardware + Software · Edge Systems
 
-- Built a wearable AI pendant across ESP32-S3 firmware, backend services, and device integration; designed and 3D-printed the enclosure and form factor.
-- Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, Opus compression, and OTA updates.
-- Adapted FastAPI services from the Omi ecosystem with pgvector memory retrieval and Kubernetes-hosted Deepgram Nova-3 ASR; verified end-to-end audio streaming.
-- Diagnosed a Windows Electron WebGL GPU memory leak and authored an Omi issue that was later resolved downstream; authored speaker-clustering work with 52 tests that was adopted downstream.
+- Built Aura across ESP32-S3 firmware, backend services, and device integration; designed and 3D-printed the wearable enclosure.
+- Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, Opus compression, Wi-Fi/BLE event handling, sleep modes, and OTA updates.
+- Adapted FastAPI services from the Omi ecosystem for memory, transcription, knowledge-graph, MCP, and speaker-identification paths; added pgvector storage and Kubernetes-hosted Deepgram Nova-3 ASR.
+- Diagnosed a Windows Electron WebGL GPU memory leak and authored the Omi issue that led to a downstream fix; authored offline speaker clustering with 52 tests that was later adopted downstream.
 
 ### AI & ML Intern · AICTE via Google
 **Oct 2024 – Dec 2024** | Computer Vision · TensorFlow · ML Kit
@@ -42,8 +42,8 @@ AI engineer building practical systems across wearable AI, real-time voice, LLM 
 **TypeScript · Bun · Vitest · JSONL**
 [GitHub](https://github.com/thesohamdatta/Mia)
 
-- Built a local-first TypeScript CLI around a 5-stage engineering workflow: grill, spec, plan, review, ship.
-- Implemented multi-host LLM adapters, verification gates, and immutable JSONL state tracking.
+- Built a compiled, local-first TypeScript CLI around a 5-stage engineering harness: grill, spec, plan, review, ship.
+- Unified Anthropic Claude, OpenAI Codex, and local-model adapters with automated lint, typecheck, Vitest gates, and immutable JSONL state tracking.
 
 ### Voice AI Systems
 **LiveKit · WebRTC · Silero VAD · Python · Kotlin**
