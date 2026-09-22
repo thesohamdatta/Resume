@@ -1,36 +1,63 @@
-<!-- Stage 3: Candidate Context — Read by pipeline/run.md -->
 # STAGE 03: CANDIDATE CONTEXT
 
-**Your Role:** Read the candidate profile and extract relevant inventory.
-
-## Inputs to Read:
+Read:
 - `data/facts.yaml`
 - `content/github/evidence.md`
 - `content/github/boundaries.md`
 
-## Execution Rules:
-1. ONLY list what is explicitly in `facts.yaml` OR `evidence.md`. Do not infer capabilities from tool names in the skills list alone. (Tool name = weak evidence; GitHub file path/PR number = strong).
-2. Evidence type must be exactly one of: Firmware/Embedded | AI/ML | Full-Stack | Mobile | Voice AI | Hardware | Algorithm | Open Source.
+Only report supported candidate evidence.
 
-## Output Target:
-Append to `applications/{Company}_{YYYY-MM}/pipeline_state.md` under a new section `## Stage 03 — Candidate Inventory`
+## Candidate inventory
 
-## Output Format (Exact Schema):
+Classify useful evidence by:
+- project/experience
+- evidence type
+- technical area/domain
+- proof strength
+- known constraints
+
+Evidence types:
+- Implementation
+- Design
+- Problem-solving
+- Research
+- Product
+
+Do not downgrade technical proof because a target resume may later use less detail. Preserve the strongest verified evidence here.
+
+## Track
+
+The only active tracks are:
+- `local`
+- `mnc`
+
+## Domain readiness
+
+Do not choose a final domain here unless the JD is explicit. Inventory evidence so Stage 05 can make the domain decision.
+
+## Output
+
+Append to `applications/{Company}_{YYYY-MM}/pipeline_state.md`:
+
 ```
 ## Stage 03 — Candidate Inventory
 
-### Strongest evidence (verifiable — GitHub repo, file path, or named artifact exists)
-| Project | Evidence | Type |
-|---|---|---|
-| Aura | FreeRTOS I2S DMA audio capture at 16kHz (firmware/src/mic.cpp) | Firmware/embedded |
+### Strongest evidence
+| Project | Domain | Evidence | Type | Proof |
+|---|---|---|---|---|
 
-### Secondary evidence (real but lighter)
-| Project | Evidence | Type |
-|---|---|---|
+### Secondary evidence
+| Project | Domain | Evidence | Type | Proof |
+|---|---|---|---|---|
 
-### Hard boundaries (NEVER claim — from boundaries.md)
-- [per project]
+### Hard boundaries
+- [from boundaries.md]
 
-### Track-specific notes
-[anything relevant to the requested track: startup/mnc/midlevel]
+### Candidate gaps / unknowns
+- [material uncertainty only]
+
+### Track
+- [local | mnc]
 ```
+
+Never infer certifications, skills, metrics, ownership, or outcomes from names alone.

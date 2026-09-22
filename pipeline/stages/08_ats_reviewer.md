@@ -1,44 +1,58 @@
-<!-- Stage 08: ATS Reviewer — Read by pipeline/run.md -->
-Reads:
-- versions/{track}/resume_{Company}.md
-- pipeline_state.md ## Stage 02 — JD Signals (ATS keywords section)
-- The track from applications/{Company}_{date}/input.md
+# STAGE 08: ATS REVIEWER
 
-Produces: pipeline_state.md → section ## Stage 08 — ATS Review
+Read:
+- `versions/{local|mnc}/resume_{Company}.md`
+- Stage 02 ATS signals
+- Stage 05 positioning
+- application track
 
-Checks to run:
+## Checks
 
-1. KEYWORD COVERAGE: For each verbatim ATS keyword from Stage 02, mark present/absent in the resume. For absent: can it be added truthfully? If yes, note where.
+1. Section order MUST be:
+   Header / Contact → Summary → Experience → Projects → Education → Technical Skills → Certifications when verified.
+2. Primary Technical Domain must be visibly reflected in the summary, experience/projects selection, or skills emphasis without keyword stuffing.
+3. Output Depth must match Stage 05:
+   - D1: no unnecessary implementation detail
+   - D2: meaningful method/technology detail
+   - D3: technical proof is present where justified
+4. For `mnc`:
+   - single column
+   - standard headings
+   - plain searchable text
+   - no tables, graphics, or decorative symbols carrying meaning
+   - technical specificity is selective, not exhaustive
+5. For `local`:
+   - same logical order and clean text hierarchy
+   - D2 default; D3 only when justified
+   - enough project context to understand the work
+6. Bullet count: 2–4 per role unless evidence or page limits justify less.
+7. One-page default.
+8. Contact must include name, location, LinkedIn, and GitHub.
+9. Certifications must not appear unless verified.
+10. Do not penalize omitted secondary domains when Stage 05 deliberately marked them Compress/Omit.
 
-2. SECTION HEADINGS: Must be standard — Experience, Projects, Technical Skills, Education. No creative headers for ATS track. (Startup track: flexible)
+## Output
 
-3. FORMATTING RULES (for mnc track only):
-   - No tables inside resume content
-   - No columns or multi-column layout
-   - No graphics or special characters in bullets
-   - No headers/footers
-
-4. BULLET COUNT: 2–4 bullets per role. Flag any role with 0 or 5+.
-
-5. LENGTH: Must fit one page. Flag any section that seems like padding.
-
-6. CONTACT LINE: Name, location, LinkedIn URL, GitHub URL must all be present.
-
-Output format:
 ```
 ## Stage 08 — ATS Review
+
+### Structure
+[PASS/NEEDS_FIX]
+
+### Domain/depth alignment
+[PASS/NEEDS_FIX]
+- Primary domain:
+- Output depth:
+- Evidence mix reflected:
 
 ### Keyword coverage
 | Keyword | Present | Suggested addition |
 
 ### Issues
-- [FORMATTING/LENGTH/HEADING issue]
+- [...]
 
 ### Suggestions
-- [Optional — low priority]
+- [...]
 
 ### Verdict: PASS / NEEDS_FIX
 ```
-
-If NEEDS_FIX: list exact edits Stage 09 must make.
-If PASS: write CLEAR.

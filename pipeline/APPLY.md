@@ -1,40 +1,60 @@
 # APPLY.md — JD-to-Application Run Prompt
 
-Fill in INPUT, paste the JD, send this file's content to the agent as-is.
-Extends `pipeline/run.md` (Stages 01–10) with interview prep + learning. Run folder contract: `applications/{Company}_{YYYY-MM}/`.
+Fill in INPUT, paste the JD, and send this file to the agent.
 
----
+You are the resume application agent for Soham Datta. Follow `AGENTS.md` + `CONTEXT.md`.
 
-You are the resume application agent for Soham Datta.
-Follow AGENTS.md (load policy, precedence, learning loop) + CONTEXT.md.
-Source precedence: USER/TASK → APPLICATION (input.md) → AGENTS.md → DONT.MD + boundaries.md → memory/lessons.md → research → INFERENCE.
+## INPUT
 
-INPUT
 - Company: [Company]
-- Run folder: applications/[Company]_[YYYY-MM]/
-- Track: [startup | mnc | midlevel]
-- JD (full text, pasted below): [...]
+- Run folder: `applications/[Company]_[YYYY-MM]/`
+- Track: [local | mnc]
+- JD (full text): [...]
+- Optional candidate notes: [...]
+- Optional domain/depth override: [leave blank unless confirmed by user]
 
-WORKFLOW — Paste JD → Understand → Research → Match → Ask → Tailor → Validate → Prepare → Learn
+## WORKFLOW
 
-1. UNDERSTAND — Create the run folder's `input.md` (`company:`, `track:`, full `jd:|`, `notes:|`). Extract role, company, must-have vs nice-to-have, and whether the track fits.
+1. UNDERSTAND — Create `input.md` with company, track, full JD, and notes.
+2. RESEARCH — Run Stage 01 or reuse a fresh company dossier.
+3. MATCH — Run Stages 02→04 using only `facts.yaml` + evidence sources for candidate claims.
+4. POSITION — Run Stage 05 and explicitly decide Primary Technical Domain, Output Depth, Evidence Mix, and Foreground/Compress/Omit.
+5. HUMAN CHECK — Ask only material questions. Do not guess missing ownership, scope, outcomes, dates, certification status, domain, or depth.
+6. TAILOR — Run Stage 06 against the selected active base.
+7. VALIDATE — Run Stages 07→10. Stage 07 FAIL or Stage 10 drift FAIL stops the run.
+8. PREPARE — Create interview prep with pitch, likely questions, gap defenses, and company-specific questions.
+9. LEARN — Record only evidence-backed durable lessons.
 
-2. RESEARCH — Run pipeline Stage 01 per `pipeline/run.md` (reuse `research/companies/[Company].md` if <60 days old). Research missing context ONLY if it would change targeting.
+## STRUCTURE CONTRACT
 
-3. MATCH — Run Stages 02→05: verbatim JD keyword signals; candidate inventory from `data/facts.yaml` + `content/github/evidence.md` ONLY (no inference from skill names); STRONG/MODERATE/WEAK evidence match; positioning with one specific candidate↔company hook (generic hooks invalid).
+Both local and MNC resumes MUST use:
 
-4. ASK — Ask questions ONLY if the answer would materially change targeting or fill an important evidence gap. BEFORE asking, check (in this order): current `input.md` notes, prior runs' `input.md` notes only (never their `pipeline_state.md` audit traces), `facts.yaml`, `evidence.md`, `memory/lessons.md`. Never repeat anything already answered or stored. Max ~ questions, then proceed with flagged assumptions.
+1. Header / Contact
+2. Summary
+3. Experience
+4. Projects
+5. Education
+6. Technical Skills
+7. Certifications, only if verified
 
-5. TAILOR — Run Stage 06: evidence-first bullets (`evidence.md` before `facts.yaml` templates), `facts.yaml` as constraint, `versions/[track]/_base.md` as structure. Output `versions/[track]/resume_[Company].md` + run-folder `cover_letter.md` (≤300 words, Stage 05 structure).
+## ADAPTATION CONTRACT
 
-6. VALIDATE — Run Stages 07→10. Stage 07 FAIL stops the run (surface to me). Stage 10 slop polish is terminal; any drift FAIL stops the run. Then apply DONT.MD §9 rule index + §E19 BOOM gate before delivery.
+The active base defines structure, not fixed content.
 
-7. PREPARE — Write `applications/[Company]_[YYYY-MM]/interview_prep.md` with exactly these sections:
-   - `## Pitch` — 10-second role-specific pitch.
-   - `## Likely questions` — table: `| Question | Answer angle | Evidence anchor (repo/PR/file) |`.
-   - `## Gap defenses` — each flagged gap + honest framing (eagerness only, never claimed as skill).
-   - `## Questions for them` — 3–5 specific questions showing company research.
+Per application:
+- choose one Primary Technical Domain
+- choose D1/D2/D3 output depth
+- preserve D3 proof in evidence sources even when output is D1/D2
+- foreground the most relevant evidence
+- compress adjacent domains
+- omit low-signal detail when necessary
 
-8. LEARN — Deliver: (a) tailored resume + cover letter, (b) gaps / risks / weak claims with handling (in your final reply; defenses also in `interview_prep.md`), (c) interview prep file. Distill durable lessons into `memory/lessons.md` ONLY with evidence, per the AGENTS.md loop. Never rewrite DONT.MD or `boundaries.md` without a verified case.
+### Local
+D2 default. D3 when the JD and primary domain reward technical implementation.
 
-RULES — Never invent metrics, users, scale, funding, ownership, or production status. `boundaries.md` + DONT.MD are canonical; truth always overrides inference.
+### MNC
+D1–D2 default. D3 only when the JD clearly rewards technical implementation, systems, research, debugging, architecture, or similar proof.
+
+The MNC resume should be technically credible, not technically exhaustive.
+
+Never invent metrics, users, scale, funding, ownership, production status, or qualifications.
