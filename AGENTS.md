@@ -5,59 +5,90 @@ This is a document workspace (structured YAML + markdown), not a coding project:
 
 ## Repo essence
 
-Three resume tracks (startup, MNC, mid-level) generated from `data/facts.yaml` via `pipeline/run.md`.
-Domain terms, positioning, and writing rules: `CONTEXT.md` (load it with this file).
+Two active resume tracks are maintained from one factual source:
 
-## Load policy (progressive disclosure)
+- `local`: local Indian IT/product companies and smaller engineering teams
+- `mnc`: multinational companies and enterprise hiring teams
 
-- START: `MAP.md` (one-page index — where everything lives).
+Legacy `startup` and `midlevel` folders may remain for history/recovery, but they are not active generation targets.
+
+Domain terms, positioning, and writing rules: `CONTEXT.md`.
+
+## Load policy
+
+- START: `MAP.md`.
 - ALWAYS: this file + `CONTEXT.md` + the task's `applications/{Company}_{YYYY-MM}/input.md`.
-- PER TASK: `pipeline/run.md`, then only the stages it names. `data/facts.yaml` + `content/github/evidence.md` + `content/github/boundaries.md` when writing or checking claims.
-- GATES: `DONT.MD` §9 (rule index) + §E19 (BOOM gate) for final validation — not a full read. Full `DONT.MD` only when a gate fails or a new rule is needed.
-- RARELY: `research/README.md` index (external evidence), `memory/lessons.md` (after meaningful work), `templates/` (LaTeX export only).
-- NEVER auto-load: other runs' `applications/*/pipeline_state.md` (audit traces), `archive/` (history), PDFs unless the task is PDF work, `.agents/skills/*` except the two Stage 10 names.
+- PER TASK: `pipeline/run.md`, then only the stages it names. Read `data/facts.yaml`, `content/github/evidence.md`, and `content/github/boundaries.md` when writing or checking claims.
+- GATES: `DONT.MD` §9 + §E19 for final validation.
+- NEVER auto-load other runs' audit traces, `archive/`, or PDFs unless required by the task.
 
-## Ownership (one owner per knowledge type)
+## Ownership
 
-- Behavior/loading/precedence/learning: this file.
-- Project map + domain + positioning: `CONTEXT.md`.
-- Resume rules / failure prevention: `DONT.MD` (canonical — never restate its rules elsewhere).
-- Facts: `data/facts.yaml`. Proof: `content/github/evidence.md`. Constraints: `content/github/boundaries.md`.
-- Execution order: `pipeline/run.md` (DONT.MD §§0-2 are methodology invariants, not the execution sequence).
-- Tool skills: `.agents/skills/*` (installed via `skills-lock.json` — do not move).
-- Outputs: `versions/{track}/` (`_base.md` + `resume_{Company}.md`). Active state: `applications/*/`.
+- Agent behaviour/loading/precedence/learning: this file.
+- Project map, domain, positioning, active tracks: `CONTEXT.md`.
+- Resume rules/failure prevention: `DONT.MD`.
+- Facts: `data/facts.yaml`.
+- Proof: `content/github/evidence.md`.
+- Constraints: `content/github/boundaries.md`.
+- Execution order: `pipeline/run.md`.
+- Active outputs: `versions/local/` and `versions/mnc/`.
+- Legacy outputs: `versions/startup/` and `versions/midlevel/`, history only.
 
 ## Source precedence
 
-`USER/TASK → APPLICATION (input.md notes/track) → THIS FILE → DONT.MD + boundaries.md → memory/lessons.md → research → INFERENCE`. Truth and explicit requirements always override inference. Never manufacture facts to satisfy a stage.
+`USER/TASK → APPLICATION → THIS FILE → DONT.MD + boundaries.md → memory/lessons.md → research → INFERENCE`.
+
+Truth and explicit requirements override inference. Never manufacture facts to satisfy a stage.
+
+## Resume structure contract
+
+Both active tracks use this default order:
+
+1. Header / contact
+2. Summary
+3. Experience
+4. Projects
+5. Education
+6. Technical Skills
+7. Certifications, only when verified certification data exists
+
+Do not reorder these sections for visual novelty.
+
+### Local track
+
+Use a clean, one-page, human-readable technical resume for local Indian IT/product companies.
+Keep the exact section order above. Allow slightly more product/project context and a less ATS-dense writing style than MNC.
+
+### MNC track
+
+Use a one-page, single-column, ATS-safe resume.
+Use conventional headings, searchable text, standard formatting, and concise technical bullets.
 
 ## Maintenance workflows
 
-- Update a fact: edit `data/facts.yaml` only → regenerate outputs → validate against `boundaries.md`.
-- Add evidence: `content/github/evidence.md` with verifiable proof (repo links, file paths, code refs). Detailed role dossiers MAY live beside it when a role needs more context; those files support the evidence layer but do not replace the canonical fact source.
-- Add a constraint: `content/github/boundaries.md` + regex if automatable.
-- New company run: fill INPUT in `pipeline/APPLY.md` and send it to the agent (creates `applications/{Company}_{YYYY-MM}/input.md` and runs the full workflow).
-- Deep research (new/stale dossier, people + outreach intel needed): fill INPUT in `research/SWARM_RESEARCH.md` and send it as-is before APPLY.md.
-- Roadmap (human-owned, see README): build script rendering tracks from `facts.yaml`; `validate.py` against `boundaries.md`.
-
-## Learning loop (controlled)
-
-After meaningful work, distill durable lessons into `memory/lessons.md` ONLY with evidence (repeated failure, validated improvement, new convention, corrected rule, workflow pattern). Prefer consolidating existing entries over appending. Never rewrite rules after every task; never change `DONT.MD` or `boundaries.md` without a verified case. Log each durable change as one line: date + what + evidence.
-
-## Where new knowledge belongs
-
-Resume rule → `DONT.MD`. Fact → `facts.yaml`. Proof → `evidence.md` (with detailed role evidence where needed). Constraint → `boundaries.md`. Company dossier → `research/companies/{Company}.md` (Stage 01 schema). Run trace → `applications/*/pipeline_state.md`. Durable agent lesson → `memory/lessons.md`. Everything else → ask whether it earns a file.
+- Update a fact: edit `data/facts.yaml` only, then regenerate and validate.
+- Add evidence: update `content/github/evidence.md` with verifiable proof.
+- Add a constraint: update `content/github/boundaries.md`.
+- New application: fill INPUT in `pipeline/APPLY.md`.
+- New runs MUST select `local` or `mnc`.
 
 ## Agent handoff contract
 
-When an agent receives this repository without conversation history:
-1. Read `MAP.md`, `AGENTS.md`, and `CONTEXT.md`.
-2. Treat `data/facts.yaml` as the canonical biography.
-3. Read `content/github/evidence.md` and `content/github/boundaries.md` before editing claims.
-4. Use detailed evidence files under `content/github/` only to expand or clarify existing facts, never to silently change dates, titles, employers, or ownership.
-5. Run the repository's defined validation workflow before producing a submission-ready resume.
-6. Keep unresolved facts as explicit gaps. Do not guess.
+When entering without conversation history:
+
+1. Read `MAP.md`, `AGENTS.md`, `CONTEXT.md`.
+2. Treat `data/facts.yaml` as canonical biography.
+3. Read `content/github/evidence.md` and `content/github/boundaries.md` before changing claims.
+4. Use detailed evidence files only as supporting proof.
+5. Select only `local` or `mnc`.
+6. Apply the section-order contract before drafting.
+7. Run the defined pipeline and final BOOM gate before delivery.
+8. Keep unresolved facts explicit rather than guessing.
+
+## Learning loop
+
+After meaningful work, distill durable lessons into `memory/lessons.md` only with evidence. Prefer consolidating existing entries.
 
 ## Dependency note
 
-This file requires `CONTEXT.md`. `CONTEXT.md` requires nothing (its mention of this file is discovery, not a dependency).
+This file requires `CONTEXT.md`. `CONTEXT.md` requires nothing.
