@@ -1,52 +1,81 @@
 # CONTEXT.md — Resume Workspace (Soham Datta)
 
-Primary working folder for building and maintaining resumes. Single factual master profile, three output tracks.
+Primary working folder for building and maintaining two active resume tracks from one factual master profile.
 
-**Single source of truth for biographical facts:** `data/facts.yaml` — all dates, titles, companies, links, and bullets live there.
+**Single source of truth for biographical facts:** `data/facts.yaml`.
 
-## Tracks
+## Active tracks
 
-**Track** = presentation variant (same biographical facts, different layout/tone/bullet formulas for different audiences). Three tracks:
+### local
 
-- **startup**: Founder-readable, minimal/editorial, one page. Targets: NeoSapien, Omi, Bengaluru early-stage AI/wearable startups. Hero: Aura. Proof: Mia + Voice AI. Bullet formula (voice.md): Action + What Built + Stack + Verifiable Outcome.
-- **mnc**: ATS-first, single-column, conventional headings. Targets: AI Engineer, Software Engineer, Agentic AI, Voice AI, ML. Plain PDF. Bullet formula (voice.md): Action + Outcome/Metric + Technology + Context.
-- **midlevel**: Same facts as MNC, cleaner modern presentation, less stylized than startup. Bullet formula (voice.md): Context + Action + Outcome + Growth.
+Targets local Indian IT companies, product companies, engineering consultancies, and smaller AI/software teams.
+
+Positioning: practical AI engineer with hands-on software, AI, voice, embedded, and product experience.
+
+Style: one page, clean, technical, human-readable. Same structure as MNC, with slightly more product/project context.
+
+### mnc
+
+Targets multinational companies and enterprise hiring teams.
+
+Positioning: AI/software engineer with concrete technical evidence across AI/ML, LLM systems, voice, backend, embedded systems, and software engineering.
+
+Style: one page, single-column, ATS-safe, conventional headings, searchable text.
+
+## Required section order for both active tracks
+
+```
+Header / Contact
+Summary
+Experience
+Projects
+Education
+Technical Skills
+Certifications (only when verified data exists)
+```
+
+This is the default architecture for local and MNC resumes. Do not reorder sections merely to imitate another template.
 
 ## Domain terms
 
-**Knowledge sources (three distinct purposes):**
-- **Biographical facts** (`data/facts.yaml`): dates, titles, companies, education, certifications — skeleton that goes on every resume regardless of role.
-- **Technical proof** (`content/github/evidence.md`): file paths, function names, algorithms, PR numbers, test counts — deep technical detail used to write evidence-rich bullets.
-- **Constraints** (`content/github/boundaries.md`): negative rules — what NOT to claim (e.g., "never say 'built Omi backend from scratch'").
+**Biographical facts:** `data/facts.yaml`  
+**Technical proof:** `content/github/evidence.md`  
+**Constraints:** `content/github/boundaries.md`
 
-**Decision rule**: Date or title → facts.yaml. Technical depth → evidence.md. "Don't claim X" → boundaries.md.
+Decision rule: dates/titles/employers/education → `facts.yaml`; technical depth/proof → `evidence.md`; prohibited claims → `boundaries.md`.
 
-Domain-specific context:
+## Domain-specific context
 
-- **Aura | Founder**: Independent self-funded wearable AI pendant effort across hardware, software, backend. Owns enclosure/form-factor iteration, device+AI+backend integration software, frontend/design contribution to Omi ecosystem. Not VC-funded, no customers/revenue claimed. Backend depth developing — do not overstate.
-- **Mia**: Personal agent system (TypeScript CLI/harness) using context, tools, code execution, orchestration. Repo: `thesohamdatta/Mia`. Do not call it AGI.
-- **I-am-Mia**: Separate Python LiveKit real-time voice agent. Do not conflate with Mia.
-- **Voice AI Agents**: Experiments with LiveKit, ElevenLabs, Gemini Live, Deepgram. Focus: natural personal-assistant interaction.
-- **Omi contribution**: Frontend/design work, issues/PRs in `BasedHardware/omi`. Mention inside Aura only, never as separate experience. All 7 authored PRs were closed unmerged; 3 approved. Downstream merges by others (e.g. PR #8902 GPU fix, PR #12471 diarization, PR #12089 grounding, PR #12927 markdown export) are not direct authorship.
-- **LLM-Council**: Multi-LLM compare/critique/synthesize system. Supporting project, MNC track.
-- **PES Modern College / PS Modern Institute — Research Assistant**: Researched literature, digital learning platforms, open courseware, free coding resources, research repositories such as arXiv, books, articles, and the college's own digital archive. Helped students discover and use resources across computer science, healthcare, mechanical engineering, electrical engineering, and related domains through guidance, workshops, and digital-awareness campaigns. Do not claim ownership of platforms/archive or unverified audience or outcome metrics.
-- **Positioning**: AI Engineer · Personal AI · Wearable Systems. Story: built wearable system → built agent system → works across software/AI/hardware/product.
+- **Aura | Founder:** independent/self-funded wearable AI pendant effort across hardware, software, backend, and product integration. Backend was adapted from the Omi ecosystem, not built from scratch.
+- **Mia:** local-first TypeScript AI engineering CLI/harness. Do not call it AGI or claim production adoption.
+- **Voice AI:** LiveKit/WebRTC experiments including John, I-am-Mia, and voicecoder. Keep prototype/experimental scope honest.
+- **Omi contribution:** describe issues, RFCs, tests, and proposals accurately. Never claim authorship of downstream maintainer PRs.
+- **LLM-Council:** multi-LLM compare/critique/synthesize system. Supporting project.
+- **PES Modern College / PS Modern Institute:** research support, digital-resource discovery, student guidance, workshops, and documentation. Do not invent research outputs or audience metrics.
 
 ## Writing rules
 
-Short, direct, factual, understated. Concrete verbs. Never invent metrics, users, funding, customers, revenue, scale, or production status. No buzzwords: passionate, innovative, cutting-edge, leveraged, spearheaded, transformative, next-generation.
+Short, direct, factual, understated. Concrete verbs. Never invent metrics, users, funding, customers, scale, revenue, production status, ownership, or outcomes.
 
 ## Folder layout
 
-- `data/` — `facts.yaml`, canonical facts (dates, titles, companies, bullets per track).
-- `pipeline/` — executable 10-stage generation workflow (`run.md` orchestrates `stages/`).
-- `applications/` — per-company runs (`input.md`, `pipeline_state.md`, `cover_letter.md`).
-- `research/` — external evidence + company dossiers (see `research/README.md` index).
-- `content/github/` — GitHub project research + Omi contribution dossier and truth boundaries.
-- `content/handoffs/` — conversation handoffs, source of truth for wording decisions.
-- `versions/{startup,mnc,midlevel}/` — one `_base.md` per track + tailored `resume_{Company}.md` outputs.
-- `templates/` — LaTeX variants: `v2-comma-titles` (pdflatex) + `v3` openfont (xelatex); see `templates/v3/README.md`. v1 retired to `archive/`.
-- `.agents/skills/` — tool skills (`stop-slop`, `pdf` — loaded only when the task needs them).
-- `memory/` — durable agent lessons (see `AGENTS.md` learning loop).
-- `assets/` — source PDFs (user artifacts, keep). Superseded research drafts live in `archive/`.
-- `docs/` — reference PDFs.
+- `data/` — canonical facts
+- `pipeline/` — 10-stage generation workflow
+- `applications/` — per-company runs
+- `research/` — company dossiers and external evidence
+- `content/github/` — technical proof and boundaries
+- `versions/local/` — active local company base and tailored outputs
+- `versions/mnc/` — active MNC base and tailored outputs
+- `versions/startup/` — legacy only
+- `versions/midlevel/` — legacy only
+- `templates/` — LaTeX export templates
+- `memory/` — durable lessons
+- `assets/` — source artifacts
+
+## Active-track rule
+
+New application runs MUST use exactly one of:
+- `local`
+- `mnc`
+
+Do not use `startup` or `midlevel` for new work.
