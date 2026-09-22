@@ -1,44 +1,55 @@
 <!-- Stage 5: Positioning — Read by pipeline/run.md -->
 # STAGE 05: POSITIONING
 
-**Your Role:** Define the strategic framing for this specific application.
+Define the framing for this application without changing factual history.
 
-## Inputs to Read:
-- `applications/{Company}_{YYYY-MM}/pipeline_state.md` (Read `## Stage 04 — Evidence Match`)
+## Inputs
+- `applications/{Company}_{YYYY-MM}/pipeline_state.md` Stage 04
 - `research/companies/{Company}.md`
-- `applications/{Company}_{YYYY-MM}/input.md` (Read ONLY the `notes:` section)
+- `applications/{Company}_{YYYY-MM}/input.md` notes
 
-## Execution Rules:
-1. CRITICAL: The primary hook MUST name a specific overlap between the candidate's work and the company's product. Generic hooks like "I am passionate about AI" are invalid — reject and rewrite.
+## Execution rules
 
-## Output Target:
-Append to `applications/{Company}_{YYYY-MM}/pipeline_state.md` under a new section `## Stage 05 — Positioning Strategy`
+1. Primary hook must identify a specific overlap between the candidate's evidence and the company/role.
+2. Confirm track as exactly `local` or `mnc`.
+3. Section order is fixed for both tracks.
+4. Choose which truthful evidence to foreground. Do not invent new evidence.
 
-## Output Format (Exact Schema):
+## Output schema
+
 ```
 ## Stage 05 — Positioning Strategy
 
 ### Primary hook
-[One sentence. Most specific, strongest match between candidate and this company. No buzzwords.]
+[Specific overlap]
 
-### Secondary angles (2–3 max)
-- angle
+### Secondary angles
+- [angle]
 
 ### Track confirmed
-[startup | mnc | midlevel] — state if overriding input.md track and why
+[local | mnc] — reason if overriding input.md
 
 ### Headline for this role
-[e.g. "AI Engineer · Wearable Systems · Full-Stack"]
+[role-specific headline]
+
+### Resume structure
+1. Header / Contact
+2. Summary
+3. Experience
+4. Projects
+5. Education
+6. Technical Skills
+7. Certifications, only when verified
 
 ### Cover letter structure
-1. Opening: [hook — specific to company, ≤2 sentences]
-2. Body 1: [strongest project evidence]
-3. Body 2: [software/engineering breadth]
-4. Close: [direct ask, ≤1 sentence]
+1. Opening
+2. Strongest evidence
+3. Engineering/project breadth
+4. Close
 
-### What to cut from base resume
-- [section or bullet] — reason
+### What to cut from base
+- [section/bullet]
 
-### What to foreground (from evidence — not currently in base resume)
-- [specific technical detail from evidence.md that should appear]
+### What to foreground
+- [specific evidence]
 ```
