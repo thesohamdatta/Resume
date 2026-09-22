@@ -1,10 +1,10 @@
-# MAP.md — Repository Index
+# MAP.md - Resume Repository Map
 
-One page that answers "where does X live?"
+This file answers: where does each piece of the resume system live?
 
 ## Agent entry
 
-For a fresh agent with no conversation history:
+For a fresh agent:
 
 1. `MAP.md`
 2. `AGENTS.md`
@@ -12,79 +12,88 @@ For a fresh agent with no conversation history:
 4. `data/facts.yaml`
 5. `content/github/evidence.md`
 6. `content/github/boundaries.md`
+7. Relevant application input
+8. `pipeline/run.md`
 
 ## Active tracks
 
-| Track | Use for | Base |
+| Track | Target | Base |
 |---|---|---|
-| `local` | Local Indian IT/product companies | `versions/local/_base.md` |
-| `mnc` | MNC / enterprise hiring | `versions/mnc/_base.md` |
+| `local` | Local Indian IT/product/AI teams | `versions/local/_base.md` |
+| `mnc` | MNC/enterprise hiring | `versions/mnc/_base.md` |
 
-Legacy `startup` and `midlevel` folders are retained for recovery/history only.
+Legacy `startup` and `midlevel` are recovery/history only.
 
-## Application control
+## Application decisions
 
-Every application has two separate decisions:
+Every application has:
 
-1. **Track** = presentation environment (`local` or `mnc`)
-2. **Primary Technical Domain** = technical emphasis for this specific job
+1. Track: `local` or `mnc`
+2. Primary Technical Domain: AI/ML, LLM/Agent Systems, Voice/Realtime AI, Backend/Platform, Embedded/Edge, Computer Vision, Full-Stack AI, Research/Applied AI, Unknown
+3. Output Depth: D1, D2, or D3
 
-Optional third decision:
-3. **Output Depth** = D1, D2, or D3
+Do not create a new resume track for a domain.
 
-The domain is not a third resume track.
+## Source of truth
 
-## Standard resume section order
+| Need | Source |
+|---|---|
+| Biographical facts | `data/facts.yaml` |
+| Technical proof | `content/github/evidence.md` |
+| Claim/ownership/status boundaries | `content/github/boundaries.md` |
+| Application requirements | `applications/{Company}_{YYYY-MM}/input.md` |
+| Workflow | `pipeline/run.md` |
+| Active local base | `versions/local/_base.md` |
+| Active MNC base | `versions/mnc/_base.md` |
+| Templates | `templates/` |
+| Durable lessons | `memory/lessons.md` |
 
-```
+## Standard resume structure
+
 Header / Contact
-Summary
-Experience
-Projects
-Education
-Technical Skills
-Certifications (only when verified)
-```
+-> Summary
+-> Experience
+-> Projects
+-> Education
+-> Technical Skills
+-> Certifications (only when verified)
 
-## Evidence model
+## Evidence classes
 
-`content/github/evidence.md` is the deep proof layer. It may contain D3 implementation detail even when the final resume is D1/D2.
-
-Evidence types:
 - Implementation
 - Design
 - Problem-solving
 - Research
 - Product
 
-## Run something
-
-| I want to… | Open this |
-|---|---|
-| Apply for a job | `pipeline/APPLY.md` |
-| Understand the 10 stages | `pipeline/run.md` |
-| Deep-research a company | `research/SWARM_RESEARCH.md` |
-| Re-run one stage | `pipeline/run.md` → Shortcuts |
-
 ## Pipeline
 
-01 company research → 02 JD analysis → 03 candidate context → 04 evidence match →
-05 positioning/domain-depth gate → 06 resume writer → 07 factuality gate →
-08 ATS review → 09 final editor → 10 slop polish
+1. Company research
+2. JD analysis
+3. Candidate context
+4. Evidence mapping
+5. Positioning/domain/depth gate
+6. Resume writing
+7. Factuality gate
+8. ATS review
+9. Final editor
+10. Slop/language polish
+11. Final BOOM validation
 
-## Outputs
+## Writing contract
 
-- Tailored resumes: `versions/{local,mnc}/resume_{Company}.md`
-- Per-run state: `applications/{Company}_{YYYY-MM}/`
-- Company dossiers: `research/companies/{Company}.md`
-- Durable lessons: `memory/lessons.md`
+The system optimizes:
+ATS precision + recruiter scan speed + hiring-manager technical clarity + human credibility.
 
-## Templates
+Write from evidence.
 
-- `templates/v2-comma-titles/`
-- `templates/v3/`
-- Retired templates remain under `archive/`
+Do not use polish as a substitute for proof.
 
-## Do not auto-load
+Every meaningful line should communicate action, artifact, problem, decision, constraint, consequence, technical depth, ownership, evidence, or relevance.
 
-Other runs' `pipeline_state.md`, `archive/`, PDFs, and old research unless specifically required.
+## Output principle
+
+The active resume must be the smallest useful representation of the evidence base for the target role.
+
+Do not make the candidate sound better than the evidence supports.
+Make the evidence easier to see.
