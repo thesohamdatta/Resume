@@ -2,76 +2,76 @@
 
 Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub](https://github.com/thesohamdatta) · [Portfolio](https://sohamdatta.framer.ai)
 
----
+**AI Engineer | Machine Learning | AI Systems**
+
+## Summary
+
+AI engineer building practical systems across wearable AI, real-time voice, LLM tooling, computer vision, and software engineering. Hands-on across Python, TypeScript, C/C++, Kotlin, FastAPI, LiveKit, ESP32/FreeRTOS, and Git/GitHub.
 
 ## Experience
 
 ### Founder · Aura
 **Jun 2025 – Present** | Wearable AI · Hardware Prototyping · Edge Integration · Open Source
 
-- Designed and 3D-printed custom enclosures for a wearable AI pendant (Seeed XIAO ESP32-S3 Sense) packaging camera, LiPo battery, and mic; wrote FreeRTOS event loops for I2S DMA audio capture at 16 kHz with Opus compression and OTA updates.
-- Adapted FastAPI backend from the Omi ecosystem (memory, transcription, knowledge graph, speaker identification routers) with pgvector migrations and Kubernetes-hosted Deepgram Nova-3 ASR; verified hardware-to-cloud audio streaming.
-- Diagnosed Electron WebGL GPU memory leak on Windows (CSS backdrop filters over 3D graph canvas); authored [Issue #8438](https://github.com/BasedHardware/omi/issues/8438), merged downstream in [PR #8902](https://github.com/BasedHardware/omi/pull/8902). Authored offline SciPy agglomerative clustering with 52 tests for 3+ speaker diarization ([PR #8919](https://github.com/BasedHardware/omi/pull/8919), adopted in [PR #12471](https://github.com/BasedHardware/omi/pull/12471)).
-- Authored speaker grounding for action items ([Issue #8918](https://github.com/BasedHardware/omi/issues/8918), adopted in [PR #12089](https://github.com/BasedHardware/omi/pull/12089)), Windows file indexing spec ([Issue #8991](https://github.com/BasedHardware/omi/issues/8991), delivered in [#7896/#9595/#10236]), and Markdown export spec ([Issue #12360](https://github.com/BasedHardware/omi/issues/12360) OPEN; draft [PR #12927](https://github.com/BasedHardware/omi/pull/12927) NOT merged). Security hardening ([PR #7379](https://github.com/BasedHardware/omi/pull/7379)) and web refactor ([PR #7654](https://github.com/BasedHardware/omi/pull/7654)) approved, closed unmerged.
+- Designed and 3D-printed custom enclosures for a wearable AI pendant using Seeed XIAO ESP32-S3 Sense, camera, LiPo battery, and microphone; wrote FreeRTOS event loops for 16 kHz I2S DMA audio capture, Opus compression, and OTA updates.
+- Adapted FastAPI backend from the Omi ecosystem with memory, transcription, knowledge graph, and speaker-identification routers; integrated pgvector migrations and Kubernetes-hosted Deepgram Nova-3 ASR; verified hardware-to-cloud audio streaming.
+- Diagnosed an Electron WebGL GPU memory leak on Windows caused by CSS backdrop filters over a 3D graph canvas; authored Omi Issue #8438, later resolved downstream in PR #8902.
+- Authored offline SciPy agglomerative clustering with 52 tests for 3+ speaker diarization; the approach was adopted downstream in PR #12471.
 
 ### AI & ML Intern · AICTE via Google
 **Oct 2024 – Dec 2024** | Computer Vision · TensorFlow · ML Kit · Edge Deployment
 
-- Built and evaluated lightweight on-device vision models with TensorFlow and Google ML Kit for mobile edge classification.
-- Applied transfer learning and data augmentation to optimise inference latency under mobile memory constraints.
+- Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device edge classification.
+- Applied transfer learning and data augmentation under mobile memory constraints.
 
 ### Associate · Reliance
 **Jul 2024 – Oct 2024** | Customer Service · Store Operations · POS · Documentation
 
-- Handled the customer service desk across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up.
-- Worked with brand managers, HR, store managers, and store teams to clarify customer issues and coordinate resolutions.
+- Handled customer-service workflows across complaints, memberships, digital vouchers, exchanges, documentation, and daily follow-up.
+- Coordinated with brand managers, HR, store managers, and store teams to clarify issues and coordinate resolutions.
 
 ### Research Assistant · PES Modern College
 **Sep 2023 – Mar 2024** | Research Support · Digital Learning · Workshops · Documentation
 
-- Researched literature, digital learning platforms, and free resources across computer science, healthcare, mechanical engineering, electrical engineering, and related domains; gathered and organised course, book, article, and research resources.
-- Worked with the college archive and guided students to use digital learning resources through workshops and awareness campaigns covering open courseware, arXiv, free coding resources, and related platforms.
----
-
-## Technical Skills
-
-**AI Agents & LLMs:** AI Agents, LLM Tool Calling (MCP), Prompt Grounding, Context & Memory Graphs, Multi-Agent Orchestration, RAG
-
-**Voice & Multimodal AI:** LiveKit (WebRTC), Silero VAD, Streaming STT/TTS (Deepgram, ElevenLabs), TensorFlow, ML Kit, Moondream VLM
-
-**Software Engineering:** Python (FastAPI, PyTorch, asyncio), TypeScript/JavaScript (Node.js, React, Vite), Kotlin (Android Compose), C/C++ (ESP32/FreeRTOS), REST APIs, Git/GitHub, Vitest
-
-**Hardware & Wearables:** 3D CAD (STL), Wearable Device Packaging, ESP32-S3 Firmware, Rapid Prototyping
-
----
+- Researched literature, digital learning platforms, open courseware, research repositories, books, articles, and related resources across multiple learning domains.
+- Organised research material and helped students use digital learning resources through guidance, workshops, and awareness activities.
 
 ## Projects
 
 ### Mia · Personal AI Engineering OS
-**TypeScript · Bun · Multi-Host LLM Adapters · Vitest · JSONL State Engine**
+**TypeScript · Bun · Vitest · JSONL**
 [GitHub](https://github.com/thesohamdatta/Mia)
 
-- Built a compiled TypeScript CLI (single Bun binary) automating a 5-stage AI engineering harness (grill to spec to plan to review to ship) with unified host adapters for Anthropic Claude, OpenAI Codex, and local models.
-- Implemented immutable JSONL state tracking, automated verification gates (lint, typecheck, Vitest), and eliminated fragile background daemon architecture via stateless event-driven execution.
+- Built a compiled TypeScript CLI with a 5-stage engineering harness: grill, spec, plan, review, ship.
+- Unified LLM adapters for Claude, OpenAI Codex, and local models with automated lint, typecheck, and Vitest verification gates plus immutable JSONL state tracking.
 
 ### Voice AI Systems · Real-Time Voice Agents & Copilots
-**LiveKit WebRTC · Silero VAD · ElevenLabs · Python · Kotlin (Android Compose)**
-[John](https://github.com/thesohamdatta/John) · [I-am-Mia](https://github.com/thesohamdatta/I-am-Mia) · [voicecoder](https://github.com/thesohamdatta/voicecoder)
+**LiveKit · WebRTC · Silero VAD · Python · Kotlin**
+[GitHub](https://github.com/thesohamdatta/John)
 
-- Built real-time WebRTC conversational voice agents using LiveKit with client-side Silero VAD for barge-in interruption and semantic turn detection.
-- Developed **John**: native Android Kotlin app (Jetpack Compose) connected to a Python LiveKit agent with tool calling for calendar, tasks, and telephony.
-- Developed **voicecoder**: VS Code extension for voice-driven code editing with multi-provider fallback (Claude, GPT-4o, Gemini, local Ollama) and real-time token cost tracking.
+- Built real-time WebRTC voice agents with LiveKit and Silero VAD for interruption and semantic turn detection.
+- Developed John, a native Android Kotlin client connected to a Python LiveKit agent with tool calling; built voicecoder, a VS Code voice-coding extension with multi-provider fallback and token-cost tracking.
 
 ### LLM-Council · Multi-Model Consensus Engine
-**Python · FastAPI · React · Vite · Multi-Agent Orchestration**
+**Python · FastAPI · React · Vite**
 [GitHub](https://github.com/thesohamdatta/LLM-Council)
 
-- Built a multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesise peer-reviewed answers.
-- Implemented a 3-stage critique pipeline (Analyst to Skeptic to Synthesizer) with an interactive React frontend visualising step-by-step model agreement.
-
----
+- Built a concurrent multi-LLM pipeline querying OpenAI, Anthropic, Gemini, and Groq through an Analyst → Skeptic → Synthesizer critique flow.
+- Added an interactive React frontend to visualize step-by-step model agreement.
 
 ## Education
 
-**Bachelor of Engineering (B.E.) · Artificial Intelligence & Machine Learning**
+**Bachelor of Engineering (B.E.) · Artificial Intelligence & Machine Learning**  
 University of Pune (SPPU) · 2022 – Jun 2026 · Pune, India
+
+## Technical Skills
+
+**Languages:** Python, TypeScript/JavaScript, Kotlin, C/C++  
+**AI/ML:** AI Agents, LLM Tool Calling (MCP), RAG, TensorFlow, PyTorch, ML Kit  
+**Voice/Multimodal:** LiveKit, WebRTC, Silero VAD, Deepgram, ElevenLabs, Moondream VLM  
+**Engineering:** FastAPI, React, Vite, REST APIs, Git/GitHub, Vitest, asyncio  
+**Systems/Hardware:** ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, 3D CAD, Kubernetes Helm, pgvector
+
+## Certifications
+
+Add this section only when certification is verified in `data/facts.yaml` or another approved evidence source. Never infer certification status from a course, badge, or skill.
