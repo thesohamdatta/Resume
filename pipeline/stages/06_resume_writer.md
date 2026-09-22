@@ -1,4 +1,3 @@
-<!-- Stage 06: Resume Writer — Read by pipeline/run.md -->
 # STAGE 06: RESUME WRITER
 
 This stage owns the draft, not the facts.
@@ -9,13 +8,12 @@ This stage owns the draft, not the facts.
 2. Stage 05 — Positioning
 3. `content/github/evidence.md`
 4. `data/facts.yaml`
-5. Active base:
+5. `content/github/boundaries.md`
+6. Active base:
    - `versions/local/_base.md`
    - `versions/mnc/_base.md`
 
 ## Required resume order
-
-The generated resume MUST use this exact default order:
 
 1. Header / Contact
 2. Summary
@@ -25,34 +23,56 @@ The generated resume MUST use this exact default order:
 6. Technical Skills
 7. Certifications, only when verified certification data exists
 
-This order applies to both local and MNC tracks.
+This order applies to both active tracks.
+
+## Domain-first writing
+
+Use the Stage 05 **Primary Technical Domain** as the main technical lens.
+
+Within that domain:
+- foreground the strongest verified evidence
+- prefer evidence with direct relevance and strong proof
+- preserve concrete technology/method where the chosen depth requires it
+- compress unrelated technical breadth
+- omit low-signal details when page space is constrained
+
+Do not force every project, tool, or technical subsystem onto the resume.
+
+## Output depth
+
+Follow Stage 05 exactly:
+- D1: scope + result/purpose + core technology
+- D2: scope + important implementation method + technology + result/purpose
+- D3: technical implementation, architecture, algorithm, test, constraint, or debugging detail where verified
+
+The same Aura evidence may therefore produce a D2/D3 bullet for a technical local role and a D1/D2 bullet for an enterprise role. The evidence source remains unchanged.
 
 ## Track treatment
 
 ### Local
 - One page.
 - Clean and human-readable.
-- Keep strong technical detail.
-- Give projects enough context for a local IT/product recruiter to understand what was built.
-- Avoid unnecessary ATS keyword repetition.
+- D2 default.
+- Allow D3 for a highly technical primary-domain application.
+- Keep enough project context to explain what was built.
 
 ### MNC
 - One page.
 - Single column.
 - Conventional headings.
 - ATS-safe plain text structure.
-- Use standard technical terminology and concise bullets.
-- No visual formatting that can hide or confuse important text.
+- D1–D2 default.
+- D3 only where the JD explicitly earns that depth.
+- Do not turn the resume into an implementation diary.
 
 ## Evidence-first bullet rules
 
 - Start from evidence, then write the bullet.
-- Include what was built/done, the concrete technology/method, and the observable result or purpose.
+- Include only the technical detail justified by Stage 05 depth.
 - Use exact numbers only when verified.
 - Keep most bullets to 1–2 lines.
-- Avoid passive voice and generic duty statements.
-- Enforce `DONT.MD` and `content/github/boundaries.md`.
 - Never change dates, titles, ownership, employer names, or project scope.
+- Enforce `DONT.MD` and `content/github/boundaries.md`.
 
 ## Certifications
 
