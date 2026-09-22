@@ -16,7 +16,7 @@ INPUT
 - Company: [Company]
 - Role: [title]
 - JD (full text, pasted below, or [none — exploratory research]): [...]
-- Track (if known): [startup | mnc | midlevel | unknown]
+- Track (if known): [local | mnc | unknown]
 - Run folder (if an application exists): [applications/{Company}_{YYYY-MM}/ or none]
 
 LOAD (only this, then delegate — progressive disclosure):
@@ -44,7 +44,7 @@ the INPUT block + relevant dossier deltas, never the full repo):
 3. **Role decoder** — from the JD (or analogous JDs if none): stated vs implied needs,
    must-have vs nice-to-have, what "good" looks like in 6 months, hiring urgency signals.
 4. **Self auditor** — LOCAL files only (`data/facts.yaml`, `content/github/evidence.md`,
-   `versions/{track}/_base.md`, portfolio/GitHub links in facts): inventory strengths,
+   `versions/{local|mnc}/_base.md`, portfolio/GitHub links in facts): inventory strengths,
    gaps, and proof anchors relevant to the role. No web search. No new claims.
 5. **Market checker** — competitors, ecosystem trends, salary/level signals if public.
    Skip entirely if it would not change targeting (say so in one line).
