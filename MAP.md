@@ -22,6 +22,18 @@ For a fresh agent with no conversation history:
 
 Legacy `startup` and `midlevel` folders are retained for recovery/history only.
 
+## Application control
+
+Every application has two separate decisions:
+
+1. **Track** = presentation environment (`local` or `mnc`)
+2. **Primary Technical Domain** = technical emphasis for this specific job
+
+Optional third decision:
+3. **Output Depth** = D1, D2, or D3
+
+The domain is not a third resume track.
+
 ## Standard resume section order
 
 ```
@@ -34,6 +46,17 @@ Technical Skills
 Certifications (only when verified)
 ```
 
+## Evidence model
+
+`content/github/evidence.md` is the deep proof layer. It may contain D3 implementation detail even when the final resume is D1/D2.
+
+Evidence types:
+- Implementation
+- Design
+- Problem-solving
+- Research
+- Product
+
 ## Run something
 
 | I want to… | Open this |
@@ -43,21 +66,10 @@ Certifications (only when verified)
 | Deep-research a company | `research/SWARM_RESEARCH.md` |
 | Re-run one stage | `pipeline/run.md` → Shortcuts |
 
-## Know the rules
-
-| Question | Answer lives in |
-|---|---|
-| Agent behavior | `AGENTS.md` |
-| Domain / track / structure | `CONTEXT.md` |
-| Resume rules | `DONT.MD` |
-| Candidate facts | `data/facts.yaml` |
-| Technical proof | `content/github/evidence.md` |
-| Claim boundaries | `content/github/boundaries.md` |
-
 ## Pipeline
 
 01 company research → 02 JD analysis → 03 candidate context → 04 evidence match →
-05 positioning → 06 resume writer → 07 factuality gate →
+05 positioning/domain-depth gate → 06 resume writer → 07 factuality gate →
 08 ATS review → 09 final editor → 10 slop polish
 
 ## Outputs
