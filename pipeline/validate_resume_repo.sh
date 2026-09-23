@@ -65,7 +65,7 @@ if grep -RInE 'Jane Doe|Anycompany|dummy-certification|Project 1|lorem ipsum' "$
 fi
 ok "canonical template contains no dummy content"
 
-if git -C "$ROOT" ls-files | grep -E '\.(aux|log|out|synctex\.gz|fls|fdb_latexmk)$' >/tmp/resume-build-check 2>/dev/null; then
+if git ls-files templates/v3 versions/referral versions/startup versions/mnc pipeline | grep -E '\.(aux|log|out|synctex\.gz|fls|fdb_latexmk)$' >/tmp/resume-build-check 2>/dev/null; then
   cat /tmp/resume-build-check
   fail "tracked LaTeX build artifacts found in active surfaces"
 fi
