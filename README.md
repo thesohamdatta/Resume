@@ -1,131 +1,129 @@
-# Resume Workspace
+# Resume Engine
 
-Evidence-first resume engineering system for Soham.
+A small evidence-first system for generating tailored resumes from a job description and a supplied template.
 
-The repository converts one verified body of candidate evidence into three one-page resume tracks:
+## The workflow
 
-- `referral` — forwarded/local-network applications
-- `startup` — startups, founder outreach, direct applications
-- `mnc` — multinational and enterprise hiring
+```text
+candidate evidence + JD + template + notes
+                    ↓
+                 analyze
+                    ↓
+                  match
+                    ↓
+                 select
+                    ↓
+                  write
+                    ↓
+                  render
+                    ↓
+                 verify
+                    ↓
+              resume + audit
+```
 
-The system separates candidate facts, technical evidence, claim boundaries, application context, and document presentation.
+The goal is not maximum information. It is the smallest clear document that makes the strongest truthful case for the role.
 
-## Core rule
+## Fast application workflow
 
-**Make the reader see more truth, not more polish.**
+Create: applications/Company_YYYY-MM/input.md
 
-The system optimizes for:
-- ATS parsing
-- recruiter scan speed
-- technical hiring-manager evaluation
-- human credibility
+Use the contract in engine/INPUT.md:
 
-It does not optimize for imaginary ATS scores, keyword stuffing, or generic resume polish.
+```markdown
+# Application Input
 
-## Source hierarchy
+Company: Example
+Role: AI/ML Engineer
+Track: mnc
 
-| Need | Canonical source |
+## Job Description
+
+[paste full JD]
+
+## Template
+
+templates/v3/resume.tex
+
+## Optional notes
+
+[anything specific to this application]
+```
+
+Then give the application folder to the resume agent with engine/PROMPT.md as its operating contract.
+
+Expected output:
+
+```text
+applications/Company_YYYY-MM/output/
+├── resume.tex
+├── resume.pdf
+├── extracted.txt
+└── audit.md
+```
+
+## Canonical evidence
+
+| Purpose | Source |
 |---|---|
-| Biographical facts | `data/facts.yaml` |
-| Technical proof | `content/github/evidence.md` |
-| Ownership / status / attribution boundaries | `content/github/boundaries.md` |
-| Application requirements | `applications/{Company}_{YYYY-MM}/input.md` |
-| Pipeline | `pipeline/run.md` |
-| Durable lessons | `memory/lessons.md` |
-| Document layout | canonical template under `templates/` |
+| Candidate facts | data/facts.yaml |
+| Technical proof | content/github/evidence.md |
+| Ownership / attribution boundaries | content/github/boundaries.md |
+| Application input | applications/*/input.md |
+| Resume engine | engine/PROMPT.md |
+| Engine rules | engine/RULES.md |
+| Template | templates/ |
 
-Historical resumes are recovery material only. They never override the evidence layer.
+Historical resumes and old application runs are reference material, not sources of truth.
 
 ## Active tracks
 
-| Track | Purpose | Display name |
-|---|---|---|
-| `referral` | Local referrals and forwarded applications | **Soham Karande** |
-| `startup` | Startup, founder, direct outreach | **Soham Datta** |
-| `mnc` | MNC and enterprise hiring | **Soham Datta** |
+There are three presentation modes:
 
-Track selection changes emphasis, ordering, wording, and depth. It never changes facts.
+- referral — Soham Karande; broad and easy to forward
+- startup — Soham Datta; stronger ownership and builder signal
+- mnc — Soham Datta; conventional, precise, ATS-safe
 
-## Application model
+A track changes emphasis and presentation. It never changes facts.
 
-Every run determines:
+## Design principle
 
-1. Track
-2. Primary technical domain
-3. Output depth
-4. Evidence mapping
-5. Content selection
+Evidence is the source. The JD decides relevance. The template decides presentation.
 
-Primary technical domains:
+The engine must never invent:
 
-AI/ML, LLM/Agent Systems, Voice/Realtime AI, Backend/Platform, Embedded/Edge, Computer Vision, Full-Stack AI, Research/Applied AI, Unknown.
+- metrics
+- users
+- customers
+- scale
+- technologies
+- ownership
+- dates
+- production status
+- qualifications
 
-Output depth:
+## Quality gates
 
-- D1 — scan level
-- D2 — engineering level
-- D3 — technical proof
+Every generated resume must pass:
 
-## Standard structure
+1. FACT — claims are supported.
+2. FIT — relevant evidence is visible.
+3. READ — the page is easy to scan.
+4. PARSE — the PDF remains coherent when extracted as plain text.
 
-Default section order:
+If the page is too full, remove weak information before shrinking typography.
 
-1. Header / Contact
-2. Summary
-3. Experience
-4. Projects
-5. Education
-6. Technical Skills
-7. Certifications, only when verified
+## Repository structure
 
-The order stays stable unless a real application requirement justifies a change.
-
-## Writing system
-
-Write like a technically capable human:
-
-- concrete nouns
-- accurate verbs
-- technical details
-- real constraints
-- verified outcomes
-- concise sentences
-- natural rhythm
-
-Do not use polish as a substitute for evidence.
-
-## Evidence standard
-
-A claim should survive:
-
-**Could Soham explain exactly how this worked in an interview?**
-
-Preserve distinctions between:
-
-- contribution and ownership
-- issue and implementation
-- approval and merge
-- downstream adoption and authorship
-- prototype and production
-- tool exposure and proficiency
-
-## Repository layout
-
-```
-data/                  canonical facts
-content/               technical proof and boundaries
-versions/              active track bases and tailored outputs
-applications/          per-company application runs
-pipeline/              generation workflow
-research/              external research
-memory/                durable lessons
-templates/             canonical LaTeX template + references
-archive/               historical material only
+```text
+data/        canonical facts
+content/     technical evidence and boundaries
+engine/      generation contract and rules
+templates/   visual templates
+versions/    reusable base tracks
+applications/role-specific runs
+research/    external research
+archive/     historical material
 ```
 
-## Output principle
-
-The active resume should be the smallest useful representation of the evidence base for the target role.
-
-Make the evidence easier to see.
-Do not make the candidate sound better than the evidence supports.
+Keep the active system small. New rules belong in the engine only when they solve a demonstrated failure.
