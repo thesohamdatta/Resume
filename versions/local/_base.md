@@ -1,4 +1,7 @@
-# Soham Datta
+# Historical local base
+
+> Legacy track retained for recovery only. Active equivalent: `versions/referral/_base.md`.
+
 
 **AI Engineer | AI Systems | Voice AI | Embedded**
 
@@ -13,7 +16,7 @@ AI engineer building AI systems across wearable hardware, embedded software, rea
 ### Founder · Aura
 **Jun 2025 – Present** | Wearable AI · Hardware + Software · Edge Systems
 
-- Built Aura across ESP32-S3 firmware, backend services, and device integration; designed and 3D-printed the wearable enclosure.
+- Built Aura across ESP32-S3 firmware, backend services, and device integration.
 - Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, Opus compression, Wi-Fi/BLE event handling, sleep modes, and OTA updates.
 - Adapted FastAPI services from the Omi ecosystem for memory, transcription, knowledge-graph, MCP, and speaker-identification paths; added pgvector storage and Kubernetes-hosted Deepgram Nova-3 ASR.
 - Diagnosed a Windows Electron WebGL GPU memory leak and authored the Omi issue that led to a downstream fix; authored offline speaker clustering with 52 tests that was later adopted downstream.
