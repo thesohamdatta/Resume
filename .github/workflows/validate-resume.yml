@@ -17,3 +17,44 @@ jobs:
 
       - name: Validate repository
         run: bash pipeline/validate_resume_repo.sh
+
+  build-resumes:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX and PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-xetex fonts-lato poppler-utils
+
+      - name: Build all active resumes
+        run: bash pipeline/build_base_resumes.sh
+
+      - name: PDF text and page QA
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/resume-artifacts
+          for track in referral startup mnc; do
+            pdf="versions/$track/resume.pdf"
+            test -s "$pdf"
+            pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
+            test "$pages" = "1"
+            pdftotext -layout "$pdf" "/tmp/resume-artifacts/${track}.txt"
+            grep -q "Soham" "/tmp/resume-artifacts/${track}.txt"
+            test -s "/tmp/resume-artifacts/${track}.txt"
+            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/${track}"
+          done
+
+      - name: Upload resume QA artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-qa
+          path: |
+            versions/referral/resume.pdf
+            versions/startup/resume.pdf
+            versions/mnc/resume.pdf
+            /tmp/resume-artifacts/*.txt
+            /tmp/resume-artifacts/*.png
