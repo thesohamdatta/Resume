@@ -1,0 +1,60 @@
+\documentclass{../../templates/v3/resume-openfont}
+\begin{document}
+
+\resumeHeader{Soham Datta}{Pune, India}{\href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
+
+{\small\bfseries AI Engineer | Machine Learning | AI Systems}\par\vspace{2pt}
+\tightpar{AI/ML engineer building systems across LLM applications, real-time voice, computer vision, and edge systems. Hands-on with Python, TypeScript, FastAPI, LiveKit, TensorFlow, and ESP32 firmware.}
+
+\section{Experience}
+\resumeRole{Aura}{Founder}{Jun 2025 - Present}{Wearable AI | Multimodal Systems | Open Source}
+\begin{resumeitemize}
+\item Built Aura across ESP32-S3 firmware, audio capture, FastAPI services, and AI memory workflows, connecting the device pipeline to cloud processing.
+\item Wrote FreeRTOS event loops for 16 kHz I2S DMA audio capture, on-device Opus compression, Wi-Fi/BLE events, and OTA firmware updates.
+\item Adapted FastAPI infrastructure from the Omi ecosystem for memory, transcription, knowledge-graph, and speaker workflows; added pgvector migrations and Kubernetes-hosted Deepgram ASR.
+\item Diagnosed an Electron/WebGL GPU memory leak on Windows (Issue #8438) and authored offline speaker clustering with 52 tests (PR #8919); both were addressed downstream.
+\end{resumeitemize}
+
+\resumeRole{AICTE via Google}{AI \& ML Intern}{Oct 2024 - Dec 2024}{Computer Vision | TensorFlow | ML Kit}
+\begin{resumeitemize}
+\item Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
+\item Applied transfer learning and data augmentation within mobile memory constraints.
+\end{resumeitemize}
+
+\resumeRole{Reliance}{Associate}{Jul 2024 - Oct 2024}{Customer Operations}
+\begin{resumeitemize}
+\item Handled customer-service workflows across complaints, memberships, digital vouchers, exchanges, documentation, and follow-up.
+\end{resumeitemize}
+
+\resumeRole{PES Modern College}{Research Assistant}{Sep 2023 - Mar 2024}{Research Support | Digital Learning | Documentation}
+\begin{resumeitemize}
+\item Researched digital learning platforms, open courseware, research repositories, books, and articles; organised resources and supported workshops and student guidance.
+\end{resumeitemize}
+
+\section{Projects}
+\resumeProject{Mia | Personal AI Engineering OS}{https://github.com/thesohamdatta/Mia}{TypeScript | Bun | LLM Adapters | Vitest | JSONL}
+\begin{resumeitemize}
+\item Built a local-first TypeScript CLI around a five-stage AI engineering workflow: grill, spec, plan, review, ship.
+\item Implemented model adapters, immutable JSONL state, and lint, typecheck, and Vitest verification; replaced a background daemon with stateless event-driven execution.
+\end{resumeitemize}
+
+\resumeProject{Voice AI Systems | Real-Time Voice Agents}{https://github.com/thesohamdatta/John}{LiveKit | WebRTC | Silero VAD | Python | Kotlin}
+\begin{resumeitemize}
+\item Built real-time WebRTC voice agents with LiveKit and Silero VAD for barge-in and turn detection; connected a Kotlin Android client to a Python agent with tool calling.
+\end{resumeitemize}
+
+\resumeProject{LLM-Council | Multi-Model Consensus Engine}{https://github.com/thesohamdatta/LLM-Council}{Python | FastAPI | React | Multi-Model Orchestration}
+\begin{resumeitemize}
+\item Built a multi-LLM consensus engine that queries OpenAI, Anthropic, Gemini, and Groq concurrently through an Analyst-to-Skeptic-to-Synthesizer critique pipeline.
+\end{resumeitemize}
+
+\section{Education}
+\resumeEducation{University of Pune (SPPU)}{2022 -- Jun 2026}{Bachelor of Engineering (B.E.) in Artificial Intelligence \& Machine Learning | Pune, India}
+
+\section{Technical Skills}
+\resumeSkills{Languages:}{Python, TypeScript/JavaScript, Kotlin, C/C++}
+\resumeSkills{AI/ML:}{LLMs, AI Agents, RAG, Tool Calling, Multimodal AI, Computer Vision, TensorFlow, PyTorch, ML Kit}
+\resumeSkills{Engineering:}{FastAPI, React, Node.js, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest}
+\resumeSkills{Systems:}{ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, Pinecone, pgvector, Kubernetes}
+
+\end{document}
