@@ -16,7 +16,7 @@ Legacy `local` and `midlevel` outputs are recovery/history only.
 
 ## Required resume structure
 
-Both tracks use this default order:
+All three tracks use this default order:
 
 1. Header / Contact
 2. Summary
