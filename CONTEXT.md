@@ -21,7 +21,8 @@ The strongest line is not the most polished line. It is the line that lets the r
 - `content/github/boundaries.md`: claim, ownership, attribution, metric, and status constraints
 - `applications/{Company}_{YYYY-MM}/input.md`: current application requirements
 - `pipeline/`: execution workflow
-- `versions/local/`: local-company outputs
+- `versions/referral/`: referral outputs
+- `versions/startup/`: startup outputs
 - `versions/mnc/`: MNC/enterprise outputs
 
 Source precedence:
@@ -343,6 +344,8 @@ When a template exists:
 - do not redesign without a real problem to solve
 
 The same candidate should emerge, only clearer and more precise.
+
+The visual template is canonical under `templates/v3/`.
 
 ## Editing passes
 
