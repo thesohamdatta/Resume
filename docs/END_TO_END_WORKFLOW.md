@@ -6,12 +6,13 @@ Turn a company + job description into a targeted, factual, one-page resume, cove
 
 ## Active tracks
 
-Only two tracks are active:
+Three tracks are active:
 
-- `local`: Indian local IT/product companies and smaller engineering teams.
-- `mnc`: multinational and enterprise hiring.
+- `referral`: forwarded/local-network applications; display name `Soham Karande`.
+- `startup`: startups, founder outreach, and direct applications; display name `Soham Datta`.
+- `mnc`: multinational and enterprise hiring; display name `Soham Datta`.
 
-Legacy `startup` and `midlevel` outputs are not used for new applications.
+Legacy `local` and `midlevel` outputs are recovery/history only.
 
 ## Required resume structure
 
@@ -33,7 +34,7 @@ Create `applications/{Company}_{YYYY-MM}/input.md`:
 
 ```yaml
 company: [Company Name]
-track: [local | mnc]
+track: [referral | startup | mnc]
 jd_url: [optional]
 jd: |
   [Full job description]
@@ -81,7 +82,8 @@ Stage 06 must read technical proof before drafting:
 2. `data/facts.yaml`
 3. `content/github/boundaries.md`
 4. selected base file:
-   - `versions/local/_base.md`
+   - `versions/referral/_base.md`
+   - `versions/startup/_base.md`
    - `versions/mnc/_base.md`
 
 Write from evidence, not from generic skill names.
@@ -95,13 +97,19 @@ Never invent metrics, users, ownership, employers, dates, production status, fun
 
 ## Track treatment
 
-### Local
+### Referral
 
 - One page.
-- Clean, technical, human-readable.
-- Same section order as MNC.
-- Slightly more product/project context is acceptable.
-- Avoid repetitive keyword stuffing.
+- Clear, practical, broad technical signal.
+- Easy to forward and scan.
+- Do not present as a startup pitch.
+
+### Startup
+
+- One page.
+- Stronger ownership and builder signal.
+- More visible technical decisions and project identity.
+- Distinctive through evidence, not gimmicks.
 
 ### MNC
 
@@ -177,8 +185,8 @@ Do not deliver a resume that has unresolved factual FAILs.
 ## Repository outputs
 
 ```
-versions/{local|mnc}/resume_{Company}.md
-versions/{local|mnc}/resume_{Company}.pdf
+versions/{referral|startup|mnc}/resume_{Company}.md
+versions/{referral|startup|mnc}/resume_{Company}.pdf
 
 applications/{Company}_{YYYY-MM}/
   input.md
@@ -199,7 +207,8 @@ applications/{Company}_{YYYY-MM}/
 data/facts.yaml                  = biographical facts
 content/github/evidence.md       = technical proof
 content/github/boundaries.md     = claim constraints
-versions/local/_base.md          = local structure
+versions/referral/_base.md      = referral structure
+versions/startup/_base.md       = startup structure
 versions/mnc/_base.md            = MNC structure
 pipeline/run.md                  = execution order
 DONT.MD                          = resume rules
