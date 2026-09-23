@@ -29,7 +29,6 @@
 \titleformat{\section}
   {\color{ResumeBlack}\large\bfseries\scshape}
   {}{0pt}{}
-  [\vspace{-4pt}\color{black!35}\hrule height 0.4pt\vspace{3pt}]
 \titlespacing*{\section}{0pt}{6.5pt}{0pt}
 
 \newenvironment{resumeitemize}
