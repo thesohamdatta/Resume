@@ -83,12 +83,12 @@ Run IN ORDER — do not skip:
 26. Evidence-backed: 2-3 concrete achievements with GitHub/PR links?
 27. Honest scope: No "production," "scale," "users" without proof?
 28. Zinsser test: Can I strip this sentence further without losing the point?
-29. Context match: Startup=bold/builder | MNC=ATS/pro | Mid=balanced?
+29. Context match: Startup=bold/builder | Referral=broad/clear | MNC=ATS/pro?
 
 **Slop-Free Polish log format:**
 ```
 ## Stage 10 — Slop-Free Polish (voice.md unified)
-Context: {startup|mnc|mid-level} from Stage 05
+Context: {startup|referral|mnc} from Stage 05
 Voice profile: {bullet formula from Voice Matrix}
 Banned words replaced: [count, list top 5]
 Resume edits: [what changed summary]
