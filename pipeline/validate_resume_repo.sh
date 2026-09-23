@@ -8,7 +8,7 @@ ok() { echo "PASS: $*"; }
 for track in referral startup mnc; do
   test -f "$ROOT/versions/$track/_base.md" || fail "missing $track base"
   test -f "$ROOT/versions/$track/resume.tex" || fail "missing $track resume.tex"
-  grep -qF '\documentclass{../../templates/v3/resume-openfont}' "$ROOT/versions/$track/resume.tex"     || fail "$track does not use canonical template"
+  grep -qF '\documentclass{../../templates/v3/resume-openfont}' "$ROOT/versions/$track/resume.tex" || fail "$track does not use canonical template"
 done
 ok "all three active tracks exist and use templates/v3"
 
@@ -35,7 +35,7 @@ ACTIVE_FILES=(
   versions/mnc/resume.tex
 )
 
-if grep -nE 'D:\\\\download|[A-Za-z]:\\\\Users\\\\|/mnt/data' -- "${ACTIVE_FILES[@]}" >/tmp/resume-path-check 2>/dev/null; then
+if grep -nE 'D:\\download|[A-Za-z]:\\Users\\|/mnt/data' -- "${ACTIVE_FILES[@]}" >/tmp/resume-path-check 2>/dev/null; then
   cat /tmp/resume-path-check
   fail "active system contains workstation paths"
 fi
@@ -53,13 +53,14 @@ if grep -nE '3D-printed|custom CAD enclosure|custom CAD' versions/referral/_base
 fi
 ok "active base resumes contain no deprecated CAD/enclosure framing"
 
-if grep -nE '\\hrule|\\titlerule' "$ROOT/templates/v3/resume-openfont.cls" >/tmp/resume-rule-check 2>/dev/null; then
+# No horizontal rule commands are allowed in the canonical template.
+if grep -nE '\\hrule|\\titlerule|\\titleline|\\rule{|\\leaders' templates/v3/resume-openfont.cls >/tmp/resume-rule-check 2>/dev/null; then
   cat /tmp/resume-rule-check
-  fail "canonical template contains horizontal section rules"
+  fail "canonical template contains horizontal rule commands"
 fi
-ok "canonical template has no horizontal section rules"
+ok "canonical template has no horizontal rule commands"
 
-if grep -RInE 'Jane Doe|Anycompany|dummy-certification|Project 1|lorem ipsum' "$ROOT/templates/v3" >/tmp/resume-dummy-check 2>/dev/null; then
+if grep -RInE 'Jane Doe|Anycompany|dummy-certification|Project 1|lorem ipsum' templates/v3 >/tmp/resume-dummy-check 2>/dev/null; then
   cat /tmp/resume-dummy-check
   fail "canonical template contains dummy content"
 fi
