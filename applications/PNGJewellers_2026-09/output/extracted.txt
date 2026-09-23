@@ -1,0 +1,58 @@
+../../templates/v3/resume-openfont
+document
+Soham DattaPune, Indiamailto:thesohamdatta@gmail.comthesohamdatta@gmail.com | +91 9420984066 | https://www.linkedin.com/in/thesohamdatta/LinkedIn | https://github.com/thesohamdattaGitHub
+
+\small\bfseries AI Engineer | AI \& Digital Products\par2pt
+AI/ML engineer building practical software across computer vision, LLM applications, realtime voice, and multimodal products. Interested in AI for digital and customer experiences.
+
+Highlights
+AI/ML · Computer Vision · LLM Applications · Product Systems · Python · TypeScript
+
+Experience
+AuraFounderJun 2025 - PresentWearable AI | Multimodal Systems | Open Source
+resumeitemize
+\item Developed a wearable AI product combining multimodal capture, AI services, memory, and companion software.
+\item Integrated transcription, context extraction, knowledge processing, and retrieval into one product workflow.
+\item Investigated a Windows WebGL performance issue in the Omi ecosystem; the diagnosis was later fixed downstream.
+resumeitemize
+
+AICTE via GoogleAI \& ML InternOct 2024 - Dec 2024Computer Vision | TensorFlow | ML Kit
+resumeitemize
+\item Developed lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
+\item Applied transfer learning and data augmentation for mobile-constrained inference.
+resumeitemize
+
+RelianceAssociateJul 2024 - Oct 2024Customer Operations
+resumeitemize
+\item Managed customer-service workflows across memberships, vouchers, exchanges, documentation, and follow-up.
+\item Coordinated with store, HR, brand, and management teams to resolve customer issues.
+resumeitemize
+
+Projects
+Mia | Personal AI Engineering OSTypeScript | Bun | LLMs | Vitest
+resumeitemize
+\item Created a local-first tool for structured AI engineering workflows, model integration, and automated checks.
+\item Added adapters for Claude, Codex, and local models with persistent state tracking.
+resumeitemize
+
+LLM-Council | Multi-Model AIPython | FastAPI | React
+resumeitemize
+\item Developed a system that compares responses from multiple LLMs for structured evaluation.
+\item Added a three-stage review flow with a simple interface for inspecting model outputs.
+resumeitemize
+
+Voice AI Systems | Realtime AILiveKit | WebRTC | Python
+resumeitemize
+\item Developed realtime voice agents with turn detection and tool calling for assistant workflows.
+\item Connected a mobile client to a Python voice agent for interactive task workflows.
+resumeitemize
+
+Education
+University of Pune (SPPU)2022 -- Jun 2026Bachelor of Engineering (B.E.) in Artificial Intelligence \& Machine Learning | Pune, India
+
+Technical Skills
+AI/ML:Python, TensorFlow, LLMs, Computer Vision, RAG
+Software:TypeScript, FastAPI, React, REST APIs, Git/GitHub
+Systems:LiveKit, WebRTC, pgvector, ESP32-S3
+
+document
