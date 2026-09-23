@@ -19,16 +19,16 @@ For a fresh agent:
 
 | Track | Target | Base |
 |---|---|---|
-| `local` | Local Indian IT/product/AI teams | `versions/local/_base.md` |
+| `referral` | Local referrals and forwarded applications | `versions/referral/_base.md` |\n| `startup` | Startups and founder/direct outreach | `versions/startup/_base.md` |
 | `mnc` | MNC/enterprise hiring | `versions/mnc/_base.md` |
 
-Legacy `startup` and `midlevel` are recovery/history only.
+Legacy `local` and `midlevel` are recovery/history only.
 
 ## Application decisions
 
 Every application has:
 
-1. Track: `local` or `mnc`
+1. Track: `referral`, `startup`, or `mnc`
 2. Primary Technical Domain: AI/ML, LLM/Agent Systems, Voice/Realtime AI, Backend/Platform, Embedded/Edge, Computer Vision, Full-Stack AI, Research/Applied AI, Unknown
 3. Output Depth: D1, D2, or D3
 
@@ -43,7 +43,7 @@ Do not create a new resume track for a domain.
 | Claim/ownership/status boundaries | `content/github/boundaries.md` |
 | Application requirements | `applications/{Company}_{YYYY-MM}/input.md` |
 | Workflow | `pipeline/run.md` |
-| Active local base | `versions/local/_base.md` |
+| Active referral base | `versions/referral/_base.md` |\n| Active startup base | `versions/startup/_base.md` |
 | Active MNC base | `versions/mnc/_base.md` |
 | Templates | `templates/` |
 | Durable lessons | `memory/lessons.md` |
