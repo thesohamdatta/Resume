@@ -23,7 +23,7 @@
 \hyphenpenalty=10000
 \urlstyle{same}
 
-\definecolor{ResumeGray}{HTML}{555555}
+\definecolor{ResumeGray}{HTML}{666666}
 \definecolor{ResumeBlack}{HTML}{111111}
 
 \titleformat{\section}
@@ -48,7 +48,7 @@
 \textbf{#1} \textnormal{\,|\,#2} & \textbf{#3}\\[-1pt]
 \multicolumn{2}{@{}l@{}}{\footnotesize\color{ResumeGray} #4}
 \end{tabularx}
-\vspace{0.5pt}}
+\vspace{1pt}}
 
 \newcommand{\resumeProject}[3]{%
 \begin{tabularx}{\textwidth}{@{}X r@{}}
