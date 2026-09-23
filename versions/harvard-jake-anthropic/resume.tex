@@ -1,0 +1,92 @@
+% Harvard / Jake Gutierrez structure with an Anthropic-like type treatment.
+% Candidate: Soham Datta
+\documentclass{resume-harvard-anthropic}
+
+\begin{document}
+
+\begin{center}
+    {\fontsize{23}{25}\selectfont\bfseries Soham Datta}\\[-1pt]
+    \small Pune, India \;|\;
+    \href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} \;|\;
+    +91 9420984066 \;|\;
+    \href{https://www.linkedin.com/in/thesohamdatta/}{linkedin.com/in/thesohamdatta} \;|\;
+    \href{https://github.com/thesohamdatta}{github.com/thesohamdatta} \;|\;
+    \href{https://sohamdatta.framer.ai}{sohamdatta.framer.ai}
+\end{center}
+
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of Pune (SPPU)}{Pune, India}
+    {Bachelor of Engineering in Artificial Intelligence \& Machine Learning}{2022 -- Jun 2026}
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Aura}{Jun 2025 -- Present}
+    {Founder, Wearable AI}{Pune, India}
+  \resumeItemListStart
+    \resumeItem{Built a wearable AI system spanning ESP32-S3 firmware, multimodal capture, mobile integration, and AI services, taking the product from hardware concept to working prototype.}
+    \resumeItem{Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, on-device Opus compression, Wi-Fi/BLE events, battery handling, and OTA updates.}
+    \resumeItem{Adapted Omi's FastAPI backend for memory, transcription, knowledge-graph, and speaker workflows, with pgvector retrieval and Deepgram ASR; verified hardware-to-cloud audio streaming.}
+    \resumeItem{Diagnosed a Windows Electron/WebGL GPU memory issue in Omi and authored an offline speaker-clustering approach with 52 tests; both pieces of work were adopted downstream.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {AICTE via Google}{Oct 2024 -- Dec 2024}
+    {AI \& ML Intern}{Pune, India}
+  \resumeItemListStart
+    \resumeItem{Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.}
+    \resumeItem{Applied transfer learning and data augmentation under mobile memory constraints.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {Reliance}{Jul 2024 -- Oct 2024}
+    {Associate, Customer Operations}{Pune, India}
+  \resumeItemListStart
+    \resumeItem{Handled customer-service workflows across complaints, memberships, digital vouchers, exchanges, documentation, and daily follow-up.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {PES Modern College}{Sep 2023 -- Mar 2024}
+    {Research Assistant}{Pune, India}
+  \resumeItemListStart
+    \resumeItem{Researched digital learning platforms, open courseware, research repositories, books, and technical resources, then organised them for student use.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {Mia | Personal AI Engineering OS}{}
+  \resumeItemListStart
+    \resumeItem{Built a local-first TypeScript CLI that automates a five-stage AI engineering workflow: grill, spec, plan, review, ship.}
+    \resumeItem{Implemented unified adapters for Anthropic Claude, OpenAI Codex, and local models with immutable JSONL state and automated lint, typecheck, and test gates.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Voice AI Systems | Real-Time Voice Agents}{}
+  \resumeItemListStart
+    \resumeItem{Built real-time WebRTC voice agents with LiveKit and Silero VAD, including barge-in interruption, semantic turn detection, and tool calling.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {LLM-Council | Multi-Model Consensus Engine}{}
+  \resumeItemListStart
+    \resumeItem{Built a FastAPI/React system that queries multiple LLM providers concurrently and runs Analyst, Skeptic, and Synthesizer stages to cross-evaluate outputs.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\small
+\resumeSkill{AI}{LLMs, AI Agents, RAG, Tool Calling, Multimodal AI, Computer Vision, Voice AI}
+\resumeSkill{Languages}{Python, TypeScript/JavaScript, Kotlin, C/C++}
+\resumeSkill{Engineering}{FastAPI, React, Node.js, LiveKit, WebRTC, Git/GitHub, Vitest}
+\resumeSkill{Systems}{ESP32-S3, FreeRTOS, I2S DMA, Opus, Pinecone, pgvector, Kubernetes}
+
+\end{document}
