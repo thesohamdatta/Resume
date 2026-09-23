@@ -26,8 +26,11 @@ Define the framing for this application without changing factual history.
 
 ## Track guidance
 
-### Local
+### Referral
 Default D2. D3 is appropriate for a clearly technical role or when the primary domain is implementation-heavy.
+
+### Startup
+Default D2. D3 is appropriate when technical depth strengthens ownership and builder signal.
 
 ### MNC
 Default D1–D2. Use D3 only when the JD explicitly rewards implementation, systems, research, debugging, architecture, or similar depth.
@@ -65,7 +68,7 @@ The MNC rule is **not** "remove technical truth." It is "show only the technical
 - [specific evidence]
 
 ### Track confirmed
-[local | mnc]
+[referral | startup | mnc]
 
 ### Headline for this role
 [role-specific headline]
