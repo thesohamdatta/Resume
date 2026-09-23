@@ -1,169 +1,63 @@
-% Intro Options
-\ProvidesClass{resume-openfont}[2021/05/30 Abdullah's version]
 \NeedsTeXFormat{LaTeX2e}
-\DeclareOption{print}{\def\@cv@print{}}
-\DeclareOption*{%
-    \PassOptionsToClass{\CurrentOption}{article}
-}
-\ProcessOptions\relax
-\LoadClass{article}
+\ProvidesClass{resume-openfont}[2026/09/23 canonical resume class]
+\LoadClass[10pt]{article}
 
-%--------------------------------------------------------------
-% Package Imports
-\RequirePackage[english]{babel}
-% page setup 
-\RequirePackage{fancyhdr}
-% Set boundaries
-\RequirePackage[hmargin=1cm, vmargin=0.94cm]{geometry}
-% remove ugly boxes around links
-\usepackage[hidelinks]{hyperref}
-% setup custom titles
+\RequirePackage[a4paper,top=0.55in,bottom=0.55in,left=0.62in,right=0.62in]{geometry}
+\RequirePackage{fontspec}
 \RequirePackage{titlesec}
-% For skills table
 \RequirePackage{enumitem}
-% Using tables like the profile section
+\RequirePackage{hyperref}
 \RequirePackage{tabularx}
-% Used for the link symbol
-\RequirePackage{fontawesome}
-% Set up font 
-\RequirePackage{lato-font}
-\RequirePackage{raleway-font}
-% make underlying constants: credits to Alex Beattie for noticing and suggesting fix
-\RequirePackage{ulem}
-%--------------------------------------------------------------
-% Reformatting default sections
-% section
-\titlespacing{\section}{0pt}{0pt}{0pt}
-\titleformat{\section}{%
-\color{headings}% Using comments to allow us to split the command across multiple line
-\scshape%
-\customLatoLight%
-\fontsize{16pt}{24pt}%first number is size, second number is space between lines
-\selectfont%
-\raggedright%
-\uppercase%
-} {}{0em}{}
+\RequirePackage{microtype}
 
-% subsection
-\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
-\titleformat{\subsection}{%
-\color{subheadings}%
-\customLatoBlack%
-\fontsize{12pt}{12pt}%
-\selectfont%
-\bfseries%
-\uppercase%
-\normalfont% Normal font is used to reset the customization, so it doesn't bleed into anything else
-} {}{0em}{}
+\setmainfont{Lato}
+\hypersetup{colorlinks=true,urlcolor=black,linkcolor=black}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\tolerance=2000
+\emergencystretch=2em
+\hyphenpenalty=10000
+\urlstyle{same}
 
-% remove header footer stuff like page numbers 
-\newcommand{\resetHeaderAndFooter}{%
-\fancyhf{}%
-\fancyfoot{}%
-\renewcommand{\headrulewidth}{0pt}%
-\renewcommand{\footrulewidth}{0pt}%
-}
-%--------------------------------------------------------------
-% Formatting commands - commands to control spacing
+\newcommand{\resumeRule}{\vspace{-5pt}\hrule\vspace{4pt}}
+\titleformat{\section}{\large\bfseries\scshape}{}{0pt}{}[\resumeRule]
+\titlespacing*{\section}{0pt}{7pt}{0pt}
 
-% A shortcut to control spacing
-\newcommand{\NoSpace}{\vspace*{-2pt}}
+\newenvironment{resumeitemize}
+{\begin{itemize}[leftmargin=14pt,itemsep=1.4pt,topsep=1.5pt,parsep=0pt,partopsep=0pt]}
+{\end{itemize}}
 
-% Command to simulate new line, to fix spacing glitches
-\newcommand{\fakeNewLine}{\newline \vspace{-\baselineskip}}
+\newcommand{\resumeHeader}[3]{%
+\begin{center}
+{\fontsize{23}{25}\selectfont\bfseries #1}\\[2pt]
+{\small #2}\\[2pt]
+{\footnotesize #3}
+\end{center}
+\vspace{-3pt}}
 
-% Command to align table at the start of the resume
-\newcommand{\alignProfileTable}{
-    \raggedbottom
-    \raggedright
-    \setlength{\tabcolsep}{0in}
+\newcommand{\resumeRole}[4]{%
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+\textbf{#1} \textnormal{\,|\,#2} & \textbf{#3}\\[-1pt]
+\multicolumn{2}{@{}l@{}}{\footnotesize #4}
+\end{tabularx}
+\vspace{1pt}}
+
+\newcommand{\resumeProject}[3]{%
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+\textbf{#1} & {\footnotesize #2}\\[-1pt]
+\multicolumn{2}{@{}l@{}}{\footnotesize #3}
+\end{tabularx}
+\vspace{1pt}}
+
+\newcommand{\resumeEducation}[3]{%
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+\textbf{#1} & \textbf{#2}\\[-1pt]
+\multicolumn{2}{@{}l@{}}{\small #3}
+\end{tabularx}
 }
 
-%--------------------------------------------------------------
-% Subheadings command - create different types of heading
-\newcommand{\runsubsection}[1]{%
-\color{subheadings}%
-\customLatoBlack%
-\fontsize{12pt}{12pt}%
-\selectfont%
-\bfseries%
-#1%
-\normalfont}%
-
-% Descriptors command
-\newcommand{\descript}[1]{%
-\color{subheadings}%
-\raggedright%
-\scshape%
-\customRalewayMedium%
-\fontsize{11pt}{13pt}%
-\selectfont{#1}%
-\normalfont}
-
-% Location command
-\newcommand{\location}[1]{%
-\color{headings}%
-\raggedright%
-\customRalewayMedium%
-\fontsize{11pt}{13pt}%
-\selectfont{#1}%
-\normalfont}
-
-% Minor command - like even smaller sub section
-\newcommand{\minorSection}[1]{%
-\color{subheadings}%
-\raggedright%
-\scshape%
-\customRalewayMedium%
-\fontsize{11pt}{12pt}%
-\selectfont{#1}%
-\normalfont}
-
-% Project command
-\newcommand{\Project}[2]{
-\runsubsection{%
-\href{#2}{\uppercase{#1} \,\faExternalLink}
-}
-    \hfill
-}
-
-% Underlined link command
-\newcommand{\underlinedLink}[2]{%
-\href{#1}{\uline{#2}}%
-}
-
-% Command for table 
-\newcommand{\singleItem}[2]{\normalsize{\textbf{#1} #2}}
-\newcommand{\doubleItem}[4]{\singleItem{#1}{#2} & \singleItem{#3}{#4}}
-
-%--------------------------------------------------------------
-% Section separators command
-\newcommand{\sectionsep}[0]{\vspace{7pt}}
-
-%--------------------------------------------------------------
-% Bullet Lists with fewer gaps command
-\newenvironment{bullets}{
-\vspace{-1mm}
-\begin{itemize}
-\itemsep1pt 
-\parskip1.5pt 
-\parsep1.5pt
-}{
-\end{itemize}
-\vspace{-\topsep}
-}
-
-% Command for skill table
-\newenvironment{skillList}{%
-\noindent%
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}%
-}{%
-\end{tabular*}%
-}
-
-%--------------------------------------------------------------
-% Customize built-in commands
-% Align Sections
-\let\oldSection\section
-\renewcommand{\section}[1]{\oldSection{#1}\raggedright}
-\renewcommand{\underline}[1]{\uline{#1}}
+\newcommand{\resumeSkills}[2]{\textbf{#1} #2\par\vspace{1.2pt}}
+\newcommand{\tightpar}[1]{{\small #1}}
+\endinput
