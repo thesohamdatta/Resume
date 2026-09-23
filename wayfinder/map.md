@@ -1,37 +1,48 @@
-# Wayfinder Map — Pipeline Simplification Map
+# Repository Map
 
-Tracker: local-markdown (`wayfinder/` in this repo). Labels expressed as file fields.
-Convention: map = `map.md`; tickets = `tickets/*.md` with header (Type, Status, Blocked-by).
-Frontier = open + unblocked + unclaimed tickets. Claim by setting `Claimed-by` before work.
-Never resolve more than one ticket per session (research tickets excepted).
+## Entry order
 
-## Destination
+1. `MAP.md`
+2. `AGENTS.md`
+3. `CONTEXT.md`
+4. `data/facts.yaml`
+5. `content/github/evidence.md`
+6. `content/github/boundaries.md`
+7. application input
+8. `pipeline/run.md`
 
-A locked build spec for the simplest pipeline that reliably produces an excellent,
-evidence-backed, tailored resume — one document a later session can execute without
-re-deciding anything. Planning only; no execution in this map.
+## Active tracks
 
-## Notes
+| Track | Purpose | Base |
+|---|---|---|
+| `referral` | Local referrals and forwarded applications | `versions/referral/_base.md` |
+| `startup` | Startup/direct/founder applications | `versions/startup/_base.md` |
+| `mnc` | MNC/enterprise hiring | `versions/mnc/_base.md` |
 
-- Domain: this repo (`D:\download\resume`). Every session consults `AGENTS.md` + `MAP.md` first.
-- Standing preference: user decides, agent proposes with a recommendation. One question at a time (grilling discipline).
-- Prior art: single-session review last turn implemented the `§E` engine-prefix rename (lesson 9) — numbering is settled, structure is not.
-- Ticket types: grilling (HITL, default), research (AFK subagent), prototype (HITL), task (either).
+Legacy `local` and `midlevel` material is history/recovery only.
 
-## Decisions so far
+## Canonical ownership
 
-- [Entry-Point Consolidation](tickets/02-entry-consolidation.md) — `run.md` owns orchestration, README is a stub; executed 2026-09-15 on direct order.
+- facts → `data/facts.yaml`
+- technical proof → `content/github/evidence.md`
+- ownership/status boundaries → `content/github/boundaries.md`
+- voice → `docs/voice.md`
+- hard rules → `DONT.MD`
+- orchestration → `pipeline/run.md`
+- stage contracts → `pipeline/stages/`
+- base resumes → `versions/{referral,startup,mnc}/`
+- template → `templates/v3/`
+- application state → `applications/{Company}_{YYYY-MM}/`
+- research → `research/`
+- history → `archive/`
 
-## Not yet specified
+## Design principle
 
-- Resume-content quality bar: how "excellent" is judged in the spec (beyond Stage 10 as-is?).
-- Template future: v2 vs v3, shared-fonts rule durability, who owns template choice per run.
-- Voice authority boundary: `D:\download\voice\voice.md` governs tone today — does the spec keep an external-dir dependency?
-- Per-stage token budgets and failure-handling behavior (retry? stop? degrade?).
-- Whether the four entry docs' audiences (sender / orchestrator / human / researcher) stay distinct.
+Deterministic work belongs in scripts/CI.
+Contextual judgment belongs in the pipeline agents.
 
-## Out of scope
+Do not maintain multiple active authorities for the same fact or rule.
 
-- Building/executing the simplified pipeline (map ends at the locked spec; execution is a fresh effort).
-- Rule-by-rule content audit of `DONT.MD` (66 rules stay authoritative throughout this map).
-- New resume tracks or new output formats.
+## Output principle
+
+A tailored resume is an application artifact generated from the canonical evidence system, not a new source of truth.
