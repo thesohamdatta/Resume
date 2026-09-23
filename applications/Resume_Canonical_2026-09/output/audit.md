@@ -36,14 +36,22 @@ The record contains direct URLs for resume-relevant issues and PRs, plus explici
 - Omi downstream PRs are attributed to their actual authors.
 - Candidate-authored Omi PRs are not described as merged unless verified.
 - AICTE via Google is not described as Google employment.
+- No unverified metrics or impact claims are used.
+
+## Visual / parsing checks
+
+- Supplied Rezume structure retained: header, role title + summary, experience, projects, education, technical skills.
+- Hyperlinks are embedded for email, LinkedIn, GitHub, Portfolio, and project repositories.
+- Rendered with XeLaTeX and verified as one A4 page.
+- Text extraction confirms selectable PDF text.
 
 ## Gates
 
 FACT: PASS
 FIT: PASS for broad early-career AI/ML applications
-ATS: PASS by source structure and text review
-READ: PASS by content review
-LINKS: PASS for resume-visible URLs and Omi evidence URLs by source verification
-PDF: PENDING final compilation environment
-ONE PAGE: PENDING final compilation environment
+ATS: PASS by source structure and selectable text
+READ: PASS by rendered inspection
+LINKS: PASS
+PDF: PASS
+ONE PAGE: PASS
 SLOP: PASS
