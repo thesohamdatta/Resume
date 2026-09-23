@@ -1,88 +1,79 @@
-# Resume Pipeline — Run
+# Resume Pipeline
 
-Given `applications/{Company}_{YYYY-MM}/input.md`, run all 10 stages to produce:
-- `versions/{local|mnc}/resume_{Company}.md`
-- `applications/{Company}_{YYYY-MM}/cover_letter.md`
+Given an application input, generate the correct resume from the canonical evidence system.
 
-## Step 1 — Read input
+## Required sequence
 
-Extract:
-- `company:`
-- `track:` MUST be `local` or `mnc`
-- `jd:`
-- `notes:`
+1. Read application input
+2. Load candidate facts
+3. Load technical evidence
+4. Load ownership/status boundaries
+5. Analyze company and JD
+6. Select track: `referral`, `startup`, or `mnc`
+7. Select Primary Technical Domain
+8. Select Output Depth: D1/D2/D3
+9. Build JD → Evidence map
+10. Select foreground / compress / omit content
+11. Draft resume content
+12. Run factuality gate
+13. Populate canonical LaTeX template
+14. Compile to PDF
+15. Run visual QA
+16. Run ATS/text QA
+17. Run cross-version consistency QA
+18. Run final hard-fail gate
 
-Initialize application state with the selected track.
+## Track rules
 
-## Step 2 — Parallel research
+### referral
+Broad, clear, practical, easy to forward. Display name: **Soham Karande**.
 
-Run Stages 01, 02, and 03 in parallel.
+### startup
+Strongest ownership and builder signal. Distinctive through evidence, not gimmicks. Display name: **Soham Datta**.
 
-## Step 3 — Evidence matching
+### mnc
+Conventional, ATS-safe, technically precise, evidence-dense. Display name: **Soham Datta**.
 
-Run Stage 04.
+## Domain
 
-## Step 4 — Positioning gate
+Choose one:
 
-Run Stage 05.
+- AI/ML
+- LLM/Agent Systems
+- Voice/Realtime AI
+- Backend/Platform
+- Embedded/Edge
+- Computer Vision
+- Full-Stack AI
+- Research/Applied AI
+- Unknown
 
-Stage 05 MUST determine:
-- Primary Technical Domain
-- Output Depth (D1/D2/D3)
-- Evidence mix
-- Foreground / compress / omit decisions
-- Material questions
+The domain is an emphasis lens, not a separate resume track.
 
-**Do not enter Stage 06 while a material question is unresolved.**
+## Depth
 
-## Step 5 — Draft
+- D1 — scope + outcome/core technology
+- D2 — engineering method + technology
+- D3 — architecture/implementation/tests/constraints where directly relevant
 
-Run Stage 06 using:
-- Stage 05 positioning
-- `content/github/evidence.md` first
-- `data/facts.yaml` as factual constraint
-- `versions/{local|mnc}/_base.md` as structural contract
+Default: D2.
 
-The writer MUST preserve this section order:
+## Evidence rule
 
-Header / Contact → Summary → Experience → Projects → Education → Technical Skills → Certifications when verified.
+Map:
 
-Use adaptive depth rather than a universal technical-detail level.
+`JD requirement → verified evidence`
 
-## Step 6 — Parallel verification
+Direct evidence is foregrounded.
+Adjacent evidence is framed honestly.
+No evidence is omitted.
 
-Run Stage 07 and Stage 08.
-
-Any Stage 07 FAIL stops the pipeline.
-
-## Step 7 — Final edit
-
-Run Stage 09.
-
-## Step 8 — Slop-free polish
-
-Run Stage 10.
-
-Any drift FAIL stops the pipeline. COMPLETE is reached only after the final gate passes.
-
-## Outputs
+## Required outputs
 
 ```
-versions/{local|mnc}/resume_{Company}.md
+versions/{track}/resume_{Company}.md
 applications/{Company}_{YYYY-MM}/
-  cover_letter.md
+  input.md
   pipeline_state.md
   interview_prep.md
-```
-
-## Design decisions
-
-- Local and MNC are the only active tracks.
-- The section order is shared by both tracks.
-- Primary Technical Domain is selected per application.
-- Technical depth is adaptive per application.
-- Evidence is typed and preserved in the evidence layer.
-- No new track may be introduced without an explicit repository-level decision.
-- Legacy startup/midlevel material is not an input for new applications.
-
-Evidence-first writing remains mandatory. No claim without an anchor in `facts.yaml` or `content/github/evidence.md`.
+`
