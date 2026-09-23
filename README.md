@@ -1,48 +1,74 @@
 # Resume Workspace
 
-Evidence-first resume engineering system for Soham Datta.
+Evidence-first resume engineering system for Soham.
 
-The repository maintains active local-company and MNC/enterprise resumes from one factual source, then tailors them to individual roles without changing the underlying evidence.
+The repository converts one verified body of candidate evidence into three one-page resume tracks:
 
-> Start with `MAP.md`. It defines the repository map, source hierarchy, application model, and workflow.
+- `referral` — forwarded/local-network applications
+- `startup` — startups, founder outreach, direct applications
+- `mnc` — multinational and enterprise hiring
+
+The system separates candidate facts, technical evidence, claim boundaries, application context, and document presentation.
 
 ## Core rule
 
 **Make the reader see more truth, not more polish.**
 
-The system is optimized for four audiences at once:
+The system optimizes for:
+- ATS parsing
+- recruiter scan speed
+- technical hiring-manager evaluation
+- human credibility
 
-- ATS/parser
-- Recruiter scan
-- Technical hiring manager
-- Human reader
-
-It does not optimize for an imaginary ATS score or for generic resume polish.
-
-## Active tracks
-
-| Track | Purpose | Base |
-|---|---|---|
-| Local | Local Indian IT/product companies and smaller engineering teams | `versions/local/_base.md` |
-| MNC | Multinational and enterprise hiring | `versions/mnc/_base.md` |
-
-Legacy `startup` and `midlevel` material is retained for recovery/history only.
+It does not optimize for imaginary ATS scores, keyword stuffing, or generic resume polish.
 
 ## Source hierarchy
 
-`data/facts.yaml` is the canonical fact layer.
+| Need | Canonical source |
+|---|---|
+| Biographical facts | `data/facts.yaml` |
+| Technical proof | `content/github/evidence.md` |
+| Ownership / status / attribution boundaries | `content/github/boundaries.md` |
+| Application requirements | `applications/{Company}_{YYYY-MM}/input.md` |
+| Pipeline | `pipeline/run.md` |
+| Durable lessons | `memory/lessons.md` |
+| Document layout | canonical template under `templates/` |
 
-`content/github/evidence.md` contains technical proof.
+Historical resumes are recovery material only. They never override the evidence layer.
 
-`content/github/boundaries.md` controls ownership, attribution, metrics, status, and claim safety.
+## Active tracks
 
-Application-specific requirements live under `applications/`.
+| Track | Purpose | Display name |
+|---|---|---|
+| `referral` | Local referrals and forwarded applications | **Soham Karande** |
+| `startup` | Startup, founder, direct outreach | **Soham Datta** |
+| `mnc` | MNC and enterprise hiring | **Soham Datta** |
 
-The resume writer may select, order, compress, and rewrite supported evidence. It may not manufacture facts.
+Track selection changes emphasis, ordering, wording, and depth. It never changes facts.
+
+## Application model
+
+Every run determines:
+
+1. Track
+2. Primary technical domain
+3. Output depth
+4. Evidence mapping
+5. Content selection
+
+Primary technical domains:
+
+AI/ML, LLM/Agent Systems, Voice/Realtime AI, Backend/Platform, Embedded/Edge, Computer Vision, Full-Stack AI, Research/Applied AI, Unknown.
+
+Output depth:
+
+- D1 — scan level
+- D2 — engineering level
+- D3 — technical proof
 
 ## Standard structure
 
-Both active tracks default to:
+Default section order:
 
 1. Header / Contact
 2. Summary
@@ -52,110 +78,54 @@ Both active tracks default to:
 6. Technical Skills
 7. Certifications, only when verified
 
-The structure stays stable. The emphasis changes per role.
-
-## Application model
-
-Each application chooses:
-
-- Track: `local` or `mnc`
-- Primary Technical Domain
-- Output Depth: D1, D2, or D3
-
-Primary domains:
-
-AI/ML, LLM/Agent Systems, Voice/Realtime AI, Backend/Platform, Embedded/Edge, Computer Vision, Full-Stack AI, Research/Applied AI, Unknown.
-
-The domain is an emphasis lens, not a new resume track.
+The order stays stable unless a real application requirement justifies a change.
 
 ## Writing system
 
-Resume language should be:
+Write like a technically capable human:
 
-- direct
-- specific
-- evidence-led
-- technically credible
-- compact
-- human
-- easy to scan
+- concrete nouns
+- accurate verbs
+- technical details
+- real constraints
+- verified outcomes
+- concise sentences
+- natural rhythm
 
-Prefer concrete nouns, concrete verbs, implementation details, constraints, decisions, mechanisms, and verified outcomes.
-
-Avoid generic career language, corporate filler, unsupported confidence, empty adjectives, repetitive Action + Method + Result formulas, JD copying, and keyword stuffing.
-
-Do not make every bullet sound alike. Natural variation is useful when it improves clarity.
+Do not use polish as a substitute for evidence.
 
 ## Evidence standard
 
-Evidence priority:
+A claim should survive:
 
-1. measured result
-2. shipped artifact
-3. quantified scope
-4. technical decision
-5. implementation detail
-6. ownership
-7. process improvement
-8. qualitative outcome
-9. generic responsibility
+**Could Soham explain exactly how this worked in an interview?**
 
-Use the strongest evidence available.
+Preserve distinctions between:
 
-Never invent metrics, users, customers, technologies, responsibilities, job titles, dates, ownership, deployment status, production status, publication status, certifications, or research findings.
-
-## Technical credibility
-
-Every significant claim should survive:
-
-**"Could the candidate explain exactly how this worked in an interview?"**
-
-Open-source contributions must preserve exact attribution and status. Authored, approved, adopted downstream, merged, draft, and closed/unmerged are different states.
-
-## Workflow
-
-`pipeline/run.md` defines the execution sequence.
-
-The current workflow is:
-
-research -> JD analysis -> candidate context -> evidence match -> positioning/domain/depth gate -> writing -> factuality -> ATS -> final edit -> language/slop validation -> BOOM gate
-
-A material uncertainty blocks final drafting until it is resolved.
-
-## Templates
-
-LaTeX templates live under `templates/`.
-
-Current v3 is the resume-openfont base using XeLaTeX. It is a template layer only. Content decisions remain governed by the evidence and application system.
+- contribution and ownership
+- issue and implementation
+- approval and merge
+- downstream adoption and authorship
+- prototype and production
+- tool exposure and proficiency
 
 ## Repository layout
 
 ```
 data/                  canonical facts
-content/github/        technical proof and boundaries
-versions/local/        active local base + tailored resumes
-versions/mnc/          active MNC base + tailored resumes
-applications/          per-company runs
-pipeline/              generation and application workflow
-research/              company and role research
-templates/             LaTeX export templates
+content/               technical proof and boundaries
+versions/              active track bases and tailored outputs
+applications/          per-company application runs
+pipeline/              generation workflow
+research/              external research
 memory/                durable lessons
+templates/             canonical LaTeX template + references
 archive/               historical material only
 ```
 
-## Output rule
+## Output principle
 
-New application runs must target exactly one of:
+The active resume should be the smallest useful representation of the evidence base for the target role.
 
-```
-local
-mnc
-```
-
-No new resume track should be introduced just because a role has a different technical domain.
-
-## Quality bar
-
-A finished resume must be:
-
-ATS-readable, technically credible, specific, compact, distinctive through evidence, targeted, easy to scan, hard to misunderstand, interview-defensible, and free of unsupported claims and obvious AI-generated slop.
+Make the evidence easier to see.
+Do not make the candidate sound better than the evidence supports.
