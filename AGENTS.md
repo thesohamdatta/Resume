@@ -65,14 +65,15 @@ Do not automatically load unrelated old runs, archive material, or PDFs unless t
 
 ## ACTIVE RESUME TRACKS
 
-There are exactly two active tracks:
+There are exactly three active tracks:
 
-- `local` = local Indian IT/product companies and smaller engineering teams
-- `mnc` = multinational and enterprise hiring teams
+- `referral` = local referrals and forwarded applications; display name `Soham Karande`
+- `startup` = startup applications, founder outreach, and direct applications; display name `Soham Datta`
+- `mnc` = multinational and enterprise hiring; display name `Soham Datta`
 
-Legacy `startup` and `midlevel` directories are history/recovery only.
+Legacy `local` and `midlevel` material is recovery/history only.
 
-Do not create new active tracks.
+Do not create additional active tracks.
 
 ## APPLICATION MODEL
 
