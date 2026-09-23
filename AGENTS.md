@@ -113,7 +113,8 @@ The evidence repository may remain D3 even when the final resume is D1/D2.
 
 Defaults:
 
-- local = D2, use D3 for clearly technical roles or the primary domain
+- referral = D2, use D3 for clearly technical roles or the primary domain
+- startup = D2, use D3 when technical depth materially strengthens builder signal
 - mnc = D1-D2, use D3 only where the JD explicitly rewards implementation, systems, research, debugging, or architecture depth
 
 ## EVIDENCE MODEL
@@ -267,7 +268,7 @@ Example:
 
 Do not repeat first person throughout the resume.
 
-## TWO OUTPUT MODES
+## OUTPUT MODES
 
 ### MODE A - TECHNICAL / ENTERPRISE
 

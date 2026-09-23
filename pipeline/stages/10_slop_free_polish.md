@@ -2,7 +2,7 @@
 Reads:
 - versions/{track}/resume_{Company}.md (post-Stage 09)
 - applications/{Company}_{date}/cover_letter.md (post-Stage 09)
-- D:\download\resume\voice.md (FULL — single voice authority)
+- docs/voice.md (single voice authority)
 - pipeline_state.md ## Stage 05 — Positioning Strategy (for target context detection)
 - pipeline_state.md ## Stage 09 — Final Editor Log
 - data/facts.yaml + content/github/evidence.md (no-drift anchors — see Stage 07 boundaries)
@@ -10,12 +10,12 @@ Reads:
 Produces: final overwrites of both files in place.
 Also produces: pipeline_state.md → section ## Stage 10 — Slop-Free Polish
 
-VOICE CONTEXT (loaded from voice.md):
-- Core Principles: Simplicity, Clutter, Be Yourself (voice.md §Core Principles)
-- Banned Words: zero tolerance, auto-replace with Zinsser table (voice.md §Banned Words)
-- Evidence Boundaries: hard constraints per project — never cross (voice.md §Evidence Boundaries)
-- Bullet Formula: Voice Matrix §5 (startup/MNC/mid-level from Stage 05)
-- Pre-Send Checklist: items 1,2,3,9,11 mandatory (voice.md §Pre-Send Checklist)
+VOICE CONTEXT (loaded from docs/voice.md):
+- Core voice: simple, direct, specific, compact, technically grounded
+- Anti-slop: remove filler, generic claims, repeated formulas, and artificial symmetry
+- Ownership: preserve the evidence-supported verb strength
+- Track adaptation: startup / referral / mnc
+- Humanization: apply the Humanization Rules and Zinsser test
 
 HARD RULE: never invent or alter facts. Numbers, repo names, file paths, titles,
 dates, metrics, and claim strength must stay exactly as Stage 07/09 approved.
@@ -31,18 +31,19 @@ Run IN ORDER — do not skip:
 
 **DETECT CONTEXT:**
 4. From Stage 05 Positioning Strategy, identify target: startup | referral | mnc
-5. Select voice profile from voice.md §5 Voice Matrix:
-   - Startup: Action + What Built + Stack + Verifiable Outcome
-   - Referral: Action + Work + Relevant Technology + Clear Context
-   - MNC: Action + Outcome/Metric + Technology + Context
+5. Select the track-specific voice from docs/voice.md:
+   - Startup: ownership + building + technical decisions
+   - Referral: clarity + breadth + practical technical signal
+   - MNC: technical precision + conventional ATS-readable language
 
 **APPLY RULES (both resume + cover letter):**
 6. Banned Words scan: every word in voice.md Banned Words table → replace with
    Zinsser alternative. Zero tolerance. Log each replacement.
-7. Core Principles (voice.md §Core Principles):
-   - Simplicity: strip to cleanest ("Designed 3D-printed enclosure" not "Passionate about innovative solutions")
-   - Clutter: cut 50% of weak words
-   - Be Yourself: builder identity (Aura, Mia, Voice AI) — don't genericize
+7. Humanization rules (docs/voice.md):
+   - Strip words that do not add meaning.
+   - Replace abstract language with the concrete thing that happened.
+   - Preserve useful technical details.
+   - Do not manufacture personality.
 8. Evidence Boundaries (voice.md §Evidence Boundaries table): audit every claim
    against facts.yaml/evidence.md. Flag any overclaim (e.g. "production-ready
    platform" when project is self-funded prototype).
@@ -90,7 +91,7 @@ Run IN ORDER — do not skip:
 ## Stage 10 — Slop-Free Polish (voice.md unified)
 Context: {startup|referral|mnc} from Stage 05
 Voice profile: {bullet formula from Voice Matrix}
-Banned words replaced: [count, list top 5]
+Banned/filler language removed: [count, summary]
 Resume edits: [what changed summary]
 Cover edits: [what changed summary]
 Pre-Send Checklist: [PASS/FAIL per item 25-29]

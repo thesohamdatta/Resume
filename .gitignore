@@ -1,43 +1,43 @@
-# Generated HTML outputs
-resume_*.html
-!templates/
+# Resume repository ignores
 
-# PDFs (reference materials and books)
-*.pdf
-
-# Architecture/design documents (move to docs/)
-resume_architecture_design.html
-
-# Temporary and scratch files
-*.tmp
-*.bak
-*~
-
-# OS files
+# OS/editor
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# Editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Node modules (if any)
-node_modules/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Environment variables
+# Environment
 .env
 .env.local
 .env.*.local
 
-# Build outputs
-dist/
-build/
+# Python/Node
+__pycache__/
+*.py[cod]
+node_modules/
+
+# Temporary/editor
+*.tmp
+*.bak
+*~
+*.orig
+
+# LaTeX build output
+**/*.aux
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.fls
+**/*.fdb_latexmk
+
+# Generated output
+**/build/
+**/dist/
+*.html
+
+# Generated PDFs are build artifacts by default.
+# Reference PDFs that are intentionally versioned can be force-added.
+*.pdf
