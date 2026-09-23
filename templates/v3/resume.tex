@@ -1,91 +1,35 @@
-\documentclass[]{resume-openfont}
+\documentclass{resume-openfont}
 
-\pagestyle{fancy}
-\resetHeaderAndFooter
-
-\newcommand{\resumeHeading}[3]{%
-\noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
-{\runsubsection{#1}} & {\location{#2}} \\
-[-1pt]
-{\descript{#3}} & \\
-[-1pt]
-\end{tabularx}
-}
-\newcommand{\projectHeading}[2]{%
-\noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
-{\runsubsection{#1}} & {\location{#2}} \\
-[-1pt]
-\end{tabularx}
-}
+% Canonical document skeleton.
+% Replace the content sections from the application/track pipeline.
+% Do not create a new visual template for individual jobs.
 
 \begin{document}
 
-\begin{center}
-{\customLatoBlack\fontsize{22pt}{24pt}\selectfont Soham Datta}\\[3pt]
-\small \href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} \quad | \quad +91 9420984066 \quad | \quad
-\href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} \quad | \quad
-\href{https://github.com/thesohamdatta}{GitHub} \quad | \quad
-\href{https://sohamdatta.framer.ai}{Portfolio}
-\end{center}
+\resumeHeader{Candidate Name}{City, Country}{email | phone | LinkedIn | GitHub | Portfolio}
 
-\section{Summary}
-\small AI/ML engineer building systems across multimodal AI, LLM applications, real-time voice, computer vision, and software tooling. Hands-on with Python, TypeScript, FastAPI, LiveKit, and TensorFlow.
+{\small\bfseries Target Role | Technical Domain}\par\vspace{2pt}
+\tightpar{Two concise lines positioning the candidate using verified evidence.}
 
 \section{Experience}
-\resumeHeading{Aura}{Pune, India | Jun 2025 -- Present}{Founder · AI Systems / Edge / Wearable Computing}
-\begin{bullets}
-\item Built Aura across ESP32-S3 firmware, audio/image capture, FastAPI services, and an Android companion, connecting device data to AI-powered memory.
-\item Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, Opus compression, Wi-Fi/BLE events, sleep modes, and OTA updates.
-\item Integrated speech transcription, vision analysis, vector storage, and agent workflows using Deepgram, GPT-4o, Pinecone, and LangGraph.
-\item Diagnosed a Windows Electron WebGL memory leak in Omi and authored speaker-clustering work with 52 tests; the work was later fixed or adopted downstream.
-\end{bullets}
-\sectionsep
-
-\resumeHeading{AICTE via Google}{India | Oct 2024 -- Dec 2024}{AI \& ML Intern · Computer Vision / Edge ML}
-\begin{bullets}
-\item Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
-\item Used transfer learning and data augmentation to balance inference latency and accuracy under mobile memory constraints.
-\end{bullets}
-\sectionsep
-
-\resumeHeading{Reliance}{India | Jul 2024 -- Oct 2024}{Associate · Customer Operations}
-\begin{bullets}
-\item Handled customer requests across complaints, memberships, digital vouchers, exchanges, documentation, and follow-up.
-\item Coordinated with brand, HR, store management, and store teams to resolve customer issues.
-\end{bullets}
+% \resumeRole{Company}{Role}{Dates}{Domain / technologies}
+% \begin{resumeitemize}
+% \item Verified evidence.
+% \end{resumeitemize}
 
 \section{Projects}
-\projectHeading{Mia}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}
-\descript{TypeScript · Bun · Anthropic Claude · OpenAI Codex · Vitest · JSONL}
-\begin{bullets}
-\item Built a local-first CLI for a 5-stage AI engineering harness: grill, spec, plan, review, and ship, with adapters for Claude, Codex, and local models.
-\item Implemented immutable JSONL state, lint/typecheck/Vitest gates, and stateless event-driven execution after removing a background-daemon architecture.
-\end{bullets}
-\sectionsep
-
-\projectHeading{Real-Time Voice AI Systems}{\href{https://github.com/thesohamdatta/John}{John} · \href{https://github.com/thesohamdatta/voicecoder}{voicecoder}}
-\descript{LiveKit WebRTC · Silero VAD · Python · Kotlin · Jetpack Compose · LLM APIs}
-\begin{bullets}
-\item Built real-time WebRTC voice agents with Silero VAD for interruption and turn detection; John connects an Android client to a Python LiveKit agent with tool calling.
-\item Built voicecoder, a VS Code extension for voice-driven code editing with Claude, GPT-4o, Gemini, and Ollama fallback, with token-cost tracking.
-\end{bullets}
-\sectionsep
-
-\projectHeading{LLM-Council}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}
-\descript{Python · FastAPI · React · Vite · Multi-Model Orchestration}
-\begin{bullets}
-\item Built a concurrent multi-LLM consensus engine with OpenAI, Anthropic, Gemini, and Groq, followed by an Analyst-Skeptic-Synthesizer critique pipeline.
-\end{bullets}
+% \resumeProject{Project}{Link}{Technologies}
+% \begin{resumeitemize}
+% \item Verified evidence.
+% \end{resumeitemize}
 
 \section{Education}
-\resumeHeading{Savitribai Phule Pune University (SPPU)}{Pune, India | 2022 -- Jun 2026}{Bachelor of Engineering (B.E.) · Artificial Intelligence \& Machine Learning}
+% \resumeEducation{Institution}{Dates}{Degree · Field · Location}
 
 \section{Technical Skills}
-\begin{skillList}
-\singleItem{AI/ML:}{LLMs, AI Agents, RAG, Tool Calling, Multimodal AI, Computer Vision, TensorFlow, PyTorch, ML Kit, SciPy}\\
-\singleItem{Languages:}{Python, TypeScript/JavaScript, Kotlin, C/C++}\\
-\singleItem{Engineering:}{FastAPI, React, Node.js, LiveKit/WebRTC, REST APIs, Git/GitHub, Vitest, Kubernetes, pgvector}\\
-\singleItem{Embedded:}{ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, Wearable Systems}
-\end{skillList}
+% \resumeSkills{Languages:}{...}
+% \resumeSkills{AI/ML:}{...}
+% \resumeSkills{Engineering:}{...}
+% \resumeSkills{Systems:}{...}
 
 \end{document}
