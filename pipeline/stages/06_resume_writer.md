@@ -10,7 +10,8 @@ This stage owns the draft, not the facts.
 4. `data/facts.yaml`
 5. `content/github/boundaries.md`
 6. Active base:
-   - `versions/local/_base.md`
+   - `versions/referral/_base.md`
+   - `versions/startup/_base.md`
    - `versions/mnc/_base.md`
 
 ## Required resume order
@@ -23,7 +24,7 @@ This stage owns the draft, not the facts.
 6. Technical Skills
 7. Certifications, only when verified certification data exists
 
-This order applies to both active tracks.
+This order applies to all active tracks.
 
 ## Domain-first writing
 
@@ -49,12 +50,16 @@ The same Aura evidence may therefore produce a D2/D3 bullet for a technical loca
 
 ## Track treatment
 
-### Local
+### Referral
 - One page.
-- Clean and human-readable.
+- Clear and human-readable.
 - D2 default.
-- Allow D3 for a highly technical primary-domain application.
-- Keep enough project context to explain what was built.
+- Broad practical technical signal.
+
+### Startup
+- One page.
+- Stronger ownership and project identity.
+- D2 default; D3 when useful.
 
 ### MNC
 - One page.
@@ -80,4 +85,4 @@ Only create the Certifications section when verified certification data exists i
 
 ## Output
 
-Write `versions/{local|mnc}/resume_{Company}.md` and the application cover letter.
+Write `versions/{referral|startup|mnc}/resume_{Company}.md` and the application cover letter.
