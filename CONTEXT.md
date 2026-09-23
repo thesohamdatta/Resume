@@ -66,7 +66,7 @@ There are exactly three active tracks. No domain may create a fourth track.
 
 ## Standard section order
 
-Both active tracks default to:
+All three active tracks default to:
 
 1. Header / Contact
 2. Summary
@@ -83,7 +83,7 @@ Do not reorder for visual novelty.
 Every application chooses:
 
 ### Track
-`local` or `mnc`
+`referral`, `startup`, or `mnc`
 
 ### Primary Technical Domain
 
@@ -110,7 +110,8 @@ Derive it from the actual JD and verified candidate evidence. A company name or 
 - D3: technical-proof level
 
 Defaults:
-- local: D2, D3 for strongly technical roles
+- referral: D2, D3 for strongly technical roles
+- startup: D2, D3 when technical depth materially strengthens builder signal
 - mnc: D1-D2, D3 only where implementation/research/systems depth is directly relevant
 
 The evidence repository may retain D3 detail even when the resume uses D1 or D2.
