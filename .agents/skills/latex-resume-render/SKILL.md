@@ -1,79 +1,66 @@
 ---
 name: latex-resume-render
-description: >
-  Render a tailored resume into a PDF via a user-supplied LaTeX template or design
-  reference. Use when the user says 'use this template', pastes a .tex path, asks to
-  compile/render a resume PDF, demands a LaTeX version, or wants a design from Figma,
-  Pinterest, or another image recreated as their resume.
-license: MIT
-metadata:
-  author: Soham Datta
-  version: "1.0.0"
-allowed-tools:
-  Read: "*"
-  Edit: "*"
-  Write: "*"
-  Bash: "pdflatex* xelatex* lualatex*"
+description: Build the canonical one-page resume PDF from a verified resume source and the repository template.
+version: "2.0"
 ---
 
 # LaTeX Resume Render
 
-Turn a tailored resume `.md` into a 1-page PDF using the user's template or design
-reference. Fork execution: runs isolated, user steers by re-invoking.
+This skill owns document rendering, not candidate facts.
 
 ## Inputs
 
-- `$resume_md`: tailored resume markdown (facts-anchored, Stage-07-passed preferred)
-- `$template`: `.tex` template path, OR design image/URL (Figma, Pinterest, other)
-- `$out_dir`: run folder for `.tex` + `.pdf` output
+- verified resume markdown or approved content source
+- target track: `referral`, `startup`, or `mnc`
+- canonical template: `templates/v3/`
+- output directory
 
-## Goal
+## Rules
 
-A 1-page searchable PDF + its `.tex` source in `$out_dir`, zero dummy remnants,
-zero invented facts. Success artifact: the PDF path.
+1. Read the full canonical template before editing.
+2. Use `templates/v3/` as the only active visual template.
+3. Keep critical information as real text.
+4. Preserve hyperlinks.
+5. Do not introduce section rules, decorative graphics, skill bars, photos, or parser-hostile layout.
+6. Do not copy fonts, classes, or styles into application folders.
+7. Use a local build workspace for compiler output.
+8. Never modify canonical facts during rendering.
 
-## Steps
+## Build
 
-### 1. Inspect template, pick engine
+Use XeLaTeX when the canonical template requires `fontspec`.
 
-Read the `.tex` fully. If it loads `fontspec` (or custom `.otf` fonts) the engine is
-**xelatex** — pdflatex will fail. Otherwise **pdflatex**. Confirm the binary exists;
-stop with the missing-toolchain name if not. Note required support files
-(`.cls`, `.sty`, `fonts/`).
+Compile with `-halt-on-error`.
 
-**Success criteria**: engine named, toolchain confirmed present.
+Run the compiler inside a temporary build directory so `.aux`, `.log`, and `.out` files never enter the repository.
 
-### 2. Adapt content into the template
+## One-page gate
 
-Replace every dummy row (names, links, bullets, certs) with `$resume_md` content.
-Escape `& % # _` in text. Contact block uses confirmed email/phone only — never
-invent handles. Omit sections with no anchored proof (e.g. Certifications) rather
-than shipping placeholders. If `$template` is a design image, recreate its layout
-cues (sections, order, emphasis) in LaTeX instead of filling a `.tex`.
+The final PDF must be one page unless the application explicitly requires a different length.
 
-**Success criteria**: grep finds no dummy remnants (Jane/Acme/lorem/W3C/example).
+If it exceeds one page:
 
-### 3. Resolve support files
+1. remove the lowest-signal bullet
+2. remove repetition
+3. reduce wording
+4. remove low-value project detail
+5. only then adjust spacing/typography
 
-Copy `.cls`/`.sty` beside the output `.tex`. Fonts: reference one shared dir, never
-re-copy per run. Missing LaTeX packages (e.g. FontAwesome font): write a minimal
-local `.sty` stub covering only the glyphs used. Never edit `templates/` pristine
-copies or restore points.
+Never make text illegibly small.
 
-**Success criteria**: all `\RequirePackage`/`\input` targets resolve locally.
+## PDF QA
 
-### 4. Compile, enforce 1 page, clean
+Verify:
 
-Compile with the chosen engine (`-halt-on-error`). While output exceeds 1 page:
-cut the lowest-signal block first, recompile, log each cut. Then delete
-`.aux`/`.log`/`.out`.
+- PDF opens
+- exactly one page
+- text is selectable
+- important terms are searchable
+- links are present
+- no blank page
+- no clipping/overflow
+- no dummy content
+- no section rules
+- contact information is correct
 
-**Success criteria**: PDF is exactly 1 page; no build-junk files remain.
-**Rules**: 1-page is enforced during the build, not waived. Log every trim.
-
-### 5. Verify PDF
-
-Read the PDF back: text extracts cleanly (ATS-readable), all sections present,
-project links live, no underline/box artifacts unless requested, contact correct.
-
-**Success criteria**: verified PDF path reported to the user.
+The PDF is an output artifact. The repository source remains the canonical document source.
