@@ -1,6 +1,17 @@
-# agent.md — pointer (backward compatibility)
+# Agent Instructions
 
-Canonical agent instructions moved to `AGENTS.md` (standard discovery name, auto-loaded by harnesses).
-Read `AGENTS.md` + `CONTEXT.md` instead of this file. Do not add guidance here.
+Canonical instructions live in `AGENTS.md`.
 
-Repo essence: three resume tracks (startup, MNC, mid-level) generated from `data/facts.yaml` via `pipeline/run.md`.
+Read:
+1. `MAP.md`
+2. `AGENTS.md`
+3. `CONTEXT.md`
+
+Repository model:
+- three active tracks: referral, startup, mnc
+- one canonical evidence system
+- one canonical visual template
+- one pipeline
+- historical material is not a source of truth
+
+Do not add new guidance here.
