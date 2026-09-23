@@ -32,7 +32,7 @@ Run this checklist IN ORDER — do not skip any item:
 - Cover letter: count words — must be ≤300. If over: trim the most padded sentence from each paragraph.
 - Verify the primary hook from Stage 05 appears in cover letter opening paragraph
 - Verify resume headline matches Stage 05 confirmed headline
-- Voice check: run `D:\download\voice\voice.md` Pre-Send Checklist (company-specific, evidence-backed, honest scope, no banned words, clear ask) on both files
+- Voice check: run `docs/voice.md` Pre-Send Checklist (company-specific, evidence-backed, honest scope, no banned words) on both files
 
 **Final Editor Log format:**
 ```
