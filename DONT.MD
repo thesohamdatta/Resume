@@ -1113,7 +1113,7 @@ Hyperlinks SHOULD work for LinkedIn, portfolio, GitHub, and relevant project lin
 
 E12. LANGUAGE / ANTI-SLOP ENGINE
 
-Voice authority: D:\download\resume\voice.md (Core Principles, Banned Words, Evidence Boundaries)
+Voice authority: docs/voice.md (language/tone only; candidate facts remain in the evidence system)
 
 G1 — Specificity
 
