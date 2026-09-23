@@ -27,8 +27,9 @@ Do not downgrade technical proof because a target resume may later use less deta
 
 ## Track
 
-The only active tracks are:
-- `local`
+The active tracks are:
+- `referral`
+- `startup`
 - `mnc`
 
 ## Domain readiness
@@ -57,7 +58,7 @@ Append to `applications/{Company}_{YYYY-MM}/pipeline_state.md`:
 - [material uncertainty only]
 
 ### Track
-- [local | mnc]
+- [referral | startup | mnc]
 ```
 
 Never infer certifications, skills, metrics, ownership, or outcomes from names alone.
