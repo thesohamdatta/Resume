@@ -1,82 +1,91 @@
-\documentclass[]{resume-openfont}
+\\documentclass[]{resume-openfont}
 
-\pagestyle{fancy}
-\resetHeaderAndFooter
+\\pagestyle{fancy}
+\\resetHeaderAndFooter
 
-\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
-\newcommand{\educationHeading}[4]{\runsubsection{#1}\hspace*{\fill}  \location{#3 | #4}\\\descript{#2}\fakeNewLine}
-\newcommand{\projectHeading}[3]{\Project{#1}{#2}\descript{#3}\\}
+% Compact helpers. Keep the visual foundation unchanged while improving link handling and spacing.
+\\newcommand{\\resumeHeading}[4]{\\runsubsection{\\uppercase{#1}}\\descript{ | #2}\\hfill\\location{#3 | #4}\\fakeNewLine}
+\\newcommand{\\educationHeading}[4]{\\runsubsection{#1}\\hspace*{\\fill}\\location{#3 | #4}\\\\\\descript{#2}\\fakeNewLine}
+\\newcommand{\\projectHeading}[3]{\\Project{#1}{#2}\\descript{#3}\\\\}
 
-\begin{document}
+\\begin{document}
 
-\newcommand{\yourName}{Soham Datta}
-\newcommand{\githubUserName}{thesohamdatta}
-\newcommand{\linkedInUserName}{thesohamdatta}
+\\newcommand{\\yourName}{Soham Datta}
+\\newcommand{\\githubUserName}{thesohamdatta}
+\\newcommand{\\linkedInUserName}{thesohamdatta}
+\\newcommand{\\yourEmail}{thesohamdatta@gmail.com}
+\\newcommand{\\yourPhone}{+91 9420984066}
+\\newcommand{\\yourPortfolio}{https://sohamdatta.framer.ai}
 
-\begin{center}
-    \Huge \scshape \latoRegular{\yourName} \\ \vspace{1pt}
-    \small Pune, India $|$
-    \href{https://www.linkedin.com/in/\linkedInUserName}{\underline{linkedin/\linkedInUserName}} $|$
-    \href{https://github.com/\githubUserName}{\underline{github/\githubUserName}}
-\end{center}
+\\begin{center}
+    \\Huge \\scshape \\latoRegular{\\yourName} \\\\[-1pt]
+    \\small AI Engineer · AI Systems · Personal AI \\\\[-1pt]
+    \\small Pune, India $|$
+    \\href{mailto:\\yourEmail}{\\underline{\\yourEmail}} $|$
+    \\href{https://www.linkedin.com/in/\\linkedInUserName}{\\underline{linkedin/\\linkedInUserName}} $|$
+    \\href{https://github.com/\\githubUserName}{\\underline{github/\\githubUserName}}
+\\end{center}
 
-\section{Technical Skills}
-\begin{skillList}
-    \singleItem{AI Agents \& LLMs:}{Multi-agent orchestration, tool calling, function calling, structured outputs, multi-step reasoning, autonomous workflows, prompt engineering, RAG systems}
-    \\
-    \singleItem{AI Backend:}{Python (FastAPI, PyTorch, asyncio), LLM APIs (Anthropic Claude, OpenAI, Gemini, Groq), embeddings, vector databases (pgvector)}
-    \\
-    \singleItem{Engineering:}{TypeScript/JavaScript (Node.js, React, Vite, Bun), API integrations, webhooks, automation frameworks, data pipelines, web scraping}
-    \\
-    \singleItem{Voice \& Multimodal:}{LiveKit WebRTC, Silero VAD, streaming STT/TTS (Deepgram, ElevenLabs), TensorFlow, ML Kit}
-    \\
-    \singleItem{Infrastructure:}{Kubernetes Helm charts, self-hosted ASR, REST APIs, Git/GitHub, automated testing (Vitest)}
-\end{skillList}
-\sectionsep
+\\vspace{4pt}
 
-\section{Experience}
+\\section{Technical Skills}
+\\begin{skillList}
+    \\singleItem{AI \\& LLMs:}{Python, FastAPI, Claude, OpenAI, Gemini, multi-agent orchestration, tool calling, RAG, pgvector}
+    \\\\\\[-1pt]
+    \\singleItem{Engineering:}{TypeScript, Bun, Node.js, React, REST APIs, API integrations, automation, data pipelines, Git}
+    \\\\\\[-1pt]
+    \\singleItem{Voice \\& Edge:}{LiveKit WebRTC, Silero VAD, Deepgram, ElevenLabs, TensorFlow, ML Kit, ESP32-S3}
+\\end{skillList}
+\\sectionsep
 
-\resumeHeading{Aura}{Founder}{Pune, India}{Jun 2025 – Present}
-\begin{bullets}
-    \item Built FastAPI backend with autonomous multi-step workflows: transcription ingestion, memory extraction, knowledge graph entity linking, speech profiling, and Model Context Protocol server
-    \item Integrated self-hosted Deepgram Nova-3 ASR via Kubernetes Helm charts with pgvector migrations for vector memory retrieval
-    \item Authored speaker grounding workflow threading resolved user name into action item extraction for task attribution (Issue 8918, adopted in PR 12089)
-    \item Implemented offline agglomerative hierarchical clustering (SciPy cosine linkage) with 52 unit tests solving speaker drift in 3+ person meetings (PR 8919, adopted in PR 12471)
-\end{bullets}
-\sectionsep
+\\section{Experience}
 
-\resumeHeading{AI \& Automation}{Freelancer}{Remote}{Sep 2024 – Present}
-\begin{bullets}
-    \item Built custom AI agent workflows and automation scripts for student and community developer projects
-\end{bullets}
-\sectionsep
+\\resumeHeading{Aura}{Founder}{Pune, India}{Jun 2025 – Present}
+\\begin{bullets}
+    \\item Designed and integrated a wearable AI system across ESP32-S3 firmware, multimodal capture, FastAPI services, and memory workflows.
+    \\item Extended Omi backend infrastructure with transcription, knowledge-graph, speaker, MCP, and pgvector memory paths; integrated Deepgram ASR via Kubernetes.
+    \\item Resolved a Windows Electron WebGL GPU-memory issue through root-cause analysis; the diagnosis was merged downstream in Omi PR \\#8902.
+    \\item Implemented offline agglomerative speaker clustering with 52 tests for speaker drift in 3+ person meetings; later adopted downstream in PR \\#12471.
+\\end{bullets}
+\\sectionsep
 
-\resumeHeading{AICTE via Google}{AI \& ML Intern}{Remote, India}{Oct 2024 – Dec 2024}
-\begin{bullets}
-    \item Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device edge classification
-    \item Applied transfer learning and data augmentation pipelines to optimize model inference latency and accuracy under mobile memory constraints
-\end{bullets}
-\sectionsep
+\\resumeHeading{AICTE via Google}{AI \\& ML Intern}{Remote, India}{Oct 2024 – Dec 2024}
+\\begin{bullets}
+    \\item Developed and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
+    \\item Applied transfer learning and data augmentation under mobile memory constraints.
+\\end{bullets}
+\\sectionsep
 
-\section{Projects}
+\\resumeHeading{Reliance}{Associate}{Pune, India}{Jul 2024 – Oct 2024}
+\\begin{bullets}
+    \\item Managed customer-service workflows, documentation, memberships, vouchers, exchanges, and daily follow-up.
+    \\item Coordinated with store, HR, brand, and management teams to resolve customer issues.
+\\end{bullets}
+\\sectionsep
 
-\projectHeading{Mia - Personal AI Engineering OS}{https://github.com/thesohamdatta/Mia}{TypeScript, Bun, Multi-Host LLM Adapters, Vitest}
-Built a compiled, local-first developer CLI in TypeScript (single Bun binary) automating a 5-stage AI engineering harness (grill to spec to plan to review to ship). Implemented unified host adapters for Anthropic Claude, OpenAI Codex, and local models with automated verification gates (lint, typecheck, Vitest) and immutable JSONL state tracking.\\
-\sectionsep
+\\section{Projects}
 
-\projectHeading{LLM-Council - Multi-Model Consensus Engine}{https://github.com/thesohamdatta/LLM-Council}{Python, FastAPI, React, Vite, Multi-Agent Orchestration}
-Built a multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesize peer-reviewed answers. Implemented a 3-stage critique pipeline (Analyst to Skeptic to Synthesizer) with structured prompting and an interactive React frontend visualizing step-by-step model agreement.\\
-\sectionsep
+\\projectHeading{Mia · Personal AI Engineering OS}{https://github.com/thesohamdatta/Mia}{TypeScript · Bun · LLM Adapters · Vitest}
+\\href{https://github.com/thesohamdatta/Mia}{\\underline{github.com/thesohamdatta/Mia}}\\par\\vspace{1pt}
+Created a local-first CLI around a 5-stage engineering harness from grilling to specification, planning, review, and shipping. Added unified Claude, Codex, and local-model adapters with automated verification gates and immutable JSONL state tracking.
+\\sectionsep
 
-\projectHeading{Voice AI Systems - Real-Time Voice Agents}{https://github.com/thesohamdatta/John}{LiveKit WebRTC, Silero VAD, Python, Kotlin}
-Built real-time WebRTC conversational voice agents using LiveKit with client-side Silero VAD for instant barge-in interruption and semantic turn detection. Developed John: native Android Kotlin client (Jetpack Compose) connected to Python LiveKit agent backend with tool calling for calendar, tasks, and telephony automation. Developed voicecoder: VS Code extension for voice-driven code editing with multi-provider fallback (Claude, GPT-4o, Gemini, local Ollama) and real-time token cost tracking.\\
-\sectionsep
+\\projectHeading{LLM-Council · Multi-Model Consensus}{https://github.com/thesohamdatta/LLM-Council}{Python · FastAPI · React}
+\\href{https://github.com/thesohamdatta/LLM-Council}{\\underline{github.com/thesohamdatta/LLM-Council}}\\par\\vspace{1pt}
+Developed a concurrent multi-LLM consensus system across OpenAI, Anthropic, Gemini, and Groq. Added an Analyst → Skeptic → Synthesizer review flow with a React interface for comparing model outputs.
+\\sectionsep
 
-\projectHeading{Omi Open-Source Contributions}{https://github.com/BasedHardware/omi}{21 Issues, 5 Architectural RFCs, 120+ Unit Tests}
-Diagnosed Electron WebGL GPU memory leak on Windows caused by CSS backdrop filters over 3D graph canvases (Issue 8438, merged downstream in PR 8902). Authored Windows file indexing spec (Issue 8991, delivered in merged PRs 7896/9595/10236). Authored 1-click Markdown export spec (Issue 12360 OPEN; draft PR 12927).\\
-\sectionsep
+\\projectHeading{Voice AI Systems · Realtime Agents}{https://github.com/thesohamdatta/John}{LiveKit · WebRTC · Python · Kotlin}
+\\href{https://github.com/thesohamdatta/John}{\\underline{github.com/thesohamdatta/John}}\\par\\vspace{1pt}
+Developed realtime voice agents with LiveKit and Silero VAD for turn detection and barge-in handling. Built an Android client linked to a Python agent with calendar and task tool calling.
+\\sectionsep
 
-\section{Education}
-\educationHeading{Bachelor of Engineering (B.E.) in AI \& Machine Learning}{University of Pune (SPPU)}{Pune, India}{2022 – Jun 2026}
+\\projectHeading{Omi Open-Source Contributions}{https://github.com/BasedHardware/omi}{21 Issues · 5 RFCs · 120+ Tests}
+\\href{https://github.com/BasedHardware/omi}{\\underline{github.com/BasedHardware/omi}}\\par\\vspace{1pt}
+Investigated and documented Omi engineering issues including a Windows GPU-memory leak, speaker clustering, action-item grounding, and file indexing. Distinguish downstream adoption from directly merged authorship.
+\\sectionsep
 
-\end{document}
+\\section{Education}
+\\educationHeading{Bachelor of Engineering (B.E.) in AI \\& Machine Learning}{Savitribai Phule Pune University (SPPU)}{Pune, India}{2022 – Jun 2026}
+
+\\end{document}
