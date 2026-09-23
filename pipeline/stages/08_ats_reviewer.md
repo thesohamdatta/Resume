@@ -1,7 +1,7 @@
 # STAGE 08: ATS REVIEWER
 
 Read:
-- `versions/{local|mnc}/resume_{Company}.md`
+- `versions/{referral|startup|mnc}/resume_{Company}.md`
 - Stage 02 ATS signals
 - Stage 05 positioning
 - application track
@@ -21,15 +21,19 @@ Read:
    - plain searchable text
    - no tables, graphics, or decorative symbols carrying meaning
    - technical specificity is selective, not exhaustive
-5. For `local`:
+5. For `referral`:
    - same logical order and clean text hierarchy
-   - D2 default; D3 only when justified
+   - D2 default; broad practical signal
    - enough project context to understand the work
-6. Bullet count: 2–4 per role unless evidence or page limits justify less.
-7. One-page default.
-8. Contact must include name, location, LinkedIn, and GitHub.
-9. Certifications must not appear unless verified.
-10. Do not penalize omitted secondary domains when Stage 05 deliberately marked them Compress/Omit.
+6. For `startup`:
+   - single column and readable
+   - stronger ownership and project identity
+   - D2 default; D3 when justified
+7. Bullet count: 2–4 per role unless evidence or page limits justify less.
+8. One-page default.
+9. Contact must include name, location, LinkedIn, and GitHub.
+10. Certifications must not appear unless verified.
+11. Do not penalize omitted secondary domains when Stage 05 deliberately marked them Compress/Omit.
 
 ## Output
 
