@@ -32,27 +32,37 @@ Never use inference to manufacture candidate evidence.
 
 ## Active tracks
 
-### local
+### referral
 
-Targets local Indian IT/product companies, engineering consultancies, and smaller AI/software teams.
+Targets forwarded/local-network applications.
 
 Positioning:
-Practical AI engineer with hands-on software, AI, voice, embedded, backend, and product experience.
+Practical AI/software engineer with broad, understandable technical evidence.
 
-Default:
-One page, technical, clear, slightly more project/product context.
+Display name:
+**Soham Karande**
+
+### startup
+
+Targets startups, founder outreach, direct applications, and small technical teams.
+
+Positioning:
+Builder with strong ownership across AI, software, systems, and product.
+
+Display name:
+**Soham Datta**
 
 ### mnc
 
 Targets multinational and enterprise hiring teams.
 
 Positioning:
-AI/software engineer with concrete technical evidence across AI/ML, LLM systems, voice, backend, embedded systems, and software engineering.
+AI/software engineer with precise technical evidence and conventional ATS-safe presentation.
 
-Default:
-One page, single-column, conventional, ATS-safe, concise.
+Display name:
+**Soham Datta**
 
-Legacy `startup` and `midlevel` tracks are history/recovery only.
+There are exactly three active tracks. No domain may create a fourth track.
 
 ## Standard section order
 
