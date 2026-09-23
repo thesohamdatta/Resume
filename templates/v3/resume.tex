@@ -3,15 +3,25 @@
 \pagestyle{fancy}
 \resetHeaderAndFooter
 
-\newcommand{\resumeHeading}[4]{\runsubsection{#1}\hfill\location{#3 | #4}\\
-\descript{#2}}
-\newcommand{\projectHeading}[3]{\Project{#1}{#2}\descript{#3}\\}
+\newcommand{\resumeHeading}[3]{%
+\noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+{\runsubsection{#1}} & {\location{#2}} \\
+[-1pt]
+{\descript{#3}} & \\
+[-1pt]
+\end{tabularx}
+}
+\newcommand{\projectHeading}[2]{%
+\noindent\begin{tabularx}{\textwidth}{@{}X r@{}}
+{\runsubsection{#1}} & {\location{#2}} \\
+[-1pt]
+\end{tabularx}
+}
 
 \begin{document}
 
 \begin{center}
-{\customLatoBlack\fontsize{22pt}{24pt}\selectfont Soham Datta}\\[-1pt]
-{\customLatoRegular\fontsize{9pt}{10pt}\selectfont AI Engineer · Generative AI · Multimodal Systems}\\[3pt]
+{\customLatoBlack\fontsize{22pt}{24pt}\selectfont Soham Datta}\\[3pt]
 \small \href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} \quad | \quad +91 9420984066 \quad | \quad
 \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} \quad | \quad
 \href{https://github.com/thesohamdatta}{GitHub} \quad | \quad
@@ -19,63 +29,63 @@
 \end{center}
 
 \section{Summary}
-\small Built AI systems across wearable hardware, edge inference, real-time voice, LLM applications, and developer tooling. Hands-on with Python, TypeScript, FastAPI, LiveKit, TensorFlow, ESP32 firmware, and multi-model AI workflows.
+\small Built AI systems across edge inference, real-time voice, LLM applications, and developer tooling. Hands-on with Python, TypeScript, FastAPI, LiveKit, TensorFlow, and multi-model AI workflows.
 
 \section{Experience}
-\resumeHeading{Aura}{Founder · Wearable AI / Hardware / Edge Systems}{Pune, India}{Jun 2025 -- Present}
+\resumeHeading{Aura}{Pune, India | Jun 2025 -- Present}{Founder · AI Systems / Edge / Wearable Computing}
 \begin{bullets}
-\item Designed and 3D-printed a wearable AI pendant around the Seeed XIAO ESP32-S3 Sense, packaging camera, LiPo battery, microphone, and custom CAD enclosure.
-\item Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, on-device Opus compression, Wi-Fi/BLE event loops, battery handling, sleep modes, and OTA updates.
-\item Adapted an Omi-based FastAPI backend with memory, transcription, knowledge-graph, speaker-identification, and MCP routers; added pgvector migrations and Kubernetes-hosted Deepgram Nova-3 ASR.
-\item Diagnosed a Windows Electron WebGL GPU-memory leak and authored the issue that was merged downstream; authored speaker clustering with 52 tests, later adopted downstream.
+\item Built Aura's edge-to-cloud pipeline for audio capture, event-triggered vision, transcription, memory, and tool routing.
+\item Wrote FreeRTOS firmware for 16 kHz I2S DMA audio capture, Opus compression, Wi-Fi/BLE events, sleep modes, and OTA updates.
+\item Extended an Omi-based FastAPI backend with memory, transcription, knowledge graph, speaker identification, and MCP routers; added pgvector and Deepgram ASR.
+\item Diagnosed a Windows Electron WebGL GPU-memory leak and authored the issue merged downstream; built speaker clustering with 52 tests, later adopted downstream.
 \end{bullets}
 \sectionsep
 
-\resumeHeading{AICTE via Google}{AI \& ML Intern · Computer Vision / Edge ML}{India}{Oct 2024 -- Dec 2024}
+\resumeHeading{AICTE via Google}{India | Oct 2024 -- Dec 2024}{AI \& ML Intern · Computer Vision / Edge ML}
 \begin{bullets}
-\item Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device edge classification.
-\item Applied transfer learning and data augmentation to balance inference latency and accuracy under mobile memory constraints.
+\item Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
+\item Used transfer learning and data augmentation to balance inference latency and accuracy under mobile memory constraints.
 \end{bullets}
 \sectionsep
 
-\resumeHeading{Reliance}{Associate · Customer Operations}{India}{Jul 2024 -- Oct 2024}
+\resumeHeading{Reliance}{India | Jul 2024 -- Oct 2024}{Associate · Customer Operations}
 \begin{bullets}
-\item Handled the customer service desk across complaints, memberships, digital vouchers, exchanges, documentation, and daily follow-up.
-\item Coordinated with brand managers, HR, store managers, and store teams to clarify issues and resolve customer requests.
+\item Handled customer requests across complaints, memberships, digital vouchers, exchanges, documentation, and follow-up.
+\item Coordinated with brand, HR, store management, and store teams to resolve customer issues.
 \end{bullets}
 
 \section{Projects}
-\projectHeading{Mia}{https://github.com/thesohamdatta/Mia}{TypeScript · Bun · Anthropic Claude · OpenAI Codex · Vitest · JSONL}
+\projectHeading{Mia}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}
+\descript{TypeScript · Bun · Anthropic Claude · OpenAI Codex · Vitest · JSONL}
 \begin{bullets}
-\item Built a compiled local-first CLI that runs a 5-stage AI engineering harness: grill, spec, plan, review, and ship, with unified adapters for Claude, Codex, and local models.
-\item Implemented immutable JSONL state, automated lint/typecheck/Vitest gates, and stateless event-driven execution after removing a fragile background-daemon architecture.
+\item Built a local-first CLI for a 5-stage AI engineering harness: grill, spec, plan, review, and ship, with adapters for Claude, Codex, and local models.
+\item Implemented immutable JSONL state, lint/typecheck/Vitest gates, and stateless event-driven execution after removing a background-daemon architecture.
 \end{bullets}
 \sectionsep
 
-\projectHeading{Real-Time Voice AI Systems}{https://github.com/thesohamdatta/John}{LiveKit WebRTC · Silero VAD · Python · Kotlin · Jetpack Compose · LLM APIs}
+\projectHeading{Real-Time Voice AI Systems}{\href{https://github.com/thesohamdatta/John}{John} · \href{https://github.com/thesohamdatta/voicecoder}{voicecoder}}
+\descript{LiveKit WebRTC · Silero VAD · Python · Kotlin · Jetpack Compose · LLM APIs}
 \begin{bullets}
-\item Built real-time WebRTC voice agents with client-side Silero VAD for barge-in interruption and semantic turn detection; John connects a native Android client to a Python LiveKit agent with tool calling.
-\item Built voicecoder, a VS Code extension for voice-driven code editing with Claude, GPT-4o, Gemini, and local Ollama fallback plus real-time token-cost tracking.
+\item Built real-time WebRTC voice agents with Silero VAD for interruption and turn detection; John connects an Android client to a Python LiveKit agent with tool calling.
+\item Built voicecoder, a VS Code extension for voice-driven code editing with Claude, GPT-4o, Gemini, and Ollama fallback, with token-cost tracking.
 \end{bullets}
 \sectionsep
 
-\projectHeading{LLM-Council}{https://github.com/thesohamdatta/LLM-Council}{Python · FastAPI · React · Vite · Multi-Model Orchestration}
+\projectHeading{LLM-Council}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}
+\descript{Python · FastAPI · React · Vite · Multi-Model Orchestration}
 \begin{bullets}
-\item Built a multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently, then implemented an Analyst-Skeptic-Synthesizer critique pipeline with a React interface.
+\item Built a concurrent multi-LLM consensus engine with OpenAI, Anthropic, Gemini, and Groq, followed by an Analyst-Skeptic-Synthesizer critique pipeline.
 \end{bullets}
 
 \section{Education}
-\educationHeading{Savitribai Phule Pune University (SPPU)}{Bachelor of Engineering (B.E.) · Artificial Intelligence \& Machine Learning}{Pune, India}{2022 -- Jun 2026}
+\resumeHeading{Savitribai Phule Pune University (SPPU)}{Pune, India | 2022 -- Jun 2026}{Bachelor of Engineering (B.E.) · Artificial Intelligence \& Machine Learning}
 
 \section{Technical Skills}
 \begin{skillList}
 \singleItem{AI/ML:}{LLMs, AI Agents, RAG, Tool Calling, Multimodal AI, Computer Vision, TensorFlow, PyTorch, ML Kit, SciPy}\\
 \singleItem{Languages:}{Python, TypeScript/JavaScript, Kotlin, C/C++}\\
 \singleItem{Engineering:}{FastAPI, React, Node.js, LiveKit/WebRTC, REST APIs, Git/GitHub, Vitest, Kubernetes, pgvector}\\
-\singleItem{Embedded/Product:}{ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, 3D CAD, Wearable Systems}
+\singleItem{Embedded:}{ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, Wearable Systems}
 \end{skillList}
-
-\section{Certifications}
-\small Udacity AI/ML Foundations Program · Generative AI with AWS · AWS Machine Learning Foundations · Prompt Engineering Foundations · Cloud Practitioner Essentials · Google AI Essentials
 
 \end{document}
