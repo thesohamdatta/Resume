@@ -26,15 +26,15 @@ Run IN ORDER — do not skip:
 
 **LOAD:**
 1. Read voice.md fully before touching any draft.
-2. Read pipeline_state.md Stage 05 → target company type (startup/mnc/mid-level).
+2. Read pipeline_state.md Stage 05 → target company type (startup/referral/mnc).
 3. Read the full resume and cover letter before editing.
 
 **DETECT CONTEXT:**
-4. From Stage 05 Positioning Strategy, identify target: startup | mnc | mid-level
+4. From Stage 05 Positioning Strategy, identify target: startup | referral | mnc
 5. Select voice profile from voice.md §5 Voice Matrix:
    - Startup: Action + What Built + Stack + Verifiable Outcome
+   - Referral: Action + Work + Relevant Technology + Clear Context
    - MNC: Action + Outcome/Metric + Technology + Context
-   - Mid-Level: Context + Action + Outcome + Growth
 
 **APPLY RULES (both resume + cover letter):**
 6. Banned Words scan: every word in voice.md Banned Words table → replace with
