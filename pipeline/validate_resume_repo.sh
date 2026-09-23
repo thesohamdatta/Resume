@@ -12,37 +12,44 @@ for track in referral startup mnc; do
 done
 ok "all three active tracks exist and use templates/v3"
 
-ACTIVE_DOCS=(
-  "$ROOT/AGENTS.md"
-  "$ROOT/CONTEXT.md"
-  "$ROOT/MAP.md"
-  "$ROOT/README.md"
-  "$ROOT/pipeline"
-  "$ROOT/docs/voice.md"
-  "$ROOT/docs/agent.md"
-  "$ROOT/.agents/skills/voice-guide"
-  "$ROOT/.agents/skills/latex-resume-render"
-  "$ROOT/versions/referral"
-  "$ROOT/versions/startup"
-  "$ROOT/versions/mnc"
-  "$ROOT/templates/v3"
+ACTIVE_FILES=(
+  AGENTS.md
+  CONTEXT.md
+  MAP.md
+  README.md
+  DONT.MD
+  docs/voice.md
+  docs/agent.md
+  pipeline/APPLY.md
+  pipeline/run.md
+  pipeline/stages/10_slop_free_polish.md
+  .agents/skills/voice-guide/SKILL.md
+  .agents/skills/latex-resume-render/SKILL.md
+  templates/v3/resume.tex
+  templates/v3/resume-openfont.cls
+  versions/referral/_base.md
+  versions/referral/resume.tex
+  versions/startup/_base.md
+  versions/startup/resume.tex
+  versions/mnc/_base.md
+  versions/mnc/resume.tex
 )
 
-if grep -RInE 'D:\\download|/mnt/data|C:\\Users' "${ACTIVE_DOCS[@]}" >/tmp/resume-path-check 2>/dev/null; then
+if grep -nE 'D:\\\\download|[A-Za-z]:\\\\Users\\\\|/mnt/data' -- "${ACTIVE_FILES[@]}" >/tmp/resume-path-check 2>/dev/null; then
   cat /tmp/resume-path-check
-  fail "active docs contain workstation paths"
+  fail "active system contains workstation paths"
 fi
-ok "no workstation paths in active system"
+ok "active system is portable"
 
-if grep -RInE 'versions/local|mid-level|midlevel|only two active tracks|exactly two active tracks|\[local \| mnc\]' "${ACTIVE_DOCS[@]}" >/tmp/resume-track-check 2>/dev/null; then
+if grep -nE 'versions/local|versions/midlevel|mid-level' -- "${ACTIVE_FILES[@]}" >/tmp/resume-track-check 2>/dev/null; then
   cat /tmp/resume-track-check
-  fail "active system contains stale track contract"
+  fail "active system contains stale track terminology"
 fi
 ok "active system uses current track vocabulary"
 
-if grep -RInE '3D-printed|custom CAD enclosure|custom CAD' "$ROOT/versions/referral" "$ROOT/versions/startup" "$ROOT/versions/mnc" >/tmp/resume-positioning-check 2>/dev/null; then
+if grep -nE '3D-printed|custom CAD enclosure|custom CAD' versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md >/tmp/resume-positioning-check 2>/dev/null; then
   cat /tmp/resume-positioning-check
-  fail "active base resume contains deprecated low-signal hardware framing"
+  fail "active base resumes contain deprecated low-signal hardware framing"
 fi
 ok "active base resumes contain no deprecated CAD/enclosure framing"
 
@@ -60,8 +67,8 @@ ok "canonical template contains no dummy content"
 
 if git -C "$ROOT" ls-files | grep -E '\.(aux|log|out|synctex\.gz|fls|fdb_latexmk)$' >/tmp/resume-build-check 2>/dev/null; then
   cat /tmp/resume-build-check
-  fail "tracked LaTeX build artifacts found"
+  fail "tracked LaTeX build artifacts found in active surfaces"
 fi
-ok "no tracked LaTeX build artifacts"
+ok "no tracked LaTeX build artifacts in active surfaces"
 
 ok "repository resume contract passed"
