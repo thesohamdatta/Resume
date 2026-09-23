@@ -80,7 +80,7 @@ Every application must make three decisions:
 
 ### 1. Track
 
-`local` or `mnc`.
+`referral`, `startup`, or `mnc`.
 
 ### 2. Primary Technical Domain
 
