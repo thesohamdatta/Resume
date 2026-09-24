@@ -1,0 +1,25 @@
+%====================
+% PROJECTS
+%====================
+
+\subsection[Mia: Personal AI Engineering OS]{{Mia}: \textnormal{Personal AI Engineering OS} \hfill \href{https://github.com/thesohamdatta/Mia}{github.com/thesohamdatta/Mia}}
+\subtext{TypeScript $\cdot$ Bun $\cdot$ Multi-Host LLM Adapters $\cdot$ Vitest $\cdot$ JSONL State Engine}
+\begin{zitemize}
+\item Built a compiled TypeScript CLI (single Bun binary) automating a 5-stage engineering workflow (grill, spec, plan, review, ship) with unified adapters for Claude, OpenAI, and local models.
+\item Engineered immutable JSONL state tracking with automated verification gates (lint, typecheck, Vitest), replacing background daemons with stateless execution (\href{https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md}{ADR-0001}).
+\end{zitemize}
+
+\subsection[Voice AI Systems: Real-Time Agents and Clients]{{Voice AI Systems}: \textnormal{Real-Time Voice Agents \& Mobile Clients} \hfill \href{https://github.com/thesohamdatta/John}{GitHub / Voice-AI}}
+\subtext{LiveKit WebRTC $\cdot$ Silero VAD $\cdot$ ElevenLabs $\cdot$ Python $\cdot$ Kotlin (Android Jetpack Compose)}
+\begin{zitemize}
+\item Built real-time conversational voice agents on LiveKit WebRTC, implementing client-side Silero VAD for sub-second barge-in interruption and turn detection.
+\item Developed \textbf{John}, a native Android client (Kotlin, Jetpack Compose) with tool calling, and \textbf{voicecoder}, a VS Code extension for voice-driven code editing with multi-model fallback.
+\end{zitemize}
+
+\subsection[LLM-Council: Multi-Model Consensus Engine]{{LLM-Council}: \textnormal{Multi-Model Consensus Engine} \hfill \href{https://github.com/thesohamdatta/LLM-Council}{github.com/thesohamdatta/LLM-Council}}
+\subtext{Python $\cdot$ FastAPI $\cdot$ React $\cdot$ Vite $\cdot$ Async Multi-Provider Orchestration}
+\begin{zitemize}
+\item Built a full-stack consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesize model responses.
+\item Implemented a 3-stage critique pipeline (Analyst, Skeptic, Synthesizer) with an interactive React frontend showing real-time model agreement.
+\end{zitemize}
+\vspace{-0.3em}

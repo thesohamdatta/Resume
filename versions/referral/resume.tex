@@ -1,0 +1,59 @@
+\documentclass{../../templates/v3/resume-openfont}
+\begin{document}
+\resumeHeader{Soham Karande}{Pune, India}{\href{mailto:sohamkarande00@gmail.com}{sohamkarande00@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
+
+{\small\bfseries AI Engineer | Software | Machine Learning}\par\vspace{2pt}
+\tightpar{AI/ML engineer building practical systems across wearable hardware, voice agents, LLM tooling, and backend integration. Strongest work spans Python, TypeScript, embedded firmware, and applied AI projects.}
+
+\section{Experience}
+\resumeRole{Aura}{Founder}{Jun 2025 -- Present}{Wearable AI | Embedded Firmware | AI Backend}
+\begin{resumeitemize}
+\item Designed a wearable AI pendant around an ESP32-S3: custom 3D-printed CAD enclosure, I2S DMA audio at 16\,kHz, on-device Opus compression, FreeRTOS event loops, and OTA updates.
+\item Adapted a FastAPI backend from the Omi ecosystem for transcription, vector memory (pgvector), speaker identification, and knowledge-graph extraction; wired to Kubernetes-hosted Deepgram Nova-3 ASR.
+\item Diagnosed a Windows WebGL GPU memory leak in Omi desktop (\href{https://github.com/BasedHardware/omi/issues/8438}{Issue \#8438}), CSS backdrop-filter over a React Three Fiber canvas; merged downstream in \href{https://github.com/BasedHardware/omi/pull/8902}{PR \#8902}.
+\item Authored offline agglomerative hierarchical clustering (SciPy cosine linkage, 52 unit tests) for 3+ speaker diarization (\href{https://github.com/BasedHardware/omi/pull/8919}{PR \#8919}); adopted downstream in \href{https://github.com/BasedHardware/omi/pull/12471}{PR \#12471}.
+\end{resumeitemize}
+
+\resumeRole{AICTE via Google}{AI \& ML Intern}{Oct 2024 -- Dec 2024}{Computer Vision | TensorFlow | ML Kit}
+\begin{resumeitemize}
+\item Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device image classification.
+\item Applied transfer learning and data augmentation to achieve workable accuracy under mobile memory constraints.
+\end{resumeitemize}
+
+\resumeRole{Reliance}{Associate}{Jul 2024 -- Oct 2024}{Customer Operations}
+\begin{resumeitemize}
+\item Handled the customer-service desk: complaints, memberships, digital vouchers, exchanges, and daily follow-up.
+\item Coordinated with brand managers, HR, and store teams to resolve customer issues.
+\end{resumeitemize}
+
+\resumeRole{PES Modern College}{Research Assistant}{Sep 2023 -- Mar 2024}{Research Support | Digital Learning}
+\begin{resumeitemize}
+\item Researched open courseware, arXiv, and digital learning platforms; supported student workshops and library documentation.
+\end{resumeitemize}
+
+\section{Projects}
+\resumeProject{Mia --- AI Engineering CLI}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}{TypeScript | Bun | Multi-Host LLM Adapters | Vitest}
+\begin{resumeitemize}
+\item Built a compiled, local-first developer CLI (single Bun binary) automating a 5-stage harness (grill, spec, plan, review, ship) with unified adapters for Claude, Codex, and local models; immutable JSONL state; automated lint, typecheck, and test gates.
+\end{resumeitemize}
+
+\resumeProject{Voice AI Systems}{\href{https://github.com/thesohamdatta/John}{GitHub}}{Python | LiveKit WebRTC | Silero VAD | Kotlin (Android)}
+\begin{resumeitemize}
+\item Built real-time conversational voice agents using LiveKit WebRTC with client-side Silero VAD for barge-in and semantic turn detection.
+\item Developed \textbf{John}: native Android Kotlin app (Jetpack Compose) + Python LiveKit backend with tool calling for calendar and task automation.
+\end{resumeitemize}
+
+\resumeProject{LLM-Council --- Multi-Model Consensus Engine}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}{Python | FastAPI | React | Multi-Agent Orchestration}
+\begin{resumeitemize}
+\item Built a multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently; 3-stage critique pipeline (Analyst, Skeptic, Synthesizer) with a React frontend showing step-by-step model agreement.
+\end{resumeitemize}
+
+\section{Education}
+\resumeEducation{University of Pune (SPPU)}{2022 -- Jun 2026}{Bachelor of Engineering (B.E.) in Artificial Intelligence \& Machine Learning | Pune, India}
+
+\section{Technical Skills}
+\resumeSkills{Languages:}{Python, TypeScript/JavaScript, Kotlin, C/C++}
+\resumeSkills{AI/ML:}{LLMs, AI Agents, RAG, Computer Vision, TensorFlow, PyTorch, LiveKit, Silero VAD, pgvector}
+\resumeSkills{Engineering:}{FastAPI, React, Bun/Node.js, REST APIs, Git/GitHub, Vitest, WebRTC}
+\resumeSkills{Systems:}{ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, Deepgram, Kubernetes}
+\end{document}

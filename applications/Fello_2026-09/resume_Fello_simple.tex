@@ -1,0 +1,74 @@
+\documentclass[]{resume-openfont}
+
+\pagestyle{fancy}
+\resetHeaderAndFooter
+
+\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
+\newcommand{\educationHeading}[4]{\runsubsection{#1}\hspace*{\fill}  \location{#3 | #4}\\\descript{#2}\fakeNewLine}
+\newcommand{\projectHeading}[3]{\Project{#1}{#2}\descript{#3}\\}
+
+\begin{document}
+
+\newcommand{\yourName}{Soham Datta}
+\newcommand{\githubUserName}{thesohamdatta}
+\newcommand{\linkedInUserName}{thesohamdatta}
+
+\begin{center}
+    \Huge \scshape \latoRegular{\yourName} \\ \vspace{1pt}
+    \small Pune, India $|$
+    \href{https://www.linkedin.com/in/\linkedInUserName}{\underline{linkedin.com/in/\linkedInUserName}} $|$
+    \href{https://github.com/\githubUserName}{\underline{github.com/\githubUserName}}
+\end{center}
+
+\section{Technical Skills}
+\begin{skillList}
+    \singleItem{AI:}{Python, FastAPI, Claude API, OpenAI API, Multi-agent systems, Tool calling, RAG, pgvector}
+    \\
+    \singleItem{Engineering:}{TypeScript, Node.js, React, REST APIs, Kubernetes, Automation, Git}
+\end{skillList}
+\sectionsep
+
+\section{Experience}
+
+\resumeHeading{Aura}{Founder}{Pune, India}{Jun 2025 – Present}
+\begin{bullets}
+    \item Built FastAPI backend with autonomous workflows for transcription, memory extraction, and knowledge graphs
+    \item Integrated Deepgram ASR via Kubernetes with pgvector for vector memory retrieval
+    \item Authored speaker clustering algorithm with 52 tests, adopted in open-source project (PR 12471)
+\end{bullets}
+\sectionsep
+
+\resumeHeading{Freelancer}{AI \& Automation}{Remote}{Sep 2024 – Present}
+\begin{bullets}
+    \item Built custom AI agent workflows and automation scripts for developer projects
+\end{bullets}
+\sectionsep
+
+\resumeHeading{AICTE via Google}{AI \& ML Intern}{Remote}{Oct 2024 – Dec 2024}
+\begin{bullets}
+    \item Built lightweight computer vision models with TensorFlow and ML Kit for edge deployment
+\end{bullets}
+\sectionsep
+
+\section{Projects}
+
+\projectHeading{Mia - AI Engineering CLI}{https://github.com/thesohamdatta/Mia}{TypeScript, Multi-LLM Adapters}
+Built compiled CLI automating 5-stage AI harness. Unified adapters for Claude, OpenAI, and local models.\\
+\sectionsep
+
+\projectHeading{LLM-Council}{https://github.com/thesohamdatta/LLM-Council}{Python, FastAPI, React}
+Multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, Groq concurrently.\\
+\sectionsep
+
+\projectHeading{Voice AI Systems}{https://github.com/thesohamdatta/John}{LiveKit, Python}
+Real-time voice agents with LiveKit WebRTC and tool calling for calendar and tasks.\\
+\sectionsep
+
+\projectHeading{Omi Open Source}{https://github.com/BasedHardware/omi}{21 Issues, 120+ Tests}
+Diagnosed GPU memory leak (merged in PR 8902). Authored Windows file indexing spec.\\
+\sectionsep
+
+\section{Education}
+\educationHeading{B.E. in AI \& Machine Learning}{University of Pune (SPPU)}{Pune, India}{2022 – Jun 2026}
+
+\end{document}

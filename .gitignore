@@ -1,0 +1,43 @@
+# Resume repository ignores
+
+# OS/editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python/Node
+__pycache__/
+*.py[cod]
+node_modules/
+
+# Temporary/editor
+*.tmp
+*.bak
+*~
+*.orig
+
+# LaTeX build output
+**/*.aux
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.fls
+**/*.fdb_latexmk
+
+# Generated output
+**/build/
+**/dist/
+*.html
+
+# Generated PDFs are build artifacts by default.
+# Reference PDFs that are intentionally versioned can be force-added.
+*.pdf

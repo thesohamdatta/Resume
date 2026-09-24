@@ -1,0 +1,21 @@
+\\NeedsTeXFormat{LaTeX2e}
+\\ProvidesPackage{lato-font}[2021/05/30 Quick package to use the Lato fonts]
+\\RequirePackage{fontspec,xltxtra,xunicode,fontenc}
+\\RequirePackage{font-color}
+\\newcommand{\\fontFolder}{fonts/Lato/}
+\\newcommand{\\fontName}{Lato}
+
+\\newfontfamily{\\customLatoThin}[Path = \\fontFolder]{\\fontName-Thin}
+\\newfontfamily{\\customLatoLight}[Path = \\fontFolder]{\\fontName-Light}
+\\newfontfamily{\\customLatoRegular}[Path = \\fontFolder]{\\fontName-Regular}
+\\newfontfamily{\\customLatoBold}[Path = \\fontFolder]{\\fontName-Bold}
+\\newfontfamily{\\customLatoBlack}[Path = \\fontFolder]{\\fontName-Black}
+\\newfontfamily{\\customLatoThinItalic}[Path = \\fontFolder]{\\fontName-ThinItalic}
+\\newfontfamily{\\customLatoLightItalic}[Path = \\fontFolder]{\\fontName-LightItalic}
+\\newfontfamily{\\customLatoRegular}{Lato-Regular}
+
+\\newcommand{\\latoRegular}[1]{\\customLatoRegular\\selectfont#1\\normalfont}
+\\newcommand{\\latoBlack}[1]{\\customLatoBlack\\selectfont#1\\normalfont}
+
+\\defaultfontfeatures{Mapping=tex-text}
+\\setmainfont[Color=primary, Path = \\fontFolder, BoldItalicFont=\\fontName-Italic,BoldFont=\\fontName-Regular,ItalicFont=\\fontName-LightItalic]{\\fontName-Regular}

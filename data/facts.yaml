@@ -1,0 +1,186 @@
+# Single source of truth for biographical facts
+# All resume variants, handoffs, and documentation reference this file
+
+personal:
+  name: "Soham Datta"
+  location: "Pune, India"
+  headline: "AI Engineer · Personal AI · Wearable Systems"
+  links:
+    linkedin: "https://www.linkedin.com/in/thesohamdatta/"
+    github: "https://github.com/thesohamdatta"
+    portfolio: "https://sohamdatta.framer.ai"
+  project_links:
+    aura: "https://github.com/thesohamdatta/aura"
+    mia: "https://github.com/thesohamdatta/Mia"
+    voice_ai: "https://github.com/thesohamdatta/John"
+    llm_council: "https://github.com/thesohamdatta/LLM-Council"
+
+education:
+  institution: "University of Pune (SPPU)"
+  degree: "Bachelor of Engineering (B.E.)"
+  field: "Artificial Intelligence & Machine Learning"
+  dates: "2022 – Jun 2026"
+  location: "Pune, India"
+
+experience:
+  - id: aura
+    title: "Founder"
+    company: "Aura"
+    dates: "Jun 2025 – Present"
+    tags: "Wearable AI · Hardware Prototyping · Edge Integration · Open Source"
+    bullets:
+      referral:
+        - "Designed and 3D-printed custom CAD enclosures packaging a Seeed Studio XIAO ESP32-S3 Sense, ribbon-cable camera, LiPo battery, and mic porting into a wearable pendant form factor."
+        - "Integrated the physical device with the Omi Glass open-source ecosystem, verifying end-to-end audio streaming and cloud memory capture."
+        - "Diagnosed an Electron WebGL GPU memory leak on Windows caused by CSS backdrop filters over 3D graph canvases in Omi (authored [Issue #8438](https://github.com/BasedHardware/omi/issues/8438), merged downstream in [PR #8902](https://github.com/BasedHardware/omi/pull/8902))."
+        - "Authored offline agglomerative hierarchical clustering (SciPy cosine linkage) with 52 unit tests to solve speaker drift in 3+ person meetings ([PR #8919](https://github.com/BasedHardware/omi/pull/8919), adopted downstream in [PR #12471](https://github.com/BasedHardware/omi/pull/12471))."
+        - "Threaded resolved user_name into extract_action_items() to anchor task attribution on the primary user ([Issue #8918](https://github.com/BasedHardware/omi/issues/8918), implemented in [PR #8919](https://github.com/BasedHardware/omi/pull/8919), adopted downstream in [PR #12089](https://github.com/BasedHardware/omi/pull/12089))."
+        - "Authored Windows local file indexing spec for macOS parity ([Issue #8991](https://github.com/BasedHardware/omi/issues/8991), delivered in merged [#7896/#9595/#10236]) and 1-click Markdown export spec ([Issue #12360](https://github.com/BasedHardware/omi/issues/12360) OPEN, 6 user stories, zero-backend contract; Electron draft [PR #12927](https://github.com/BasedHardware/omi/pull/12927) NOT merged)."
+      mnc:
+        - "Designed and 3D-printed custom enclosures for a wearable AI pendant (Seeed XIAO ESP32-S3 Sense) packaging camera, LiPo battery, and mic into a wearable form factor."
+        - "Wrote FreeRTOS event loops for I2S DMA audio capture at 16 kHz with Opus on-device compression and OTA firmware update support."
+        - "Adapted FastAPI backend from the Omi ecosystem (memory, transcription, knowledge graph, speaker identification routers) with pgvector migrations and Kubernetes-hosted Deepgram Nova-3 ASR; verified hardware-to-cloud audio streaming."
+        - "Diagnosed Electron WebGL GPU memory leak on Windows (CSS backdrop filters over 3D graph canvas); authored [Issue #8438](https://github.com/BasedHardware/omi/issues/8438), merged downstream in [PR #8902](https://github.com/BasedHardware/omi/pull/8902). Authored offline SciPy agglomerative clustering with 52 tests for 3+ speaker diarization ([PR #8919](https://github.com/BasedHardware/omi/pull/8919), adopted in [PR #12471](https://github.com/BasedHardware/omi/pull/12471))."
+        - "Authored speaker grounding for action items ([Issue #8918](https://github.com/BasedHardware/omi/issues/8918), adopted in [PR #12089](https://github.com/BasedHardware/omi/pull/12089)), Windows file indexing spec ([Issue #8991](https://github.com/BasedHardware/omi/issues/8991), delivered in [#7896/#9595/#10236]), and Markdown export spec ([Issue #12360](https://github.com/BasedHardware/omi/issues/12360) OPEN; draft [PR #12927](https://github.com/BasedHardware/omi/pull/12927) NOT merged). Security hardening ([PR #7379](https://github.com/BasedHardware/omi/pull/7379)) and web refactor ([PR #7654](https://github.com/BasedHardware/omi/pull/7654)) approved, closed unmerged."
+      startup:
+        - "Designed 3D-printed wearable AI pendant packaging ESP32-S3 hardware, camera, battery, and microphone in custom CAD enclosures; wrote FreeRTOS firmware for 16 kHz I2S DMA capture with Opus compression and OTA updates."
+        - "Adapted FastAPI backend from the Omi ecosystem with pgvector memory retrieval and Kubernetes-hosted Deepgram Nova-3 ASR; verified end-to-end audio streaming and cloud memory capture."
+        - "Diagnosed Electron WebGL GPU memory leak on Windows caused by CSS backdrop filters ([Issue #8438](https://github.com/BasedHardware/omi/issues/8438), merged downstream in [PR #8902](https://github.com/BasedHardware/omi/pull/8902))."
+        - "Authored offline speaker clustering with SciPy agglomerative clustering and 52 tests ([PR #8919](https://github.com/BasedHardware/omi/pull/8919), adopted in [PR #12471](https://github.com/BasedHardware/omi/pull/12471)); threaded user_name into action-item extraction ([Issue #8918](https://github.com/BasedHardware/omi/issues/8918), adopted in [PR #12089](https://github.com/BasedHardware/omi/pull/12089))."
+        - "Authored Windows file indexing spec ([Issue #8991](https://github.com/BasedHardware/omi/issues/8991), delivered in [#7896/#9595/#10236]) and Markdown export spec ([Issue #12360](https://github.com/BasedHardware/omi/issues/12360) OPEN; draft [PR #12927](https://github.com/BasedHardware/omi/pull/12927) NOT merged)."
+    notes: "Independent/self-funded effort. No customers or revenue are claimed. Backend adapted from the Omi ecosystem; do not describe it as built from scratch."
+
+  - id: aicte_google
+    title: "AI & ML Intern"
+    company: "AICTE via Google"
+    dates: "Oct 2024 – Dec 2024"
+    tags: "Computer Vision · TensorFlow · ML Kit · Edge Deployment"
+    bullets:
+      referral:
+        - "Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device edge classification."
+        - "Applied transfer learning and data augmentation pipelines to optimise model inference latency and accuracy under mobile memory constraints."
+      mnc:
+        - "Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device edge classification."
+        - "Applied transfer learning and data augmentation pipelines to optimise model inference latency and accuracy under mobile memory constraints."
+      startup:
+        - "Built and evaluated lightweight computer vision models with TensorFlow and Google ML Kit for on-device edge classification."
+        - "Applied transfer learning and data augmentation pipelines to optimise model inference latency and accuracy under mobile memory constraints."
+
+  - id: reliance
+    title: "Associate"
+    company: "Reliance"
+    dates: "Jul 2024 – Oct 2024"
+    tags: "Customer Service · Store Operations · POS · Documentation"
+    bullets:
+      referral:
+        - "Handled the customer service desk across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up."
+        - "Worked with brand managers, HR, store managers, and store teams to clarify customer issues, coordinate resolutions, and keep the service desk running."
+      mnc:
+        - "Handled the customer service desk across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up."
+        - "Worked with brand managers, HR, store managers, and store teams to clarify customer issues and coordinate resolutions."
+      startup:
+        - "Handled the customer service desk across complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, and daily follow-up."
+        - "Worked with brand managers, HR, store managers, and store teams to clarify customer issues, coordinate resolutions, and keep the service desk running."
+
+  - id: pes_research
+    title: "Research Assistant"
+    company: "PES Modern College"
+    dates: "Sep 2023 – Mar 2024"
+    tags: "Research Support · Digital Library · Workshops · Documentation"
+    bullets:
+      referral:
+        - "Researched literature, digital learning platforms, and free resources across computer science, healthcare, mechanical engineering, electrical engineering, and other student learning domains; gathered and organised useful course, book, article, and research resources."
+        - "Worked with the college archive to help students discover and use digital resources; conducted workshops, guided students, and supported awareness campaigns around open courseware, arXiv, free coding resources, and other online learning platforms."
+      mnc:
+        - "Researched literature, digital learning platforms, and free resources across computer science, healthcare, mechanical engineering, electrical engineering, and other domains; gathered and organised course, book, article, and research resources."
+        - "Worked with the college archive and helped students use digital learning resources through workshops, guidance, and awareness campaigns covering open courseware, arXiv, free coding resources, and related platforms."
+      startup:
+        - "Researched literature, digital learning platforms, and free resources across computer science, healthcare, mechanical engineering, electrical engineering, and other domains; gathered and organised course, book, article, and research resources."
+        - "Worked with the college archive and helped students use digital learning resources through workshops, guidance, and awareness campaigns covering open courseware, arXiv, free coding resources, and related platforms."
+
+projects:
+  - id: mia
+    title: "Mia · Personal AI Engineering OS"
+    tags: "TypeScript · Bun · Multi-Host LLM Adapters · Vitest · JSONL State Engine"
+    repo: "https://github.com/thesohamdatta/Mia"
+    bullets:
+      referral:
+        - "Built a compiled, local-first developer CLI in TypeScript (single Bun binary) that automates a 5-stage AI engineering harness (`grill` → `spec` → `plan` → `review` → `ship`)."
+        - "Implemented unified host adapters for Anthropic Claude, OpenAI Codex, and local models with automated verification gates (lint, typecheck, Vitest) and immutable JSONL state tracking."
+        - "Eliminated fragile background daemon architecture in favour of stateless event-driven execution ([ADR-0001](https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md))."
+      mnc:
+        - "Built a compiled TypeScript CLI (single Bun binary) automating a 5-stage AI engineering harness (grill to spec to plan to review to ship) with unified host adapters for Anthropic Claude, OpenAI Codex, and local models."
+        - "Implemented immutable JSONL state tracking, automated verification gates (lint, typecheck, Vitest), and eliminated background daemon architecture via stateless event-driven execution ([ADR-0001](https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md))."
+      startup:
+        - "Built compiled, local-first developer CLI in TypeScript (single Bun binary) automating 5-stage AI engineering harness (grill to spec to plan to review to ship)."
+        - "Implemented unified host adapters for Anthropic Claude, OpenAI Codex, and local models with automated verification gates (lint, typecheck, Vitest) and immutable JSONL state tracking."
+        - "Eliminated fragile background daemon architecture in favour of stateless event-driven execution ([ADR-0001](https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md))).
+
+  - id: voice_ai
+    title: "Voice AI Systems · Real-Time Voice Agents & Copilots"
+    tags: "LiveKit WebRTC · Silero VAD · ElevenLabs · Python · Kotlin (Android Compose)"
+    repos:
+      - "https://github.com/thesohamdatta/John"
+      - "https://github.com/thesohamdatta/I-am-Mia"
+      - "https://github.com/thesohamdatta/voicecoder"
+    bullets:
+      referral:
+        - "Built real-time WebRTC conversational voice agents using LiveKit, implementing client-side Silero VAD for instant barge-in interruption and semantic turn detection."
+        - "Developed **John**: a native Android Kotlin client (Jetpack Compose) connected to a Python LiveKit agent with tool calling for calendar and task automation."
+        - "Developed **voicecoder**: a VS Code extension for voice-driven code editing with multi-provider fallback (Claude, GPT-4o, Gemini, local Ollama) and real-time token cost tracking."
+      mnc:
+        - "Built real-time WebRTC conversational voice agents using LiveKit with client-side Silero VAD for barge-in interruption and semantic turn detection."
+        - "Developed John: native Android Kotlin app (Jetpack Compose) connected to a Python LiveKit agent with tool calling for calendar, tasks, and telephony."
+        - "Developed voicecoder: VS Code extension for voice-driven code editing with multi-provider fallback (Claude, GPT-4o, Gemini, local Ollama) and real-time token cost tracking."
+      startup:
+        - "Built real-time WebRTC conversational voice agents using LiveKit, implementing client-side Silero VAD for instant barge-in interruption and semantic turn detection."
+        - "Developed John: native Android Kotlin client (Jetpack Compose) connected to a Python LiveKit agent with tool calling for calendar and task automation."
+        - "Developed voicecoder: VS Code extension for voice-driven code editing with multi-provider fallback (Claude, GPT-4o, Gemini, local Ollama) and real-time token cost tracking."
+
+  - id: llm_council
+    title: "LLM-Council · Multi-Model Consensus Engine"
+    tags: "Python · FastAPI · React · Vite · Multi-Agent Orchestration"
+    repo: "https://github.com/thesohamdatta/LLM-Council"
+    bullets:
+      referral:
+        - "Built a multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesise peer-reviewed answers."
+        - "Implemented a 3-stage critique pipeline (Analyst → Skeptic → Synthesizer) with an interactive React frontend visualising step-by-step model agreement."
+      mnc:
+        - "Built a multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesise peer-reviewed answers."
+        - "Implemented a 3-stage critique pipeline (Analyst to Skeptic to Synthesizer) with an interactive React frontend visualising step-by-step model agreement."
+      startup:
+        - "Built multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesise peer-reviewed answers."
+        - "Implemented 3-stage critique pipeline (Analyst to Skeptic to Synthesiser) with interactive React frontend visualising step-by-step model agreement."
+
+skills:
+  ai_agents:
+    - "AI Agents"
+    - "LLM Tool Calling (MCP)"
+    - "Prompt Grounding"
+    - "Context & Memory Graphs"
+    - "Multi-Agent Consensus"
+    - "RAG"
+  voice_multimodal:
+    - "LiveKit (WebRTC)"
+    - "Silero VAD"
+    - "Streaming STT/TTS (Deepgram, ElevenLabs)"
+    - "Semantic Turn Detection"
+    - "TensorFlow"
+    - "ML Kit"
+    - "Moondream VLM"
+  engineering:
+    - "Python (FastAPI, PyTorch, asyncio)"
+    - "TypeScript / JavaScript (Node.js, React, Vite)"
+    - "Kotlin (Android Compose)"
+    - "C / C++ (ESP32 basics)"
+    - "REST APIs"
+    - "Git/GitHub"
+    - "Vitest"
+  hardware_product:
+    - "ESP32-S3"
+    - "Wearable Systems"
+    - "Human-AI Interaction Design"
+
+# Truth boundaries: canonical owner is content/github/boundaries.md — never restate rules here.
+# Per-record notes below are data annotations (what this record may/may not support), not rules.
+boundaries: []

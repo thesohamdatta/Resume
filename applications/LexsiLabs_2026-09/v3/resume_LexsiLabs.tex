@@ -1,0 +1,108 @@
+\documentclass[]{resume-openfont}
+
+\pagestyle{fancy}
+\resetHeaderAndFooter
+
+%--------------------------------------------------------------
+% Convenience command - make it easy to fill template
+
+% Create job position command. Parameters: company, position, location, when
+\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
+
+% Create education heading. Parameters: Name, degree, location, when
+\newcommand{\educationHeading}[4]{\runsubsection{#1}\hspace*{\fill}  \location{#3 | #4}\\
+\descript{#2}\fakeNewLine}
+
+% Create project heading. Parameters: Name, link, Tech stack
+\newcommand{\projectHeading}[3]{\Project{#1}{#2}
+\descript{#3}\\}
+
+%--------------------------------------------------------------
+\begin{document}
+
+%--------------------------------------------------------------
+%     Profile
+%--------------------------------------------------------------
+\newcommand{\yourName}{Soham Datta}
+\newcommand{\yourWebsite}{sohamdatta.framer.ai}
+\newcommand{\yourWebsiteLink}{https://sohamdatta.framer.ai}
+\newcommand{\yourEmail}{thesohamdatta@gmail.com}
+\newcommand{\yourPhone}{+91 9420984066}
+\newcommand{\githubUserName}{thesohamdatta}
+\newcommand{\linkedInUserName}{thesohamdatta}
+
+\begin{center}
+    \Huge \scshape \latoRegular{\yourName} \\ \vspace{1pt}
+    \small \href{mailto:\yourEmail}{\yourEmail}  $|$  \yourPhone $|$
+    \href{https://www.linkedin.com/in/\linkedInUserName}{linkedIn/\linkedInUserName} $|$
+    \href{https://github.com/\githubUserName}{github/\githubUserName}
+\end{center}
+
+%--------------------------------------------------------------
+%     Education
+%--------------------------------------------------------------
+\section{Education}
+\educationHeading{University of Pune (SPPU)}{B.E. in Artificial Intelligence \& Machine Learning}{Pune, India}{2022 -- Jun 2026}
+
+\sectionsep
+
+%--------------------------------------------------------------
+%     Experience
+%--------------------------------------------------------------
+\section{Work Experience}
+\resumeHeading{Aura}{Founder}{Pune, India}{Jun 2025 -- Present}
+\begin{bullets}
+    \item Built a wearable AI system end to end: ESP32-S3 firmware (FreeRTOS I2S DMA audio at 16 kHz, Opus compression, OTA updates), FastAPI backend with MCP server and memory routers, self-hosted Deepgram Nova-3 ASR on Kubernetes Helm charts.
+    \item Contribute to the 13.5k-star Omi open-source ecosystem: 21 issue reports with root causes, 5 adopted downstream (speaker clustering fix with 52 unit tests, WebGL leak diagnosis, action-item grounding), 3 of 7 authored PRs maintainer-approved.
+    \item Write architectural RFCs and decision records covering voice pipelines, memory systems, and harness design tradeoffs.
+\end{bullets}
+\sectionsep
+
+\resumeHeading{Freelancer}{AI \& Automation}{Remote}{Sep 2024 -- Present}
+\begin{bullets}
+    \item Built custom AI agent workflows and automation scripts for student and developer projects, with multi-provider LLM fallback and token cost tracking per feature.
+\end{bullets}
+\sectionsep
+
+\resumeHeading{AICTE via Google}{AI \& ML Intern}{Remote, India}{Oct 2024 -- Dec 2024}
+\begin{bullets}
+    \item Built and evaluated on-device vision models with TensorFlow and Google ML Kit, trading inference latency against accuracy under mobile memory limits.
+\end{bullets}
+\sectionsep
+
+%--------------------------------------------------------------
+%     Projects
+%--------------------------------------------------------------
+\section{Projects}
+
+\projectHeading{Mia $|$ Personal AI Engineering OS}{https://github.com/thesohamdatta/Mia}{TypeScript, Bun, Vitest, JSONL}
+\begin{bullets}
+    \item Compiled TypeScript CLI running a 5-stage engineering harness (grill, spec, plan, review, ship) with unified adapters for Claude, OpenAI, and local models, plus automated verification gates (lint, typecheck, Vitest).
+    \item Immutable JSONL state tracking for auditability; daemon-removal decision recorded in ADR-0001.
+\end{bullets}
+\sectionsep
+
+\projectHeading{LLM-Council $|$ Multi-Model Consensus Engine}{https://github.com/thesohamdatta/LLM-Council}{Python, FastAPI, React, Vite}
+\begin{bullets}
+    \item Cross-evaluates answers from OpenAI, Anthropic, Gemini, and Groq through an Analyst, Skeptic, Synthesizer pipeline; React frontend visualizes step-by-step model agreement.
+\end{bullets}
+\sectionsep
+
+\projectHeading{John $|$ Android Voice Client}{https://github.com/thesohamdatta/John}{Kotlin, Jetpack Compose, Python, LiveKit}
+\begin{bullets}
+    \item Native Android app connected to a Python LiveKit voice agent via WebRTC, with client-side Silero VAD for instant barge-in and tool calling for calendar, tasks, and telephony.
+\end{bullets}
+\sectionsep
+
+%--------------------------------------------------------------
+%     Skills
+%--------------------------------------------------------------
+\section{Skills}
+\begin{skillList}
+    \singleItem{Languages:}{Python, TypeScript/JavaScript, Kotlin, C/C++}
+    \\
+    \singleItem{AI \& Agents:}{LLM tool calling (MCP), RAG, multi-agent orchestration, TensorFlow, PyTorch, ML Kit}
+    \\
+    \singleItem{Engineering:}{React, Node.js, FastAPI, REST APIs, Git/GitHub, Vitest, Supabase/pgvector, Kubernetes Helm}
+\end{skillList}
+\end{document}

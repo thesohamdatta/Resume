@@ -1,0 +1,25 @@
+%====================
+% PROJECTS
+%====================
+
+\subsection[Mia --- Personal AI Engineering OS]{{Mia} \textnormal{--- Personal AI Engineering OS} \hfill \href{https://github.com/thesohamdatta/Mia}{github.com/thesohamdatta/Mia}}
+\subtext{TypeScript $\cdot$ Bun $\cdot$ Multi-Host LLM Adapters $\cdot$ Vitest $\cdot$ JSONL State Engine}
+\begin{zitemize}
+\item Built a compiled TypeScript CLI (single Bun binary) automating a 5-stage AI engineering harness (\texttt{grill} $\rightarrow$ \texttt{spec} $\rightarrow$ \texttt{plan} $\rightarrow$ \texttt{review} $\rightarrow$ \texttt{ship}) with unified adapters for Claude, Codex, and local models.
+\item Implemented immutable JSONL state tracking, automated verification gates (lint, typecheck, Vitest), and eliminated background daemon architecture in favor of stateless execution (\href{https://github.com/thesohamdatta/Mia/blob/main/docs/decisions/ADR-0001-eliminate-daemon.md}{ADR-0001}).
+\end{zitemize}
+
+\subsection[Voice AI Systems --- Real-Time Agents and Clients]{{Voice AI Systems} \textnormal{--- Real-Time Voice Agents \& Mobile Clients} \hfill \href{https://github.com/thesohamdatta/John}{GitHub / Voice-AI}}
+\subtext{LiveKit WebRTC $\cdot$ Silero VAD $\cdot$ ElevenLabs $\cdot$ Python $\cdot$ Kotlin (Android Jetpack Compose)}
+\begin{zitemize}
+\item Built real-time WebRTC conversational voice agents using LiveKit with client-side Silero VAD for instant barge-in interruption and semantic turn detection.
+\item Developed \textbf{John} (native Android Kotlin/Compose client with LiveKit tool calling) and \textbf{voicecoder} (VS Code extension with multi-provider LLM fallback and real-time token tracking).
+\end{zitemize}
+
+\subsection[LLM-Council --- Multi-Model Consensus Engine]{{LLM-Council} \textnormal{--- Multi-Model Consensus Engine} \hfill \href{https://github.com/thesohamdatta/LLM-Council}{github.com/thesohamdatta/LLM-Council}}
+\subtext{Python $\cdot$ FastAPI $\cdot$ React $\cdot$ Vite $\cdot$ Async Multi-Provider Orchestration}
+\begin{zitemize}
+\item Built a full-stack multi-LLM consensus engine querying OpenAI, Anthropic, Gemini, and Groq concurrently to cross-evaluate and synthesize peer-reviewed answers.
+\item Implemented a 3-stage critique pipeline (Analyst $\rightarrow$ Skeptic $\rightarrow$ Synthesizer) with an interactive React/Vite frontend visualizing step-by-step model agreement.
+\end{zitemize}
+\vspace{-0.3em}

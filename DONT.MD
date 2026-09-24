@@ -1,0 +1,1664 @@
+0. READ THIS FIRST
+
+This file is a policy engine, not a checklist to skim.
+
+The agent MUST:
+
+Read the Agent Contract and Engineering Principles first.
+
+Use the workflow in order.
+
+Treat NEVER and HARD FAIL rules as blocking constraints.
+
+Preserve candidate facts exactly unless the candidate provides a correction.
+
+Never fill missing facts from assumptions, patterns, or plausible guesses.
+
+Apply only rules relevant to the target country, profession, seniority, and application.
+
+Use the detailed rule sections as the source for implementation.
+
+Run the Final BOOM Gate before producing a submission-ready resume.
+
+Information-preservation rule
+
+Compression must remove repetition, not meaning.
+
+A shorter rule may represent several original rules. Do NOT interpret compression as permission to discard:
+
+honesty requirements
+
+evidence requirements
+
+ATS constraints
+
+tailoring rules
+
+formatting checks
+
+special-market exceptions
+
+AI restrictions
+
+submission/file checks
+
+QA requirements
+
+If two rules appear to conflict, resolve them in this order:
+
+Truth → Application requirements → Target-market rules → Relevance → Evidence → ATS → Format → Style
+
+When uncertain, preserve truth and flag the ambiguity.
+
+1. AGENT STATE
+
+Before editing, maintain these internal objects:
+
+CANDIDATE_FACTS
+TARGET_ROLE
+TARGET_MARKET
+JOB_REQUIREMENTS
+EVIDENCE_MAP
+SELECTED_CONTENT
+UNRESOLVED_GAPS
+VALIDATION_RESULTS
+
+Never convert an unresolved gap into a fabricated fact.
+
+2. REQUIRED PIPELINE
+
+INPUT
+  ↓
+INSPECT
+  ↓
+EXTRACT FACTS
+  ↓
+EXTRACT JOB REQUIREMENTS
+  ↓
+MAP REQUIREMENTS → EVIDENCE
+  ↓
+SELECT BEST EVIDENCE
+  ↓
+EDIT / WRITE
+  ↓
+STRUCTURE
+  ↓
+ATS + FILE VALIDATION
+  ↓
+LANGUAGE + SLOP VALIDATION
+  ↓
+CROSS-SOURCE CONSISTENCY CHECK
+  ↓
+FINAL BOOM GATE
+  ↓
+OUTPUT
+
+Do not skip stages merely because the resume already looks good.
+
+3. DECISION ORDER
+
+For every resume element, evaluate:
+
+1. TRUE?
+   NO → DELETE / FLAG
+   YES ↓
+
+2. RELEVANT?
+   NO → DELETE unless required for context
+   YES ↓
+
+3. SUPPORTED BY EVIDENCE?
+   NO → FLAG / REQUEST EVIDENCE
+   YES ↓
+
+4. DEFENSIBLE IN INTERVIEW?
+   NO → REWRITE / DELETE
+   YES ↓
+
+5. USEFUL FOR THIS JOB?
+   NO → lower priority
+   YES ↓
+
+6. CLEAR AND SPECIFIC?
+   NO → REWRITE
+   YES ↓
+
+7. ATS-SAFE?
+   NO → simplify
+   YES ↓
+
+8. SPACE-EFFICIENT?
+   NO → compress
+   YES → KEEP
+
+4. CLAIM TRANSFORMATION RULE
+
+Never improve a claim by making it less true.
+
+Allowed:
+
+REAL FACT
+→ clearer wording
+→ stronger accurate verb
+→ better ordering
+→ concise evidence
+→ clearer impact
+
+Not allowed:
+
+WEAK FACT
+→ impressive wording
+→ invented ownership
+→ invented metric
+→ invented technology
+→ fabricated achievement
+
+5. METRIC RULE
+
+IF verified metric exists:
+    use it
+
+ELSE IF truthful scale exists:
+    use scale
+
+ELSE IF observable outcome exists:
+    describe outcome
+
+ELSE:
+    describe specific work/context
+
+NEVER:
+    invent a number
+
+Approximation is allowed only when the approximation itself is truthful and defensible.
+
+6. JOB-DESCRIPTION RULE
+
+The JD is a specification for relevance, not a source of candidate facts.
+
+JD requirement
+    ↓
+Find real candidate evidence
+    ↓
+If evidence exists → surface it
+If adjacent evidence exists → frame honestly
+If no evidence exists → do not claim it
+
+Never create a skill merely because the JD contains it.
+
+7. AI RULE
+
+AI may:
+
+ANALYZE
+SELECT
+COMPARE
+CLASSIFY
+COMPRESS
+PROOFREAD
+SUGGEST
+VALIDATE
+
+AI may NOT:
+
+FABRICATE
+EXAGGERATE
+GUESS
+CHANGE HISTORY
+INVENT METRICS
+INVENT EXPERIENCE
+INVENT SKILLS
+INVENT OWNERSHIP
+
+Every AI-edited sentence must pass:
+
+TRUE → RELEVANT → SPECIFIC → DEFENSIBLE → HUMAN
+
+8. OUTPUT RULE
+
+When asked to create or improve a resume:
+
+Prefer existing evidence over generated content.
+
+Preserve high-value concrete details.
+
+Do not rewrite strong content merely for stylistic novelty.
+
+Explain or flag missing evidence rather than inventing it.
+
+Return a resume only after the Final BOOM Gate passes.
+
+If a hard gate fails, fix it or clearly identify the blocking issue.
+
+9. RULE INDEX
+
+Use the detailed sections below as implementation rules:
+
+HARD FAILS
+→ fabrication, unsupported claims, contradictions, hidden gaps, fake ownership, JD copying, ATS manipulation, submission defects
+
+CONTENT
+→ relevance, chronology, tense, achievement bullets, evidence, ownership, duplicate prevention
+
+SUMMARY
+→ optional, concrete, evidence-backed positioning
+
+SKILLS
+→ specific, grouped, supported, no ratings
+
+BULLET ENGINE
+→ action + work + method + impact + evidence + defensibility + space
+
+TAILORING
+→ requirement extraction, evidence mapping, honest keyword use, targeted selection
+
+ATS / FILE
+→ parsing, file type, searchability, links, export validation, filename
+
+STRUCTURE
+→ hierarchy, length, bullets, page breaks, contact block
+
+FORMATTING
+→ typography, dates, consistency, restrained design
+
+LANGUAGE
+→ specificity, anti-buzzword, concrete nouns, natural voice
+
+AI
+→ safe assistance, no fabrication, candidate ownership
+
+CREDIBILITY
+→ verification readiness
+
+SPECIAL RULES
+→ country/industry/seniority exceptions
+
+FINAL BOOM GATE
+→ mandatory submission validation
+
+Core objective: extract the maximum useful knowledge from the full rulebook without requiring the agent to repeatedly load a large document.
+
+Priority: TRUTH → RELEVANCE → EVIDENCE → TAILORING → CLARITY → ATS → FORMAT → POLISH.
+
+Norms: MUST = required. NEVER = hard fail. SHOULD = default. CHECK = validate. MAY = optional.
+
+Important: Rules are compressed, not removed. Specific examples are illustrative, not exceptions. When a rule conflicts with a country, profession, employer, or application requirement, use the applicable local requirement and preserve truth/clarity.
+
+E0. AGENT CONTRACT
+
+Before changing a resume:
+
+Treat the candidate's real history as the only source of truth.
+
+Treat the job description as a target specification, not content to copy.
+
+Prefer existing evidence over generated prose.
+
+Never invent missing facts, metrics, skills, ownership, or history.
+
+Optimize for a human hiring decision, not an ATS score.
+
+Preserve useful candidate-specific detail during editing.
+
+Make the smallest change that produces the required improvement.
+
+Validate the final artifact, not just the source text.
+
+If information is missing, flag the gap or ask for evidence. Do not guess.
+
+If a rule is not applicable, do not force it merely to satisfy a checklist.
+
+E1. EIGHT+ ENGINEERING PRINCIPLES
+
+P1 — Single Source of Truth
+
+Candidate facts come from the candidate/master evidence bank. AI may transform, classify, select, compress, or critique facts but must not create career facts.
+
+P2 — Progressive Disclosure
+
+Use this file in layers:
+Gate → Target → Evidence → Content → Structure → ATS → Language → QA.
+Stop early when a hard failure is found; continue through QA before submission.
+
+P3 — Information Compression
+
+Every line must earn its space. Prefer one strong evidence-rich bullet over several weak duty statements. Compress wording, not evidence.
+
+P4 — Invariants
+
+Some properties must survive every edit:
+
+truth
+
+dates
+
+titles
+
+ownership
+
+measurable facts
+
+technical details
+
+candidate voice
+
+target-role relevance
+
+Never trade an invariant for prettier prose or higher keyword overlap.
+
+P5 — Evidence Before Claims
+
+A claim is strong only when supported by an observable fact, result, artifact, scale, method, or credible context.
+
+Claim → Evidence → Impact → Defensibility
+
+P6 — Minimal Necessary Change
+
+Do not rewrite everything because one bullet is weak. Change only what improves relevance, clarity, evidence, consistency, or parsing.
+
+P7 — Separation of Concerns
+
+Keep these decisions separate:
+
+Truth: Is it real?
+
+Relevance: Does it help this role?
+
+Evidence: Can we prove it?
+
+Language: Is it clear?
+
+ATS: Can systems parse it?
+
+Design: Can humans scan it?
+
+Do not let formatting hide a content problem.
+
+P8 — Deterministic Pipeline
+
+Use the same sequence every time:
+
+Inspect → Extract → Target → Select → Rewrite → Structure → ATS-check → Proofread → Final-gate
+
+P9 — Fail Closed
+
+If a claim is uncertain, do not invent it.
+If a required fact is missing, flag it.
+If the exported file is broken, do not submit it.
+If a hard-fail rule fails, submission stops.
+
+P10 — Human Simulation
+
+After optimization, read the resume as a recruiter would:
+What role is this person for? What proves fit? What changed because of their work? Can I trust it?
+
+E2. MASTER WORKFLOW
+
+STEP 1 — INSPECT
+
+Collect:
+
+current resume
+
+master resume/evidence bank if available
+
+job description
+
+LinkedIn/portfolio/GitHub when relevant
+
+target country/market
+
+target role/seniority
+
+application file requirements
+
+CHECK for contradictions before writing.
+
+STEP 2 — EXTRACT THE TARGET
+
+From the JD identify:
+
+must-have requirements
+
+core responsibilities
+
+repeated skills/keywords
+
+tools/technologies
+
+domain knowledge
+
+certifications
+
+seniority expectations
+
+business outcomes
+
+location/work authorization requirements where relevant
+
+Separate must-have from nice-to-have.
+
+STEP 3 — BUILD THE EVIDENCE MAP
+
+For each important JD requirement:
+
+Requirement → Candidate evidence → Exact proof → Best resume location
+
+If no evidence exists:
+
+do not invent it
+
+do not imply it
+
+mark it as a gap
+
+STEP 4 — SELECT
+
+Select the strongest truthful evidence using:
+
+relevance > impact > recency > credibility > space efficiency
+
+Do not select content merely because it contains keywords.
+
+STEP 5 — WRITE
+
+Use:
+
+Action + specific work + method/context + result
+
+Example pattern:
+
+Automated X with Y, reducing Z by 30%.
+
+Metrics are valuable only when real.
+
+STEP 6 — STRUCTURE
+
+Order content so the strongest evidence is found quickly.
+
+STEP 7 — VALIDATE
+
+Run all hard-fail and QA checks below.
+
+E3. HARD FAILS
+
+Any applicable NEVER violation blocks submission.
+
+H1 — No fabrication
+
+NEVER fabricate or exaggerate:
+
+employers
+
+titles
+
+dates
+
+education
+
+certifications
+
+eligibility
+
+locations
+
+skills
+
+tools
+
+responsibilities
+
+ownership
+
+projects
+
+customers
+
+metrics
+
+outcomes
+
+publications
+
+experience
+
+H2 — No unsupported skills
+
+NEVER list a skill the candidate has not genuinely used or cannot defend.
+
+Every important skill SHOULD map to real evidence.
+
+H3 — No contradictions
+
+Resume, LinkedIn, portfolio/GitHub, and application form SHOULD agree on material facts.
+
+Resolve differences rather than silently hiding them.
+
+H4 — No disguised gaps
+
+NEVER manipulate dates to conceal an obvious employment gap.
+
+If useful, explain the gap briefly with truthful activity/context.
+
+H5 — No fake ownership
+
+NEVER turn:
+
+assisted → led
+
+contributed → owned
+
+used → architected
+
+participated → drove
+
+unless that reflects reality.
+
+H6 — No JD copying
+
+NEVER paste JD sentences into the resume or profile.
+
+Use JD terminology only when truthful and naturally supported.
+
+H7 — No ATS manipulation
+
+NEVER use:
+
+hidden text
+
+invisible keywords
+
+keyword stuffing
+
+graphics-only keywords
+
+prompt-injection tricks
+
+deceptive formatting
+
+H8 — No submission defects
+
+NEVER submit with:
+
+wrong dates
+
+wrong company names
+
+broken links
+
+placeholders
+
+duplicate content
+
+spelling errors
+
+corrupted files
+
+missing important contact information
+
+E4. CONTENT RULES
+
+C1 — Relevance
+
+A resume is a targeted argument, not a biography.
+
+Remove content that does not materially support the target role.
+
+C2 — Older experience
+
+Remove irrelevant old jobs, awards, coursework, internships, or activities when they consume valuable space.
+
+Students/early-career candidates MAY retain unrelated work when it demonstrates transferable skills or fills an experience gap.
+
+C3 — Experience order
+
+Use reverse chronological order by default.
+
+C4 — Tense
+
+Current role → present tense.
+Past role → past tense.
+
+CHECK that tense matches the actual employment status.
+
+C5 — Duties vs achievements
+
+NEVER rely on duty-only bullets such as:
+
+Responsible for managing social media.
+
+Prefer evidence:
+
+Managed 4 social channels, increasing qualified inbound leads 28%.
+
+The example metric must be real.
+
+C6 — Evidence types
+
+Useful evidence includes:
+
+revenue
+
+cost
+
+time
+
+speed
+
+scale
+
+users/customers
+
+conversion
+
+adoption
+
+accuracy
+
+reliability
+
+throughput
+
+defects
+
+quality
+
+risk reduction
+
+process improvement
+
+research output
+
+performance
+
+scope
+
+delivery
+
+Numbers are powerful but NEVER fabricate them.
+
+C7 — Non-quantifiable work
+
+When no useful metric exists, show:
+
+what changed
+
+what was delivered
+
+who benefited
+
+scale
+
+problem solved
+
+capability created
+
+quality/process improvement
+
+Specificity beats fake precision.
+
+C8 — Ownership
+
+Use strong verbs when accurate:
+Built, designed, led, implemented, automated, analyzed, reduced, increased, migrated, launched, optimized, researched.
+
+Avoid vague verbs unless they accurately reflect limited involvement.
+
+C9 — Duplicate bullets
+
+NEVER reuse the same generic bullet across different roles.
+
+Each bullet should add a distinct signal:
+
+impact
+
+technical depth
+
+ownership
+
+scale
+
+problem solving
+
+domain knowledge
+
+leadership
+
+C10 — Technical work
+
+For technical roles, show:
+
+Technology + what was built/done + why it mattered
+
+Not a technology word cloud.
+
+C11 — Success-story bank
+
+Maintain a master bank of real achievements, ideally covering:
+
+major projects
+
+measurable wins
+
+technical work
+
+leadership
+
+problem solving
+
+domain expertise
+
+Source metrics from credible records where available.
+
+E5. SUMMARY / PROFILE
+
+S1
+
+Optional. Use only if it improves positioning.
+
+S2
+
+NEVER use empty objectives such as:
+
+seeking a challenging opportunity
+
+dedicated professional
+
+passionate individual
+
+results-driven professional
+
+unless followed by concrete evidence.
+
+S3
+
+A useful profile answers:
+
+Who are you + what do you specialize in + what evidence supports it + what role/domain are you targeting?
+
+S4
+
+The profile MUST NOT be stronger than the evidence in the resume.
+
+E6. SKILLS
+
+K1
+
+Group skills by function:
+
+Languages: Python, Java, SQL
+Cloud: AWS, GCP
+Tools: Git, Docker, Kubernetes
+
+K2
+
+Prefer specific tools/frameworks/methodologies over vague labels.
+
+K3
+
+NEVER use skill bars, circles, stars, percentages, or subjective ratings.
+
+K4
+
+Do not list every technology ever touched. Prioritize target-role relevance and evidence.
+
+K5
+
+Important skills SHOULD appear in achievement/project context when possible.
+
+K6
+
+Useful aliases MAY be included:
+
+Amazon Web Services (AWS)
+
+Do not repeat terms unnaturally.
+
+E7. BULLET ENGINE
+
+For each bullet test:
+
+A — Action: Is ownership clear?
+W — Work: Is the actual work specific?
+M — Method: Is the tool/method/domain visible when relevant?
+I — Impact: What changed?
+E — Evidence: Is the claim measurable or observable?
+D — Defensible: Can the candidate explain it in an interview?
+S — Space: Does it earn its lines?
+
+Weak patterns to remove:
+
+Responsible for...
+
+Worked on...
+
+Helped with...
+
+Involved in...
+
+Various...
+
+Multiple...
+
+Successfully...
+
+They are not automatically forbidden, but they are weak when they hide the actual contribution.
+
+E8. TAILORING ENGINE
+
+T1 — Never use one generic resume everywhere
+
+Maintain multiple base variants where useful, then tailor from the master evidence bank.
+
+T2 — Tailor evidence, not history
+
+Tailoring can change:
+
+bullet selection
+
+bullet order
+
+emphasis
+
+summary/profile
+
+skills emphasis
+
+project emphasis
+
+section order
+
+It MUST NOT change reality.
+
+T3 — Match requirements to evidence
+
+Use a requirement matrix:
+
+JD requirement
+
+Candidate evidence
+
+Resume proof
+
+Gap
+
+T4 — Keyword context
+
+Keywords are useful when they accurately describe real work.
+
+Prefer:
+
+Built Python data pipeline on AWS that processed X records/day and reduced reporting time Y%.
+
+over:
+
+Python, AWS, data, cloud, analytics...
+
+T5 — ATS score is diagnostic
+
+ATS matching tools MAY identify wording/structure gaps.
+
+NEVER optimize solely for the score.
+
+T6 — Tailoring efficiency
+
+Do not rewrite the entire resume for every application.
+
+Select the strongest existing evidence and make only necessary edits.
+
+E9. ATS / FILE ENGINE
+
+A1 — Default ATS-safe structure
+
+Prefer:
+
+single column
+
+standard headings
+
+standard text
+
+logical reading order
+
+simple hierarchy
+
+A2 — Fragile elements
+
+Avoid unless the target system is known to support them:
+
+complex tables
+
+text boxes
+
+floating text
+
+graphics containing text
+
+decorative icons replacing words
+
+complicated multi-column layouts
+
+A3
+
+NEVER place critical information only inside graphics.
+
+A4
+
+NEVER put important content in Word headers/footers.
+
+A5
+
+Use the file type explicitly accepted by the application.
+
+PDF is a strong default when accepted.
+
+A6 — Export validation
+
+Inspect the actual exported file:
+
+opens normally
+
+text selectable
+
+Ctrl/Cmd+F finds important terms
+
+links work
+
+page breaks correct
+
+no missing text
+
+no strange characters
+
+no blank page
+
+no corrupted layout
+
+A7 — Filename
+
+Default:
+
+FirstName_LastName_Resume.pdf
+
+Avoid:
+FINAL.pdf
+Resume_FINAL_v7_NEW.pdf
+resume(1).pdf
+
+A8
+
+Send the actual file when requested. Do not rely on a permission-sensitive Google Docs link unless explicitly required.
+
+E10. STRUCTURE / LENGTH
+
+L1 — Default structure
+
+Name + contact
+
+Summary/profile if useful
+
+Experience
+
+Projects if relevant
+
+Education
+
+Skills
+
+Certifications/publications/etc. when relevant
+
+Adjust when role/seniority requires it.
+
+L2 — Length
+
+One page is a strong default for students and early-career candidates.
+
+Experienced candidates MAY use two pages when the evidence genuinely requires it.
+
+NEVER create a second page merely to preserve filler.
+
+NEVER compress important evidence solely to satisfy an arbitrary page count.
+
+L3
+
+Experience should normally use bullets, not dense paragraphs.
+
+L4
+
+Prefer bullets around 1–2 lines. Avoid routine 3–4 line walls.
+
+L5
+
+Keep job blocks logically together. Do not strand a heading from its bullets.
+
+L6
+
+Contact block should be easy to scan, ideally one line and at most two.
+
+Useful links:
+
+LinkedIn
+
+portfolio
+
+GitHub
+
+E11. FORMATTING ENGINE
+
+F1
+
+Readable > decorative.
+
+F2
+
+Use one coherent typography system.
+
+F3
+
+Keep:
+
+dates
+
+punctuation
+
+capitalization
+
+spacing
+
+indentation
+
+bullets
+
+headings
+
+bolding
+
+alignment
+
+consistent.
+
+F4
+
+Use bold strategically for scanning. Do not bold half the page.
+
+F5
+
+Avoid unnecessary:
+
+charts
+
+skill graphs
+
+dense graphics
+
+excessive color
+
+decorative icons
+
+photos unless appropriate/expected in the target market
+
+F6
+
+Use one date format consistently, e.g.:
+
+Jan 2025 – Mar 2026
+
+F7
+
+Dates MUST remain inside the usable margin and align cleanly.
+
+F8
+
+Hyperlinks SHOULD work for LinkedIn, portfolio, GitHub, and relevant project links.
+
+E12. LANGUAGE / ANTI-SLOP ENGINE
+
+Voice authority: docs/voice.md (language/tone only; candidate facts remain in the evidence system)
+
+G1 — Specificity
+
+Prefer:
+
+Automated monthly reporting, cutting turnaround time 40%.
+
+over:
+
+Leveraged innovative strategies to optimize reporting processes.
+
+G2 — Buzzword filter
+
+Be suspicious of unsupported:
+
+results-driven
+
+dynamic
+
+passionate
+
+strategic
+
+innovative
+
+visionary
+
+synergy
+
+impactful
+
+go-getter
+
+proven track record
+
+highly motivated
+
+exceptional
+
+thought leader
+
+These are not inherently forbidden. They become weak when they replace evidence.
+
+G3 — Concrete nouns
+
+Preserve:
+
+products
+
+systems
+
+technologies
+
+customers
+
+datasets
+
+tools
+
+platforms
+
+project names
+
+scale
+
+metrics
+
+outcomes
+
+G4
+
+Avoid first-person pronouns by default.
+
+Prefer:
+
+Built...
+Led...
+Reduced...
+
+G5
+
+Keep the language human and consistent with the candidate.
+
+G6
+
+NEVER create an obvious AI-voice mismatch.
+
+If the wording sounds unlike the candidate or becomes unnaturally polished, simplify it.
+
+G7
+
+Every trait claim needs proof.
+
+E13. AI OPERATING RULES
+
+AI1 — AI is an editor/analyst, not the candidate
+
+The candidate owns the facts and creative direction.
+
+AI2 — Safe uses
+
+AI MAY:
+
+select existing bullets
+
+compare resume/JD
+
+identify gaps
+
+suggest wording options
+
+proofread
+
+remove jargon
+
+improve clarity
+
+reduce repetition
+
+identify unsupported claims
+
+reorder existing evidence
+
+inspect ATS structure
+
+generate questions for missing metrics
+
+AI3 — Unsafe uses
+
+AI MUST NOT:
+
+invent facts
+
+invent metrics
+
+invent tools
+
+invent projects
+
+invent ownership
+
+invent employers
+
+change dates/titles silently
+
+create fake experience
+
+exaggerate evidence
+
+AI4 — Every AI-edited line passes:
+
+TRUE → RELEVANT → SPECIFIC → DEFENSIBLE → HUMAN
+
+Failure at any stage = revise/delete.
+
+AI5
+
+NEVER send AI output blindly.
+
+AI6
+
+After every AI pass, restore/check concrete nouns, numbers, tools, systems, products, customers, scale, and outcomes.
+
+AI7
+
+Do not over-polish. Preserve useful individuality.
+
+AI8
+
+Read the final resume aloud once. If it does not sound like the candidate, revise.
+
+E14. CREDIBILITY ENGINE
+
+Assume important claims may be checked through:
+
+LinkedIn
+
+portfolio
+
+GitHub
+
+references
+
+interviews
+
+technical assessments
+
+work samples
+
+background checks
+
+public project evidence
+
+Therefore:
+
+A defensible true claim beats an impressive unverifiable claim.
+
+Every important bullet should survive:
+
+“Tell me exactly what you did.”
+
+E15. INTERNATIONAL / ROLE-SPECIFIC RULES
+
+Do not blindly apply country-specific conventions globally.
+
+Rules can vary by:
+
+country
+
+industry
+
+seniority
+
+academic vs corporate hiring
+
+government vs private sector
+
+creative vs technical roles
+
+Check the target market for:
+
+photo
+
+address
+
+references
+
+CV length
+
+publications
+
+work authorization
+
+formatting conventions
+
+Academic CVs, design resumes, federal resumes, medical CVs, and corporate resumes may require different structures.
+
+E16. OPTIONAL CONTENT GATE
+
+Do not add by default:
+
+objective statements
+
+references
+
+“references available upon request”
+
+full street address
+
+photo
+
+age/date of birth
+
+marital status
+
+religion
+
+unrelated hobbies
+
+generic soft skills
+
+elementary software
+
+huge coursework lists
+
+huge publication lists
+
+unrelated awards
+
+salary expectations
+
+irrelevant social links
+
+Exception: include something when the target market, employer, profession, or application explicitly requires or materially benefits from it.
+
+E17. CONTACT / SUBMISSION
+
+Contact
+
+CHECK:
+
+professional personal email
+
+correct phone
+
+correct LinkedIn
+
+correct portfolio/GitHub
+
+consistent identity across documents
+
+Avoid unprofessional email handles.
+
+Do not use a current-employer email when a personal professional email is appropriate.
+
+Salary
+
+NEVER put salary requirements/ranges on the resume unless the application explicitly requires them.
+
+Submission
+
+CHECK:
+
+correct file
+
+correct filename
+
+correct version
+
+correct target role
+
+correct company
+
+correct links
+
+correct file type
+
+file opens normally
+
+NEVER submit a stale resume when current information is available.
+
+E18. SPECIAL SOURCE RULES PRESERVED
+
+These rules are intentionally retained but scoped correctly:
+
+Australia
+
+For Australian applications, street address and photo are generally unnecessary. Follow the target employer/market instructions.
+
+References
+
+References are optional by default unless requested or useful for the target market. If included, use credible professional referees rather than peer friends.
+
+Publications/conferences
+
+Limit them on corporate resumes. Do not let publications consume pages unless the target role specifically values them.
+
+Student/early-career work
+
+Part-time, service, volunteer, academic, and casual work MAY remain when it demonstrates transferable or role-relevant evidence.
+
+Hobbies/passions
+
+Include only when they add relevant evidence, personality, leadership, community involvement, or meaningful context. Never use them as filler.
+
+E19. FINAL BOOM GATE
+
+Run this after every resume generation or major edit.
+
+HARD GATE
+
+No fabricated or exaggerated facts
+
+No unsupported important skills
+
+No material contradictions
+
+No disguised employment gaps
+
+No fake ownership
+
+No JD copy-paste
+
+No hidden keywords/ATS manipulation
+
+No broken file/content
+
+TARGET GATE
+
+Target role is obvious
+
+Must-have requirements are addressed when evidence exists
+
+Strongest relevant evidence appears first
+
+Irrelevant filler removed
+
+Keywords are natural and contextual
+
+EVIDENCE GATE
+
+Major claims have proof
+
+Metrics are real
+
+Ownership is accurate
+
+Outcomes are clear where possible
+
+Candidate can explain every important line
+
+CONTENT GATE
+
+Reverse chronology
+
+Correct tense
+
+Achievement-focused bullets
+
+No repetitive bullets
+
+Technical work shows technology + work + impact
+
+Skills are specific and supported
+
+FORMAT GATE
+
+Clean hierarchy
+
+Consistent typography
+
+Consistent dates
+
+Consistent punctuation
+
+Consistent spacing/alignment
+
+Strategic bolding
+
+No unnecessary visual clutter
+
+Logical page breaks
+
+ATS GATE
+
+Accepted file type
+
+Text selectable/searchable
+
+Important keywords searchable
+
+No critical text in graphics
+
+Links work
+
+Exported file inspected
+
+Professional filename
+
+LANGUAGE GATE
+
+Specific, concise language
+
+No empty buzzword stuffing
+
+No unsupported traits
+
+No slang
+
+No obvious AI voice
+
+Concrete nouns preserved
+
+Locale spelling consistent
+
+Sounds like the candidate
+
+HUMAN GATE
+
+Ask:
+
+In ~10 seconds, can a recruiter identify the target role, strongest evidence of fit, and reason to keep reading?
+
+If not:
+fix hierarchy/evidence first, wording second, design last.
+
+E20. COMPACT DECISION LOGIC FOR AGENTS
+
+When deciding whether to keep/edit/delete/add a resume element:
+
+IF false → DELETE
+ELSE IF unsupported → DELETE or request evidence
+ELSE IF irrelevant → DELETE
+ELSE IF duplicate → KEEP stronger version only
+ELSE IF vague → make specific
+ELSE IF duty-only → add truthful outcome/context
+ELSE IF important but buried → move upward
+ELSE IF JD-relevant and truthful → emphasize naturally
+ELSE IF ATS-fragile → simplify structure
+ELSE IF wording sounds generic/AI-generated → humanize
+ELSE → KEEP
+
+When a metric is missing:
+
+IF real metric available → use it
+ELSE IF defensible scale/outcome exists → use that
+ELSE → write specific qualitative impact
+NEVER invent a number
+
+When a JD skill is missing:
+
+IF genuinely used elsewhere → surface existing evidence
+ELSE IF adjacent transferable evidence exists → frame honestly
+ELSE → leave it out / mark gap
+NEVER manufacture experience
+
+E21. OUTPUT STANDARD
+
+The finished resume should be:
+
+Truthful
+every claim defensible
+
+Relevant
+optimized for the specific role
+
+Evidence-backed
+concrete work and outcomes
+
+Readable
+fast human scanning
+
+ATS-compatible
+simple, searchable structure
+
+Human
+specific, natural, candidate-owned
+
+Concise
+no wasted space
+
+Consistent
+no avoidable sloppiness
+
+Tailored
+selected for this job, not copied from a universal template
+
+E22. FINAL PRINCIPLE
+
+Do not make the resume sound impressive. Make the evidence impossible to misunderstand.
+
+A strong resume is not the one with the most keywords, adjectives, sections, graphics, or AI polish.
+
+It is the smallest clear document that makes the strongest truthful case for this candidate and this role.
+
+E23. REPOSITORY HANDOFF RULE
+
+When the repository is handed to another agent without conversation history:
+
+1. Start with `MAP.md`.
+2. Read `AGENTS.md` and `CONTEXT.md`.
+3. Treat `data/facts.yaml` as the canonical biography.
+4. Read `content/github/evidence.md` and `content/github/boundaries.md` before changing claims.
+5. Use detailed evidence files under `content/github/` only as supporting proof; they do not override canonical dates, titles, employers, or ownership.
+6. Run the defined pipeline and final BOOM gate before producing a submission-ready resume.
+7. Keep unresolved facts explicit instead of guessing.
+
+This rule exists so the repository remains usable when an agent enters from GitHub alone, without this conversation.
