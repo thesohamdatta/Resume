@@ -14,7 +14,7 @@ AI/ML engineer building practical systems across wearable AI, agents, voice syst
 **Jun 2025 – Present** | Wearable AI · Embedded Systems · AI Integration
 
 - Built Aura, an independent wearable AI system spanning hardware, firmware, software, and AI integrations.
-- Designed and iterated custom 3D-printed enclosures around an ESP32-S3 wearable platform, then connected the device to AI and backend services.
+- Designed and iterated the wearable enclosure around an ESP32-S3 platform, then connected the device to AI and backend services.
 - Adapted and extended Omi ecosystem components while contributing software and open-source engineering work.
 
 ### AI/ML Intern · AICTE/EduSkills
