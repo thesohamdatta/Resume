@@ -1,56 +1,55 @@
 \documentclass{../../templates/v3/resume-openfont}
 \begin{document}
-\resumeHeader{Soham Datta}{Pune, India}{\href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
+\resumeHeader{Soham Datta}{Pune, India}{\href{mailto:thesohamdatta@gmail.com}{sohamdatta@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
 
-{\small\bfseries AI Engineer | Machine Learning | AI Systems}\par\vspace{2pt}
-\tightpar{AI/ML engineer building systems across multimodal AI, LLM applications, real-time voice, computer vision, and software tooling. Hands-on with Python, TypeScript, FastAPI, LiveKit, TensorFlow, and AI system integration.}
+{\small\bfseries AI Engineer | Software Engineer | Agentic AI}\par\vspace{2pt}
+\tightpar{AI/ML graduate with hands-on work across AI agents, LLM applications, computer vision, realtime voice, and wearable AI.}
 
 \section{Experience}
-\resumeRole{Aura}{Founder}{Jun 2025 - Present}{Wearable AI | Multimodal Systems | Open Source}
+\resumeRole{Aura}{Founder / Builder}{Jun 2025 -- Present}{Wearable AI | Embedded Systems | AI Integration}
 \begin{resumeitemize}
-\item Built Aura across ESP32-S3 firmware, audio/image capture, FastAPI services, and an Android companion, connecting device data to AI-powered memory.
-\item Integrated speech transcription, vision analysis, vector storage, and agent workflows using Deepgram, GPT-4o, Pinecone, and LangGraph.
-\item Developed firmware support for 16 kHz I2S audio capture, Opus compression, BLE/Wi-Fi event handling, and OTA updates.
-\item Diagnosed a Windows Electron WebGL memory leak in Omi and authored speaker-clustering work with 52 tests; the work was later fixed or adopted downstream.
+\item Built and integrated an ESP32-S3 wearable system with 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA firmware support.
+\item Adapted Omi-based software/backend components for streaming audio, memory/context processing, knowledge-graph functionality, speaker identification, and AI integrations.
+\item Diagnosed and contributed technical fixes/design work across the wearable software stack and Omi open-source ecosystem.
 \end{resumeitemize}
-\resumeRole{AICTE via Google}{AI \& ML Intern}{Oct 2024 - Dec 2024}{Computer Vision | TensorFlow | ML Kit}
+
+\resumeRole{AICTE/EduSkills}{AI/ML Intern}{Oct 2024 -- Dec 2024}{10-week virtual internship | Supported by Google for Developers}
 \begin{resumeitemize}
-\item Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
-\item Applied transfer learning and data augmentation under mobile memory constraints.
+\item Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 \end{resumeitemize}
-\resumeRole{Reliance}{Associate}{Jul 2024 - Oct 2024}{Customer Operations}
+
+\resumeRole{Reliance}{Customer Service Representative}{Jul 2024 -- Oct 2024}{Customer Operations}
 \begin{resumeitemize}
-\item Handled customer-service workflows across complaints, memberships, digital vouchers, exchanges, documentation, and follow-up.
-\item Coordinated with brand, HR, store management, and store teams to resolve customer issues.
+\item Handled customer-service, POS, membership, voucher, exchange, documentation, and reporting workflows while coordinating with managers and store teams.
 \end{resumeitemize}
-\resumeRole{PES Modern College}{Research Assistant}{Sep 2023 - Mar 2024}{Research Support | Digital Learning | Documentation}
+
+\resumeRole{PES Modern College}{Research / Library Assistant}{Sep 2023 -- Mar 2024}{Research Support | Digital Library}
 \begin{resumeitemize}
-\item Researched digital learning platforms, open courseware, research repositories, books, and articles.
-\item Organised research material and supported student guidance, workshops, and digital-awareness activities.
+\item Supported literature discovery, research documentation, digitization, archive organisation, and student access to digital learning resources.
 \end{resumeitemize}
 
 \section{Projects}
-\resumeProject{Mia | Personal AI Engineering OS}{}{TypeScript | Bun | LLM Adapters | Vitest | JSONL}
+\resumeProject{Mia --- Personal AI Engineering OS}{}{TypeScript | Bun | LLM Adapters | Vitest | JSONL}
 \begin{resumeitemize}
-\item Built a local-first TypeScript CLI for explicit AI engineering workflows: grill, spec, plan, review, and ship.
-\item Implemented model adapters, immutable JSONL state, and automated verification gates.
+\item Built a local-first TypeScript CLI around explicit AI engineering workflows with model adapters, verification gates, and immutable JSONL state.
 \end{resumeitemize}
-\resumeProject{I-am-Mia | Realtime Voice Agent}{}{Python | LiveKit | Gemini Realtime | Tool Calling}
+
+\resumeProject{LLM-Council --- Multi-Model Evaluation}{}{Python | FastAPI | React/Vite | OpenRouter}
 \begin{resumeitemize}
-\item Built a realtime multimodal voice agent with LiveKit Agents and Gemini Realtime.
-\item Added tool calling for web search, weather retrieval, and email actions.
+\item Built a multi-model evaluation workflow using an Analyst -- Skeptic -- Synthesizer pipeline to compare and synthesize LLM responses.
 \end{resumeitemize}
-\resumeProject{LLM-Council}{}{Python | FastAPI | React | Multi-Agent Reasoning}
+
+\resumeProject{John --- Android Voice Client}{\href{https://github.com/thesohamdatta/John}{GitHub}}{Kotlin | Jetpack Compose | LiveKit | WebRTC | Python}
 \begin{resumeitemize}
-\item Built a three-stage deliberation pipeline for independent analysis, peer auditing, and synthesis across multiple LLMs.
+\item Built an Android voice client connected to a Python LiveKit agent for realtime interaction and tool calling.
 \end{resumeitemize}
 
 \section{Education}
-\resumeEducation{University of Pune (SPPU)}{2022 -- Jun 2026}{Bachelor of Engineering (B.E.) in Artificial Intelligence \& Machine Learning | Pune, India}
+\resumeEducation{Savitribai Phule Pune University (SPPU)}{2022 -- Jun 2026}{B.E. in Artificial Intelligence \& Machine Learning | Pune, India}
 
 \section{Technical Skills}
 \resumeSkills{Languages:}{Python, TypeScript/JavaScript, Kotlin, C/C++}
-\resumeSkills{AI/ML:}{LLMs, AI Agents, RAG, Multimodal AI, Computer Vision, TensorFlow, PyTorch, ML Kit}
-\resumeSkills{Engineering:}{FastAPI, React, Node.js, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest}
-\resumeSkills{Systems:}{ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, Pinecone, pgvector}
+\resumeSkills{AI/ML:}{LLMs, AI Agents, RAG, Computer Vision, TensorFlow, TFLite, PyTorch, ML Kit}
+\resumeSkills{Engineering:}{FastAPI, React, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest}
+\resumeSkills{Systems:}{ESP32-S3, FreeRTOS, I2S, Opus, OTA, Supabase/pgvector, Kubernetes}
 \end{document}

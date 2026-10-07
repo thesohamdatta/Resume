@@ -1,40 +1,36 @@
 # Soham Datta
 
-**AI Engineer | Machine Learning | AI Systems**
+**AI Engineer | Software Engineer | Agentic AI**
 
 Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub](https://github.com/thesohamdatta) · [Portfolio](https://sohamdatta.framer.ai)
 
 ## Summary
 
-AI/ML engineer building systems across multimodal AI, LLM applications, real-time voice, computer vision, and software tooling. Hands-on with Python, TypeScript, FastAPI, LiveKit, TensorFlow, and AI system integration.
+AI/ML graduate with hands-on work across AI agents, LLM applications, computer vision, realtime voice, and wearable AI.
 
 ## Experience
 
-### Founder · Aura
-**Jun 2025 – Present** | Wearable AI · Multimodal Systems · Open Source
+### Founder / Builder · Aura
+**Jun 2025 – Present** | Wearable AI · Embedded Systems · AI Integration
 
-- Built Aura across ESP32-S3 firmware, audio/image capture, FastAPI services, and an Android companion, connecting device data to AI-powered memory.
-- Integrated speech transcription, vision analysis, vector storage, and agent workflows using Deepgram, GPT-4o, Pinecone, and LangGraph.
-- Developed firmware support for 16 kHz I2S audio capture, Opus compression, BLE/Wi-Fi event handling, and OTA updates.
-- Diagnosed a Windows Electron WebGL memory leak in Omi and authored speaker-clustering work with 52 tests; the work was later fixed or adopted downstream.
+- Built and integrated an ESP32-S3 wearable system with 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA firmware support.
+- Adapted Omi-based software/backend components for streaming audio, memory/context processing, knowledge-graph functionality, speaker identification, and AI integrations.
+- Diagnosed and contributed technical fixes/design work across the wearable software stack and Omi open-source ecosystem.
 
-### AI & ML Intern · AICTE via Google
-**Oct 2024 – Dec 2024** | Computer Vision · TensorFlow · ML Kit
+### AI/ML Intern · AICTE/EduSkills
+**Oct 2024 – Dec 2024** | 10-week virtual internship · Supported by Google for Developers
 
-- Built and evaluated lightweight computer-vision models with TensorFlow and Google ML Kit for on-device classification.
-- Applied transfer learning and data augmentation under mobile memory constraints.
+- Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 
-### Associate · Reliance
+### Customer Service Representative · Reliance
 **Jul 2024 – Oct 2024**
 
-- Handled customer-service workflows across complaints, memberships, digital vouchers, exchanges, documentation, and follow-up.
-- Coordinated with brand, HR, store management, and store teams to resolve customer issues.
+- Handled customer-service, POS, membership, voucher, exchange, documentation, and reporting workflows while coordinating with managers and store teams.
 
-### Research Assistant · PES Modern College
+### Research / Library Assistant · PES Modern College
 **Sep 2023 – Mar 2024**
 
-- Researched digital learning platforms, open courseware, research repositories, books, and articles.
-- Organised research material and supported student guidance, workshops, and digital-awareness activities.
+- Supported literature discovery, research documentation, digitization, archive organisation, and student access to digital learning resources.
 
 ## Projects
 
@@ -42,30 +38,28 @@ AI/ML engineer building systems across multimodal AI, LLM applications, real-tim
 **TypeScript · Bun · LLM Adapters · Vitest · JSONL**  
 [GitHub](https://github.com/thesohamdatta/Mia)
 
-- Built a local-first TypeScript CLI for explicit AI engineering workflows: grill, spec, plan, review, and ship.
-- Implemented model adapters, immutable JSONL state, and automated lint, typecheck, and Vitest verification gates.
-
-### I-am-Mia · Realtime Voice Agent
-**Python · LiveKit · Gemini Realtime · Tool Calling**  
-[GitHub](https://github.com/thesohamdatta/I-am-Mia)
-
-- Built a realtime multimodal voice agent with LiveKit Agents and Gemini Realtime.
-- Added tool calling for web search, weather retrieval, and email actions.
+- Built a local-first TypeScript CLI around explicit AI engineering workflows with model adapters, verification gates, and immutable JSONL state.
 
 ### LLM-Council
-**Python · FastAPI · React · Multi-Agent Reasoning**  
+**Python · FastAPI · React/Vite · OpenRouter**  
 [GitHub](https://github.com/thesohamdatta/LLM-Council)
 
-- Built a three-stage deliberation pipeline for independent analysis, peer auditing, and synthesis across multiple LLMs.
+- Built a multi-model evaluation workflow using an Analyst → Skeptic → Synthesizer pipeline to compare and synthesize LLM responses.
+
+### John · Android Voice Client
+**Kotlin · Jetpack Compose · LiveKit · WebRTC · Python**  
+[GitHub](https://github.com/thesohamdatta/John)
+
+- Built an Android voice client connected to a Python LiveKit agent for realtime interaction and tool calling.
 
 ## Education
 
-**Bachelor of Engineering (B.E.) · Artificial Intelligence & Machine Learning**  
-University of Pune (SPPU) · 2022 – Jun 2026 · Pune, India
+**B.E. Artificial Intelligence & Machine Learning**  
+Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
 
 ## Technical Skills
 
 **Languages:** Python, TypeScript/JavaScript, Kotlin, C/C++  
-**AI/ML:** LLMs, AI Agents, RAG, Multimodal AI, Computer Vision, TensorFlow, PyTorch, ML Kit  
-**Engineering:** FastAPI, React, Node.js, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest  
-**Systems:** ESP32-S3, FreeRTOS, I2S DMA, Opus, OTA, Pinecone, pgvector
+**AI/ML:** LLMs, AI Agents, RAG, Computer Vision, TensorFlow, TFLite, PyTorch, ML Kit  
+**Engineering:** FastAPI, React, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest  
+**Systems:** ESP32-S3, FreeRTOS, I2S, Opus, OTA, Supabase/pgvector, Kubernetes
