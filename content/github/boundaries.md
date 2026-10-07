@@ -1,156 +1,149 @@
-# Truth Boundaries — What NOT to Claim
+# Truth Boundaries — Resume Claim Control
 
-**Strict constraints on resume claims to prevent overclaiming.**
+This file is binding. No resume track may outrun these boundaries.
 
----
+## Global rules
+
+- Truth outranks persuasion.
+- Never turn exposure into expertise.
+- Never turn contribution into ownership of an entire system.
+- Never turn a prototype into production.
+- Never turn a virtual internship into employment at a sponsoring organisation.
+- Never turn an approved PR into a merged PR.
+- Never turn downstream adoption into direct authorship.
+- Never turn academic/research support into sole authorship.
+- Never use an unverified metric as a measured KPI.
+- Official employment titles remain truthful.
+- Project status must remain accurate.
 
 ## Aura
 
-### What You CAN Claim
-- Designed and 3D-printed custom CAD enclosures for wearable pendant
-- Integrated physical device with Omi Glass open-source ecosystem
-- Built ESP32-S3 firmware (I2S audio, Opus compression, OTA updates)
-- Adapted FastAPI backend from Omi ecosystem with memory/transcription/knowledge graph routers; integrated Kubernetes-hosted Deepgram ASR
-- Diagnosed GPU memory leak (Issue #8438) → merged downstream (PR #8902)
-- Authored speaker clustering algorithm with 52 tests (PR #8919) → adopted downstream (PR #12471)
-- Authored speaker grounding for action items (Issue #8918 → PR #12089), file indexing spec (Issue #8991 → #7896/#9595/#10236), Markdown export spec (Issue #12360 OPEN → draft PR #12927 NOT merged)
+### Can claim
+- Independent wearable AI project under development.
+- Founder / Builder role.
+- Custom 3D-printed/CAD enclosures.
+- ESP32-S3 firmware integration and implementation.
+- I2S audio capture, DMA buffering, Opus compression, FreeRTOS event handling, OTA updates.
+- Adapted/extended Omi ecosystem software and backend components.
+- FastAPI components for streaming audio, memory/context, knowledge graph, MCP, and speaker identification.
+- Kubernetes-hosted Deepgram ASR integration.
+- Supabase/pgvector vector-memory work.
+- Frontend/mobile/interface work.
+- Omi open-source issues, proposals, debugging, testing, and downstream adoption evidence.
 
-### What You CANNOT Claim
-- ❌ VC funding, investors, or being "funded"
-- ❌ Customers, users, revenue, or traction
-- ❌ Production deployment or "in production"
-- ❌ Deep backend expertise — backend was adapted/tweaked from existing infrastructure, not built from scratch
-- ❌ "Built the Omi backend" — you built YOUR backend integrating WITH Omi ecosystem
-- ❌ Team size beyond yourself (it's a solo self-funded effort)
+### Do not claim
+- VC funding, investors, customers, users, revenue, or traction.
+- Production-scale deployment.
+- Complete backend architecture built from scratch.
+- "Built the Omi backend."
+- Deep backend expertise.
+- Verified battery, latency, accuracy, or user metrics.
 
-### Positioning Language
-- ✅ "Founder" (signals ownership + agency)
-- ✅ "Independent" / "Self-funded"
-- ❌ "Creator" (rejected — less clear)
-- ❌ "CEO" / "Co-founder" (no company, no cofounders)
+## Omi open-source contributions
 
----
+### Current record
+- 21 issues authored.
+- 5 architectural RFCs.
+- 7 PRs authored.
+- 3 authored PRs approved by maintainers.
+- 0 authored PRs merged directly.
+- 120+ documented tests.
+- 52 tests in the speaker-clustering contribution.
 
-## Omi Open-Source Contributions
+### Truth-tested wording
+Use:
+- authored
+- diagnosed
+- proposed
+- approved by maintainers
+- adopted downstream
+- resolved downstream
 
-### What You CAN Claim
-- Authored 21 issues including 5 architectural RFCs
-- Authored 7 pull requests with 120+ unit tests
-- 3 PRs approved by maintainers (security, web refactor, diarization)
-- Diagnosed WebGL GPU memory leak (Issue #8438) → maintainer fixed in merged PR #8902
-- Authored offline hierarchical clustering for speaker diarization (PR #8919) → adopted downstream in PR #12471
-- Contributed frontend/design work and technical issue reports to Omi ecosystem
+Do not say:
+- merged 7 PRs
+- maintained Omi
+- core contributor
+- maintainer
+- authored downstream PRs
+- personally merged PR #8902, #12471, #12089, or #12927
+- PR #12927 shipped/merged
 
-### What You CANNOT Claim
-- ❌ "Merged 7 PRs" — ALL 7 authored PRs were closed unmerged
-- ❌ Direct authorship of downstream merged PRs — you authored issues/proposals that INFORMED them
-- ❌ Core contributor / maintainer status
-- ❌ PR #8902, #12471, #12089, #12927 as YOUR work — these were authored by others based on your issue reports
-- ❌ PR #8352 as approved — it received CHANGES_REQUESTED (lockfile prune, ESLint scope, unrelated files)
-- ❌ Issues #7525, #7546, #7878 as implemented — closed by automated triage as stale/speculative
-- ❌ Forks (about, open-wearables, podcastfy, open-notebook, Sentient, SAMANTHA-OS1, remma-o1, NanoSage, swift-chat) as authorship
-- ❌ PR #12927 as merged or shipped — it is a Draft (needs-maintainer-review)
-- ❌ PR #8442 as merged — positively reviewed ("work here is good") but closed unmerged
+### Selected evidence
+- Issue #8438: diagnosed Windows Electron/WebGL GPU/compositor issue; resolution was merged downstream in PR #8902.
+- PR #8919: authored offline speaker clustering with 52 tests; closed unmerged; approach adopted downstream in PR #12471.
+- Issue #8918: authored speaker-grounding proposal; adopted downstream in PR #12089.
+- Issue #8991: authored Windows file-indexing specification; downstream implementation followed.
+- Issue #12360: authored Markdown export specification; draft PR #12927 was not merged.
+- PR #7379: security hardening; maintainer-approved, closed unmerged.
+- PR #7654: web/configuration refactor; maintainer-approved, closed unmerged.
+- PR #8442: Windows database/OCR/WebSocket fixes and tests; positively reviewed, closed unmerged.
+- PR #8352: changes requested, closed unmerged.
 
-### Truth-Tested Phrasing
-- ✅ "Diagnosed GPU memory leak (Issue #8438), merged downstream in PR #8902"
-- ✅ "Authored speaker clustering algorithm (PR #8919), adopted downstream in PR #12471"
-- ❌ "Fixed GPU memory leak in PR #8902" — you didn't author that PR
-- ❌ "Merged diarization improvements" — your PR was closed unmerged
+## AI/ML virtual internship
 
----
+### Can claim
+- 10-week virtual AI/ML internship, Oct–Dec 2024.
+- AICTE/EduSkills ecosystem.
+- Supported by Google for Developers.
+- Computer vision, TensorFlow, TensorFlow Lite, Google ML Kit, Android/mobile inference.
+- Custom object detection, EfficientDet-Lite, TFLite Model Maker, image classification, Google Cloud Vision API, Colab.
+
+### Do not claim
+- Google employee, Google Engineer, or Google ML Engineer.
+- Production ML deployment.
+- Unsupported accuracy, mAP, latency, dataset size, or model-ownership metrics.
+
+## Research / Library Assistant
+
+### Can claim
+- Research / Library Assistant at Progressive Education Society's Modern College of Engineering.
+- Sep 2023 – Mar 2024 based on the accepted experience record.
+- Literature/resource discovery, research documentation, digitization, archive organisation, LaTeX, DELNET, OPAC, student digital-resource support, workshops and awareness activities.
+- 3,000+ pages of material archived/organised when the source figure is retained.
+
+### Do not claim
+- Sole authorship of professor-led publications.
+- Independent publications without direct evidence.
+- Git/version-control engineering.
+- Specific student reach, publication counts, or measurable learning outcomes without evidence.
+
+## Reliance
+
+- Official title: Customer Service Representative.
+- Jul 2024 – Oct 2024.
+- Can claim customer service, POS, memberships, vouchers, exchanges, inventory/store workflows, reporting, documentation, and coordination with managers/store teams.
+- Do not use the historical 50% improvement metric until independently verified.
+- Do not present the role as software engineering or advanced SAP administration.
 
 ## Mia
 
-### What You CAN Claim
-- Built TypeScript CLI with 5-stage harness (grill → spec → plan → review → ship)
-- Implemented multi-host LLM adapters (Claude, Codex, local models)
-- Immutable JSONL state tracking
-- Automated verification gates (lint, typecheck, Vitest)
-- Eliminated daemon architecture (ADR-0001)
+### Can claim
+- TypeScript/Bun CLI.
+- 5-stage harness: grill → spec → plan → review → ship.
+- Multi-host LLM adapters.
+- Immutable JSONL state.
+- Verification gates.
+- Stateless event-driven execution.
 
-### What You CANNOT Claim
-- ❌ AGI or "artificial general intelligence"
-- ❌ Production-ready or stable — it's "working but rapidly changing/developing"
-- ❌ Used by others / open-source adoption metrics
+### Do not claim
+- Production deployment.
+- Fully autonomous software engineering.
+- Adoption/user metrics without evidence.
 
----
+## Voice projects
 
-## Voice AI Projects
+### Can claim
+- LiveKit/WebRTC voice-agent systems.
+- Silero VAD for barge-in/turn detection.
+- John Android Kotlin + Python LiveKit agent.
+- voicecoder VS Code extension with multi-provider fallback and token/cost tracking.
 
-### What You CAN Claim
-- Built real-time WebRTC voice agents using LiveKit
-- Implemented Silero VAD for barge-in and turn detection
-- John: Native Android Kotlin app + Python LiveKit agent with tool calling
-- voicecoder: VS Code extension with multi-provider fallback and token tracking
+### Do not claim
+- Production voice platform or verified real-user scale.
 
-### What You CANNOT Claim
-- ❌ Production deployment or real users
-- ❌ "Voice AI product" without context that these are experiments/prototypes
+## General writing constraints
 
----
+Avoid generic buzzwords such as passionate, innovative, cutting-edge, leveraged, spearheaded, transformative, next-generation, disruptive, game-changing, revolutionary.
 
-## General Writing Constraints
-
-### Banned Buzzwords
-Never use these words:
-- passionate
-- innovative
-- cutting-edge
-- leveraged
-- spearheaded
-- transformative
-- next-generation
-- disruptive
-- game-changing
-- revolutionary
-
-### Banned Metrics (Unless Verified)
-- ❌ X% improvement / accuracy / performance gain
-- ❌ "N users" or "N customers"
-- ❌ "Production scale" or "enterprise deployment"
-- ❌ Revenue, funding, valuation
-- ❌ Team size beyond what's verifiable
-
-### Approved Style
-- Short, direct, factual, understated
-- Concrete verbs: built, designed, implemented, integrated, diagnosed
-- Specific technical terms over vague claims
-- "Built X using Y and Z" > "Leveraged cutting-edge Y to architect transformative X"
-
----
-
-## Experience Claims
-
-### AICTE via Google Internship (Oct–Dec 2024)
-- ✅ Built and evaluated computer vision models with TensorFlow and ML Kit
-- ✅ Applied transfer learning and data augmentation
-- ❌ Do NOT inflate to "ML Engineer" or "Google Engineer"
-
-
-## Experience Update — 2026-09-19
-
-### Reliance | Associate
-- CAN claim customer-service desk work, complaints, coupons, memberships, Reliance cards, digital vouchers, exchanges, documentation, daily follow-up, and coordination with brand managers, HR, store managers, and store teams.
-- Do not use unsupported numeric claims from older drafts.
-
-### PES Modern College | Research Assistant
-- CAN claim research and library support, work with Prof. Sumit Kanfadi, documentation, article/book organisation, workshops, digital-awareness activities, student support for digitised learning resources, and annual activity reporting.
-- Do not add publication, quantified research-output, or programme-impact claims without direct evidence.
-
-### Removed experience
-- Freelancer / AI & Automation is removed from the active profile and should not appear in active resume generations.
-
-
-## PES Modern College / PS Modern Institute | Research Assistant
-
-### What You CAN Claim
-- Research into literature, digital learning platforms, open courseware, free coding-learning resources, research repositories such as arXiv, books, articles, and the college's own digital archive.
-- Resource discovery across student learning domains including computer science, healthcare, mechanical engineering, electrical engineering, and related areas.
-- Student guidance, workshops, digital-awareness campaigns, and helping students use online and college-hosted digital learning resources.
-- Library/research documentation and organisation of books, articles, and related materials.
-
-### What You CANNOT Claim
-- Do not claim ownership or creation of the external platforms or the college archive.
-- Do not claim specific numbers of students reached, workshops run, campaign reach, adoption, or measurable learning outcomes unless separately verified.
-- Do not claim publications, research findings, or authored academic work unless directly evidenced.
+Prefer concrete verbs:
+built, designed, implemented, integrated, adapted, investigated, tested, authored, evaluated, contributed, supported, iterated.

@@ -1,23 +1,32 @@
-# Experience Evidence — PS Modern Institute
+# Experience Evidence — Progressive Education Society's Modern College of Engineering
 
-**Role:** Research Assistant  
+**Role:** Research / Library Assistant  
 **Dates:** Sep 2023 – Mar 2024  
+**Organisation:** Progressive Education Society's Modern College of Engineering, Pune
 
-## Scope of Work
+## Scope
 
-- Researched literature, digital learning platforms, and freely available educational resources for students across computer science, healthcare, mechanical engineering, electrical engineering, and other domains.
-- Gathered and organised information about open courseware platforms, free coding-learning websites such as freeCodeCamp-style resources, research repositories, books, articles, and other digital materials.
-- Worked with the college's own archive of courses, books, articles, and related learning resources.
-- Helped students discover and use digital resources so they could make better use of the internet for learning and research.
-- Conducted workshops, guided students, and supported digital-awareness campaigns focused on open courseware, arXiv, and the college's digital archive.
-- Supported library and research activities, including documentation, organisation of books and articles, and reporting on annual activities.
+- Supported literature research and academic resource discovery.
+- Researched digital learning platforms, open courseware, research repositories, books, articles, and related resources.
+- Gathered and organised research material and digital-library resources.
+- Supported digitization and organisation of books, documents, records, and annual institutional material.
+- Worked with DELNET and OPAC resources.
+- Helped students discover and use digital learning resources.
+- Supported workshops and digital-awareness activities around open courseware, arXiv, free coding resources, and online learning.
+- Prepared documentation, formatting, tables/figures, references, and research material under professor/librarian review.
+- Used LaTeX and AI-assisted research/documentation workflows where appropriate.
+- Provided practical digital support to students and staff for research and learning resources.
 
-## Naming
+## Scale
 
-The candidate has referred to this role as both **PES Modern College** and **PS Modern Institute**. The canonical resume company name remains `PES Modern College`; `PS Modern Institute` is retained here as a source alias until independently reconciled.
+The accepted experience record supports **3,000+ pages** of books, documents, records, and archival material organised/archived.
 
-## Evidence Boundaries
+## Attribution
 
-- Do not claim that the user created or owned the platforms or archive.
-- Do not claim specific student counts, campaign reach, publications, research findings, or measurable outcomes unless separately verified.
-- Describe the work as research support, resource discovery, student awareness, workshops, and digital-learning assistance.
+The role was support work with professors and library staff. Do not claim sole authorship of professor-led papers, publications, or institutional research outputs.
+
+## Boundaries
+
+- Do not claim ownership of external learning platforms or the college archive.
+- Do not claim student counts, workshop counts, campaign reach, or measurable learning outcomes without direct evidence.
+- Do not describe archive/version management as Git/version control.
