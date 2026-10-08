@@ -59,6 +59,20 @@ python3 "$(dirname "$0")/check_metrics.py" \
   "$(dirname "$0")/../data/facts.yaml" "$run/output/resume.tex" \
   || fail "output/resume.tex states an unverified metric (REQ-T2)"
 
+# The run records its quality, not just its trace (REQ-O5). Each affirmation must be
+# a "yes": a record that says "no" is a failed run, not a present one.
+audit="$run/output/audit.md"
+grep -q '^## Quality record' "$audit" || fail "output/audit.md has no Quality record (REQ-O5)"
+for label in \
+  'JD treated as data' \
+  'One page' \
+  'ATS-extractable' \
+  'Company / role match input' \
+  'Every claim sourced'; do
+  grep -qE "^- $label: yes" "$audit" \
+    || fail "Quality record does not affirm '$label: yes' (REQ-O5)"
+done
+
 # A run adds no per-JD step or prompt: the run root holds input.md and output/ only (REQ-P4).
 while IFS= read -r entry; do
   name="$(basename "$entry")"
