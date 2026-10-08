@@ -22,13 +22,14 @@ never forks the pipeline. Details live in `pipeline/README.md`, not here.
 ## Read order for a fresh task
 
 1. `AGENTS.md` (this file)
-2. `pipeline/README.md`
-3. `RESUME_RULES.md`
-4. `data/facts.yaml`
-5. `content/github/evidence.md`
-6. `content/github/boundaries.md`
-7. the application input `applications/{Name}_{YYYY-MM}/input.md`
-8. the mode config `modes/{mode}.yaml`
+2. `SPEC.md` — the system definition, requirements, and invariants (read once for orientation)
+3. `pipeline/README.md` — the workflow you actually run
+4. `RESUME_RULES.md`
+5. `data/facts.yaml`
+6. `content/github/evidence.md`
+7. `content/github/boundaries.md`
+8. the application input `applications/{Name}_{YYYY-MM}/input.md`
+9. the mode config `modes/{mode}.yaml`
 
 Do not load archived material or old runs unless the task requires them.
 
@@ -36,6 +37,7 @@ Do not load archived material or old runs unless the task requires them.
 
 | Need | Source |
 |---|---|
+| System definition, requirements, decisions | `SPEC.md` |
 | Candidate facts | `data/facts.yaml` |
 | Technical proof | `content/github/evidence.md` |
 | Claim / ownership / status limits | `content/github/boundaries.md` |

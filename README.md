@@ -26,6 +26,7 @@ facts and never forks the pipeline. Settings and display names live in `modes/{m
 | File | Owns |
 |---|---|
 | `AGENTS.md` | the agent contract, read order, precedence, hard constraints |
+| `SPEC.md` | the system definition, requirements, invariants, and architecture decisions |
 | `RESUME_RULES.md` | evidence, modes, voice, ATS, gates, never-invent |
 | `pipeline/README.md` | the workflow: two phases, two invariants |
 | `modes/{mode}.yaml` | per-mode settings (name key, emphasis, depth) |
