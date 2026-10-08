@@ -166,6 +166,16 @@ sed -i 's#\\documentclass{\.\./\.\./\.\./templates/v3/resume-openfont}#\\documen
   "$BADTEX/$RUN/output/resume.tex"
 expect_fail "a run not using the canonical template is rejected" "$BADTEX"
 
+# A run whose extracted.txt is not a resume is rejected (REQ-O5, REQ-V1).
+GARBAGE="$WORK/run-garbage-extract"; cp -a "$BASE" "$GARBAGE"
+printf 'THIS IS NOT A RESUME. GARBAGE.\n' > "$GARBAGE/$RUN/output/extracted.txt"
+expect_fail "an extracted.txt that is not a resume is rejected" "$GARBAGE"
+
+# An empty extracted.txt is rejected (REQ-O5).
+EMPTY="$WORK/run-empty-extract"; cp -a "$BASE" "$EMPTY"
+: > "$EMPTY/$RUN/output/extracted.txt"
+expect_fail "an empty extracted.txt is rejected" "$EMPTY"
+
 echo
 if [ "$FAILURES" -eq 0 ]; then
   echo "All contract tests passed."

@@ -34,6 +34,15 @@ done
 grep -qF 'templates/v3/resume-openfont' "$run/output/resume.tex" \
   || fail "output/resume.tex does not use the canonical template (REQ-C1)"
 
+# The extraction proof must read as a resume, not a stub (REQ-O5, REQ-V1).
+extract="$run/output/extracted.txt"
+chars="$(wc -c < "$extract" | tr -d ' ')"
+lines="$(grep -c . "$extract" || true)"
+[ "$chars" -ge 200 ] && [ "$lines" -ge 5 ] \
+  || fail "output/extracted.txt is too small to be a resume extraction (REQ-O5)"
+grep -q '@' "$extract" \
+  || fail "output/extracted.txt has no contact info; not a resume (REQ-O5)"
+
 # The trace must be checkable (REQ-T1).
 python3 "$(dirname "$0")/check_audit.py" "$run/output/audit.md" >/dev/null \
   || fail "output/audit.md is not traceable (REQ-T1)"
