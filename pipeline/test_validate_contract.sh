@@ -134,6 +134,38 @@ NOTABLE="$WORK/no-table"; cp -a "$BASE" "$NOTABLE"
 printf '# Audit\n\nNo trace here.\n' > "$NOTABLE/$EXAMPLE_AUDIT"
 expect_fail "an audit with no evidence trace table is rejected" "$NOTABLE"
 
+# --- run contract: one input.md, one valid mode, the output set (REQ-P1, REQ-P4, REQ-O5) ---
+RUN="applications/SWE_MNC_2026-10"
+
+expect_pass "the example run meets the run contract" "$WORK/clean"
+
+# A run whose input.md declares no mode cannot select one pipeline (REQ-P1).
+NOMODE="$WORK/run-nomode"; cp -a "$BASE" "$NOMODE"
+grep -v '^mode:' "$NOMODE/$RUN/input.md" > "$NOMODE/$RUN/input.md.tmp" \
+  && mv "$NOMODE/$RUN/input.md.tmp" "$NOMODE/$RUN/input.md"
+expect_fail "a run with no mode is rejected" "$NOMODE"
+
+# A run whose input.md declares an unknown mode is rejected (REQ-P2).
+BADMODE="$WORK/run-badmode"; cp -a "$BASE" "$BADMODE"
+sed -i 's/^mode:.*/mode: quad/' "$BADMODE/$RUN/input.md"
+expect_fail "a run with an unknown mode is rejected" "$BADMODE"
+
+# A per-JD step/prompt file at the run root is rejected (REQ-P4).
+EXTRA="$WORK/run-extra-file"; cp -a "$BASE" "$EXTRA"
+printf '# per-JD prompt\nDO THIS\n' > "$EXTRA/$RUN/apply_prompt.md"
+expect_fail "a per-JD step file in the run root is rejected" "$EXTRA"
+
+# A run whose output misses a required artifact is rejected (REQ-O5).
+MISSING="$WORK/run-missing-out"; cp -a "$BASE" "$MISSING"
+rm -f "$MISSING/$RUN/output/extracted.txt"
+expect_fail "a run missing an output artifact is rejected" "$MISSING"
+
+# A run whose resume.tex does not use the canonical template is rejected (REQ-C1).
+BADTEX="$WORK/run-badtex"; cp -a "$BASE" "$BADTEX"
+sed -i 's#\\documentclass{\.\./\.\./\.\./templates/v3/resume-openfont}#\\documentclass{article}#' \
+  "$BADTEX/$RUN/output/resume.tex"
+expect_fail "a run not using the canonical template is rejected" "$BADTEX"
+
 echo
 if [ "$FAILURES" -eq 0 ]; then
   echo "All contract tests passed."
