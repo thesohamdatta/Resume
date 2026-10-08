@@ -1,7 +1,7 @@
 # Application Input
 
-mode: referral | startup | mnc
 company: [Company Name]
+mode: [referral | startup | mnc]
 role: [Exact role title]
 jd_url: [optional]
 jd: |

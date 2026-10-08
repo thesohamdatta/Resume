@@ -176,6 +176,17 @@ EMPTY="$WORK/run-empty-extract"; cp -a "$BASE" "$EMPTY"
 : > "$EMPTY/$RUN/output/extracted.txt"
 expect_fail "an empty extracted.txt is rejected" "$EMPTY"
 
+# A run input.md missing company: or role: is rejected (REQ-P1, REQ-P4).
+NOCOMPANY="$WORK/run-no-company"; cp -a "$BASE" "$NOCOMPANY"
+grep -v '^company:' "$NOCOMPANY/$RUN/input.md" > "$NOCOMPANY/$RUN/input.md.tmp" \
+  && mv "$NOCOMPANY/$RUN/input.md.tmp" "$NOCOMPANY/$RUN/input.md"
+expect_fail "an input.md without company is rejected" "$NOCOMPANY"
+
+NOROLE="$WORK/run-no-role"; cp -a "$BASE" "$NOROLE"
+grep -v '^role:' "$NOROLE/$RUN/input.md" > "$NOROLE/$RUN/input.md.tmp" \
+  && mv "$NOROLE/$RUN/input.md.tmp" "$NOROLE/$RUN/input.md"
+expect_fail "an input.md without role is rejected" "$NOROLE"
+
 echo
 if [ "$FAILURES" -eq 0 ]; then
   echo "All contract tests passed."
