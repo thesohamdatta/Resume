@@ -6,6 +6,9 @@ Content corrections applied 2026-10-08: Reliance title = **Associate**; internsh
 named); Aura role = **Founder** (no "Builder"); Aura dates = **Jun 2026 – Present**. Explicit target line removed on request.
 AI-pattern pass applied (stop-slop + docs/voice.md): removed rule-of-three lists, "local-first"/"LLM-powered" marketing
 suffixes, repeated "Built" openers, em dashes, passive "is gated by", and the adverb "Recently"; varied sentence rhythm.
+Summary rewritten to DONT.MD §E5 (S3): states specialization (generative AI / LLM systems), the supporting evidence
+(two built systems + an independent wearable AI project), and the target domain (entry-level decision science / applied
+generative AI), while staying within the evidence on the page (S4).
 
 ## Target role interpretation
 

@@ -3,9 +3,10 @@
                                   thesohamdatta@gmail.com | +91 9420984066 | LinkedIn | GitHub | Portfolio
 
 AI/ML Engineer | Generative AI | RAG | Agent Systems
-AI/ML engineer working on LLM applications and agent workflows. Built a Python/FastAPI service that compares answers from
-several LLM providers, and a CLI that runs a staged engineering process across Claude, Codex, and local models. On a wearable AI
-project, wired retrieval over a knowledge graph and vector store, down to the ESP32 firmware.
+AI/ML engineer focused on generative AI and LLM systems, with a B.E. in AI & Machine Learning (2026). Built a Python/FastAPI
+service that sends one question to several LLMs and synthesizes their answers, and a CLI that runs a staged engineering process
+across Claude, Codex, and local models. For an independent wearable AI project, built retrieval over a knowledge graph and vector
+memory in Supabase/pgvector. Targeting an entry‐level role in decision science or applied generative AI.
 
 Education
 Savitribai Phule Pune University (SPPU)                                                                        2022 – Jun 2026
@@ -13,7 +14,7 @@ B.E. in Artificial Intelligence & Machine Learning | Pune, India
 Coursework: Machine Learning, Deep Learning, Computer Vision, NLP, Data Structures & Algorithms
 
 Projects
-Mia: AI Engineering CLI                                                                                                  GitHub
+Mia: AI Engineering CLI                                                                                                   GitHub
 TypeScript | Bun | LLM Adapters | Vitest | JSONL
 
  • Built a local TypeScript CLI that runs a five‐stage engineering process (grill, spec, plan, review, ship). One adapter
