@@ -1,7 +1,7 @@
 # Audit — SWE (MNC) Resume v1
 
 Run: `applications/SWE_MNC_2026-10/`
-Track: `mnc` · Display name: Soham Datta
+Mode: `mnc` · Display name: Soham Datta
 Target role: entry-level Software Engineer / SDE / SWE intern at MNC tech companies
 Primary domain: Backend/Platform (SWE); AI/ML secondary
 Output depth: D2, selective D3 in Aura (firmware/services) and Mia (verification gates)
@@ -15,7 +15,7 @@ Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, con
 - Omi: authored offline speaker clustering (agglomerative hierarchical clustering,
   SciPy cosine linkage, 52 unit tests; adopted downstream); diagnosed Windows
   Electron/WebGL GPU memory issue (filed root-cause report).
-- AICTE/EduSkills: TensorFlow / TFLite / ML Kit on-device CV pipelines.
+- AICTE: TensorFlow / TFLite / ML Kit on-device CV pipelines.
 - Reliance: customer-service operations (official title preserved).
 - PES Modern College: research/digital-library support, 3,000+ pages.
 - Mia: TypeScript/Bun CLI, five-stage workflow, JSONL state, lint/type-check/Vitest gates,
@@ -78,9 +78,9 @@ line, then merged the Tooling + Foundations skills rows. Final: 1 page, readable
 - Aura backend described as built/adapted services, not "architected from scratch".
 - Omi: "authored ... adopted downstream" and "diagnosed" — no merged-claim, no
   downstream-authorship claim, no maintainer status.
-- AICTE/EduSkills: "AI/ML Intern" at AICTE/EduSkills virtual internship (Google-supported),
+- AICTE: "AI/ML Intern" at AICTE (Google-supported),
   never Google employment.
-- Reliance: "Customer Service Representative" exactly.
+- Reliance: "Associate" exactly.
 
 ## Highest-risk weaknesses / unresolved gaps
 

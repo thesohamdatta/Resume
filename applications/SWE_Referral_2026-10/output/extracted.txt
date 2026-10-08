@@ -7,7 +7,7 @@ Software engineer building tested backend services and developer tooling in Pyth
 experience on a wearable device.
 
 Experience
-Aura | Founder / Builder                                                                                         Jun 2025 – Present
+Aura | Founder                                                                                                   Jun 2026 – Present
 Wearable AI System | Python, TypeScript, C/C++ | Under Development
 
  • Implemented ESP32‐S3 firmware in C/C++: 16 kHz I2S DMA audio capture, on‐device Opus compression,
@@ -16,12 +16,12 @@ Wearable AI System | Python, TypeScript, C/C++ | Under Development
    with Supabase/pgvector vector‐memory storage and a Deepgram ASR service on Kubernetes.
  • Contributed to the Omi open‐source ecosystem: authored offline speaker clustering with 52 unit tests (adopted
    downstream) and diagnosed a Windows Electron/WebGL GPU memory issue.
-AICTE/EduSkills | AI/ML Intern                                                               Oct 2024 – Dec 2024
+AICTE | AI/ML Intern                                                                         Oct 2024 – Dec 2024
 TensorFlow | TensorFlow Lite | Google ML Kit | Android
 
  • Built and tested on‐device computer‐vision pipelines with TensorFlow, TensorFlow Lite, and Google ML Kit,
    covering custom object detection, image classification, and Android inference.
-Reliance | Customer Service Representative                                                    Jul 2024 – Oct 2024
+Reliance | Associate                                                                          Jul 2024 – Oct 2024
 Customer Operations
 
  • Handled customer‐service, POS, membership, voucher, and reporting workflows while coordinating with store

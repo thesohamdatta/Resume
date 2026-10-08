@@ -26,9 +26,9 @@ education:
 
 experience:
   - id: aura
-    title: "Founder / Builder"
+    title: "Founder"
     company: "Aura"
-    dates: "Jun 2025 – Present"
+    dates: "Jun 2026 – Present"
     status: "Under development"
     tags: "Wearable AI · Embedded Systems · Multimodal AI · Open Source"
     bullets:
@@ -45,12 +45,12 @@ experience:
         - "Adapted Omi-based software/backend components for streaming audio, memory/context processing, knowledge-graph functionality, speaker identification, and AI integrations."
         - "Diagnosed and contributed technical fixes/design work across the wearable software stack and Omi open-source ecosystem."
 
-  - id: aicte_eduskills
+  - id: aicte_internship
     title: "AI/ML Intern"
-    company: "AICTE/EduSkills virtual internship"
+    company: "AICTE"
     dates: "Oct 2024 – Dec 2024"
     duration: "10 weeks"
-    support: "Supported by Google for Developers"
+    support: "AICTE internship program"
     tags: "Computer Vision · TensorFlow · TensorFlow Lite · Google ML Kit · Android"
     bullets:
       referral:
@@ -61,7 +61,7 @@ experience:
         - "Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference."
 
   - id: reliance
-    title: "Customer Service Representative"
+    title: "Associate"
     company: "Reliance"
     dates: "Jul 2024 – Oct 2024"
     tags: "Customer Service · POS · Store Operations · Reporting"

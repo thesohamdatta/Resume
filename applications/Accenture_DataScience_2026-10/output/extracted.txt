@@ -1,0 +1,65 @@
+                                                       Soham Datta
+                                                                Pune, India
+                                  thesohamdatta@gmail.com | +91 9420984066 | LinkedIn | GitHub | Portfolio
+
+AI/ML Engineer | Generative AI | RAG | Agent Systems
+Target: Decision Science / Generative AI Associate (0–2 yrs)
+AI/ML engineer building LLM‐powered applications and agent workflows: retrieval over vector memory, multi‐model prompt
+evaluation, tool‐calling agents, Python/API integrations, and verified computer‐vision and firmware engineering.
+
+Education
+Savitribai Phule Pune University (SPPU)                                                                        2022 – Jun 2026
+B.E. in Artificial Intelligence & Machine Learning | Pune, India
+Coursework: Machine Learning, Deep Learning, Computer Vision, NLP, Data Structures & Algorithms
+
+Projects
+Mia — Agentic AI Engineering CLI                                                                                         GitHub
+TypeScript | Bun | LLM Adapters | Vitest | JSONL
+
+ • Built a local‐first TypeScript CLI for agentic AI‐engineering workflows: a 5‐stage harness (grill ‐> spec ‐> plan ‐>
+   review ‐> ship), multi‐host LLM adapters (Claude, Codex, local models), immutable JSONL state, and automated
+   lint/typecheck/Vitest verification gates.
+LLM‐Council — Multi‐Model Prompt Evaluation                                                                        GitHub
+Python | FastAPI | React/Vite | OpenRouter
+
+ • Built a multi‐model evaluation service that compares and synthesizes responses from multiple LLM providers
+   through an Analyst ‐> Skeptic ‐> Synthesizer pipeline.
+John — Conversational Voice Agent                                                                           GitHub
+Kotlin | Jetpack Compose | LiveKit | WebRTC | Python
+
+ • Built an Android voice client connected to a Python LiveKit agent for realtime conversational AI and tool calling.
+
+Experience
+Aura | Founder                                                                                               Jun 2026 – Present
+Wearable AI | Generative AI | Retrieval and Memory
+
+ • Adapted Omi‐based backend components into a retrieval pipeline: segmented conversation into memory/context,
+   linked entities and relationships in a knowledge graph, and stored embeddings in Supabase/pgvector for
+   RAG‐style retrieval.
+ • Integrated Python FastAPI services for streaming audio and AI model integrations, including a Kubernetes‐hosted
+   Deepgram ASR service.
+ • Built the ESP32‐S3 firmware (16 kHz I2S DMA capture, Opus compression, FreeRTOS event handling, OTA)
+   connecting the wearable device to backend AI services.
+AICTE | AI/ML Intern                                                                          Oct 2024 – Dec 2024
+10‐week AICTE program
+
+ • Built and tested on‐device computer‐vision pipelines with TensorFlow, TensorFlow Lite, and Google ML Kit across
+   custom object detection, image classification, and Android inference.
+Reliance | Associate                                                                          Jul 2024 – Oct 2024
+Customer service, memberships, vouchers, exchanges, reporting
+
+
+Technical Skills
+Programming: Python, TypeScript/JavaScript, Kotlin, C/C++
+Generative AI: Prompt engineering, LLM applications, RAG (embeddings, vector retrieval), agent workflows, tool
+calling, multi‐agent systems, LLM model adapters
+ML / CV: Machine learning, computer vision, TensorFlow, TensorFlow Lite, PyTorch, Google ML Kit
+Backend / APIs: FastAPI, REST APIs, JSON, WebSockets
+Tools: Git/GitHub, Vitest, React
+Data: Supabase/pgvector, Pinecone, Redis, Firebase
+Cloud: AWS Educate: Generative AI; Kubernetes, Helm
+Systems: ESP32‐S3, FreeRTOS, I2S, Opus, OTA
+
+Certifications
+Claude 101 (Anthropic) | Google AI Essentials | AWS Educate: Introduction to Generative AI
+

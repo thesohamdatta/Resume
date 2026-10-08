@@ -20,7 +20,7 @@ This file is binding. No resume track may outrun these boundaries.
 
 ### Can claim
 - Independent wearable AI project under development.
-- Founder / Builder role.
+- Founder role.
 - Custom 3D-printed/CAD enclosures.
 - ESP32-S3 firmware integration and implementation.
 - I2S audio capture, DMA buffering, Opus compression, FreeRTOS event handling, OTA updates.
@@ -83,8 +83,7 @@ Do not say:
 
 ### Can claim
 - 10-week virtual AI/ML internship, Oct–Dec 2024.
-- AICTE/EduSkills ecosystem.
-- Supported by Google for Developers.
+- AICTE (All India Council for Technical Education) internship ecosystem.
 - Computer vision, TensorFlow, TensorFlow Lite, Google ML Kit, Android/mobile inference.
 - Custom object detection, EfficientDet-Lite, TFLite Model Maker, image classification, Google Cloud Vision API, Colab.
 
@@ -109,7 +108,7 @@ Do not say:
 
 ## Reliance
 
-- Official title: Customer Service Representative.
+- Official title: Associate.
 - Jul 2024 – Oct 2024.
 - Can claim customer service, POS, memberships, vouchers, exchanges, inventory/store workflows, reporting, documentation, and coordination with managers/store teams.
 - Do not use the historical 50% improvement metric until independently verified.

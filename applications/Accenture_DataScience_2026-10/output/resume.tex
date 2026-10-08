@@ -1,0 +1,56 @@
+\documentclass{../../../templates/v3/resume-openfont}
+\begin{document}
+\resumeHeader{Soham Datta}{Pune, India}{\href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
+
+{\small\bfseries AI/ML Engineer | Generative AI | RAG | Agent Systems}\par\vspace{2pt}
+{\small\bfseries Target: Decision Science / Generative AI Associate (0--2 yrs)}\par\vspace{2pt}
+\tightpar{AI/ML engineer building LLM-powered applications and agent workflows: retrieval over vector memory, multi-model prompt evaluation, tool-calling agents, Python/API integrations, and verified computer-vision and firmware engineering.}
+
+\section{Education}
+\resumeEducation{Savitribai Phule Pune University (SPPU)}{2022 -- Jun 2026}{B.E. in Artificial Intelligence \& Machine Learning | Pune, India}
+\tightpar{\footnotesize Coursework: Machine Learning, Deep Learning, Computer Vision, NLP, Data Structures \& Algorithms}
+
+\section{Projects}
+\resumeProject{Mia --- Agentic AI Engineering CLI}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}{TypeScript | Bun | LLM Adapters | Vitest | JSONL}
+\begin{resumeitemize}
+\item Built a local-first TypeScript CLI for agentic AI-engineering workflows: a 5-stage harness (grill -> spec -> plan -> review -> ship), multi-host LLM adapters (Claude, Codex, local models), immutable JSONL state, and automated lint/typecheck/Vitest verification gates.
+\end{resumeitemize}
+
+\resumeProject{LLM-Council --- Multi-Model Prompt Evaluation}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}{Python | FastAPI | React/Vite | OpenRouter}
+\begin{resumeitemize}
+\item Built a multi-model evaluation service that compares and synthesizes responses from multiple LLM providers through an Analyst -> Skeptic -> Synthesizer pipeline.
+\end{resumeitemize}
+
+\resumeProject{John --- Conversational Voice Agent}{\href{https://github.com/thesohamdatta/John}{GitHub}}{Kotlin | Jetpack Compose | LiveKit | WebRTC | Python}
+\begin{resumeitemize}
+\item Built an Android voice client connected to a Python LiveKit agent for realtime conversational AI and tool calling.
+\end{resumeitemize}
+
+\section{Experience}
+\resumeRole{Aura}{Founder}{Jun 2026 -- Present}{Wearable AI | Generative AI | Retrieval and Memory}
+\begin{resumeitemize}
+\item Adapted Omi-based backend components into a retrieval pipeline: segmented conversation into memory/context, linked entities and relationships in a knowledge graph, and stored embeddings in Supabase/pgvector for RAG-style retrieval.
+\item Integrated Python FastAPI services for streaming audio and AI model integrations, including a Kubernetes-hosted Deepgram ASR service.
+\item Built the ESP32-S3 firmware (16 kHz I2S DMA capture, Opus compression, FreeRTOS event handling, OTA) connecting the wearable device to backend AI services.
+\end{resumeitemize}
+
+\resumeRole{AICTE}{AI/ML Intern}{Oct 2024 -- Dec 2024}{10-week AICTE program}
+\begin{resumeitemize}
+\item Built and tested on-device computer-vision pipelines with TensorFlow, TensorFlow Lite, and Google ML Kit across custom object detection, image classification, and Android inference.
+\end{resumeitemize}
+
+\resumeRole{Reliance}{Associate}{Jul 2024 -- Oct 2024}{Customer service, memberships, vouchers, exchanges, reporting}
+
+\section{Technical Skills}
+\resumeSkills{Programming:}{Python, TypeScript/JavaScript, Kotlin, C/C++}
+\resumeSkills{Generative AI:}{Prompt engineering, LLM applications, RAG (embeddings, vector retrieval), agent workflows, tool calling, multi-agent systems, LLM model adapters}
+\resumeSkills{ML / CV:}{Machine learning, computer vision, TensorFlow, TensorFlow Lite, PyTorch, Google ML Kit}
+\resumeSkills{Backend / APIs:}{FastAPI, REST APIs, JSON, WebSockets}
+\resumeSkills{Tools:}{Git/GitHub, Vitest, React}
+\resumeSkills{Data:}{Supabase/pgvector, Pinecone, Redis, Firebase}
+\resumeSkills{Cloud:}{AWS Educate: Generative AI; Kubernetes, Helm}
+\resumeSkills{Systems:}{ESP32-S3, FreeRTOS, I2S, Opus, OTA}
+
+\section{Certifications}
+\tightpar{Claude 101 (Anthropic) | Google AI Essentials | AWS Educate: Introduction to Generative AI}
+\end{document}

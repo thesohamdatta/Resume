@@ -16,6 +16,6 @@ Distilled, evidence-backed learnings. History stays in `archive/`; only lessons 
 10. **Active experience threshold.** Insufficiently substantial freelance work stays out of active professional history.
 11. **Non-tech experience can be useful when specific.** Reliance and PES should use concrete responsibilities rather than generic labels.
 12. **Research-role specificity.** Preserve both research/resource discovery and student-facing digital-learning support when relevant.
-13. **Official-title rule.** Reliance must remain "Customer Service Representative" in the master record and final resumes.
-14. **Internship attribution rule.** The AI/ML internship is an AICTE/EduSkills virtual internship supported by Google for Developers, not employment at Google.
+13. **Official-title rule.** Reliance must remain "Associate" in the master record and final resumes.
+14. **Internship attribution rule.** The AI/ML internship is an AICTE program, not employment at Google. Represent the internship as "AICTE" only; do not name the platform provider.
 15. **Aura status rule.** Aura remains an independent wearable AI project under development. No customer, funding, production, or unsupported performance claims.

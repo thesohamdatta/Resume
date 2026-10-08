@@ -10,19 +10,19 @@ AI/ML graduate with hands-on work across AI agents, LLM applications, computer v
 
 ## Experience
 
-### Founder / Builder · Aura
-**Jun 2025 – Present** | Wearable AI · Embedded Systems · AI Integration
+### Founder · Aura
+**Jun 2026 – Present** | Wearable AI · Embedded Systems · AI Integration
 
 - Built and integrated an ESP32-S3 wearable system with 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA firmware support.
 - Adapted Omi-based software/backend components for streaming audio, memory/context processing, knowledge-graph functionality, speaker identification, and AI integrations.
 - Diagnosed and contributed technical fixes/design work across the wearable software stack and Omi open-source ecosystem.
 
-### AI/ML Intern · AICTE/EduSkills
-**Oct 2024 – Dec 2024** | 10-week virtual internship · Supported by Google for Developers
+### AI/ML Intern · AICTE
+**Oct 2024 – Dec 2024** | 10-week AICTE program
 
 - Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 
-### Customer Service Representative · Reliance
+### Associate · Reliance
 **Jul 2024 – Oct 2024**
 
 - Handled customer-service, POS, membership, voucher, exchange, documentation, and reporting workflows while coordinating with managers and store teams.

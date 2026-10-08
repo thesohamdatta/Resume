@@ -1,7 +1,7 @@
 # Audit — SWE (Referral) Resume v1
 
 Run: `applications/SWE_Referral_2026-10/`
-Track: `referral` · Display name: Soham Karande
+Mode: `referral` · Display name: Soham Karande
 Target role: entry-level Software Engineer / SWE intern (referral / forwarded applications)
 Primary domain: Backend/Platform (SWE); AI/ML secondary
 Output depth: D2
@@ -10,7 +10,7 @@ Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, con
 ## Selected evidence
 
 Same verified evidence as the MNC SWE variant: Aura (firmware + FastAPI services +
-Kubernetes Deepgram ASR + Omi contributions), AICTE/EduSkills, Reliance, PES Modern
+Kubernetes Deepgram ASR + Omi contributions), AICTE, Reliance, PES Modern
 College, Mia, LLM-Council, John.
 
 ## Track differences vs MNC variant

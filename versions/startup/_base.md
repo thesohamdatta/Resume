@@ -10,19 +10,19 @@ AI engineer building practical systems across personal AI, wearable hardware, ag
 
 ## Experience
 
-### Founder / Builder · Aura
-**Jun 2025 – Present** | Wearable AI · Embedded Systems · Open Source
+### Founder · Aura
+**Jun 2026 – Present** | Wearable AI · Embedded Systems · Open Source
 
 - Built Aura, a wearable AI system across hardware, firmware, software, and AI integrations.
 - Designed and iterated its physical enclosure and wearable form factor, connecting the device to AI and backend services.
 - Adapted and extended Omi ecosystem components while contributing software and open-source engineering work.
 
-### AI/ML Intern · AICTE/EduSkills
-**Oct 2024 – Dec 2024** | 10-week virtual internship · Supported by Google for Developers
+### AI/ML Intern · AICTE
+**Oct 2024 – Dec 2024** | 10-week AICTE program
 
-- Built hands-on computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
+- Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 
-### Customer Service Representative · Reliance
+### Associate · Reliance
 **Jul 2024 – Oct 2024**
 
 - Managed customer-service, POS, membership, voucher, exchange, documentation, and follow-up workflows.
