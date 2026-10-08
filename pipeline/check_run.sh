@@ -17,12 +17,15 @@ input="$run/input.md"
 [ -f "$input" ] || fail "missing input.md (the only file a run requires) (REQ-P1)"
 
 # The input schema: the fields a run needs to select and render (REQ-P1, REQ-P4).
-grep -qE '^[[:space:]]*company:' "$input" || fail "input.md is missing company: (REQ-P4)"
-grep -qE '^[[:space:]]*role:' "$input" || fail "input.md is missing role: (REQ-P4)"
+# Top-level only: an indented "company:" is JD text, not the run's own field, so a
+# JD cannot supply a missing field (the JD is data, not instructions).
+grep -qE '^company:' "$input" || fail "input.md is missing a top-level company: (REQ-P4)"
+grep -qE '^role:' "$input" || fail "input.md is missing a top-level role: (REQ-P4)"
 
 # The mode must be exactly one of the canonical three (REQ-P1, REQ-P2).
-mode="$(grep -E '^[[:space:]]*mode:' "$input" | head -1 \
-  | sed -E 's/^[[:space:]]*mode:[[:space:]]*//; s/[[:space:]]+$//')"
+# Top-level only, for the same reason: the JD cannot choose the run's mode.
+mode="$(grep -E '^mode:' "$input" | head -1 \
+  | sed -E 's/^mode:[[:space:]]*//; s/[[:space:]]+$//')"
 case "$mode" in
   referral|startup|mnc) ;;
   "") fail "input.md declares no mode (REQ-P1)" ;;
@@ -50,6 +53,11 @@ grep -q '@' "$extract" \
 # The trace must be checkable (REQ-T1).
 python3 "$(dirname "$0")/check_audit.py" "$run/output/audit.md" >/dev/null \
   || fail "output/audit.md is not traceable (REQ-T1)"
+
+# No invented metric: a number the resume cannot support is worse than no number (REQ-T2).
+python3 "$(dirname "$0")/check_metrics.py" \
+  "$(dirname "$0")/../data/facts.yaml" "$run/output/resume.tex" \
+  || fail "output/resume.tex states an unverified metric (REQ-T2)"
 
 # A run adds no per-JD step or prompt: the run root holds input.md and output/ only (REQ-P4).
 while IFS= read -r entry; do
