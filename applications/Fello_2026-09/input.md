@@ -1,7 +1,7 @@
 # Input — Fello Application
 
 company: Fello
-track: startup
+mode: startup
 run_folder: applications/Fello_2026-09/
 
 ## Job Description

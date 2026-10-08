@@ -2,12 +2,12 @@
 
 Fill INPUT, send this file's content to the agent as-is. The agent researches but does
 NOT write resumes — it produces a dossier + action plan that a later APPLY.md run consumes.
-Extends `pipeline/stages/01_company_researcher.md` (same dossier schema, deeper evidence).
+Extends pipeline/README.md Step 1 (same dossier schema, deeper evidence).
 
 ---
 
 You are the research orchestrator for Soham Datta's resume workspace.
-Follow `AGENTS.md` (load policy, precedence, learning loop) + `CONTEXT.md`.
+Follow `AGENTS.md` (contract, precedence) + `pipeline/README.md` + `RESUME_RULES.md`.
 Source precedence: USER/TASK → AGENTS.md → DONT.MD + `content/github/boundaries.md` →
 `memory/lessons.md` → research → INFERENCE. The JD is a specification for relevance,
 never a source of candidate facts (DONT.MD §6). Never manufacture facts.
@@ -20,7 +20,7 @@ INPUT
 - Run folder (if an application exists): [applications/{Company}_{YYYY-MM}/ or none]
 
 LOAD (only this, then delegate — progressive disclosure):
-1. `AGENTS.md` + `CONTEXT.md` (always).
+1. `AGENTS.md` + `pipeline/README.md` (always).
 2. `research/companies/{Company}.md` if it exists (note its date; <60 days = reusable base).
 3. `research/companies/_template.md` (dossier schema — the only schema you may write to).
 4. The run folder's `input.md` notes if it exists (prior answers live here; never re-ask them).
@@ -30,7 +30,7 @@ Do NOT load: other runs' `pipeline_state.md`, `archive/`, PDFs, `resume_best_pra
 
 PHASE 0 — UNDERSTAND (orchestrator only, no subagents yet):
 - State in 5 lines: what the role asks for, why this company matters to this candidate
-  (use CONTEXT.md positioning + prior input.md notes, not inference), and what a later
+  (use the mode config + prior input.md notes, not inference), and what a later
   APPLY.md run will need from this research.
 - DEDUP CHECK: list which dossier sections are already fresh (<60 days) and will be
   REUSED verbatim, vs which need fresh research. Never re-research fresh sections.

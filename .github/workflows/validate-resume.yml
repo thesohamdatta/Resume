@@ -37,15 +37,15 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/resume-artifacts
-          for track in referral startup mnc; do
-            pdf="versions/$track/resume.pdf"
+          for mode in referral startup mnc; do
+            pdf="versions/$mode/resume.pdf"
             test -s "$pdf"
             pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
             test "$pages" = "1"
-            pdftotext -layout "$pdf" "/tmp/resume-artifacts/${track}.txt"
-            grep -q "Soham" "/tmp/resume-artifacts/${track}.txt"
-            test -s "/tmp/resume-artifacts/${track}.txt"
-            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/${track}"
+            pdftotext -layout "$pdf" "/tmp/resume-artifacts/${mode}.txt"
+            grep -q "Soham" "/tmp/resume-artifacts/${mode}.txt"
+            test -s "/tmp/resume-artifacts/${mode}.txt"
+            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/${mode}"
           done
 
       - name: Upload resume QA artifacts

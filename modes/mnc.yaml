@@ -1,0 +1,14 @@
+# Mode config: mnc
+# Multinational / enterprise hiring. Conventional, ATS-safe, evidence-dense.
+mode: mnc
+name_key: name             # selects facts.personal.name
+default_depth: D1-D2       # D3 only where the JD explicitly rewards implementation depth
+emphasis:
+  - conventional structure
+  - ATS-safe plain text
+  - technical precision
+  - evidence density
+notes: >
+  Single column, standard headings, searchable text. Show only the technical detail that
+  earns relevance; do not turn the resume into an implementation diary.
+base: versions/mnc/_base.md

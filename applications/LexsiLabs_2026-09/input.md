@@ -1,7 +1,7 @@
 # Application Input
 
 company: Lexsi Labs
-track: startup
+mode: startup
 run_folder: applications/LexsiLabs_2026-09/
 jd: |
   AI Agent Engineer Intern (Applied AI) | Mumbai, Remote, Part-Time

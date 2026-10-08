@@ -1,7 +1,7 @@
 # Input — Myntra — 2026-09
 
 company: Myntra
-track: mnc
+mode: mnc
 role: Apprentice (Job ID 1845624696), Bangalore, Karnataka, India
 source: user-pasted JD, 2026-09-15
 

@@ -1,12 +1,103 @@
-# Pipeline — README (index stub)
+# Pipeline — one workflow, any JD
 
-Send-as-is entry point: fill INPUT in `pipeline/APPLY.md` and send its content to the agent.
+The pipeline is one module:
 
-| Doc | Audience | Contains |
-|---|---|---|
-| `APPLY.md` | sender (you) | run prompt + interview prep + learning |
-| `run.md` | orchestrator (agent) | stage order, gates, shortcuts, dependency graph, design decisions — the single orchestration reference |
-| `research/SWARM_RESEARCH.md` | researcher | deep company/people intel before APPLY.md (optional path) |
-| `stages/` | agent per stage | one file per stage: role, reads, exact output schema |
+```
+run(jd, mode) -> resume.pdf          # exactly one page, ATS-readable, truth-traceable
+```
 
-Do not restate orchestration here — `run.md` owns it.
+That is the whole interface. A new job description is a new `input.md`; nothing else changes.
+There is no per-JD or per-domain step. The mode carries settings; the JD carries the lens.
+
+Correctness rests on two invariants, not on a long checklist:
+
+1. **Evidence** — every claim in the deliverable traces to `data/facts.yaml`,
+   `content/github/evidence.md`, `content/github/boundaries.md`, or the mode base.
+2. **One page** — the output is exactly one page.
+
+Two phases enforce them.
+
+---
+
+## Inputs
+
+| Input | Where |
+|---|---|
+| The JD | `applications/{Name}_{YYYY-MM}/input.md` (schema: `applications/_template/input.md`) |
+| Mode settings | `modes/{mode}.yaml` |
+| Mode content | `versions/{mode}/_base.md` |
+| Truth | `data/facts.yaml` · `content/github/evidence.md` · `content/github/boundaries.md` |
+| Renderer | `templates/v3/` |
+
+Rules: `RESUME_RULES.md`. Contract and precedence: `AGENTS.md`.
+
+---
+
+## Phase 1 — SELECT
+
+Turn the JD and the truth sources into an evidence plan.
+
+1. Read the JD. Extract only what changes resume decisions: role, seniority, must-haves,
+   preferred skills, responsibilities, technical priorities, and verbatim keywords.
+2. Read the truth sources. Build `requirement -> evidence -> strength -> action`.
+3. Apply the mode's emphasis and depth from `modes/{mode}.yaml`. Choose the primary
+   technical domain and the output depth (D1/D2/D3).
+4. Decide foreground / compress / omit for each piece of evidence. Confirm every real gap
+   against `boundaries.md` before calling it a gap.
+
+**Gate A — traceability.** Every selected item traces to a source. Anything untraceable is
+dropped, not softened. Any real gap is confirmed against `boundaries.md`.
+
+Output: an evidence plan. Stop and ask (max 3 questions) only if a missing fact would change
+the domain, depth, attribution, scope, dates, or certification status.
+
+## Phase 2 — RENDER
+
+Turn the evidence plan into the one-page PDF.
+
+1. Write the draft in the fixed section order, using the mode's content (`_base.md`) and the
+   chosen depth. Never change dates, titles, ownership, employers, or project scope.
+2. Populate `templates/v3/`. Preserve its structure; replace content only. Keep critical
+   information as real text and keep hyperlinks.
+3. Compile with XeLaTeX into a temporary build directory so `.aux`/`.log`/`.out` never enter
+   the repo.
+4. If it overflows one page, remove repetition, weak bullets, weak projects, and low-value
+   metadata before touching spacing or type.
+
+**Gate B — delivery.**
+- **FACT** — every claim traces to a source. Unknown → FAIL. Overstated but directionally true → WARN, soften before delivery.
+- **FIT** — the resume matches the JD's domain, must-haves, and keywords.
+- **READ** — a recruiter can understand it in 5–15 seconds.
+- **PARSE** — ATS-safe: single column, standard headings, selectable text.
+- **One page** — `pdfinfo` reports exactly 1.
+
+Any FAIL stops delivery.
+
+---
+
+## Output
+
+Write the application outputs to `applications/{Name}_{YYYY-MM}/output/`:
+
+```
+output/
+  resume.tex
+  resume.pdf
+  <Name>_<Role>.pdf      # role-named copy
+  extracted.txt          # plain-text extraction proof
+  audit.md               # target role, selected/omitted evidence, JD matches, gate status, gaps
+```
+
+The three mode bases stay at `versions/{mode}/resume.tex` and compile to one page.
+
+## Running the repo checks
+
+```
+bash pipeline/validate_resume_repo.sh   # repo contract
+bash pipeline/build_base_resumes.sh     # compile the three base resumes, one page each
+```
+
+## Human checkpoints
+
+- After SELECT: positioning, domain, and headline.
+- After RENDER: any FAIL or WARN, and the final PDF.

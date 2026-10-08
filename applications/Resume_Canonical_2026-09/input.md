@@ -2,7 +2,7 @@
 
 Company: Universal
 Role: AI Engineer / AI-ML Engineer / GenAI / LLM / Applied AI / Software Engineer
-Track: mnc
+Mode: mnc
 Template: supplied Rezume LaTeX template (application artifact)
 
 ## Notes

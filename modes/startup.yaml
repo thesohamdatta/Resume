@@ -1,0 +1,15 @@
+# Mode config: startup
+# Startups, founder outreach, direct applications. Builder/ownership emphasis.
+mode: startup
+name_key: name             # selects facts.personal.name
+default_depth: D2          # D3 when it strengthens the builder signal
+emphasis:
+  - ownership
+  - builder signal
+  - visible technical decisions
+  - project identity
+  - end-to-end shipping
+notes: >
+  May use limited first person in the profile line only. Distinctive through evidence,
+  not gimmicks. Never founder mythology, hype, or invented scale.
+base: versions/startup/_base.md

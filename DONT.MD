@@ -1653,8 +1653,8 @@ E23. REPOSITORY HANDOFF RULE
 
 When the repository is handed to another agent without conversation history:
 
-1. Start with `MAP.md`.
-2. Read `AGENTS.md` and `CONTEXT.md`.
+1. Start with `AGENTS.md`.
+2. Read `pipeline/README.md` and `RESUME_RULES.md`.
 3. Treat `data/facts.yaml` as the canonical biography.
 4. Read `content/github/evidence.md` and `content/github/boundaries.md` before changing claims.
 5. Use detailed evidence files under `content/github/` only as supporting proof; they do not override canonical dates, titles, employers, or ownership.
