@@ -1,0 +1,112 @@
+\documentclass[letter,10pt]{article}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{TLCresume}
+
+%====================
+% Contact information
+%====================
+\author{Soham Datta}
+\def\phone{+91 9420984066}
+\def\city{Pune, India}
+\def\email{thesohamdatta@gmail.com}
+\def\github{thesohamdatta}
+\def\LinkedIn{thesohamdatta}
+
+\begin{document}
+
+%====================
+% Header: Contact
+%====================
+\begin{center}
+        \begin{minipage}[b]{.22\textwidth}
+        \raggedright
+        {\small \phone} \\
+        {\small \city} \\
+        {\small \href{mailto:\email}{\email}}
+        \end{minipage}%
+        \begin{minipage}[b]{.56\textwidth}
+        \makeatletter
+        \centering {\huge \@author} \\
+        \makeatother
+        \vspace{.7em}
+        \end{minipage}%
+        \begin{minipage}[b]{.22\textwidth}
+        \raggedleft
+        {\small \href{https://sohamdatta.framer.ai}{Portfolio}} \\
+        {\small \href{https://github.com/\github}{GitHub: \github}} \\
+        {\small \href{https://www.linkedin.com/in/\LinkedIn}{LinkedIn: \LinkedIn}}
+        \end{minipage}
+\end{center}
+
+%====================
+% SUMMARY
+%====================
+\vspace*{6pt}
+\subtext{Administrative and operations support across customer operations, records management, and
+documentation in fast-paced retail and academic settings. Comfortable with Microsoft Office, multi-step
+scheduling, and handling confidential information with accuracy and discretion.}
+
+%====================
+% EDUCATION
+%====================
+\vspace*{8pt}
+\section{Education}
+\vspace*{6pt}
+\subsection{{B.E. Artificial Intelligence \& Machine Learning}\hfill 2022 - Jun 2026}
+\subtext{Savitribai Phule Pune University (SPPU), Pune, India}
+
+%====================
+% WORK EXPERIENCE
+%====================
+\vspace*{8pt}
+\section{Work Experience}
+\vspace*{6pt}
+\subsection{{Founder}\hfill Jun 2026 - Present}
+\subtext{Aura \hfill Independent wearable AI project}
+\begin{zitemize}
+\item Run an independent hardware-and-software project end to end, from design and build to documentation and iteration.
+\item Maintain project records and issue tracking in the Omi open-source project through issues, pull requests, debugging, testing, and documentation.
+\end{zitemize}
+
+\vspace*{5pt}
+\subsection{{Associate}\hfill Jul 2024 - Oct 2024}
+\subtext{Reliance \hfill Customer operations}
+\begin{zitemize}
+\item Handled a customer-service desk covering POS, memberships, vouchers, and exchanges, resolving routine issues and escalating where needed.
+\item Maintained reporting and data records, with daily follow-up and documentation of transactions and store workflows.
+\item Coordinated with managers and store teams to close operational issues and keep records accurate across shifts.
+\end{zitemize}
+
+\vspace*{5pt}
+\subsection{{Research / Library Assistant}\hfill Sep 2023 - Mar 2024}
+\subtext{PES Modern College of Engineering \hfill Records and digital library}
+\begin{zitemize}
+\item Organised, digitized, and documented 3,000+ pages of academic material, keeping accurate records of literature and resources.
+\item Supported students and staff with digital learning resources and workshops, and prepared material for professor and librarian review.
+\end{zitemize}
+
+\vspace*{5pt}
+\subsection{{AI/ML Intern}\hfill Oct 2024 - Dec 2024}
+\subtext{AICTE \hfill 10-week AICTE program}
+\begin{zitemize}
+\item Completed a 10-week structured program covering applied computer-vision workflows and Android-based inference.
+\end{zitemize}
+
+%====================
+% SKILLS
+%====================
+\vspace*{8pt}
+\section{Skills}
+\vspace*{6pt}
+\begin{tabular}{p{10em} p{0.5em} p{37em}}
+\skills{Office} & & \vspace*{0.5pt} Microsoft Office (Word, Excel, PowerPoint, Outlook)\\
+\vspace*{0.5pt}
+\skills{Administration} & & \vspace*{0.5pt} Records management, documentation, reporting, data maintenance, scheduling, team coordination\\
+\vspace*{0.5pt}
+\skills{Communication} & & \vspace*{0.5pt} Written and verbal communication, cross-team coordination, confidential-information handling\\
+\vspace*{0.5pt}
+\skills{Tools} & & \vspace*{0.5pt} Git/GitHub, spreadsheets, LaTeX, library systems (DELNET, OPAC)\\
+\end{tabular}
+
+\end{document}
