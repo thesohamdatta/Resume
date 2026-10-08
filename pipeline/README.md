@@ -105,12 +105,23 @@ FACT gate instead of shipping.
 
 The three mode bases stay at `versions/{mode}/resume.tex` and compile to one page.
 
+## Reproducing a run
+
+A run is one `input.md` plus the standard output set. Adding a company adds no file beyond
+`input.md` — no step, prompt, or stage. The mode comes from `input.md`.
+
+```
+# from a clean clone, read SPEC.md in the documented order, then:
+bash pipeline/check_run.sh applications/{Name}_{YYYY-MM}   # run contract + traceability
+```
+
 ## Running the repo checks
 
 ```
-bash pipeline/validate_resume_repo.sh        # repo contract (includes the example run's audit)
+bash pipeline/validate_resume_repo.sh        # repo contract (includes the example run)
 bash pipeline/test_validate_contract.sh      # contract tests for the validator
 bash pipeline/build_base_resumes.sh          # compile the three base resumes, one page each
+bash pipeline/check_run.sh <run_dir>         # one run: input, mode, outputs, trace
 python3 pipeline/check_audit.py <audit.md>   # traceability of one run's audit
 ```
 

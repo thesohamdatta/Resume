@@ -33,6 +33,8 @@ CANON=(
   modes/mnc.yaml
   templates/v3/resume-openfont.cls
   templates/v3/resume.tex
+  pipeline/check_run.sh
+  pipeline/check_audit.py
 )
 for f in "${CANON[@]}"; do
   test -f "$ROOT/$f" || fail "missing canonical module: $f"
@@ -114,20 +116,11 @@ for mode in "${MODES[@]}"; do
 done
 ok "base resume sections follow the canonical order"
 
-# --- run output contract and traceability (REQ-O5, REQ-T1) ---
-# The example run demonstrates the full output contract and a traceable audit.
-# Older runs predate the contract and are grandfathered.
+# --- example run: output contract, traceability, reproducibility (REQ-P1/P4/O5/T1/C1) ---
+# The example run demonstrates the whole path; older runs predate the contract.
 EXAMPLE="applications/SWE_MNC_2026-10"
-for f in resume.tex extracted.txt audit.md; do
-  test -f "$ROOT/$EXAMPLE/output/$f" \
-    || fail "$EXAMPLE/output is missing $f (REQ-O5 output contract)"
-done
-ok "example run provides resume.tex, extracted.txt, audit.md"
-
-test -f "$ROOT/$EXAMPLE/output/audit.md" || fail "example run audit missing"
-python3 "$ROOT/pipeline/check_audit.py" "$ROOT/$EXAMPLE/output/audit.md" \
-  || fail "example run audit is not traceable (REQ-T1)"
-ok "example run audit is traceable"
+bash "$ROOT/pipeline/check_run.sh" "$ROOT/$EXAMPLE" || fail "example run violates the run contract"
+ok "example run meets the run contract"
 
 # --- retirement: old pipeline surfaces and drifting twins must be gone ---
 test -e "$ROOT/PIPELINE.md" && fail "root PIPELINE.md should be retired"
