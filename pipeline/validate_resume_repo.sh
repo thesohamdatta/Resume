@@ -161,8 +161,11 @@ ACTIVE_FILES=(
 assert_absent "active files do not reference removed modules" \
   'engine/PROMPT|engine/RULES|pipeline/run\.md|pipeline/APPLY|pipeline/stages|CONTEXT\.md|MAP\.md|wayfinder|\bPIPELINE\.md|prompts/' \
   "${ACTIVE_FILES[@]}"
-assert_absent "active system is portable" \
-  'D:\\\\download|[A-Za-z]:\\\\Users\\\\|/mnt/data' \
+assert_absent "active files are portable" \
+  '[A-Za-z]:\\|/mnt/data|/home/|~/|\\\\[A-Za-z]' \
+  "${ACTIVE_FILES[@]}"
+assert_absent "active files contain no prior-application reference" \
+  'applications/[A-Za-z0-9]+_20[0-9][0-9]-' \
   "${ACTIVE_FILES[@]}"
 assert_absent "active system uses current mode vocabulary" \
   'versions/local|versions/midlevel|mid-level' \
