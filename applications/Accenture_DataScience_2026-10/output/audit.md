@@ -3,7 +3,9 @@
 Mode: `mnc` · Lens: LLM / Agent Systems (Generative AI, RAG, agent workflows) · Depth: D2, D3 on RAG/agents/testing
 Output: `resume.pdf` (1 page, A4) · `Soham_Datta_Accenture_Decision_Science_Associate.pdf` · `extracted.txt`
 Content corrections applied 2026-10-08: Reliance title = **Associate**; internship shown as **AICTE** (no platform provider
-named); Aura role = **Founder** (no "Builder"); Aura dates = **Jun 2026 – Present**.
+named); Aura role = **Founder** (no "Builder"); Aura dates = **Jun 2026 – Present**. Explicit target line removed on request.
+AI-pattern pass applied (stop-slop + docs/voice.md): removed rule-of-three lists, "local-first"/"LLM-powered" marketing
+suffixes, repeated "Built" openers, em dashes, passive "is gated by", and the adverb "Recently"; varied sentence rhythm.
 
 ## Target role interpretation
 

@@ -38,7 +38,7 @@ AI/ML graduate with hands-on work across AI agents, LLM applications, computer v
 **TypeScript · Bun · LLM Adapters · Vitest · JSONL**  
 [GitHub](https://github.com/thesohamdatta/Mia)
 
-- Built a local-first TypeScript CLI around explicit AI engineering workflows with model adapters, verification gates, and immutable JSONL state.
+- Built a TypeScript CLI that runs a staged engineering process with LLM model adapters, append-only JSONL state, and lint, typecheck, and test gates.
 
 ### LLM-Council
 **Python · FastAPI · React/Vite · OpenRouter**  
