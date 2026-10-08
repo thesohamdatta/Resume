@@ -85,6 +85,20 @@ BADORDER="$WORK/bad-order"; cp -a "$BASE" "$BADORDER"
 printf '\n## Summary\n' >> "$BADORDER/versions/referral/_base.md"
 expect_fail "a non-canonical section order is rejected" "$BADORDER"
 
+
+# --- case: a prior-application reference in any active file is rejected (REQ-C2) ---
+PRIOR="$WORK/prior-app-active"; cp -a "$BASE" "$PRIOR"
+printf '\nSuperseded by applications/Amazon_2026-09/.\n' >> "$PRIOR/README.md"
+expect_fail "a prior-application reference in an active file is rejected" "$PRIOR"
+
+# --- case: portable-path forms are rejected in active files (REQ-C4) ---
+for pair in "home:/home/me/notes" "tilde:~/notes" "win:C:\\Users\\me\\x" "unc:\\\\server\\share\\x"; do
+  name="${pair%%:*}"; path="${pair#*:}"
+  DIR="$WORK/port-$name"; cp -a "$BASE" "$DIR"
+  printf '\npath: %s\n' "$path" >> "$DIR/docs/voice.md"
+  expect_fail "a $name absolute path in an active file is rejected" "$DIR"
+done
+
 # --- case: an absolute workstation path in an active file is rejected (REQ-C4) ---
 WPATH="$WORK/workstation"; cp -a "$BASE" "$WPATH"
 printf '\nBuild artifacts live at /mnt/data/notes.\n' >> "$WPATH/README.md"
