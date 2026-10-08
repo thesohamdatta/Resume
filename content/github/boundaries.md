@@ -84,7 +84,6 @@ Do not say:
 ### Can claim
 - 10-week virtual AI/ML internship, Oct–Dec 2024.
 - AICTE (All India Council for Technical Education) internship ecosystem.
-
 - Computer vision, TensorFlow, TensorFlow Lite, Google ML Kit, Android/mobile inference.
 - Custom object detection, EfficientDet-Lite, TFLite Model Maker, image classification, Google Cloud Vision API, Colab.
 

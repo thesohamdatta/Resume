@@ -20,7 +20,7 @@ AI engineer building practical systems across personal AI, wearable hardware, ag
 ### AI/ML Intern · AICTE
 **Oct 2024 – Dec 2024** | 10-week AICTE program
 
-- Built hands-on computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
+- Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 
 ### Associate · Reliance
 **Jul 2024 – Oct 2024**
