@@ -90,6 +90,50 @@ WPATH="$WORK/workstation"; cp -a "$BASE" "$WPATH"
 printf '\nBuild artifacts live at /mnt/data/notes.\n' >> "$WPATH/README.md"
 expect_fail "an absolute workstation path in an active file is rejected" "$WPATH"
 
+# --- case: the example run's audit is traceable (REQ-T1) ---
+# The example audit.md carries an "## Evidence trace" table; every selected item
+# names its JD requirement, its source, its strength, and its action.
+EXAMPLE_AUDIT="applications/SWE_MNC_2026-10/output/audit.md"
+expect_pass "the example run's audit is traceable" "$WORK/clean"
+
+# --- case: removing one source reference breaks traceability (REQ-T1) ---
+NOSRC="$WORK/no-source"; cp -a "$BASE" "$NOSRC"
+python3 - "$NOSRC/$EXAMPLE_AUDIT" <<'PY'
+import sys, re
+p = sys.argv[1]
+t = open(p).read()
+t = t.replace("| content/github/evidence.md |", "|  |", 1)
+open(p, "w").write(t)
+PY
+expect_fail "an audit whose selected item lost its source is rejected" "$NOSRC"
+
+# --- case: an unknown source owner breaks traceability (REQ-T1) ---
+BADSRC="$WORK/bad-source"; cp -a "$BASE" "$BADSRC"
+python3 - "$BADSRC/$EXAMPLE_AUDIT" <<'PY'
+import sys
+p = sys.argv[1]
+t = open(p).read()
+t = t.replace("| content/github/evidence.md |", "| research/README.md |")
+open(p, "w").write(t)
+PY
+expect_fail "an audit citing a non-owner source is rejected" "$BADSRC"
+
+# --- case: an untraceable item shipped instead of dropped breaks traceability (REQ-T1) ---
+SHIPPED="$WORK/shipped-gap"; cp -a "$BASE" "$SHIPPED"
+python3 - "$SHIPPED/$EXAMPLE_AUDIT" <<'PY'
+import sys
+p = sys.argv[1]
+t = open(p).read()
+t = t.replace("| NONE | OMIT |", "| ADJACENT | FOREGROUND |")
+open(p, "w").write(t)
+PY
+expect_fail "an audit foregrounding a sourceless item is rejected" "$SHIPPED"
+
+# --- case: an audit with no trace table is rejected (REQ-O5) ---
+NOTABLE="$WORK/no-table"; cp -a "$BASE" "$NOTABLE"
+printf '# Audit\n\nNo trace here.\n' > "$NOTABLE/$EXAMPLE_AUDIT"
+expect_fail "an audit with no evidence trace table is rejected" "$NOTABLE"
+
 echo
 if [ "$FAILURES" -eq 0 ]; then
   echo "All contract tests passed."

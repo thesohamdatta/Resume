@@ -33,6 +33,31 @@ Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, con
 - codeshot, autodev, ddpm, microgpt, voicecoder — lower SWE relevance this pass.
 - Freelancer "AI & Automation" — explicitly excluded in facts.yaml.
 
+## Evidence trace
+
+Machine-checked by `pipeline/check_audit.py`. Every selected item names the JD requirement it
+answers, its source (one of the four owners), its strength, and its action.
+
+| Item | JD requirement | Source | Strength | Action |
+|---|---|---|---|---|
+| Aura firmware (ESP32-S3 C/C++, FreeRTOS, I2S DMA, Opus) | Systems / low-level | content/github/evidence.md | DIRECT | FOREGROUND |
+| Aura backend services (FastAPI, streaming audio, pgvector) | Backend / REST APIs | content/github/evidence.md | DIRECT | FOREGROUND |
+| Omi offline speaker clustering (agglomerative, 52 tests) | Algorithms / problem solving | content/github/evidence.md | DIRECT | FOREGROUND |
+| Omi Windows Electron/WebGL GPU diagnosis | Debugging | content/github/evidence.md | DIRECT | SUPPORT |
+| AICTE on-device CV pipelines (TensorFlow/TFLite/ML Kit) | ML / edge inference | content/github/evidence.md | DIRECT | SUPPORT |
+| Reliance customer-service operations | Professional experience | data/facts.yaml | DIRECT | SUPPORT |
+| PES research / digital-library support (3,000+ pages) | Documentation / research | data/facts.yaml | ADJACENT | SUPPORT |
+| Mia CLI + quality gates (Vitest, typecheck, lint) | Testing / CI | content/github/evidence.md | DIRECT | SUPPORT |
+| LLM-Council FastAPI + React multi-agent pipeline | Backend / REST APIs | content/github/evidence.md | DIRECT | SUPPORT |
+| John Kotlin/Compose client + LiveKit agent | Mobile / real-time | content/github/evidence.md | DIRECT | SUPPORT |
+| Mode framing and depth (mnc, D2) | Conventional MNC format | versions/mnc/_base.md | DIRECT | FOREGROUND |
+| Java / Spring | Java backend |  | NONE | OMIT |
+| SQL / DBMS depth | SQL fundamentals |  | NONE | OMIT |
+| Docker / container depth | Containers |  | NONE | OMIT |
+| Cloud platforms (AWS/GCP/Azure) | Cloud |  | NONE | OMIT |
+| CAD / 3D-printing enclosure detail | (space) | content/github/evidence.md | ADJACENT | OMIT |
+| CGPA | Academic record |  | NONE | OMIT |
+
 ## JD match (SWE common denominator)
 
 | JD signal | Evidence | Strength |
