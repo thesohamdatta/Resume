@@ -77,7 +77,7 @@ Evidence:
 
 Evidence:
 - 10-week virtual AI/ML internship, Oct–Dec 2024.
-- AICTE/EduSkills ecosystem, supported by Google for Developers.
+- AICTE (All India Council for Technical Education) internship ecosystem.
 - TensorFlow and TensorFlow Lite.
 - Google ML Kit.
 - Android/mobile inference.
@@ -131,7 +131,7 @@ Evidence:
 
 ## Reliance
 
-Official title: Customer Service Representative  
+Official title: Associate  
 Dates: Jul 2024 – Oct 2024
 
 Evidence:

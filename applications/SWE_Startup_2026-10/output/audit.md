@@ -1,7 +1,7 @@
 # Audit — SWE (Startup) Resume v1
 
 Run: `applications/SWE_Startup_2026-10/`
-Track: `startup` · Display name: Soham Datta
+Mode: `startup` · Display name: Soham Datta
 Target role: entry-level Software Engineer / founding engineer / SWE intern (startups)
 Primary domain: Backend/Platform (SWE) with systems/builder emphasis; AI/ML secondary
 Output depth: D2 with selective D3 (firmware + services)
@@ -10,12 +10,12 @@ Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, con
 ## Selected evidence
 
 Aura (end-to-end hardware + ESP32-S3 C/C++ firmware + FastAPI services + Kubernetes
-Deepgram ASR + Omi contributions), AICTE/EduSkills, Reliance, PES Modern College,
+Deepgram ASR + Omi contributions), AICTE, Reliance, PES Modern College,
 Mia, LLM-Council, John.
 
 ## Track differences vs MNC variant
 
-- Builder-led summary ("ships software end to end") and Aura bullet leading with
+- Ownership-led summary ("ships software end to end") and Aura bullet leading with
   end-to-end ownership (hardware integration + firmware + backend).
 - Ownership and design-decision signal foregrounded (ADR-0001, authored clustering with
   tests), rather than corporate process language.

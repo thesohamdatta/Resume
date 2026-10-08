@@ -27,4 +27,4 @@ Mode: referral — one page, clean logical order, D2 default, broad practical si
 
 - Honest gaps by omission: Java, SQL/DBMS, Docker, CI/CD, cloud depth.
 - Aura stays "Under Development"; Omi phrasing exact (authored/diagnosed/adopted downstream).
-- Reliance = Customer Service Representative.
+- Reliance = Associate.

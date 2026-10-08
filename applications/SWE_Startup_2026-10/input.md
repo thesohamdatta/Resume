@@ -19,7 +19,7 @@ Mode: startup — one page, stronger ownership/builder signal, D2 with selective
 
 ## Differences from MNC variant
 
-- Builder-led summary and Aura bullet: end-to-end ownership of hardware + firmware +
+- Ownership-led summary and Aura bullet: end-to-end ownership of hardware + firmware +
   backend, framed as someone who ships systems alone.
 - Emphasis on scope of ownership and design decisions (ADR-0001), not corporate process.
 - Same evidence set; no fact changes.

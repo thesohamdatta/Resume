@@ -29,4 +29,4 @@ CI/CD, distributed systems, ML/AI basics, open source, projects.
 - Never claim production/user/funding status. Aura stays under development.
 - Omi attribution exact: authored/diagnosed; downstream adoption, not merged/authorship.
 - No CGPA shown (not in facts.yaml).
-- Reliance = Customer Service Representative (official title).
+- Reliance = Associate (official title).

@@ -2,6 +2,8 @@
 
 Mode: `mnc` · Lens: LLM / Agent Systems (Generative AI, RAG, agent workflows) · Depth: D2, D3 on RAG/agents/testing
 Output: `resume.pdf` (1 page, A4) · `Soham_Datta_Accenture_Decision_Science_Associate.pdf` · `extracted.txt`
+Content corrections applied 2026-10-08: Reliance title = **Associate**; internship shown as **AICTE** (no platform provider
+named); Aura role = **Founder** (no "Builder"); Aura dates = **Jun 2026 – Present**.
 
 ## Target role interpretation
 
@@ -19,7 +21,7 @@ integration; Git/standard dev practice; docs, testing, troubleshooting, deployme
 | Agentic AI / tool calling / workflows | John tool-calling agent; Mia agentic harness; AutoDev-Studio (multi-agent) | DIRECT | Foreground |
 | APIs / Python | Aura FastAPI services; John Python agent; LLM-Council FastAPI | DIRECT | Foreground |
 | Functional testing / validation of AI outputs | Mia automated lint/typecheck/Vitest gates; Omi 120+ documented tests (52 speaker-clustering) | DIRECT | Foreground (Mia bullet, skills) |
-| ML fundamentals | AICTE/EduSkills internship (TensorFlow, TFLite, ML Kit); PyTorch projects (DDPM, Microgpt) | DIRECT | Support |
+| ML fundamentals | AICTE internship (TensorFlow, TFLite, ML Kit); PyTorch projects (DDPM, Microgpt) | DIRECT | Support |
 | Git / development practice | Repo links, Vitest, documented Omi contribution workflow | DIRECT | Support (skills) |
 | Cloud AI platforms (Azure/AWS) | AWS Educate: Introduction to Generative AI (verified cert) | ADJACENT | Support (certifications); no platform-depth claim |
 | SQL | No verifiable SQL evidence in facts/evidence | NONE | Omit |
