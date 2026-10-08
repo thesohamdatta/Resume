@@ -1,0 +1,63 @@
+\documentclass{../../../templates/v3/resume-openfont}
+
+% SWE (Referral) v1 — Software Engineer, entry level. Display name: Soham Karande.
+% Canonical v3 template structure preserved. Content only.
+\begin{document}
+
+\resumeHeader{Soham Karande}{Pune, India}{\href{mailto:sohamkarande00@gmail.com}{sohamkarande00@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
+
+{\small\bfseries Software Engineer | Backend / Platform | AI Systems}\par\vspace{2pt}
+\tightpar{Software engineer building tested backend services and developer tooling in Python and TypeScript, with C/C++ firmware experience on a wearable device.}
+
+\section{Experience}
+\resumeRole{Aura}{Founder / Builder}{Jun 2025 -- Present}{Wearable AI System | Python, TypeScript, C/C++ | Under Development}
+\begin{resumeitemize}
+\item Implemented ESP32-S3 firmware in C/C++: 16 kHz I2S DMA audio capture, on-device Opus compression, FreeRTOS tasks, and OTA updates.
+\item Built FastAPI REST services for streaming audio ingestion, memory/context extraction, and speaker identification, with Supabase/pgvector vector-memory storage and a Deepgram ASR service on Kubernetes.
+\item Contributed to the Omi open-source ecosystem: authored offline speaker clustering with 52 unit tests (adopted downstream) and diagnosed a Windows Electron/WebGL GPU memory issue.
+\end{resumeitemize}
+
+\resumeRole{AICTE/EduSkills}{AI/ML Intern}{Oct 2024 -- Dec 2024}{TensorFlow | TensorFlow Lite | Google ML Kit | Android}
+\begin{resumeitemize}
+\item Built and tested on-device computer-vision pipelines with TensorFlow, TensorFlow Lite, and Google ML Kit, covering custom object detection, image classification, and Android inference.
+\end{resumeitemize}
+
+\resumeRole{Reliance}{Customer Service Representative}{Jul 2024 -- Oct 2024}{Customer Operations}
+\begin{resumeitemize}
+\item Handled customer-service, POS, membership, voucher, and reporting workflows while coordinating with store teams.
+\end{resumeitemize}
+
+\resumeRole{PES Modern College}{Research / Library Assistant}{Sep 2023 -- Mar 2024}{Research Support | Digital Library}
+\begin{resumeitemize}
+\item Supported research documentation and digitization, organising 3{,}000+ pages of archive material with LaTeX and DELNET/OPAC tools.
+\end{resumeitemize}
+
+\section{Projects}
+\resumeProject{Mia --- AI Engineering CLI}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}{TypeScript | Bun | Vitest | JSONL}
+\begin{resumeitemize}
+\item Built a TypeScript CLI on Bun running a five-stage engineering workflow (grill, spec, plan, review, ship) with structured skill executors and multi-provider LLM adapters for Claude, Codex, and local models.
+\item Kept state in an immutable JSONL event log and gated every stage with automated lint, type-check, and Vitest verification; replaced a background daemon with stateless event-driven execution (ADR-0001).
+\end{resumeitemize}
+
+\resumeProject{LLM-Council --- Multi-Model Evaluation Service}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}{Python | FastAPI | React/Vite}
+\begin{resumeitemize}
+\item Implemented a FastAPI service and React client that compares and synthesizes responses from multiple LLM providers through an Analyst, Skeptic, Synthesizer pipeline.
+\end{resumeitemize}
+
+\resumeProject{John --- Realtime Voice Client}{\href{https://github.com/thesohamdatta/John}{GitHub}}{Kotlin | Jetpack Compose | LiveKit | WebRTC | Python}
+\begin{resumeitemize}
+\item Built an Android client in Kotlin/Jetpack Compose that connects over WebRTC to a Python LiveKit agent, using Silero VAD for barge-in and tool calling for calendar and task actions.
+\end{resumeitemize}
+
+\section{Education}
+\resumeEducation{Savitribai Phule Pune University (SPPU)}{2022 -- Jun 2026}{B.E. in Artificial Intelligence \& Machine Learning | Pune, India}
+
+\section{Technical Skills}
+\resumeSkills{Languages:}{Python, TypeScript/JavaScript, C/C++, Kotlin}
+\resumeSkills{Backend \& APIs:}{FastAPI, REST APIs, WebSockets, MCP (Model Context Protocol)}
+\resumeSkills{Testing \& Foundations:}{Git/GitHub, Vitest, unit testing, Data Structures \& Algorithms, debugging}
+\resumeSkills{Systems:}{ESP32-S3, FreeRTOS, I2S/DMA, Opus, OTA, Kubernetes}
+\resumeSkills{Data:}{Supabase/pgvector, Redis, Firebase, Pinecone}
+\resumeSkills{AI/ML:}{LLMs, Retrieval-Augmented Generation (RAG), tool calling, multi-agent systems, TensorFlow, PyTorch}
+
+\end{document}

@@ -1,129 +1,57 @@
 # Resume Engine
 
-A small evidence-first system for generating tailored resumes from a job description and a supplied template.
+A small, evidence-first engine that turns a job description into one truthful, one-page,
+mode-specific resume.
 
-## The workflow
-
-```text
-candidate evidence + JD + template + notes
-                    ↓
-                 analyze
-                    ↓
-                  match
-                    ↓
-                 select
-                    ↓
-                  write
-                    ↓
-                  render
-                    ↓
-                 verify
-                    ↓
-              resume + audit
+```
+run(jd, mode) -> resume.pdf        # exactly one page, ATS-readable, truth-traceable
 ```
 
-The goal is not maximum information. It is the smallest clear document that makes the strongest truthful case for the role.
+## One pipeline, three modes
 
-## Fast application workflow
+Modes: `startup`, `mnc`, `referral`. A mode changes emphasis and selection; it never changes
+facts and never forks the pipeline. Settings and display names live in `modes/{mode}.yaml`.
 
-Create: applications/Company_YYYY-MM/input.md
+## Quick start
 
-Use the contract in engine/INPUT.md:
+1. Create `applications/{Name}_{YYYY-MM}/input.md` with company, role, mode, and the full JD
+   (schema: `applications/_template/input.md`).
+2. Follow `pipeline/README.md`: SELECT (build a traceable evidence plan), then RENDER
+   (one-page PDF). Rules are in `RESUME_RULES.md`; the contract is `AGENTS.md`.
+3. Write outputs to `applications/{Name}_{YYYY-MM}/output/`:
+   `resume.tex`, `resume.pdf`, a role-named PDF, `extracted.txt`, and `audit.md`.
 
-```markdown
-# Application Input
+## Architecture
 
-Company: Example
-Role: AI/ML Engineer
-Track: mnc
-
-## Job Description
-
-[paste full JD]
-
-## Template
-
-templates/v3/resume.tex
-
-## Optional notes
-
-[anything specific to this application]
-```
-
-Then give the application folder to the resume agent with engine/PROMPT.md as its operating contract.
-
-Expected output:
-
-```text
-applications/Company_YYYY-MM/output/
-├── resume.tex
-├── resume.pdf
-├── extracted.txt
-└── audit.md
-```
-
-## Canonical evidence
-
-| Purpose | Source |
+| File | Owns |
 |---|---|
-| Candidate facts | data/facts.yaml |
-| Technical proof | content/github/evidence.md |
-| Ownership / attribution boundaries | content/github/boundaries.md |
-| Application input | applications/*/input.md |
-| Resume engine | engine/PROMPT.md |
-| Engine rules | engine/RULES.md |
-| Template | templates/ |
+| `AGENTS.md` | the agent contract, read order, precedence, hard constraints |
+| `RESUME_RULES.md` | evidence, modes, voice, ATS, gates, never-invent |
+| `pipeline/README.md` | the workflow: two phases, two invariants |
+| `modes/{mode}.yaml` | per-mode settings (name key, emphasis, depth) |
+| `data/facts.yaml` | candidate facts (single source of truth) |
+| `content/github/evidence.md` | technical proof |
+| `content/github/boundaries.md` | claim / ownership / status limits |
+| `docs/voice.md` | language and tone |
+| `DONT.MD` | hard-fail checks |
+| `templates/v3/` | the only visual template |
+| `versions/{mode}/` | per-mode base content |
+| `applications/` | per-application inputs, state, and outputs |
+| `research/` | external research (never candidate facts) |
+| `memory/lessons.md` | durable lessons |
+| `archive/` | history only |
 
-Historical resumes and old application runs are reference material, not sources of truth.
+## Validation
 
-## Active tracks
-
-There are three presentation modes:
-
-- referral — Soham Karande; broad and easy to forward
-- startup — Soham Datta; stronger ownership and builder signal
-- mnc — Soham Datta; conventional, precise, ATS-safe
-
-A track changes emphasis and presentation. It never changes facts.
-
-## Design principle
-
-Evidence is the source. The JD decides relevance. The template decides presentation.
-
-The engine must never invent:
-
-- metrics
-- users
-- customers
-- scale
-- technologies
-- ownership
-- dates
-- production status
-- qualifications
-
-## Quality gates
-
-Every generated resume must pass:
-
-1. FACT — claims are supported.
-2. FIT — relevant evidence is visible.
-3. READ — the page is easy to scan.
-4. PARSE — the PDF remains coherent when extracted as plain text.
-
-If the page is too full, remove weak information before shrinking typography.
-
-## Repository structure
-
-```text
-data/        canonical facts
-content/     technical evidence and boundaries
-engine/      generation contract and rules
-templates/   visual templates
-versions/    reusable base tracks
-applications/role-specific runs
-research/    external research
-archive/     historical material
+```
+bash pipeline/validate_resume_repo.sh   # repo contract
+bash pipeline/build_base_resumes.sh     # compile the three base resumes, one page each
 ```
 
-Keep the active system small. New rules belong in the engine only when they solve a demonstrated failure.
+## Design principles
+
+- Evidence is the source. The JD decides relevance. The template decides presentation.
+- One owner per rule. Duplicate a rule and one copy is deleted.
+- Truth outranks persuasion. Never invent metrics, ownership, dates, or production status.
+- One page by default; remove weak content before shrinking type.
+- Keep the active system small. Add a rule only when it solves a demonstrated failure.

@@ -2,7 +2,7 @@
 
 company: PNG Jewellers
 target: AI / Data / Digital Technology Intern or graduate-level technology opportunity
-track: mnc
+mode: mnc
 primary_domain: AI/ML
 output_depth: D1-D2
 

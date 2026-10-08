@@ -1,7 +1,7 @@
 # Application Input
 
 company: Noise
-track: startup
+mode: startup
 jd: |
   Engineering — Intern Fullstack & AI Innovation
   Gurgaon · On-site · 6 months · Full-time

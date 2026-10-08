@@ -1,7 +1,7 @@
 ﻿# Application Input
 
 company: Noise
-track: startup
+mode: startup
 jd: |
   Product Management - Intern - Product (NFA)
   Gurugram, Haryana - Internship

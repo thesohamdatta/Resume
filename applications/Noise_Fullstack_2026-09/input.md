@@ -1,7 +1,7 @@
 # Application Input
 
 company: Noise
-track: startup
+mode: startup
 run_folder: applications/Noise_Fullstack_2026-09/
 jd: |
   Intern - Fullstack & AI Innovation | Gurgaon, On-site, Noise Office | 6 months, Full-time

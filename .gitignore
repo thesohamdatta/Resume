@@ -41,3 +41,6 @@ node_modules/
 # Generated PDFs are build artifacts by default.
 # Reference PDFs that are intentionally versioned can be force-added.
 *.pdf
+
+# Agent-local state
+.openhands/

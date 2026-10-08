@@ -1,0 +1,13 @@
+# Mode config: referral
+# Local referrals and forwarded applications. Broad, clear, easy to forward.
+mode: referral
+name_key: referral_name    # selects facts.personal.referral_name
+default_depth: D2          # D3 for clearly technical roles
+emphasis:
+  - broad practical signal
+  - clarity for a non-technical forwarder
+  - enough project context to understand the work
+notes: >
+  Same logical section order as other modes. Do not present as a startup pitch. Jargon
+  should not dominate the page.
+base: versions/referral/_base.md

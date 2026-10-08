@@ -1,15 +1,15 @@
 # Memory — Durable Agent Lessons
 
-Distilled, evidence-backed learnings. History stays in `content/handoffs/`; only lessons that change future behavior live here.
+Distilled, evidence-backed learnings. History stays in `archive/`; only lessons that change future behavior live here.
 
 ## Validated lessons
 
 1. **Evidence-first bullets.** Read `content/github/evidence.md` before resume templates. Exact file paths, algorithms, and metrics should come from evidence.
 2. **Downstream-adoption phrasing.** Use "Diagnosed X (Issue #N) → resolved/adopted downstream in PR #M". Never claim authorship of maintainer-merged downstream PRs. All 7 authored Omi PRs are closed unmerged; 3 were maintainer-approved.
 3. **Backend verb.** Aura backend is adapted/integrated/extended. Never say it was architected from scratch or that the Omi backend was built from scratch.
-4. **Track formatting.** MNC should remain ASCII-safe where the template requires it. Startup/referral can use normal technical punctuation.
-5. **Stage 10 is terminal and split.** Resume stop-slop and cover-letter no-AI-slop remain separate.
-6. **Structural convention.** Tailored outputs sit beside `versions/{track}/_base.md`; application runs stay under `applications/{Company}_{YYYY-MM}/`; `archive/` is historical only.
+4. **Mode formatting.** MNC should remain ASCII-safe where the template requires it. Startup/referral can use normal technical punctuation.
+5. **Final validation is terminal.** Resume stop-slop and cover-letter no-AI-slop remain separate passes.
+6. **Structural convention.** Tailored outputs sit beside `versions/{mode}/_base.md`; application runs stay under `applications/{Company}_{YYYY-MM}/`; `archive/` is historical only.
 7. **One-page trim order.** Remove weak project bullets, redundant tool names, low-signal certifications, and older detail before shrinking typography.
 8. **LaTeX template runs.** Adapt supplied templates, compile with pdflatex, enforce one page, and clean generated aux/log/out files. Contact details are template data and should not be invented.
 9. **DONT.MD section convention.** Bare §0–§9 are front-matter methodology/rules; §E0–§E22 are engines.
