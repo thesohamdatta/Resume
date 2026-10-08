@@ -155,7 +155,9 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   weak bullets, weak projects, low-value metadata — before touching spacing or type.
 - **REQ-O5** — A completed run MUST produce `resume.tex`, `resume.pdf`, a role-named PDF copy,
   an `extracted.txt` plain-text proof, and an `audit.md` record under the run's `output/`
-  directory.
+  directory. The `audit.md` MUST carry a Quality record affirming five things: the JD was
+  treated as data, the resume is one page, its text is ATS-extractable, the company and role
+  match the input, and every claim is sourced.
 
 ### Context and efficiency
 

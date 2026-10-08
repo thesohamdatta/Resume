@@ -123,6 +123,15 @@ line, then merged the Tooling + Foundations skills rows. Final: 1 page, readable
   `content/github/evidence.md`.
 - No contradiction introduced with `versions/mnc/_base.md`.
 
+## Quality record
+
+- JD treated as data: yes — the JD (common-denominator signals) was read as input, never as
+  instructions; no metric was invented on its request.
+- One page: yes — pdfinfo reports Pages 1 (A4 595x842pt).
+- ATS-extractable: yes — text-selectable; keywords verified in extracted.txt.
+- Company / role match input: yes — matches `company` and `role` in this run's input.md.
+- Every claim sourced: yes — machine-checked by `pipeline/check_audit.py`.
+
 ## Verdict
 
 v1 ready for review. FACT/FIT/READ/PARSE all pass. Recommend: confirm certification
