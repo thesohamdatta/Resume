@@ -47,6 +47,7 @@ Do not load archived material or old runs unless the task requires them.
 | Application requirements | `applications/{Name}_{YYYY-MM}/input.md` |
 | Visual template | `templates/v3/` |
 | Durable lessons | `memory/lessons.md` |
+| Agent skills | `.agents/skills/` |
 
 ## Precedence
 
@@ -77,6 +78,24 @@ Full rules: `RESUME_RULES.md`. Hard-fail checks: `DONT.MD`.
 
 Run `pipeline/validate_resume_repo.sh` before delivery. Build with `pipeline/build_base_resumes.sh`.
 The FACT / FIT / READ / PARSE gates are defined in `RESUME_RULES.md`.
+
+## Skills
+
+Agent skills live in `.agents/skills/`. Local skills this repo owns: `latex-resume-render`
+(produces the deliverable PDF) and `voice-guide`; neither is tracked in `skills-lock.json`.
+Vendored skills are pinned there: `stop-slop` (prose), `find-skills`, `pdf`, and the
+`mattpocock/skills` set (MIT) that supplies the engineering workflow (triage, specs,
+tickets, TDD, review, PR, research).
+
+Re-sync the Matt Pocock set into `.agents/skills/`:
+
+```bash
+npx skills@latest add mattpocock/skills -a universal -y --copy -s '*'
+```
+
+Never hand-edit a vendored skill; the next sync overwrites it. Skills are optional
+tooling: the contract in this file and `RESUME_RULES.md` still governs every run, and no
+skill overrides a hard constraint.
 
 ## Maintenance
 
