@@ -12,7 +12,10 @@ for mode in referral startup mnc; do
       xelatex -interaction=nonstopmode -halt-on-error resume.tex >/tmp/resume_$mode.log 2>&1
     done
     pages="$(pdfinfo resume.pdf | awk '/^Pages:/ {print $2}')"
-    test "$pages" = "1"
+    if [ "$pages" != "1" ]; then
+      echo "FAIL: $mode compiled to $pages pages, expected exactly 1" >&2
+      exit 1
+    fi
     rm -f resume.aux resume.log resume.out
   )
 done

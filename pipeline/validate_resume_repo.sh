@@ -69,6 +69,51 @@ for mode in "${MODES[@]}"; do
 done
 ok "all three modes have a config, a base, and use templates/v3"
 
+# --- modes are exactly the canonical three (REQ-P2) ---
+expected_modes="$(printf '%s\n' "${MODES[@]}" | sort)"
+mode_files="$(cd "$ROOT" && find modes -maxdepth 1 -name '*.yaml' | sed 's#.*/##; s#\.yaml$##' | sort)"
+[ "$mode_files" = "$expected_modes" ] \
+  || { echo "$mode_files"; fail "modes/ must contain exactly: ${MODES[*]} (no fourth or retired mode)"; }
+ok "mode configs are exactly the canonical three"
+
+version_dirs="$(cd "$ROOT" && find versions -maxdepth 1 -mindepth 1 -type d | sed 's#.*/##' | sort)"
+[ "$version_dirs" = "$expected_modes" ] \
+  || { echo "$version_dirs"; fail "versions/ must contain exactly: ${MODES[*]} (no fourth or retired mode)"; }
+ok "version directories are exactly the canonical three"
+
+# --- fixed section order, stated once (REQ-O2) ---
+ORDER_TEXT='Header / Contact → Summary → Experience → Projects → Education → Technical Skills'
+order_owners="$(cd "$ROOT" && grep -lF "$ORDER_TEXT" -- \
+  AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD docs/voice.md pipeline/README.md 2>/dev/null || true)"
+order_count="$(printf '%s\n' "$order_owners" | grep -c . || true)"
+[ "$order_count" -eq 1 ] \
+  || { echo "$order_owners"; fail "the section order must be stated by exactly one active owner (found $order_count)"; }
+ok "section order is stated once ($(printf '%s\n' "$order_owners" | head -1))"
+
+section_rank() {
+  case "$1" in
+    Summary) echo 1 ;;
+    Experience) echo 2 ;;
+    *Projects*) echo 3 ;;
+    Education) echo 4 ;;
+    *Technical\ Skills*) echo 5 ;;
+    Certifications) echo 6 ;;
+    *) echo 0 ;;
+  esac
+}
+for mode in "${MODES[@]}"; do
+  base="$ROOT/versions/$mode/_base.md"
+  prev=0
+  while IFS= read -r heading; do
+    [ -n "$heading" ] || continue
+    rank="$(section_rank "$heading")"
+    [ "$rank" -ne 0 ] || fail "$mode base has a non-canonical section: $heading"
+    [ "$rank" -gt "$prev" ] || fail "$mode base sections are out of canonical order at: $heading"
+    prev="$rank"
+  done < <(grep -E '^## ' "$base" | sed -E 's/^## +//')
+done
+ok "base resume sections follow the canonical order"
+
 # --- retirement: old pipeline surfaces and drifting twins must be gone ---
 test -e "$ROOT/PIPELINE.md" && fail "root PIPELINE.md should be retired"
 test -e "$ROOT/prompts" && fail "prompts/ should be retired"

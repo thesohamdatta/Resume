@@ -66,6 +66,30 @@ GONE="$WORK/no-spec"; cp -a "$BASE" "$GONE"
 rm -f "$GONE/SPEC.md"
 expect_fail "missing SPEC.md is rejected" "$GONE"
 
+# --- case: a fourth mode is rejected (REQ-P2) ---
+# The three modes are exactly referral, startup, mnc. There is no fourth.
+FOURTH="$WORK/fourth-mode"; cp -a "$BASE" "$FOURTH"
+printf 'name_key: quad\n' > "$FOURTH/modes/quad.yaml"
+expect_fail "a fourth mode config is rejected" "$FOURTH"
+
+# --- case: a retired mode directory is rejected (REQ-P2) ---
+RETIRED="$WORK/retired-mode"; cp -a "$BASE" "$RETIRED"
+mkdir -p "$RETIRED/versions/local"
+printf '## Summary\n' > "$RETIRED/versions/local/_base.md"
+expect_fail "a retired mode directory is rejected" "$RETIRED"
+
+# --- case: a non-canonical section order is rejected (REQ-O2) ---
+# Canonical order: Header/Contact, Summary, Experience, Projects, Education,
+# Technical Skills, Certifications. A section after a later one is out of order.
+BADORDER="$WORK/bad-order"; cp -a "$BASE" "$BADORDER"
+printf '\n## Summary\n' >> "$BADORDER/versions/referral/_base.md"
+expect_fail "a non-canonical section order is rejected" "$BADORDER"
+
+# --- case: an absolute workstation path in an active file is rejected (REQ-C4) ---
+WPATH="$WORK/workstation"; cp -a "$BASE" "$WPATH"
+printf '\nBuild artifacts live at /mnt/data/notes.\n' >> "$WPATH/README.md"
+expect_fail "an absolute workstation path in an active file is rejected" "$WPATH"
+
 echo
 if [ "$FAILURES" -eq 0 ]; then
   echo "All contract tests passed."
