@@ -85,16 +85,33 @@ output/
   resume.pdf
   <Name>_<Role>.pdf      # role-named copy
   extracted.txt          # plain-text extraction proof
-  audit.md               # target role, selected/omitted evidence, JD matches, gate status, gaps
+  audit.md               # target role, trace table, gates, gaps
 ```
+
+`audit.md` carries an `## Evidence trace` table, machine-checked by
+`pipeline/check_audit.py`. Every selected item names the JD requirement it answers, its
+source, its strength, and its action:
+
+| Item | JD requirement | Source | Strength | Action |
+|---|---|---|---|---|
+| <what is shown> | <the JD requirement it answers> | <one of the four owners> | DIRECT/ADJACENT/NONE | FOREGROUND/SUPPORT/OMIT |
+
+The source is exactly one of the four owners: `data/facts.yaml`,
+`content/github/evidence.md`, `content/github/boundaries.md`, or the mode base
+`versions/{mode}/_base.md`. A `FOREGROUND` or `SUPPORT` item must name a source and must not
+be `NONE`. An item with no source (or strength `NONE`) is a gap: it is `OMIT`, dropped rather
+than softened. The checker exits non-zero on any violation, so an untraceable run fails the
+FACT gate instead of shipping.
 
 The three mode bases stay at `versions/{mode}/resume.tex` and compile to one page.
 
 ## Running the repo checks
 
 ```
-bash pipeline/validate_resume_repo.sh   # repo contract
-bash pipeline/build_base_resumes.sh     # compile the three base resumes, one page each
+bash pipeline/validate_resume_repo.sh        # repo contract (includes the example run's audit)
+bash pipeline/test_validate_contract.sh      # contract tests for the validator
+bash pipeline/build_base_resumes.sh          # compile the three base resumes, one page each
+python3 pipeline/check_audit.py <audit.md>   # traceability of one run's audit
 ```
 
 ## Human checkpoints
