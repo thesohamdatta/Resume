@@ -16,6 +16,10 @@ fail() { echo "FAIL: $run: $*" >&2; exit 1; }
 input="$run/input.md"
 [ -f "$input" ] || fail "missing input.md (the only file a run requires) (REQ-P1)"
 
+# The input schema: the fields a run needs to select and render (REQ-P1, REQ-P4).
+grep -qE '^[[:space:]]*company:' "$input" || fail "input.md is missing company: (REQ-P4)"
+grep -qE '^[[:space:]]*role:' "$input" || fail "input.md is missing role: (REQ-P4)"
+
 # The mode must be exactly one of the canonical three (REQ-P1, REQ-P2).
 mode="$(grep -E '^[[:space:]]*mode:' "$input" | head -1 \
   | sed -E 's/^[[:space:]]*mode:[[:space:]]*//; s/[[:space:]]+$//')"
