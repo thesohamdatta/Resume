@@ -18,6 +18,9 @@ jobs:
       - name: Validate repository
         run: bash pipeline/validate_resume_repo.sh
 
+      - name: Validator contract tests
+        run: bash pipeline/test_validate_contract.sh
+
   build-resumes:
     needs: validate
     runs-on: ubuntu-latest

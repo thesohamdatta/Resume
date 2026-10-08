@@ -9,7 +9,7 @@ ok() { echo "PASS: $*"; }
 assert_absent() {
   local desc="$1" pattern="$2"; shift 2
   local hits
-  hits="$(cd "$ROOT" && grep -rnE "$pattern" -- "$@" 2>/dev/null || true)"
+  hits="$(cd "$ROOT" && grep -rnE --binary-files=without-match "$pattern" -- "$@" 2>/dev/null || true)"
   [ -z "$hits" ] || { echo "$hits"; fail "$desc"; }
   ok "$desc"
 }
@@ -38,6 +38,25 @@ for f in "${CANON[@]}"; do
   test -f "$ROOT/$f" || fail "missing canonical module: $f"
 done
 ok "canonical module set present"
+
+# --- specification contract ---
+# The spec is the system definition; the contract must reference it and it must not drift.
+grep -qF 'SPEC.md' "$ROOT/AGENTS.md" \
+  || fail "AGENTS.md does not reference SPEC.md (the system definition owner)"
+ok "AGENTS.md references SPEC.md"
+
+spec_defs="$(grep -oE '^\s*-\s*\*\*REQ-[A-Z]+[0-9]+' "$ROOT/SPEC.md" \
+  | grep -oE 'REQ-[A-Z]+[0-9]+' | sort)"
+if [ -z "$spec_defs" ]; then
+  fail "SPEC.md defines no requirements (expected '- **REQ-...' definitions)"
+fi
+spec_dups="$(printf '%s\n' "$spec_defs" | uniq -d)"
+[ -z "$spec_dups" ] || { echo "$spec_dups"; fail "SPEC.md defines a requirement id more than once"; }
+ok "SPEC.md requirement ids are unique"
+
+assert_absent "SPEC.md contains no prior-application reference" \
+  '[Aa]mazon|[Aa]ccenture|applications/[A-Za-z0-9]+_20[0-9][0-9]-' \
+  SPEC.md
 
 # --- three modes: config + base + template usage ---
 for mode in "${MODES[@]}"; do
