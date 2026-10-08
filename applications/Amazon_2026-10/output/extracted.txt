@@ -50,12 +50,9 @@ AICTE                                                                           
 Skills
 Oﬃce
                        Microsoft Oﬃce (Word, Excel, PowerPoint, Outlook)
-
 Administration         Records management, documentation, reporting, data maintenance, scheduling, team
                        coordination
-
 Communication          Written and verbal communication, cross-team coordination, conﬁdential-information
                        handling
-
 Tools                  Git/GitHub, spreadsheets, LaTeX, library systems (DELNET, OPAC)
 
