@@ -51,6 +51,17 @@ jobs:
             pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/${mode}"
           done
 
+      - name: Build and QA the example run
+        run: |
+          set -euo pipefail
+          run=applications/SWE_MNC_2026-10/output
+          ( cd "$run" && for _ in 1 2; do xelatex -interaction=nonstopmode -halt-on-error resume.tex; done )
+          test -s "$run/resume.pdf"
+          pages="$(pdfinfo "$run/resume.pdf" | awk '/^Pages:/ {print $2}')"
+          test "$pages" = "1"
+          pdftotext -layout "$run/resume.pdf" /tmp/resume-artifacts/run.txt
+          grep -q "Soham" /tmp/resume-artifacts/run.txt
+
       - name: Upload resume QA artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -59,5 +70,6 @@ jobs:
             versions/referral/resume.pdf
             versions/startup/resume.pdf
             versions/mnc/resume.pdf
+            applications/SWE_MNC_2026-10/output/resume.pdf
             /tmp/resume-artifacts/*.txt
             /tmp/resume-artifacts/*.png
