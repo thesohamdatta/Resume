@@ -19,6 +19,7 @@ MODES=(referral startup mnc)
 # --- canonical module set ---
 CANON=(
   AGENTS.md
+  SPEC.md
   RESUME_RULES.md
   pipeline/README.md
   README.md
@@ -77,7 +78,7 @@ ok "no competing/obsolete modules in the active tree"
 
 # --- active docs: no removed-module references, workstation paths, or stale vocabulary ---
 ACTIVE_FILES=(
-  AGENTS.md README.md RESUME_RULES.md DONT.MD
+  AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD
   docs/voice.md
   modes/referral.yaml modes/startup.yaml modes/mnc.yaml
   templates/v3/resume.tex
