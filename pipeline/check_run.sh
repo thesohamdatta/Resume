@@ -69,7 +69,7 @@ for label in \
   'ATS-extractable' \
   'Company / role match input' \
   'Every claim sourced'; do
-  grep -qE "^- $label: yes" "$audit" \
+  grep -qE "^- $label: yes([[:space:]]|$)" "$audit" \
     || fail "Quality record does not affirm '$label: yes' (REQ-O5)"
 done
 
