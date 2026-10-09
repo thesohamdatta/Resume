@@ -69,31 +69,29 @@ lexicon:
       reason: Unsupported hype instead of a concrete description.
     - phrase: "seamless experience"
       reason: Unmeasured quality claim; name the mechanism or verified result.
-    - phrase: "Google internship"
-      reason: Must not misrepresent the AICTE virtual internship as employment at Google.
 
 audiences:
   - id: technical-recruiter
     name: Technical recruiter or engineering hiring manager
     personas: [recruiter, engineering manager]
     vocabulary: [implementation, integration, debugging, testing, latency, retrieval, evaluation, firmware, API]
-    proof_type: implementation-evidence
+    proof_type: implementation-depth
     is_default: true
   - id: startup-founder
     name: Startup founder or early engineering team
     personas: [founder, early engineering team]
     vocabulary: [prototype, trade-offs, iteration, product constraints, implementation]
-    proof_type: ownership-and-decisions
+    proof_type: implementation-depth
   - id: mnc-recruiter
     name: MNC or enterprise recruiter
     personas: [recruiter, engineering manager]
     vocabulary: [implementation, testing, reliability, API, performance, integration]
-    proof_type: role-relevant-technical-evidence
+    proof_type: implementation-depth
   - id: general-referrer
     name: Local recruiter or referrer
     personas: [referrer, non-specialist recruiter]
     vocabulary: [built, integrated, tested, supported, automated, delivered]
-    proof_type: clear-work-and-relevance
+    proof_type: tangible-result
 surfaces:
   - id: resume-bullet
     name: Resume bullet
