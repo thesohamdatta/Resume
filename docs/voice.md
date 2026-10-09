@@ -84,12 +84,16 @@ audiences:
     personas: [founder, early engineering team]
     vocabulary: [prototype, trade-offs, iteration, product constraints, implementation]
     proof_type: ownership-and-decisions
+  - id: mnc-recruiter
+    name: MNC or enterprise recruiter
+    personas: [recruiter, engineering manager]
+    vocabulary: [implementation, testing, reliability, API, performance, integration]
+    proof_type: role-relevant-technical-evidence
   - id: general-referrer
-    name: General recruiter or referrer
+    name: Local recruiter or referrer
     personas: [referrer, non-specialist recruiter]
     vocabulary: [built, integrated, tested, supported, automated, delivered]
     proof_type: clear-work-and-relevance
-
 surfaces:
   - id: resume-bullet
     name: Resume bullet
