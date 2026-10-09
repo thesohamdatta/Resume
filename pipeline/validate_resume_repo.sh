@@ -35,6 +35,7 @@ CANON=(
   templates/v3/resume.tex
   pipeline/check_run.sh
   pipeline/check_audit.py
+  pipeline/check_metrics.py
 )
 for f in "${CANON[@]}"; do
   test -f "$ROOT/$f" || fail "missing canonical module: $f"
@@ -47,14 +48,32 @@ grep -qF 'SPEC.md' "$ROOT/AGENTS.md" \
   || fail "AGENTS.md does not reference SPEC.md (the system definition owner)"
 ok "AGENTS.md references SPEC.md"
 
-spec_defs="$(grep -oE '^\s*-\s*\*\*REQ-[A-Z]+[0-9]+' "$ROOT/SPEC.md" \
-  | grep -oE 'REQ-[A-Z]+[0-9]+' | sort)"
+REQ_ID_RE='REQ-[A-Z]+[0-9]+'
+spec_defs="$(grep -oE "^\s*-\s*\*\*$REQ_ID_RE" "$ROOT/SPEC.md" | grep -oE "$REQ_ID_RE" | sort)"
 if [ -z "$spec_defs" ]; then
   fail "SPEC.md defines no requirements (expected '- **REQ-...' definitions)"
 fi
 spec_dups="$(printf '%s\n' "$spec_defs" | uniq -d)"
 [ -z "$spec_dups" ] || { echo "$spec_dups"; fail "SPEC.md defines a requirement id more than once"; }
 ok "SPEC.md requirement ids are unique"
+
+# Every REQ id cited anywhere in pipeline/ must name a requirement SPEC.md defines, so a
+# check (or a doc) cannot cite a rule that no longer exists (#50). Checked one id at a
+# time so a failure here can never be swallowed by a pipeline exit status.
+spec_cited="$(cd "$ROOT" && grep -rhoE "$REQ_ID_RE" \
+  --include='*.sh' --include='*.py' --include='*.md' pipeline | sort -u)"
+undefined_reqs=""
+while IFS= read -r req_id; do
+  [ -n "$req_id" ] || continue
+  printf '%s\n' "$spec_defs" | grep -qxF "$req_id" || undefined_reqs="$undefined_reqs$req_id "
+done <<< "$spec_cited"
+if [ -n "$undefined_reqs" ]; then
+  for req_id in $undefined_reqs; do
+    grep -rnE "$req_id" --include='*.sh' --include='*.py' --include='*.md' "$ROOT/pipeline" || true
+  done
+  fail "pipeline/ cites undefined requirement id(s): $undefined_reqs"
+fi
+ok "every requirement id cited in pipeline/ is defined in SPEC.md"
 
 assert_absent "SPEC.md contains no prior-application reference" \
   '[Aa]mazon|[Aa]ccenture|applications/[A-Za-z0-9]+_20[0-9][0-9]-' \
