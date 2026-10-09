@@ -133,7 +133,7 @@ tones:
     density_sentences: { min: 1, max: 2 }
   - id: condense
     name: Condense without losing proof
-    pattern: explain-mechanism
+    pattern: instruct
     density_sentences: { min: 1, max: 2 }
   - id: tailor
     name: Tailor to the role
@@ -163,6 +163,8 @@ formatting:
 ## Overview
 
 Write like a technically capable person describing work they can explain in an interview. Be direct, specific, and calm. No corporate theatre, personal-brand language, or manufactured quirks.
+
+The shared voice stays constant across all modes. The mode determines emphasis: startups should see what the candidate built, decided, tested, and took ownership of; MNCs should see role-relevant skills and precise evidence in a conventional format; referrals should make the work easy to understand and forward. Do not create three different personalities.
 
 The reader is a recruiter with limited time. Make the work, technical relevance, and level of contribution clear on the first read. This file governs language and tone only. Candidate truth belongs to `data/facts.yaml`, `content/github/evidence.md`, and `content/github/boundaries.md`; resume rules and hard gates remain in `RESUME_RULES.md` and `DONT.MD`.
 
@@ -201,19 +203,28 @@ Preserve official spelling and capitalization for project names, tools, language
 
 ## Audiences
 
-- **Technical recruiter / engineering manager (default):** lead with relevant work, then the technical detail needed to understand its depth.
-- **Startup founder:** show product judgement, actual implementation, trade-offs, and iteration when supported. Avoid founder mythology and hype.
-- **General referrer:** explain the work in plain language without erasing the technical substance.
+- **Technical recruiter / engineering manager (default):** make role fit and technical contribution clear on a fast scan. Name relevant work and enough implementation detail to judge its depth.
+- **Startup founder:** show initiative through real product work, decisions, trade-offs, debugging, iteration, and shipping when supported. Explain what the candidate personally did. Do not imply traction, customers, production readiness, or seniority without evidence.
+- **MNC / enterprise recruiter:** use conventional terminology, supported role keywords, consistent dates, and concise evidence. Avoid ATS tricks and unnecessary implementation detail.
+- **Local recruiter / referrer:** use plain language that can be forwarded without extra explanation while keeping the candidate’s technical credibility.
 
 These are differences in emphasis, not different personalities. The job description selects relevant evidence; it does not supply candidate facts or dictate the sentence wording.
 
 ## Surfaces
 
-- **Resume bullet:** one clear idea, usually one sentence; use a second only when it adds necessary context. Lead with the work, a decision, a technical problem, or an observable result—whichever makes the evidence easiest to grasp.
+- **Resume bullet:** one clear idea, usually one sentence and normally one or two lines in the final template. Lead with the work, a decision, a technical problem, or an observable result—whichever makes the evidence easiest to grasp. The result may be a measured change, a delivered artifact, a test, a resolved defect, a documented design, or a clear constraint; do not invent a business impact.
 - **Professional summary:** use only when it improves positioning. State relevant focus and supporting evidence; avoid objectives and generic self-description.
 - **Skills line:** list relevant, defensible skills in sensible groups. Do not turn it into a keyword dump.
 - **Project description:** identify what the project does and the candidate's actual contribution. Mention status or constraints when they affect the claim.
 - **Application/referral note:** short, specific, and human. State the role, relevant evidence, and clear ask when one is needed. Do not use flattery or a generic pitch.
+
+## Mode expression
+
+Keep the same voice across modes. Change the proof selected and the depth shown:
+
+- **Startup:** foreground what was built, why a design decision was made, what was tested or debugged, and what the candidate personally owned. Use first person only in the profile line when it improves the builder signal. Do not write like a pitch deck.
+- **MNC:** foreground relevant engineering skills, implementation evidence, clear scope, and standard terminology. Cut detail that does not help assess fit. Do not make every bullet sound like a corporate achievement statement.
+- **Referral:** foreground practical contribution and clear context. Explain uncommon terms when needed; avoid both a startup pitch and a generic professional summary.
 
 ## Tones
 
@@ -258,7 +269,9 @@ Use bold sparingly where the template supports it. Do not use emoji, decorative 
 
 If the defect cannot be fixed without guessing, preserve the claim at its supported level or ask for the missing fact. Do not add a new stage or sub-agent to the resume pipeline for style alone; use the existing review and validation path.
 
-## Do's and Don'ts
+## Examples
+
+These examples demonstrate wording patterns only; use them only when the underlying evidence supports the claim.
 
 **Weak:** "Leveraged innovative technologies to deliver a robust solution."
 
