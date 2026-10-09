@@ -138,11 +138,11 @@ tones:
     density_sentences: { min: 1, max: 2 }
   - id: condense
     name: Condense without losing proof
-    pattern: instruct
+    pattern: condense-into-contrast
     density_sentences: { min: 1, max: 2 }
   - id: tailor
     name: Tailor to the role
-    pattern: instruct
+    pattern: demonstrate-with-data
     density_sentences: { min: 1, max: 2 }
 
 formatting:
