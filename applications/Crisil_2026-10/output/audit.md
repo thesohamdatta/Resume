@@ -25,8 +25,9 @@ the JD names a degree as a required qualification). Other runs keep the canonica
 ## Deliberately omitted
 
 - SQL, Power BI / Tableau, cloud platforms (Azure/AWS/GCP), Java — no evidence; omitted, not faked.
-- Prompt engineering shown as a named skill only where backed by practice (LLM adapters, RAG,
-  tool calling); the term is not overclaimed beyond the described work.
+- Prompt engineering listed as a named skill: dropped. No entry in facts.yaml / evidence.md; the
+  voice guide forbids claiming a skill solely because it appears in the JD. The underlying work
+  (LLM adapters, RAG, tool calling) stays visible on its own.
 - CAD / 3D-printing enclosure detail, certifications (verification unresolved), CGPA (not in facts.yaml).
 - Unverified metrics: any Aura performance/battery/user figure; Reliance 50% improvement.
 - Lower-relevance projects this pass: codeshot, autodev, ddpm, microgpt, voicecoder.
