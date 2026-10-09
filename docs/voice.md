@@ -51,27 +51,54 @@ lexicon:
     - term: Omi
       never: ["OMI"]
     - term: AICTE
+      never: ["AICTE internship at Google", "Google internship"]
     - term: TypeScript
       never: ["Typescript"]
     - term: TensorFlow Lite
       never: ["Tensorflow Lite"]
   forbidden:
-    - phrase: "results-driven professional"
-      reason: Generic self-praise without evidence.
-    - phrase: "highly motivated professional"
-      reason: Generic personality claim instead of relevant work.
-    - phrase: "proven track record of success"
-      reason: Reputation claim without showing the evidence.
+    - phrase: "passionate"
+      reason: Generic self-description; replace with relevant work or omit.
+    - phrase: "innovative"
+      reason: Unsupported praise; state what was actually built or changed.
+    - phrase: "cutting-edge"
+      reason: Hype rather than evidence.
+    - phrase: "results-driven"
+      reason: Generic professional claim.
+    - phrase: "highly motivated"
+      reason: Generic personality claim.
+    - phrase: "proven track record"
+      reason: Claims reputation instead of showing evidence.
     - phrase: "dynamic professional"
       reason: Empty profile language.
-    - phrase: "cutting-edge solutions"
-      reason: Hype that does not identify the actual work.
-    - phrase: "world-class solutions"
+    - phrase: "leveraged"
+      reason: Prefer the direct verb such as used, integrated, or applied.
+    - phrase: "utilized"
+      reason: Prefer used or applied.
+    - phrase: "spearheaded"
+      reason: Inflates leadership unless supported by explicit ownership evidence.
+    - phrase: "orchestrated"
+      reason: Inflated verb unless orchestration is the literal technical work.
+    - phrase: "seamless"
+      reason: Unmeasured quality claim.
+    - phrase: "world-class"
       reason: Unsupported superiority claim.
-    - phrase: "revolutionary platform"
-      reason: Unsupported hype instead of a concrete description.
-    - phrase: "seamless experience"
-      reason: Unmeasured quality claim; name the mechanism or verified result.
+    - phrase: "revolutionary"
+      reason: Unsupported hype.
+    - phrase: "next-generation"
+      reason: Generic marketing language.
+    - phrase: "synergized"
+      reason: Corporate filler.
+    - phrase: "worked on"
+      reason: Too vague when a more specific action is known.
+    - phrase: "responsible for"
+      reason: Duty framing; prefer the actual action.
+    - phrase: "successfully"
+      reason: Usually adds no evidence.
+    - phrase: "various"
+      reason: Hides the actual scope.
+    - phrase: "multiple"
+      reason: Quantify or name the actual scope when evidence permits.
 
 audiences:
   - id: technical-recruiter
