@@ -133,7 +133,7 @@ tones:
     density_sentences: { min: 1, max: 2 }
   - id: condense
     name: Condense without losing proof
-    pattern: condense-into-contrast
+    pattern: explain-mechanism
     density_sentences: { min: 1, max: 2 }
   - id: tailor
     name: Tailor to the role
