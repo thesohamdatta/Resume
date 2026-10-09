@@ -56,6 +56,15 @@ NREF="$WORK/no-ref"; cp -a "$BASE" "$NREF"
 grep -v 'SPEC.md' "$NREF/AGENTS.md" > "$NREF/AGENTS.md.tmp" && mv "$NREF/AGENTS.md.tmp" "$NREF/AGENTS.md"
 expect_fail "AGENTS.md without a SPEC.md reference is rejected" "$NREF"
 
+# --- case: an undefined requirement citation in the pipeline is rejected (#50) ---
+# A check that cites a REQ id SPEC.md never defines cannot be trusted to name the rule.
+# The bogus id is built from parts: this file is itself under pipeline/, which the
+# validator scans for cited ids, so a literal here would fail the clean tree.
+BADREQ="$WORK/undefined-req"; cp -a "$BASE" "$BADREQ"
+bad_req_id="REQ-""Z9"
+printf '\n# cites a rule that does not exist (%s)\n' "$bad_req_id" >> "$BADREQ/pipeline/check_run.sh"
+expect_fail "an undefined REQ id cited in pipeline/ is rejected" "$BADREQ"
+
 # --- case: a prior-application reference in SPEC.md is rejected ---
 APP="$WORK/prior-app"; cp -a "$BASE" "$APP"
 printf '\nTailored for the Amazon Site Admin Assistant role.\n' >> "$APP/SPEC.md"

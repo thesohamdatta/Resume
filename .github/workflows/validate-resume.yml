@@ -18,6 +18,9 @@ jobs:
       - name: Validate repository
         run: bash pipeline/validate_resume_repo.sh
 
+      - name: Compile the pipeline (static check)
+        run: python3 -m compileall -q pipeline
+
       - name: Validator contract tests
         run: bash pipeline/test_validate_contract.sh
 
