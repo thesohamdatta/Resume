@@ -85,7 +85,7 @@ output/
   resume.pdf
   <Name>_<Role>.pdf      # role-named copy
   extracted.txt          # plain-text extraction proof
-  audit.md               # target role, trace table, gates, gaps
+  audit.md               # target role, trace table, gates, gaps, Quality record
 ```
 
 `audit.md` carries an `## Evidence trace` table, machine-checked by
@@ -102,6 +102,10 @@ The source is exactly one of the four owners: `data/facts.yaml`,
 be `NONE`. An item with no source (or strength `NONE`) is a gap: it is `OMIT`, dropped rather
 than softened. The checker exits non-zero on any violation, so an untraceable run fails the
 FACT gate instead of shipping.
+
+`audit.md` also carries a `## Quality record` affirming five things (JD treated as data, one
+page, ATS-extractable, company/role match input, every claim sourced); each must read `yes`.
+`pipeline/check_run.sh` enforces it (REQ-O5).
 
 The three mode bases stay at `versions/{mode}/resume.tex` and compile to one page.
 
