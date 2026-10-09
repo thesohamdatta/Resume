@@ -11,6 +11,9 @@ language:
   contractions: allowed
 
 personality:
+  archetypes:
+    - craftsperson
+    - technical-guide
   traits:
     - evidence-first
     - technically-specific
@@ -238,7 +241,7 @@ Keep the voice constant. Change the evidence selected and the depth shown:
 
 Use consistent punctuation and technical capitalization. Use digits for metrics, versions, dates, frequencies, and technical quantities. Keep units and scope clear. Include a metric only when verified; do not infer outcomes from effort or activity.
 
-Use emphasis sparingly where the template supports it. No emoji, decorative typography, or gimmick punctuation in resume content. Preserve the existing LaTeX template and ATS-safe structure; voice rules never justify layout changes.
+Use bold only for framework names and impact data, and only where the existing template supports it. Avoid additional emphasis. No emoji, decorative typography, or gimmick punctuation in resume content. Preserve the existing LaTeX template and ATS-safe structure; voice rules never justify layout changes.
 
 ## Editorial rules
 
