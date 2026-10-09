@@ -113,3 +113,9 @@ answers, its source (one of the four owners), its strength, and its action.
 
 Ready for review. FACT/FIT/READ/PARSE pass. Recommend confirming SQL/BI/cloud gaps stay omitted
 and applying with the GenAI/LLM framing.
+
+## Cover letter
+
+`output/cover_letter.md` accompanies the resume. It follows the repo convention (header, date,
+hiring team, body, sign-off), leads with the same GenAI/LLM evidence, and states the SQL / BI /
+cloud gaps openly. Voice-scan clean (no forbidden phrases).
