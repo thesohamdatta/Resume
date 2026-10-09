@@ -239,24 +239,18 @@ Use standard technical capitalization, consistent punctuation, and readable gram
 
 Use bold sparingly where the template supports it. Do not use emoji, decorative typography, exclamation marks, or gimmick punctuation in resume content. Preserve the existing LaTeX template and ATS-safe structure; voice rules never justify layout changes.
 
-## Editing principles
+## Editorial rules
 
-**Do**
-- Keep a bullet that is already clear, relevant, and accurate.
-- Make the smallest edit that fixes a real problem.
-- Prefer concrete verbs, objects, and methods over praise.
-- Vary sentence openings when repetition becomes noticeable; do not force variation where parallel structure improves scanning.
-- Preserve technical detail that demonstrates real work.
-- Use a verified result when available; otherwise state the concrete artifact, scope, constraint, or decision.
+- Keep writing that is already clear, relevant, and accurate. A style preference or scanner match alone is not a defect.
+- Make the smallest edit that improves clarity, relevance, specificity, or scanning. Do not rewrite merely to make the text look different.
+- Prefer concrete verbs, nouns, methods, decisions, artifacts, and observable outcomes over praise.
+- Vary rhythm only when repetition distracts. Parallel bullets are fine when they help comparison.
+- Keep the technical detail that demonstrates the candidate's work. Remove tool lists that do not prove role fit.
+- When no measured outcome exists, use a verified artifact, test, resolved issue, design decision, scope, or constraint. Never invent business impact.
+- Preserve names, dates, quantities, technical terms, ownership, status, uncertainty, and attribution. Never add seniority, leadership, personality, shipping, production status, users, funding, or results unsupported by the source.
+- Do not add slang, deliberate errors, fake humility, anecdotes, or quirks to appear human. Do not replace one vague phrase with another.
+- Do not force every bullet into the same action-method-result formula. Use the structure that makes the evidence easiest to understand.
 
-**Don't**
-- Add achievements, metrics, ownership, production status, users, funding, or personality that the source does not support.
-- Replace a vague phrase with another vague phrase.
-- Add fake anecdotes, fake humility, slang, deliberate errors, or "human" quirks.
-- Remove a necessary caveat or turn uncertainty into certainty.
-- Rewrite a sentence solely because it contains a suspected AI tell.
-- Force every bullet into the same action-method-result template.
-- Use inflated language to compensate for missing evidence.
 
 ## Editorial protocol
 
@@ -271,19 +265,15 @@ If the defect cannot be fixed without guessing, preserve the claim at its suppor
 
 ## Examples
 
-These examples demonstrate wording patterns only; use them only when the underlying evidence supports the claim.
+Weak: "Leveraged innovative technologies to deliver a robust solution."
 
-**Weak:** "Leveraged innovative technologies to deliver a robust solution."
+Clearer, when supported: "Integrated ESP32-S3 firmware with I2S audio capture and Opus compression."
 
-**Better, when supported:** "Integrated ESP32-S3 firmware with I2S audio capture and Opus compression."
+Weak: "Responsible for various AI projects."
 
-The second version is better because it names the work. It does not claim an outcome the source has not established.
+Clearer, when supported: "Built a FastAPI service for streaming audio and memory extraction."
 
-**Weak:** "Responsible for various AI projects."
-
-**Better, when supported:** "Built a FastAPI service for streaming audio and memory extraction."
-
-Do not use the better example unless the source evidence supports that exact contribution.
+The stronger versions name the work; they do not invent an outcome. Treat them as patterns, not ready-made claims.
 
 ## Governing principle
 
