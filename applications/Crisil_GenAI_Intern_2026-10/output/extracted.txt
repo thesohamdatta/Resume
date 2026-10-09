@@ -59,7 +59,7 @@ Omi (Open Source): Wearable AI Platform | Contributor
     speaker-clustering approach adopted downstream.
 Technical Skills
   Languages: Python, TypeScript/JavaScript, Kotlin, C/C++
-  AI/ML: Machine learning, computer vision, TensorFlow, TensorFlow Lite, PyTorch, Google ML Kit, model evaluation
   Generative AI: LLM applications, AI agents, RAG, tool calling, multi-agent systems, transformers
+  AI/ML: Machine learning, computer vision, TensorFlow, TensorFlow Lite, PyTorch, Google ML Kit, model evaluation
   Engineering: FastAPI, React, REST APIs, MCP, Kubernetes, Supabase/pgvector, LiveKit/WebRTC, Git/GitHub, Vitest
 

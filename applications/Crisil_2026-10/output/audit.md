@@ -5,9 +5,11 @@ Mode: `mnc` · Display name: Soham Datta
 Target role: Associate Engineer-Gen AI (posted title; body reads "Management Trainee – AI")
 Primary domain: AI/ML + Generative AI (LLM applications); secondary Data/Analytics
 Output depth: D2, selective D3 in Aura (AI components) and Mia (LLM adapters, gates)
-Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, content only)
-Section order: **Education first**, then Experience (user override for this run; fresher framing —
-the JD names a degree as a required qualification). Other runs keep the canonical order.
+Template: `templates/v3/main.tex` (Jake Gutierrez template, as supplied for this run). Structure,
+macros, section order, and visual design preserved; content only. Education is placed first by
+the template's own section order. Compiled with pdfLaTeX, one page, US Letter.
+Section order: the template's own order leads with **Education**, then Experience — appropriate for
+this fresher role, where the JD names a degree as a required qualification.
 
 ## Selected evidence
 
@@ -21,6 +23,10 @@ the JD names a degree as a required qualification). Other runs keep the canonica
 - John: Kotlin/Compose Android voice client + Python LiveKit agent, Silero VAD, tool calling.
 - Reliance: customer-service operations (official title preserved).
 - PES Modern College: research/digital-library support, 3,000+ pages.
+- Microgpt: 124M-parameter decoder-only transformer in PyTorch (transformer internals).
+- Omi open source (project entry): 5 architectural RFCs and 7 upstream pull requests; 3 approved
+  by maintainers, including a 52-test offline speaker-clustering approach adopted downstream.
+- One-line professional summary grounded in the facts.yaml positioning; no new claim.
 
 ## Deliberately omitted
 
@@ -30,7 +36,7 @@ the JD names a degree as a required qualification). Other runs keep the canonica
   (LLM adapters, RAG, tool calling) stays visible on its own.
 - CAD / 3D-printing enclosure detail, certifications (verification unresolved), CGPA (not in facts.yaml).
 - Unverified metrics: any Aura performance/battery/user figure; Reliance 50% improvement.
-- Lower-relevance projects this pass: codeshot, autodev, ddpm, microgpt, voicecoder.
+- Lower-relevance projects this pass: codeshot, autodev, ddpm, voicecoder.
 - Freelancer "AI & Automation" — explicitly excluded in facts.yaml.
 
 ## Evidence trace
@@ -48,6 +54,8 @@ answers, its source (one of the four owners), its strength, and its action.
 | LLM-Council multi-model comparison/synthesis | Generative AI / LLMs | content/github/evidence.md | DIRECT | SUPPORT |
 | John LiveKit voice agent + tool calling | AI application development | content/github/evidence.md | DIRECT | SUPPORT |
 | AICTE on-device CV pipelines (TensorFlow/TFLite/ML Kit) | AI frameworks (TensorFlow) | content/github/evidence.md | DIRECT | SUPPORT |
+| Microgpt decoder-only transformer (PyTorch) | Generative AI / transformer internals | data/facts.yaml | DIRECT | SUPPORT |
+| Omi open-source contributions (RFCs, PRs) | Collaboration / open-source engineering | content/github/evidence.md | DIRECT | SUPPORT |
 | PES research documentation / DELLNET, LaTeX (3,000+ pages) | Analytical / documentation support | data/facts.yaml | ADJACENT | SUPPORT |
 | Reliance customer-service operations | Professional experience | data/facts.yaml | DIRECT | SUPPORT |
 | Mode framing and depth (mnc, D2) | Conventional, ATS-safe format | versions/mnc/_base.md | DIRECT | FOREGROUND |
@@ -83,13 +91,16 @@ answers, its source (one of the four owners), its strength, and its action.
 - PARSE: PASS — one page, text-selectable, keywords searchable.
 - ONE PAGE: PASS (verified via pdfinfo: Pages 1).
 - LINKS: PASS — email, LinkedIn, GitHub, Portfolio, project repos embedded as text.
-- FILE NAME: PASS — `Soham_Datta_Associate_Engineer_Gen_AI.pdf` emitted alongside `resume.pdf`.
+- FILE NAME: PASS — exactly one PDF, `Soham Datta.pdf`, in `output/`.
+- NO EM DASH: PASS — no em dash in resume content (ASCII or Unicode).
 
 ## Attribution checks
 
 - Aura described as built/adapted services, never "architected from scratch" and never
   "built the Omi backend".
-- Omi not claimed as maintainer/core-contributor; no merged-PR or downstream-authorship claim.
+- Omi contributions stated exactly as evidence.md records: 5 RFCs and 7 PRs, 3 approved by
+  maintainers, 0 merged directly; no maintainer or core-contributor claim. Aura's Omi work and
+  the independent upstream contributions are presented as two separate items.
 - AICTE: "AI/ML Intern" at AICTE; never Google employment.
 - Reliance: "Associate" exactly; not framed as software engineering.
 
