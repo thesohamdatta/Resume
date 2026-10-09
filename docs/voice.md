@@ -160,108 +160,106 @@ formatting:
     all_caps: [acronyms-only]
 ---
 
+
 ## Overview
 
-Write like a technically capable person describing work they can explain in an interview. Be direct, specific, and calm. No corporate theatre, personal-brand language, or manufactured quirks.
+Write like a capable person explaining real work they can defend in an interview. Be direct, technically precise, calm, and easy to scan. No corporate theatre, personal-brand language, or manufactured quirks.
 
-The shared voice stays constant across all modes. The mode determines emphasis: startups should see what the candidate built, decided, tested, and took ownership of; MNCs should see role-relevant skills and precise evidence in a conventional format; referrals should make the work easy to understand and forward. Do not create three different personalities.
+The recruiter should understand the target fit, the candidate's actual contribution, and the strongest proof on a fast first read. Keep one voice across all modes; the mode changes emphasis and depth, not personality.
 
-The reader is a recruiter with limited time. Make the work, technical relevance, and level of contribution clear on the first read. This file governs language and tone only. Candidate truth belongs to `data/facts.yaml`, `content/github/evidence.md`, and `content/github/boundaries.md`; resume rules and hard gates remain in `RESUME_RULES.md` and `DONT.MD`.
+Candidate truth belongs to `data/facts.yaml`, `content/github/evidence.md`, and `content/github/boundaries.md`. Resume rules and hard gates remain in `RESUME_RULES.md` and `DONT.MD`. This file owns wording and tone only.
 
 ## Personality
 
-- **Evidence-first:** show the work instead of calling it impressive.
-- **Technically specific:** name the relevant system, tool, method, or constraint.
-- **Direct without theatre:** use plain verbs; avoid grand claims and fake humility.
-- **Concise, not telegraphic:** remove padding, not grammar or useful context.
-- **Candid about scope:** make contribution and limitations easy to understand.
-- **Recruiter-readable:** technical depth should clarify capability, not bury it.
+- **Evidence-first:** show the work instead of praising the person.
+- **Technically specific:** name the relevant system, method, tool, decision, or constraint.
+- **Direct, not theatrical:** use plain language and concrete verbs.
+- **Concise, not telegraphic:** remove padding, not the detail that makes work credible.
+- **Honest about scope:** make contribution and limitations clear.
+- **Recruiter-readable:** technical depth should prove capability, not obscure it.
 
 ## Beliefs
 
-- Every line must earn its space by proving fit or providing necessary context.
-- Specificity beats adjectives. A real artifact or method is stronger than praise.
+- Every line earns its space by showing role fit or necessary context.
+- Specific work is stronger than generic self-description.
 - Use the strongest wording the evidence supports, not the strongest wording available.
+- Editing is successful when the writing improves, not merely changes.
 - A natural voice comes from clear thinking and accurate detail, not deliberate quirks.
-- Editing is successful when the writing improves, not when the text changes.
 
 ## Register
 
-Use professional, plain English with Indian English spelling where applicable. Keep technical names and standard industry terminology intact. Contractions are allowed when natural, but resume bullets usually do not need them.
+Use professional, plain English. Keep official technical terms and names intact. Indian English spelling is fine. Resume bullets usually omit first-person pronouns; fragments are acceptable when clear and conventional. Prefer active voice when it makes ownership clear, but do not rewrite a sentence just to avoid passive voice.
 
-Prefer active voice when the actor matters. Passive voice is fine when the result or object matters more than the actor, or when the actor is unknown. Fragments are acceptable in resume bullets when clear and conventional; do not force complete-sentence prose into every line.
-
-Do not make the candidate sound like a senior executive if the evidence describes early-career or independent project work. Do not make the writing artificially casual to avoid sounding generated.
+Do not make an early-career candidate sound like a senior executive. Do not make professional writing artificially casual to avoid sounding generated.
 
 ## Lexicon
 
-The forbidden phrases in the YAML are fixed examples of generic resume language, not a complete detector for AI writing. Their presence is a strong reason to revise in resume copy, but a phrase match must still be checked in context. Never expand the list into a universal ban on ordinary words.
+The forbidden phrases in the YAML are examples of generic resume language, not a complete AI-writing detector. Review them in context. Do not expand the list into a ban on ordinary words.
 
-Treat terms such as "leveraged", "orchestrated", "multiple", "various", and "successfully" as review prompts, not automatic failures. They can be vague or inflated; they can also be accurate. Replace them only when the replacement states the actual action more clearly. Keep literal technical terms, established terminology, and correct domain language.
+Words such as "leveraged", "orchestrated", "multiple", "various", and "successfully" are review prompts, not automatic failures. Change them only when the replacement says what actually happened more clearly. Preserve valid technical language even when it resembles a flagged pattern.
 
-Preserve official spelling and capitalization for project names, tools, languages, frameworks, employers, and credentials. Do not write a protected term in a forbidden variant in resume output.
+Keep official spelling and capitalization for project names, tools, languages, frameworks, employers, and credentials.
 
 ## Audiences
 
-- **Technical recruiter / engineering manager (default):** make role fit and technical contribution clear on a fast scan. Name relevant work and enough implementation detail to judge its depth.
-- **Startup founder:** show initiative through real product work, decisions, trade-offs, debugging, iteration, and shipping when supported. Explain what the candidate personally did. Do not imply traction, customers, production readiness, or seniority without evidence.
+- **Technical recruiter / engineering manager (default):** make role fit and technical contribution clear quickly; give enough implementation detail to judge depth.
+- **Startup founder:** show what was built, decisions made, trade-offs, debugging, iteration, and personal contribution when supported. Demonstrate initiative through work, not founder mythology. Do not imply traction, customers, production readiness, or seniority without evidence.
 - **MNC / enterprise recruiter:** use conventional terminology, supported role keywords, consistent dates, and concise evidence. Avoid ATS tricks and unnecessary implementation detail.
-- **Local recruiter / referrer:** use plain language that can be forwarded without extra explanation while keeping the candidate’s technical credibility.
+- **Local recruiter / referrer:** make the work easy to understand and forward without stripping out technical credibility.
 
-These are differences in emphasis, not different personalities. The job description selects relevant evidence; it does not supply candidate facts or dictate the sentence wording.
+The job description selects relevant evidence; it does not supply candidate facts or dictate sentence wording.
 
 ## Surfaces
 
-- **Resume bullet:** one clear idea, usually one sentence and normally one or two lines in the final template. Lead with the work, a decision, a technical problem, or an observable result—whichever makes the evidence easiest to grasp. The result may be a measured change, a delivered artifact, a test, a resolved defect, a documented design, or a clear constraint; do not invent a business impact.
-- **Professional summary:** use only when it improves positioning. State relevant focus and supporting evidence; avoid objectives and generic self-description.
+- **Resume bullet:** one clear idea, usually one sentence and normally one or two lines in the final template. Lead with the work, a decision, a technical problem, or an observable result. A useful result can be a verified measurement, delivered artifact, test, resolved defect, design decision, scope, or constraint. Do not invent business impact.
+- **Professional summary:** use only if it improves positioning. State relevant focus and supporting evidence, not generic personality claims.
 - **Skills line:** list relevant, defensible skills in sensible groups. Do not turn it into a keyword dump.
-- **Project description:** identify what the project does and the candidate's actual contribution. Mention status or constraints when they affect the claim.
-- **Application/referral note:** short, specific, and human. State the role, relevant evidence, and clear ask when one is needed. Do not use flattery or a generic pitch.
+- **Project description:** identify what it does and the candidate's actual contribution. Mention project status or constraints when material.
+- **Application/referral note:** concise and specific. State the relevant evidence and the reason for writing; do not flatter or repeat the resume.
 
 ## Mode expression
 
-Keep the same voice across modes. Change the proof selected and the depth shown:
+Keep the voice constant. Change the evidence selected and the depth shown:
 
-- **Startup:** foreground what was built, why a design decision was made, what was tested or debugged, and what the candidate personally owned. Use first person only in the profile line when it improves the builder signal. Do not write like a pitch deck.
-- **MNC:** foreground relevant engineering skills, implementation evidence, clear scope, and standard terminology. Cut detail that does not help assess fit. Do not make every bullet sound like a corporate achievement statement.
-- **Referral:** foreground practical contribution and clear context. Explain uncommon terms when needed; avoid both a startup pitch and a generic professional summary.
+- **Startup:** foreground product work, technical decisions, trade-offs, testing, debugging, iteration, and what the candidate personally owned. Limited first person is allowed in the profile line when it improves the builder signal. Do not write like a pitch deck.
+- **MNC:** foreground role-relevant skills, implementation evidence, scope, and standard terminology. Cut details that do not help assess fit. Avoid robotic achievement formulas.
+- **Referral:** foreground practical contribution and enough context for a non-specialist. Avoid both a startup pitch and generic corporate language.
 
 ## Tones
 
 - **Explain:** name what was done and include the method or context that makes it understandable.
 - **Demonstrate:** show capability through implementation details, tests, artifacts, decisions, or verified outcomes.
-- **Condense:** remove repeated context while keeping the detail that distinguishes the work.
+- **Condense:** remove repetition while keeping the detail that distinguishes the work.
 - **Tailor:** choose and order evidence to match the role. Do not copy the job description or stuff keywords.
 
 ## Formatting
 
-Use standard technical capitalization, consistent punctuation, and readable grammar. Use digits for metrics, versions, dates, frequencies, and technical quantities. Keep units and scope clear. Use metrics only when verified; do not infer results from effort or activity.
+Use consistent punctuation and technical capitalization. Use digits for metrics, versions, dates, frequencies, and technical quantities. Keep units and scope clear. Include a metric only when verified; do not infer outcomes from effort or activity.
 
-Use bold sparingly where the template supports it. Do not use emoji, decorative typography, exclamation marks, or gimmick punctuation in resume content. Preserve the existing LaTeX template and ATS-safe structure; voice rules never justify layout changes.
+Use emphasis sparingly where the template supports it. No emoji, decorative typography, or gimmick punctuation in resume content. Preserve the existing LaTeX template and ATS-safe structure; voice rules never justify layout changes.
 
 ## Editorial rules
 
 - Keep writing that is already clear, relevant, and accurate. A style preference or scanner match alone is not a defect.
-- Make the smallest edit that improves clarity, relevance, specificity, or scanning. Do not rewrite merely to make the text look different.
-- Prefer concrete verbs, nouns, methods, decisions, artifacts, and observable outcomes over praise.
+- Make the smallest edit that improves clarity, relevance, specificity, or scanning.
+- Prefer concrete verbs, nouns, methods, decisions, and artifacts over praise.
 - Vary rhythm only when repetition distracts. Parallel bullets are fine when they help comparison.
-- Keep the technical detail that demonstrates the candidate's work. Remove tool lists that do not prove role fit.
-- When no measured outcome exists, use a verified artifact, test, resolved issue, design decision, scope, or constraint. Never invent business impact.
-- Preserve names, dates, quantities, technical terms, ownership, status, uncertainty, and attribution. Never add seniority, leadership, personality, shipping, production status, users, funding, or results unsupported by the source.
+- Keep technical detail that proves work; remove tool lists that do not prove role fit.
+- If no measured result exists, use a verified artifact, test, resolved issue, design decision, scope, or constraint.
+- Preserve names, dates, quantities, technical terms, ownership, status, uncertainty, and attribution. Do not invent seniority, leadership, personality, shipping, production status, users, funding, or results.
 - Do not add slang, deliberate errors, fake humility, anecdotes, or quirks to appear human. Do not replace one vague phrase with another.
-- Do not force every bullet into the same action-method-result formula. Use the structure that makes the evidence easiest to understand.
-
+- Do not force every bullet into the same action-method-result formula.
 
 ## Editorial protocol
 
-1. **Read the full draft.** Understand its purpose, target role, and register before editing.
-2. **Diagnose.** Identify the exact span that is vague, inflated, repetitive, unclear, or irrelevant. A detector match alone is not a defect.
-3. **Protect.** Check names, dates, numbers, technical terms, ownership, status, scope, uncertainty, and attribution against the source files.
-4. **Repair minimally.** Change only the text needed to fix the confirmed defect. Leave good sentences unchanged.
-5. **Review the whole resume.** Check for repeated rhythms, duplicate claims, unexplained jargon, awkward compression, and lost technical evidence.
-6. **Validate.** Re-check truth, role fit, readability, ATS extraction, template constraints, and one-page output using the repository's existing gates.
+1. Read the full draft and identify its target role and audience.
+2. Diagnose a specific defect: vagueness, inflated language, repetition, unclear ownership, irrelevant detail, or awkward compression. A phrase match alone is not a defect.
+3. Protect facts, numbers, technical terms, attribution, ownership, status, and uncertainty against the source files.
+4. Repair minimally. Leave unaffected sentences unchanged.
+5. Review the whole resume for relevance, repeated claims, repetitive rhythm, lost evidence, and recruiter scanning.
+6. Use the existing truth, fit, readability, parsing, template, and one-page gates. Do not add a new pipeline stage or sub-agent for style alone.
 
-If the defect cannot be fixed without guessing, preserve the claim at its supported level or ask for the missing fact. Do not add a new stage or sub-agent to the resume pipeline for style alone; use the existing review and validation path.
+If fixing a line requires guessing, keep the strongest supported version or ask for the missing fact.
 
 ## Examples
 
@@ -273,7 +271,7 @@ Weak: "Responsible for various AI projects."
 
 Clearer, when supported: "Built a FastAPI service for streaming audio and memory extraction."
 
-The stronger versions name the work; they do not invent an outcome. Treat them as patterns, not ready-made claims.
+These examples name the work; they do not invent an outcome. Use them only when the evidence supports the exact contribution.
 
 ## Governing principle
 
