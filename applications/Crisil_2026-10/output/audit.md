@@ -6,6 +6,8 @@ Target role: Associate Engineer-Gen AI (posted title; body reads "Management Tra
 Primary domain: AI/ML + Generative AI (LLM applications); secondary Data/Analytics
 Output depth: D2, selective D3 in Aura (AI components) and Mia (LLM adapters, gates)
 Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, content only)
+Section order: **Education first**, then Experience (user override for this run; fresher framing —
+the JD names a degree as a required qualification). Other runs keep the canonical order.
 
 ## Selected evidence
 
