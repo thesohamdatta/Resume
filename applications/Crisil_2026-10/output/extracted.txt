@@ -1,0 +1,67 @@
+                                                       Soham Datta
+                                                                 Pune, India
+                                   thesohamdatta@gmail.com | +91 9420984066 | LinkedIn | GitHub | Portfolio
+
+AI/ML Engineer | Generative AI | LLM Applications
+AI/ML graduate building LLM applications, AI agents, and computer‐vision pipelines in Python and TypeScript, with hands‐on
+model testing and prompt engineering.
+
+Experience
+Aura | Founder                                                                                                Jun 2026 – Present
+Multimodal / Wearable AI | Python, TypeScript, C/C++ | Under Development
+
+ • Built and integrated an ESP32‐S3 wearable AI system spanning on‐device audio capture, firmware, and AI
+   integrations, from hardware to backend services.
+ • Adapted and extended Omi‐based AI components for streaming audio, memory/context extraction,
+   knowledge‐graph linking, and speaker identification, backed by Supabase/pgvector vector‐memory storage.
+ • Implemented AI‐serving backend services in FastAPI and deployed a Kubernetes‐hosted Deepgram ASR
+   integration for realtime speech.
+AICTE | AI/ML Intern                                                                        Oct 2024 – Dec 2024
+Computer Vision | TensorFlow | TensorFlow Lite | Google ML Kit
+
+ • Built and tested on‐device computer‐vision pipelines with TensorFlow, TensorFlow Lite, and Google ML Kit across
+   custom object detection, image classification, and Android inference.
+Reliance | Associate                                                                          Jul 2024 – Oct 2024
+Customer Operations
+
+ • Handled customer‐service, POS, membership, voucher, and reporting workflows while coordinating with store
+   teams.
+PES Modern College | Research / Library Assistant                                        Sep 2023 – Mar 2024
+Research Support | Documentation
+
+ • Supported research documentation and digitization, organising 3,000+ pages of academic archive material with
+   LaTeX and DELNET/OPAC tools.
+
+Projects
+Mia — AI Engineering CLI                                                                                                  GitHub
+TypeScript | Bun | LLM Adapters | Vitest
+
+ • Built a TypeScript CLI on Bun running a staged AI‐engineering workflow (grill, spec, plan, review, ship) with
+   multi‐provider LLM adapters for Claude, Codex, and local models.
+ • Gated every stage with automated lint, type‐check, and Vitest verification and kept state in an immutable JSONL
+   event log, giving reproducible evaluation of generated changes.
+LLM‐Council — Multi‐Model Evaluation Service                                                                     GitHub
+Python | FastAPI | React/Vite
+
+ • Implemented a FastAPI service and React client that compares and synthesizes responses from multiple large
+   language models through an Analyst, Skeptic, Synthesizer pipeline, using OpenRouter as the provider gateway.
+John — Realtime Voice AI Client                                                                             GitHub
+Kotlin | Jetpack Compose | LiveKit | WebRTC | Python
+
+ • Built an Android client in Kotlin/Jetpack Compose connected over WebRTC to a Python LiveKit agent, using Silero
+   VAD for barge‐in and turn detection and tool calling for calendar and task actions.
+
+Education
+Savitribai Phule Pune University (SPPU)                                                                         2022 – Jun 2026
+B.E. in Artificial Intelligence & Machine Learning | Pune, India
+
+
+Technical Skills
+Languages: Python, TypeScript/JavaScript, C/C++, Kotlin
+Generative AI & LLM: prompt engineering, LLM applications, AI agents, Retrieval‐Augmented Generation (RAG), tool
+calling, multi‐agent systems
+ML & Data: TensorFlow, TensorFlow Lite, PyTorch, computer vision, model testing & evaluation; Supabase/pgvector,
+Redis, Firebase, Pinecone
+Engineering: FastAPI, REST APIs, React, Git/GitHub, Vitest, unit testing
+Systems: ESP32‐S3, FreeRTOS, I2S/DMA, Opus, OTA, Kubernetes
+
