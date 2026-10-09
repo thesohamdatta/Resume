@@ -48,7 +48,6 @@ lexicon:
     - term: Omi
       never: ["OMI"]
     - term: AICTE
-      never: ["AICTE"]
     - term: TypeScript
       never: ["Typescript"]
     - term: TensorFlow Lite
@@ -130,11 +129,11 @@ tones:
     density_sentences: { min: 1, max: 3 }
   - id: demonstrate
     name: Demonstrate capability
-    pattern: demonstrate-with-evidence
+    pattern: demonstrate-with-data
     density_sentences: { min: 1, max: 2 }
   - id: condense
     name: Condense without losing proof
-    pattern: condense
+    pattern: condense-into-contrast
     density_sentences: { min: 1, max: 2 }
   - id: tailor
     name: Tailor to the role
@@ -229,7 +228,7 @@ Use standard technical capitalization, consistent punctuation, and readable gram
 
 Use bold sparingly where the template supports it. Do not use emoji, decorative typography, exclamation marks, or gimmick punctuation in resume content. Preserve the existing LaTeX template and ATS-safe structure; voice rules never justify layout changes.
 
-## Do's and Don'ts
+## Editing principles
 
 **Do**
 - Keep a bullet that is already clear, relevant, and accurate.
