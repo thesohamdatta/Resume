@@ -25,7 +25,7 @@ register:
   emoji_policy: institutional-zero
   exclamation_marks: forbidden
   ellipsis_policy: forbidden-except-quotes
-  semicolon_policy: prefer-short-sentences
+  semicolon_policy: prefer-two-short-sentences
 
 beliefs:
   - id: evidence-over-adjectives
