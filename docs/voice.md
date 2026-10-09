@@ -27,6 +27,7 @@ register:
   formality: medium
   emoji_policy: institutional-zero
   exclamation_marks: forbidden
+  em_dash_policy: forbidden
   ellipsis_policy: forbidden-except-quotes
   semicolon_policy: prefer-two-short-sentences
 

@@ -153,11 +153,12 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   template is not redesigned.
 - **REQ-O4** — When the draft exceeds one page, the system MUST remove weak content — repetition,
   weak bullets, weak projects, low-value metadata — before touching spacing or type.
-- **REQ-O5** — A completed run MUST produce `resume.tex`, `resume.pdf`, a role-named PDF copy,
-  an `extracted.txt` plain-text proof, and an `audit.md` record under the run's `output/`
-  directory. The `audit.md` MUST carry a Quality record affirming five things: the JD was
-  treated as data, the resume is one page, its text is ATS-extractable, the company and role
-  match the input, and every claim is sourced.
+- **REQ-O5** — A completed run MUST produce `resume.tex`, `extracted.txt`, `audit.md`, and
+  exactly one rendered PDF named `Soham Datta.pdf` under the run's `output/` directory. There is
+  one resume per run; `resume.pdf` is an intermediate build artifact, not a second deliverable.
+  The `audit.md` MUST carry a Quality record affirming five things: the JD was treated as data,
+  the resume is one page, its text is ATS-extractable, the company and role match the input, and
+  every claim is sourced.
 
 ### Context and efficiency
 

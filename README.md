@@ -19,7 +19,7 @@ facts and never forks the pipeline. Settings and display names live in `modes/{m
 2. Follow `pipeline/README.md`: SELECT (build a traceable evidence plan), then RENDER
    (one-page PDF). Rules are in `RESUME_RULES.md`; the contract is `AGENTS.md`.
 3. Write outputs to `applications/{Name}_{YYYY-MM}/output/`:
-   `resume.tex`, `resume.pdf`, a role-named PDF, `extracted.txt`, and `audit.md`.
+   `resume.tex`, `extracted.txt`, `audit.md`, and exactly one PDF named `Soham Datta.pdf`.
 
 ## Architecture
 

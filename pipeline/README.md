@@ -82,11 +82,13 @@ Write the application outputs to `applications/{Name}_{YYYY-MM}/output/`:
 ```
 output/
   resume.tex
-  resume.pdf
-  <Name>_<Role>.pdf      # role-named copy
   extracted.txt          # plain-text extraction proof
   audit.md               # target role, trace table, gates, gaps, Quality record
+  Soham Datta.pdf        # the single rendered resume (one per run)
 ```
+
+A run delivers exactly one resume, named `Soham Datta.pdf`. `resume.pdf` is an intermediate
+build artifact; it is not kept alongside the deliverable.
 
 `audit.md` carries an `## Evidence trace` table, machine-checked by
 `pipeline/check_audit.py`. Every selected item names the JD requirement it answers, its

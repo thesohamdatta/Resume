@@ -33,19 +33,19 @@ Research Support | Digital Library
    DELNET/OPAC tools.
 
 Projects
-Mia — AI Engineering CLI                                                                                                     GitHub
+Mia: AI Engineering CLI                                                                                                      GitHub
 TypeScript | Bun | Vitest | JSONL
 
  • Built a TypeScript CLI on Bun running a five‐stage engineering workflow (grill, spec, plan, review, ship) with
    structured skill executors and multi‐provider LLM adapters for Claude, Codex, and local models.
  • Kept state in an immutable JSONL event log and gated every stage with automated lint, type‐check, and Vitest
    verification; replaced a background daemon with stateless event‐driven execution (ADR‐0001).
-LLM‐Council — Multi‐Model Evaluation Service                                                                      GitHub
+LLM‐Council: Multi‐Model Evaluation Service                                                                       GitHub
 Python | FastAPI | React/Vite
 
- • Implemented a FastAPI service and React client that compares and synthesizes responses from multiple LLM
+ • Implemented a FastAPI service and React client that compares and synthesizes responses from several LLM
    providers through an Analyst, Skeptic, Synthesizer pipeline.
-John — Realtime Voice Client                                                                               GitHub
+John: Realtime Voice Client                                                                                GitHub
 Kotlin | Jetpack Compose | LiveKit | WebRTC | Python
 
  • Built an Android client in Kotlin/Jetpack Compose that connects over WebRTC to a Python LiveKit agent, using
