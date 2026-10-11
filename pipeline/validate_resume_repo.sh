@@ -16,56 +16,33 @@ assert_absent() {
 
 MODES=(referral startup mnc)
 
-# --- canonical module set ---
 CANON=(
-  AGENTS.md
-  SPEC.md
-  RESUME_RULES.md
-  pipeline/README.md
-  README.md
-  DONT.MD
-  docs/voice.md
-  data/facts.yaml
-  content/github/evidence.md
-  content/github/boundaries.md
-  modes/referral.yaml
-  modes/startup.yaml
-  modes/mnc.yaml
-  templates/v3/resume-openfont.cls
-  templates/v3/resume.tex
-  pipeline/check_run.sh
-  pipeline/check_audit.py
-  pipeline/check_metrics.py
+  AGENTS.md SPEC.md RESUME_RULES.md pipeline/README.md README.md DONT.MD docs/voice.md
+  data/facts.yaml content/github/evidence.md content/github/boundaries.md
+  modes/referral.yaml modes/startup.yaml modes/mnc.yaml
+  templates/v3/resume-openfont.cls templates/v3/resume.tex
+  pipeline/check_run.sh pipeline/check_audit.py pipeline/check_metrics.py
 )
 for f in "${CANON[@]}"; do
   test -f "$ROOT/$f" || fail "missing canonical module: $f"
 done
 ok "canonical module set present"
 
-# --- specification contract ---
-# The spec is the system definition; the contract must reference it and it must not drift.
-grep -qF 'SPEC.md' "$ROOT/AGENTS.md" \
-  || fail "AGENTS.md does not reference SPEC.md (the system definition owner)"
+grep -qF 'SPEC.md' "$ROOT/AGENTS.md" || fail "AGENTS.md does not reference SPEC.md"
 ok "AGENTS.md references SPEC.md"
 
 REQ_ID_RE='REQ-[A-Z]+[0-9]+'
-spec_defs="$(grep -oE "^\s*-\s*\*\*$REQ_ID_RE" "$ROOT/SPEC.md" | grep -oE "$REQ_ID_RE" | sort)"
-if [ -z "$spec_defs" ]; then
-  fail "SPEC.md defines no requirements (expected '- **REQ-...' definitions)"
-fi
-spec_dups="$(printf '%s\n' "$spec_defs" | uniq -d)"
-[ -z "$spec_dups" ] || { echo "$spec_dups"; fail "SPEC.md defines a requirement id more than once"; }
+spec_defs="$(grep -oE "^\\s*-\\s*\\*\\*$REQ_ID_RE" "$ROOT/SPEC.md" | grep -oE "$REQ_ID_RE" | sort)"
+[ -n "$spec_defs" ] || fail "SPEC.md defines no requirements"
+spec_dups="$(printf '%s\\n' "$spec_defs" | uniq -d)"
+[ -z "$spec_dups" ] || { echo "$spec_dups"; fail "duplicate requirement id(s) in SPEC.md"; }
 ok "SPEC.md requirement ids are unique"
 
-# Every REQ id cited anywhere in pipeline/ must name a requirement SPEC.md defines, so a
-# check (or a doc) cannot cite a rule that no longer exists (#50). Checked one id at a
-# time so a failure here can never be swallowed by a pipeline exit status.
-spec_cited="$(cd "$ROOT" && grep -rhoE "$REQ_ID_RE" \
-  --include='*.sh' --include='*.py' --include='*.md' pipeline | sort -u)"
+spec_cited="$(cd "$ROOT" && grep -rhoE "$REQ_ID_RE" --include='*.sh' --include='*.py' --include='*.md' pipeline | sort -u)"
 undefined_reqs=""
 while IFS= read -r req_id; do
   [ -n "$req_id" ] || continue
-  printf '%s\n' "$spec_defs" | grep -qxF "$req_id" || undefined_reqs="$undefined_reqs$req_id "
+  printf '%s\\n' "$spec_defs" | grep -qxF "$req_id" || undefined_reqs="$undefined_reqs$req_id "
 done <<< "$spec_cited"
 if [ -n "$undefined_reqs" ]; then
   for req_id in $undefined_reqs; do
@@ -73,43 +50,33 @@ if [ -n "$undefined_reqs" ]; then
   done
   fail "pipeline/ cites undefined requirement id(s): $undefined_reqs"
 fi
-ok "every requirement id cited in pipeline/ is defined in SPEC.md"
+ok "all pipeline requirement references are defined"
 
-assert_absent "SPEC.md contains no prior-application reference" \
-  '[Aa]mazon|[Aa]ccenture|applications/[A-Za-z0-9]+_20[0-9][0-9]-' \
-  SPEC.md
+assert_absent "SPEC.md contains no prior-application references" '[Aa]mazon|[Aa]ccenture|applications/[A-Za-z0-9]+_20[0-9][0-9]-' SPEC.md
 
-# --- three modes: config + base + template usage ---
 for mode in "${MODES[@]}"; do
   test -f "$ROOT/modes/$mode.yaml" || fail "missing mode config: $mode"
   test -f "$ROOT/versions/$mode/_base.md" || fail "missing $mode base"
   test -f "$ROOT/versions/$mode/resume.tex" || fail "missing $mode resume.tex"
-  grep -qF '\documentclass{../../templates/v3/resume-openfont}' "$ROOT/versions/$mode/resume.tex" \
-    || fail "$mode does not use the canonical template"
+  grep -qF '\\documentclass{../../templates/v3/resume-openfont}' "$ROOT/versions/$mode/resume.tex" || fail "$mode does not use canonical template"
   grep -qE '^name_key:' "$ROOT/modes/$mode.yaml" || fail "$mode config missing name_key"
 done
-ok "all three modes have a config, a base, and use templates/v3"
+ok "all modes have config, base content, and canonical template"
 
-# --- modes are exactly the canonical three (REQ-P2) ---
-expected_modes="$(printf '%s\n' "${MODES[@]}" | sort)"
-mode_files="$(cd "$ROOT" && find modes -maxdepth 1 -name '*.yaml' | sed 's#.*/##; s#\.yaml$##' | sort)"
-[ "$mode_files" = "$expected_modes" ] \
-  || { echo "$mode_files"; fail "modes/ must contain exactly: ${MODES[*]} (no fourth or retired mode)"; }
+expected_modes="$(printf '%s\\n' "${MODES[@]}" | sort)"
+mode_files="$(cd "$ROOT" && find modes -maxdepth 1 -name '*.yaml' | sed 's#.*/##; s#\\.yaml$##' | sort)"
+[ "$mode_files" = "$expected_modes" ] || { echo "$mode_files"; fail "modes/ must contain exactly: ${MODES[*]}"; }
 ok "mode configs are exactly the canonical three"
 
 version_dirs="$(cd "$ROOT" && find versions -maxdepth 1 -mindepth 1 -type d | sed 's#.*/##' | sort)"
-[ "$version_dirs" = "$expected_modes" ] \
-  || { echo "$version_dirs"; fail "versions/ must contain exactly: ${MODES[*]} (no fourth or retired mode)"; }
+[ "$version_dirs" = "$expected_modes" ] || { echo "$version_dirs"; fail "versions/ must contain exactly: ${MODES[*]}"; }
 ok "version directories are exactly the canonical three"
 
-# --- fixed section order, stated once (REQ-O2) ---
 ORDER_TEXT='Header / Contact → Summary → Experience → Projects → Education → Technical Skills'
-order_owners="$(cd "$ROOT" && grep -lF "$ORDER_TEXT" -- \
-  AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD docs/voice.md pipeline/README.md 2>/dev/null || true)"
-order_count="$(printf '%s\n' "$order_owners" | grep -c . || true)"
-[ "$order_count" -eq 1 ] \
-  || { echo "$order_owners"; fail "the section order must be stated by exactly one active owner (found $order_count)"; }
-ok "section order is stated once ($(printf '%s\n' "$order_owners" | head -1))"
+order_owners="$(cd "$ROOT" && grep -lF "$ORDER_TEXT" -- AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD docs/voice.md pipeline/README.md 2>/dev/null || true)"
+order_count="$(printf '%s\\n' "$order_owners" | grep -c . || true)"
+[ "$order_count" -eq 1 ] || { echo "$order_owners"; fail "section order must have exactly one owner (found $order_count)"; }
+ok "canonical section order has one owner"
 
 section_rank() {
   case "$1" in
@@ -117,7 +84,7 @@ section_rank() {
     Experience) echo 2 ;;
     *Projects*) echo 3 ;;
     Education) echo 4 ;;
-    *Technical\ Skills*) echo 5 ;;
+    *Technical\\ Skills*) echo 5 ;;
     Certifications) echo 6 ;;
     *) echo 0 ;;
   esac
@@ -129,87 +96,61 @@ for mode in "${MODES[@]}"; do
     [ -n "$heading" ] || continue
     rank="$(section_rank "$heading")"
     [ "$rank" -ne 0 ] || fail "$mode base has a non-canonical section: $heading"
-    [ "$rank" -gt "$prev" ] || fail "$mode base sections are out of canonical order at: $heading"
+    [ "$rank" -gt "$prev" ] || fail "$mode base sections out of order at: $heading"
     prev="$rank"
   done < <(grep -E '^## ' "$base" | sed -E 's/^## +//')
 done
-ok "base resume sections follow the canonical order"
+ok "base sections follow canonical order"
 
-# --- example run: output contract, traceability, reproducibility (REQ-P1/P4/O5/T1/C1) ---
-# The example run demonstrates the whole path; older runs predate the contract.
 EXAMPLE="applications/SWE_MNC_2026-10"
 bash "$ROOT/pipeline/check_run.sh" "$ROOT/$EXAMPLE" || fail "example run violates the run contract"
-ok "example run meets the run contract"
+ok "example run meets run contract"
 
-# --- retirement: old pipeline surfaces and drifting twins must be gone ---
-test -e "$ROOT/PIPELINE.md" && fail "root PIPELINE.md should be retired"
-test -e "$ROOT/prompts" && fail "prompts/ should be retired"
+test ! -e "$ROOT/PIPELINE.md" || fail "retired PIPELINE.md exists"
+test ! -e "$ROOT/prompts" || fail "retired prompts/ exists"
 for mode in "${MODES[@]}"; do
-  test -e "$ROOT/versions/$mode/resume_SWE.md" && fail "$mode resume_SWE.md twin should be retired"
+  test ! -e "$ROOT/versions/$mode/resume_SWE.md" || fail "$mode resume_SWE twin remains"
 done
-ok "old pipeline surface and resume_SWE twins are retired"
+ok "retired pipeline twins are absent"
 
-# --- mode configs hold settings only (no restated identity) ---
-assert_absent "mode configs do not restate display name or headline" \
-  '^display_name:|^headline:' \
-  modes/referral.yaml modes/startup.yaml modes/mnc.yaml
+assert_absent "mode configs do not duplicate names/headlines" '^display_name:|^headline:' modes/referral.yaml modes/startup.yaml modes/mnc.yaml
+assert_absent "application inputs use mode, not track" '^track:' applications/_template/input.md applications/SWE_MNC_2026-10/input.md applications/SWE_Referral_2026-10/input.md applications/SWE_Startup_2026-10/input.md
 
-# --- run inputs use the mode vocabulary, not the retired 'track' ---
-assert_absent "application inputs use mode: not track:" \
-  '^track:' \
-  applications/_template/input.md applications/SWE_MNC_2026-10/input.md \
-  applications/SWE_Referral_2026-10/input.md applications/SWE_Startup_2026-10/input.md
-
-# --- no competing pipeline / obsolete modules in the active tree ---
 OBSOLETE=(engine MAP.md CONTEXT.md wayfinder docs/agent.md docs/gemini.md docs/END_TO_END_WORKFLOW.md)
 for o in "${OBSOLETE[@]}"; do
-  test -e "$ROOT/$o" && fail "obsolete module present in active tree: $o"
+  test ! -e "$ROOT/$o" || fail "obsolete module present in active tree: $o"
 done
-ok "no competing/obsolete modules in the active tree"
+ok "competing/obsolete modules are absent"
 
-# --- active docs: no removed-module references, workstation paths, or stale vocabulary ---
 ACTIVE_FILES=(
-  AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD
-  docs/voice.md
-  modes/referral.yaml modes/startup.yaml modes/mnc.yaml
-  templates/v3/resume.tex
+  AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD docs/voice.md
+  modes/referral.yaml modes/startup.yaml modes/mnc.yaml templates/v3/resume.tex
   versions/referral/_base.md versions/referral/resume.tex
   versions/startup/_base.md versions/startup/resume.tex
   versions/mnc/_base.md versions/mnc/resume.tex
 )
-assert_absent "active files do not reference removed modules" \
-  'engine/PROMPT|engine/RULES|pipeline/run\.md|pipeline/APPLY|pipeline/stages|CONTEXT\.md|MAP\.md|wayfinder|\bPIPELINE\.md|prompts/' \
-  "${ACTIVE_FILES[@]}"
-assert_absent "active files are portable" \
-  '[A-Za-z]:\\|/mnt/data|/home/|~/|\\\\[A-Za-z]' \
-  "${ACTIVE_FILES[@]}"
-assert_absent "active files contain no prior-application reference" \
-  'applications/[A-Za-z0-9]+_20[0-9][0-9]-' \
-  "${ACTIVE_FILES[@]}"
-assert_absent "active system uses current mode vocabulary" \
-  'versions/local|versions/midlevel|mid-level' \
-  "${ACTIVE_FILES[@]}"
+assert_absent "active files do not reference removed modules" 'engine/PROMPT|engine/RULES|pipeline/run\\.md|pipeline/APPLY|pipeline/stages|CONTEXT\\.md|MAP\\.md|wayfinder|\\bPIPELINE\\.md|prompts/' "${ACTIVE_FILES[@]}"
+assert_absent "active files are portable" '[A-Za-z]:\\\\|/mnt/data|/home/|~/|\\\\\\\\[A-Za-z]' "${ACTIVE_FILES[@]}"
+assert_absent "active files contain no prior-application references" 'applications/[A-Za-z0-9]+_20[0-9][0-9]-' "${ACTIVE_FILES[@]}"
+assert_absent "active system uses current mode vocabulary" 'versions/local|versions/midlevel|mid-level' "${ACTIVE_FILES[@]}"
+assert_absent "base resumes contain no deprecated CAD/enclosure framing" '3D-printed|custom CAD enclosure|custom CAD' versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md
+assert_absent "canonical template has no horizontal section rules" '\\\\hrule|\\\\titlerule' templates/v3/resume-openfont.cls
+assert_absent "canonical template contains no dummy content" 'Jane Doe|Anycompany|dummy-certification|Project 1|lorem ipsum' templates/v3
 
-# --- base resumes must not use the deprecated low-signal framing ---
-assert_absent "active base resumes contain no deprecated CAD/enclosure framing" \
-  '3D-printed|custom CAD enclosure|custom CAD' \
-  versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md
-
-# --- template integrity ---
-assert_absent "canonical template has no horizontal section rules" \
-  '\\hrule|\\titlerule' \
-  templates/v3/resume-openfont.cls
-
-assert_absent "canonical template contains no dummy content" \
-  'Jane Doe|Anycompany|dummy-certification|Project 1|lorem ipsum' \
-  templates/v3
-
-# --- no tracked build junk in active surfaces ---
-if git -C "$ROOT" ls-files templates/v3 versions/referral versions/startup versions/mnc pipeline modes | \
-   grep -E '\.(aux|log|out|synctex\.gz|fls|fdb_latexmk)$' >/tmp/resume-build-check 2>/dev/null; then
+if git -C "$ROOT" ls-files templates/v3 versions/referral versions/startup versions/mnc pipeline modes | grep -E '\\.(aux|log|out|synctex\\.gz|fls|fdb_latexmk)$' >/tmp/resume-build-check 2>/dev/null; then
   cat /tmp/resume-build-check
-  fail "tracked LaTeX build artifacts found in active surfaces"
+  fail "tracked LaTeX build artifacts found"
 fi
-ok "no tracked LaTeX build artifacts in active surfaces"
+ok "no tracked LaTeX build artifacts"
+
+# Resume prose and mode content must not contain em dashes. This check is intentionally
+# limited to rendered-content sources, not docs discussing the policy or Unicode examples.
+RESUME_CONTENT=(
+  versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md
+  applications/SWE_MNC_2026-10/output/resume.tex
+  applications/SWE_Referral_2026-10/output/resume.tex
+  applications/SWE_Startup_2026-10/output/resume.tex
+)
+assert_absent "resume content contains no em dashes" '—' "${RESUME_CONTENT[@]}"
 
 ok "repository resume contract passed"
