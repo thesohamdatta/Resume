@@ -44,11 +44,11 @@ expect_fail() { # <desc> <dir>
 
 # --- no em dash in actual resume content (voice rule) ---
 EMDASH="$WORK/resume-em-dash"; cp -a "$BASE" "$EMDASH"
-printf '\nVisible resume content with an em dash — must fail.\n' >> "$EMDASH/versions/referral/resume.tex"
-expect_fail "an em dash in visible LaTeX content is rejected" "$EMDASH"
+printf '\nPlain visible resume line — must fail.\n' >> "$EMDASH/versions/referral/_base.md"
+expect_fail "an em dash in visible resume content is rejected" "$EMDASH"
 
 DOCMDASH="$WORK/doc-em-dash"; cp -a "$BASE" "$DOCMDASH"
-printf '\n% An em dash in a LaTeX comment may remain.\n' >> "$DOCMDASH/versions/referral/resume.tex"
+printf '\n%% An em dash in a LaTeX comment may remain.\n' >> "$DOCMDASH/versions/referral/resume.tex"
 expect_pass "an em dash in a LaTeX comment does not fail resume-content validation" "$DOCMDASH"
 
 # --- case: clean repository passes ---
