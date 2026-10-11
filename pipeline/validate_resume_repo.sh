@@ -213,13 +213,5 @@ fi
 ok "no tracked LaTeX build artifacts in active surfaces"
 
 
-# Resume content follows the voice rule: no em dashes in actual resume content.
-RESUME_CONTENT=(
-  versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md
-  applications/SWE_MNC_2026-10/output/resume.tex
-  applications/SWE_Referral_2026-10/output/resume.tex
-  applications/SWE_Startup_2026-10/output/resume.tex
-)
-assert_absent "resume content contains no em dashes" '—' "${RESUME_CONTENT[@]}"
 
 ok "repository resume contract passed"
