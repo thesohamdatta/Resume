@@ -1,0 +1,46 @@
+                                            Soham Datta
+           Pune, India | thesohamdatta@gmail.com | +91 9420984066 | linkedin.com/in/thesohamdatta
+                                 github.com/thesohamdatta | sohamdatta.framer.ai
+AI Engineer Intern | AI Fluency, Data Analysis, Digital Tooling
+Final-year AI & ML undergraduate (B.E., expected Jun 2026) building LLM applications and agentic tooling that
+turn unstructured information into structured, reviewable output, with hands-on computer-vision and
+research-data work.
+Experience
+Founder, Aura                                                                            Jun 2026 – Present
+• Built an ESP32-S3 wearable AI system end to end: C/C++ firmware for 16 kHz I2S DMA audio capture, Opus
+  compression, FreeRTOS event handling, and OTA updates, plus FastAPI services for streaming audio,
+  memory/context extraction, and retrieval over a Supabase/pgvector vector store.
+• Adapted and extended Omi open-source components for knowledge-graph linking and speaker identification,
+  and ran a Kubernetes-hosted Deepgram ASR integration.
+AI/ML Intern, AICTE                                                                       Oct 2024 – Dec 2024
+• Built and evaluated on-device computer-vision workflows in TensorFlow, TensorFlow Lite, and Google ML Kit
+  for custom object detection (EfficientDet-Lite) and image classification on Android.
+Associate, Reliance                                                                       Jul 2024 – Oct 2024
+• Handled customer-service and store operations across POS, memberships, vouchers, and exchanges, keeping
+  daily documentation and reporting accurate and coordinating with managers and store teams.
+Research / Library Assistant, PES Modern College of Engineering                              Sep 2023 – Mar 2024
+• Supported literature discovery, research documentation, and digitization, organising 3,000+ pages of source
+  material into a searchable archive for students and staff.
+Projects
+Mia: AI Engineering CLI – TypeScript, Bun, LLM adapters, Vitest                         github.com/thesohamdatta/Mia
+• Built a TypeScript CLI that runs a five-stage AI engineering workflow (grill, spec, plan, review, ship) behind
+  multi-provider LLM adapters for Claude, Codex, and local models.
+• Kept state in an immutable JSONL event log and gated every stage with automated lint, type-check, and Vitest
+  checks, using stateless, event-driven execution (ADR-0001).
+LLM-Council: Multi-Model Evaluation Service – Python, FastAPI, React                  github.com/thesohamdatta/LLM-
+                                                                                                             Council
+• Built a Python FastAPI service and React client that query several LLM providers, then compare and
+  synthesize their answers through an Analyst, Skeptic, Synthesizer pipeline.
+Omi (Open Source): Wearable AI Platform – Contributor                               github.com/BasedHardware/omi
+• Authored offline speaker clustering with 52 unit tests (approach adopted downstream), and diagnosed a
+  Windows Electron/WebGL GPU issue in a filed root-cause report.
+Education
+Savitribai Phule Pune University (SPPU), B.E. in Artificial Intelligence & Machine                 2022 – Jun 2026
+Learning – Pune, India
+Technical Skills
+Languages: Python, TypeScript/JavaScript, Kotlin, C/C++
+AI & Data: LLM applications, AI agents, RAG, tool calling, multi-agent systems, computer vision, TensorFlow,
+TensorFlow Lite, PyTorch, Google ML Kit
+Digital Tools & Engineering: FastAPI, React, REST APIs, Kubernetes, Supabase/pgvector, Git/GitHub, Vitest,
+documentation and reporting
+

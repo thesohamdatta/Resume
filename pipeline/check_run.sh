@@ -38,9 +38,12 @@ for f in resume.tex extracted.txt audit.md; do
 done
 
 # The delivered resume must use a canonical template (REQ-C1).
-# Two canonical templates are accepted: the openfont class and the supplied
-# templates/v3/main.tex. A run may use either; neither may be forked per JD.
-grep -qE 'templates/v3/(resume-openfont|main\.tex)' "$run/output/resume.tex" \
+# Three templates are accepted: the openfont class, the supplied templates/v3/main.tex,
+# and the owner-supplied templates/main.tex (RenderCV theme). The last is admitted with a
+# recorded reason, as templates/v3/README.md requires: the repository owner directed a run to
+# build on it (applications/PwC_BusinessAI_Intern_2026-10/). A run may use one; none may be
+# forked per JD.
+grep -qE 'templates/v3/(resume-openfont|main\.tex)|templates/main\.tex' "$run/output/resume.tex" \
   || fail "output/resume.tex does not use a canonical template (REQ-C1)"
 
 # The extraction proof must read as a resume, not a stub (REQ-O5, REQ-V1).

@@ -1,0 +1,318 @@
+% Template: templates/main.tex (the user-supplied template for this run). Structure preserved; content tailored.
+% Target: PwC Acceleration Center India — Business AI Engineer - Intern - 2027.
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Soham Datta — Resume},
+    pdfauthor={Soham Datta},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.16 cm
+}{
+    % bottom space:
+    0.12 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Soham Datta
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{Pune, India}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{+91 9420984066}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/thesohamdatta/}{linkedin.com/in/thesohamdatta}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/thesohamdatta}{github.com/thesohamdatta}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://sohamdatta.framer.ai}{sohamdatta.framer.ai}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+    \begin{onecolentry}
+        {\small\bfseries AI Engineer Intern | AI Fluency, Data Analysis, Digital Tooling}
+    \end{onecolentry}
+
+    \vspace{0.05 cm}
+
+    \begin{onecolentry}
+        Final-year AI \& ML undergraduate (B.E., expected Jun 2026) building LLM applications and agentic tooling that turn unstructured information into structured, reviewable output, with hands-on computer-vision and research-data work.
+    \end{onecolentry}
+
+    \section{Experience}
+
+        \begin{twocolentry}{
+            Jun 2026 -- Present
+        }
+            \textbf{Founder}, Aura\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built an ESP32-S3 wearable AI system end to end: C/C++ firmware for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates, plus FastAPI services for streaming audio, memory/context extraction, and retrieval over a Supabase/pgvector vector store.
+                \item Adapted and extended Omi open-source components for knowledge-graph linking and speaker identification, and ran a Kubernetes-hosted Deepgram ASR integration.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{twocolentry}{
+            Oct 2024 -- Dec 2024
+        }
+            \textbf{AI/ML Intern}, AICTE\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built and evaluated on-device computer-vision workflows in TensorFlow, TensorFlow Lite, and Google ML Kit for custom object detection (Ef\mbox{f}icientDet-Lite) and image classification on Android.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{twocolentry}{
+            Jul 2024 -- Oct 2024
+        }
+            \textbf{Associate}, Reliance\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Handled customer-service and store operations across POS, memberships, vouchers, and exchanges, keeping daily documentation and reporting accurate and coordinating with managers and store teams.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{twocolentry}{
+            Sep 2023 -- Mar 2024
+        }
+            \textbf{Research / Library Assistant}, PES Modern College of Engineering\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Supported literature discovery, research documentation, and digitization, organising 3,000+ pages of source material into a searchable archive for students and staff.
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Projects}
+
+        \begin{twocolentry}{
+            {\footnotesize\href{https://github.com/thesohamdatta/Mia}{github.com/thesohamdatta/Mia}}
+        }
+            \textbf{Mia: AI Engineering CLI} -- TypeScript, Bun, LLM adapters, Vitest\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built a TypeScript CLI that runs a five-stage AI engineering workflow (grill, spec, plan, review, ship) behind multi-provider LLM adapters for Claude, Codex, and local models.
+                \item Kept state in an immutable JSONL event log and gated every stage with automated lint, type-check, and Vitest checks, using stateless, event-driven execution (ADR-0001).
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{twocolentry}{
+            {\footnotesize\href{https://github.com/thesohamdatta/LLM-Council}{github.com/thesohamdatta/LLM-Council}}
+        }
+            \textbf{LLM-Council: Multi-Model Evaluation Service} -- Python, FastAPI, React\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built a Python FastAPI service and React client that query several LLM providers, then compare and synthesize their answers through an Analyst, Skeptic, Synthesizer pipeline.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{twocolentry}{
+            {\footnotesize\href{https://github.com/BasedHardware/omi}{github.com/BasedHardware/omi}}
+        }
+            \textbf{Omi (Open Source): Wearable AI Platform} -- Contributor\end{twocolentry}
+
+        \vspace{0.06 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Authored offline speaker clustering with 52 unit tests (approach adopted downstream), and diagnosed a Windows Electron/WebGL GPU issue in a filed root-cause report.
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Education}
+
+        \begin{twocolentry}{
+            2022 -- Jun 2026
+        }
+            \textbf{Savitribai Phule Pune University (SPPU)}, B.E. in Artificial Intelligence \& Machine Learning -- Pune, India\end{twocolentry}
+
+    \section{Technical Skills}
+
+        \begin{onecolentry}
+            \textbf{Languages:} Python, TypeScript/JavaScript, Kotlin, C/C++
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{onecolentry}
+            \textbf{AI \& Data:} LLM applications, AI agents, RAG, tool calling, multi-agent systems, computer vision, TensorFlow, TensorFlow Lite, PyTorch, Google ML Kit
+        \end{onecolentry}
+
+        \vspace{0.12 cm}
+
+        \begin{onecolentry}
+            \textbf{Digital Tools \& Engineering:} FastAPI, React, REST APIs, Kubernetes, Supabase/pgvector, Git/GitHub, Vitest, documentation and reporting
+        \end{onecolentry}
+\end{document}
