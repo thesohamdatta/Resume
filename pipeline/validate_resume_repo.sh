@@ -219,6 +219,15 @@ RESUME_CONTENT=(
   applications/SWE_Referral_2026-10/output/resume.tex
   applications/SWE_Startup_2026-10/output/resume.tex
 )
-assert_absent "resume content contains no em dashes" '—' "${RESUME_CONTENT[@]}"
+# Ignore TeX comments and blank lines, so a descriptive source comment does not
+# invalidate visible resume content. Test actual content lines only.
+resume_text="$(cd "$ROOT" && sed 's/%.*$//' "${RESUME_CONTENT[@]}" | grep -vE '^[[:space:]]*
+
+ok "repository resume contract passed"
+ || true)"
+if printf '%s\\n' "$resume_text" | grep -n '—'; then
+  fail "resume content contains no em dashes"
+fi
+ok "resume content contains no em dashes"
 
 ok "repository resume contract passed"
