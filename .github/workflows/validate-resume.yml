@@ -24,6 +24,9 @@ jobs:
       - name: Validator contract tests
         run: bash pipeline/test_validate_contract.sh
 
+      - name: Verify voice punctuation invariant
+        run: grep -n 'em dashes' pipeline/validate_resume_repo.sh
+
   build-resumes:
     needs: validate
     runs-on: ubuntu-latest
