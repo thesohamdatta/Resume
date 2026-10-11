@@ -42,6 +42,14 @@ expect_fail() { # <desc> <dir>
   if [ "$r" != "exit=0" ]; then pass "$desc"; else fail "$desc (expected non-zero exit, got $r)"; fi
 }
 
+# --- no em dash in actual resume content (voice rule) ---
+EMDASH="$WORK/resume-em-dash"; cp -a "$BASE" "$EMDASH"
+printf '\nA resume sentence — must fail.\n' >> "$EMDASH/versions/referral/_base.md"
+expect_fail "an em dash in a base resume is rejected" "$EMDASH"
+
+DOCMDASH="$WORK/doc-em-dash"; cp -a "$BASE" "$DOCMDASH"
+printf '\nA documentation sentence — may remain.\n' >> "$DOCMDASH/README.md"
+expect_pass "an em dash in ordinary documentation does not fail resume-content validation" "$DOCMDASH"
 
 # --- case: clean repository passes ---
 CLEAN="$WORK/clean"; cp -a "$BASE" "$CLEAN"
