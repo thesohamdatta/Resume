@@ -47,8 +47,7 @@ EMDASH="$WORK/resume-em-dash"; cp -a "$BASE" "$EMDASH"
 printf '\\nA resume sentence — must fail.\\n' >> "$EMDASH/versions/referral/_base.md"
 expect_fail "an em dash in a base resume is rejected" "$EMDASH"
 
-# An em dash elsewhere in ordinary documentation is permitted. The check is scoped to
-# resume-content sources to avoid false positives from documentation that explains the rule.
+# Documentation can discuss the punctuation rule without causing false positives.
 DOCMDASH="$WORK/doc-em-dash"; cp -a "$BASE" "$DOCMDASH"
 printf '\\nA documentation sentence — may remain.\\n' >> "$DOCMDASH/README.md"
 expect_pass "an em dash in ordinary documentation does not fail resume-content validation" "$DOCMDASH"
