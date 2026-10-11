@@ -212,7 +212,8 @@ if git -C "$ROOT" ls-files templates/v3 versions/referral versions/startup versi
 fi
 ok "no tracked LaTeX build artifacts in active surfaces"
 
-# Resume content follows the voice rule: no em dashes in rendered-content sources.
+
+# Resume content follows the voice rule: no em dashes in actual resume content.
 RESUME_CONTENT=(
   versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md
   applications/SWE_MNC_2026-10/output/resume.tex
