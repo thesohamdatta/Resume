@@ -44,7 +44,7 @@ expect_fail() { # <desc> <dir>
 
 # --- no em dash in actual resume content (voice rule) ---
 EMDASH="$WORK/resume-em-dash"; cp -a "$BASE" "$EMDASH"
-printf '\n\\textbf{A visible resume sentence — must fail.}\\n' >> "$EMDASH/versions/referral/resume.tex"
+printf '\n\\textbf{A visible resume sentence — must fail.}\n' >> "$EMDASH/versions/referral/resume.tex"
 expect_fail "an em dash in visible LaTeX content is rejected" "$EMDASH"
 
 DOCMDASH="$WORK/doc-em-dash"; cp -a "$BASE" "$DOCMDASH"
