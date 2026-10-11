@@ -222,7 +222,7 @@ RESUME_CONTENT=(
 # Ignore TeX comments and blank lines, so comments can describe the source without
 # invalidating visible resume content.
 resume_text="$(cd "$ROOT" && sed 's/%.*$//' "${RESUME_CONTENT[@]}" | grep -vE '^[[:space:]]*$' || true)"
-if printf '%s\\n' "$resume_text" | grep -n '—'; then
+if printf '%s\n' "$resume_text" | grep -n '—'; then
   fail "resume content contains no em dashes"
 fi
 ok "resume content contains no em dashes"
