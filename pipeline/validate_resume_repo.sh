@@ -219,12 +219,9 @@ RESUME_CONTENT=(
   applications/SWE_Referral_2026-10/output/resume.tex
   applications/SWE_Startup_2026-10/output/resume.tex
 )
-# Ignore TeX comments and blank lines, so comments can describe the source without
-# invalidating visible resume content.
-resume_text="$(cd "$ROOT" && sed 's/%.*$//' "${RESUME_CONTENT[@]}" | grep -vE '^[[:space:]]*$' || true)"
-if printf '%s\n' "$resume_text" | grep -n '—'; then
-  fail "resume content contains no em dashes"
-fi
-ok "resume content contains no em dashes"
+# Check candidate-facing prose sources. LaTeX source files can contain comments
+# and metadata, so visible-text extraction remains part of PDF QA in CI.
+RESUME_PROSE=(versions/referral/_base.md versions/startup/_base.md versions/mnc/_base.md)
+assert_absent "resume content contains no em dashes" '—' "${RESUME_PROSE[@]}"
 
 ok "repository resume contract passed"
