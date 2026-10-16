@@ -56,6 +56,13 @@ AI engineer building practical systems across personal AI, wearable hardware, ag
 **B.E. Artificial Intelligence & Machine Learning**  
 Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
 
+## Certifications
+
+- [Claude Code in Action](https://verify.skilljar.com/c/5pfb8moqjmcm)
+- [AWS Educate: Machine Learning Foundations](https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38)
+- [AWS Educate: Generative AI](https://www.credly.com/earner/earned/badge/b3c25e65-bc43-4165-a169-25f12f222b7c)
+- [Google AI Essentials](https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85)
+
 ## Technical Skills
 
 **AI:** LLMs, AI Agents, RAG, Tool Calling, Computer Vision  
