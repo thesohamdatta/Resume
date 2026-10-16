@@ -27,6 +27,168 @@ education:
   location: "Pune, India"
   gpa: null
 
+
+# Credential inventory. Resume selection must use the official credential link where available.
+# The Notion record links preserve the candidate's personal source-of-truth inventory.
+# Include only credentials relevant to the target role; do not treat audits or in-progress study as certifications.
+credentials:
+  inventory_url: "https://melon-apparatus-f56.notion.site/2dc63de0cd3280eba665e6071fb41a11?v=2dc63de0cd3280489cff000c57cd205a"
+  completed:
+    - id: claude_code_in_action
+      name: "Claude Code in Action"
+      issuer: "Anthropic"
+      status: completed
+      credential_url: "https://verify.skilljar.com/c/5pfb8moqjmcm"
+      notion_url: "https://app.notion.com/p/30363de0cd3280e5a930ef1fe99877d1"
+      issued: "Feb 2026"
+      themes: [software_engineering, ai_tools]
+    - id: ai_fluency_framework
+      name: "AI Fluency Framework & Foundations"
+      issuer: "Anthropic"
+      status: completed
+      credential_url: "https://verify.skilljar.com/c/9w59qgep2zir"
+      notion_url: "https://app.notion.com/p/30363de0cd3280479cfae3e40e31355b"
+      issued: "Jan 2026"
+      themes: [ai_fluency, ai_tools]
+    - id: claude_101
+      name: "Claude 101"
+      issuer: "Anthropic"
+      status: completed
+      credential_url: "https://verify.skilljar.com/c/4wcktidccs9o"
+      notion_url: "https://app.notion.com/p/30363de0cd32803c8c1df27ac5acfe56"
+      issued: "Jan 2026"
+      themes: [ai_tools]
+    - id: aws_educate_generative_ai
+      name: "AWS Educate: Introduction to Generative AI"
+      issuer: "Amazon Web Services Training and Certification"
+      status: completed
+      credential_url: "https://www.credly.com/earner/earned/badge/b3c25e65-bc43-4165-a169-25f12f222b7c"
+      notion_url: "https://app.notion.com/p/2dc63de0cd32813a8751f41e70ebd01d"
+      issued: "2025-07-09"
+      themes: [generative_ai, cloud]
+    - id: aws_educate_machine_learning_foundations
+      name: "AWS Educate: Machine Learning Foundations"
+      issuer: "Amazon Web Services Training and Certification"
+      status: completed
+      credential_url: "https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38"
+      notion_url: "https://app.notion.com/p/2dc63de0cd328134a661d642d9c0dee7"
+      issued: "2025-07-09"
+      themes: [machine_learning, cloud]
+    - id: google_ai_essentials
+      name: "Google AI Essentials"
+      issuer: "Coursera"
+      status: completed
+      credential_url: "https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3281839cebdbeaabeb9601"
+      issued: "2025-01-20"
+      themes: [ai_foundations]
+    - id: introduction_to_generative_ai
+      name: "Introduction to Generative AI"
+      issuer: "Coursera"
+      status: completed
+      credential_url: "https://coursera.org/share/ac9229a4e720bcf71e8e1e970e1192a7"
+      notion_url: "https://app.notion.com/p/2dc63de0cd328134ba71efc8edff084b"
+      issued: "2024-04-19"
+      themes: [generative_ai]
+    - id: learning_how_to_learn
+      name: "Learning How to Learn"
+      issuer: "Coursera"
+      status: completed
+      credential_url: "https://coursera.org/share/a9559eb8ed1b34b946af3851955a7bf5"
+      notion_url: "https://app.notion.com/p/2dc63de0cd32819c842ee3e8fda2808a"
+      issued: "2024-07-18"
+      themes: [learning]
+    - id: efset_english_test
+      name: "EF SET English Test (90-minute)"
+      issuer: "EF SET"
+      status: completed
+      credential_url: "https://cert.efset.org/gEgqp3"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280f9b287e4dbd6fb6c44"
+      issued: "2025-06-30"
+      themes: [english]
+    - id: introducing_generative_ai_with_aws
+      name: "Introducing Generative AI with AWS"
+      issuer: "Udacity"
+      status: completed
+      credential_url: "https://www.udacity.com/certificate/e/4caf2a74-532a-11f0-b49a-a380b355eef5"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280c98a9dd0a29cc4e96e"
+      issued: "2025-07-12"
+      themes: [generative_ai, cloud]
+    - id: google_aicte_virtual_internship
+      name: "Google for Developers AI/ML Virtual Internship"
+      issuer: "AICTE / EduSkills, supported by Google for Developers"
+      status: completed
+      credential_url: "https://aictecert.eduskillsfoundation.org/pages/home/"
+      notion_url: "https://app.notion.com/p/2dc63de0cd32800b8ed5c3625cb6e64d"
+      issued: "2024-12-14"
+      duration: "10 weeks"
+      themes: [computer_vision, machine_learning]
+      constraints:
+        - "Virtual internship program; not employment at Google."
+        - "Use the generic certificate portal or personal Notion record as a link; do not imply the portal link is an individual public certificate URL."
+    - id: aws_cloud_practitioner_essentials
+      name: "AWS Cloud Practitioner Essentials"
+      issuer: "Amazon Web Services"
+      status: completed
+      credential_url: "https://drive.google.com/file/d/1zfOHFEjJBrmqx_KJsSGkCA9fhwt4M_3G/view?usp=sharing"
+      notion_url: "https://app.notion.com/p/2dc63de0cd328052ba55cc694c913bd7"
+      issued: "2025-01-03"
+      themes: [cloud, aws]
+    - id: foundations_of_prompt_engineering
+      name: "Foundations of Prompt Engineering"
+      issuer: "Amazon Web Services"
+      status: completed
+      credential_url: "https://drive.google.com/file/d/1I52SF9ckC_9EtvSTvf1uZvWmihHi8-5L/view?usp=sharing"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280539e05ce7e975a8ef6"
+      issued: "2024-12-28"
+      themes: [prompt_engineering, generative_ai]
+    - id: foundations_of_ux_design
+      name: "Foundations of User Experience (UX) Design"
+      issuer: "Coursera"
+      status: completed
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd3281fb9215d5c1dc084576"
+      issued: null
+      review_note: "Notion has no credential URL and its date field conflicts with the Completed status; confirm before adding to a resume."
+  learning:
+    - id: ielts_academic_test_preparation
+      name: "IELTS Academic Test Preparation"
+      issuer: "edX"
+      status: in_progress
+      progress_note: "about 60% complete as recorded in Notion"
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd328015a4cefa4730adee20"
+    - id: cs50_introduction_to_computer_science
+      name: "CS50's Introduction to Computer Science"
+      issuer: "HarvardX / edX"
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280bca3e0c8e7dcec7653"
+    - id: introduction_to_psychology
+      name: "Introduction to Psychology"
+      issuer: null
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/30863de0cd32807baa5dd1eb45b99d61"
+    - id: crash_course_psychology
+      name: "Crash Course Psychology"
+      issuer: "Crash Course"
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2f563de0cd328044a6f6d6689130b54a"
+    - id: ai_for_everyone
+      name: "AI for Everyone"
+      issuer: null
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280b1b70ffe7df2cb94d7"
+    - id: nvidia_deep_research_agent
+      name: "NVIDIA: A Deep Research Agent"
+      issuer: "NVIDIA Training"
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2f563de0cd328000af69e6d731ad31e1"
+
 experience:
   - id: aura
     title: "Founder"
