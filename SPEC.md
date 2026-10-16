@@ -60,7 +60,8 @@ The system uses these terms in a fixed sense. `AGENTS.md` owns naming; this file
 - **Candidate truth** — the verifiable facts about the candidate. It has exactly three parts,
   each with one owner:
   - **Fact** — a biographical or structural constant: name, contact, dates, titles, employers,
-    education, certifications, and the approved per-mode bullets. Owner: `data/facts.yaml`.
+    education, certifications, and candidate-confirmed experience/project facts. Owner: `data/facts.yaml`.
+    Pre-written per-mode bullets are presentation examples or legacy defaults, not immutable candidate facts.
   - **Evidence** — technical proof: repositories, file paths, algorithms, tests, issue and PR
     numbers. Owner: `content/github/evidence.md`.
   - **Boundary** — a claim, ownership, attribution, metric, or status limit: what must *not* be
@@ -172,6 +173,8 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   removed when it does not.
 - **REQ-C4** — The system MUST remain portable: no absolute workstation paths, no dependency on
   the author's history or local machine layout.
+
+ - **REQ-C5** — Experience and project facts MUST be stored independently of role-specific resume phrasing. A run MAY derive new wording from sourced facts, evidence, and the target role; it MUST NOT treat existing bullets as exhaustive or copy them mechanically.
 
 ### Verification
 
