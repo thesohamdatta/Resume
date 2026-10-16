@@ -421,7 +421,7 @@ experience_inventory:
       - "Reliance internal portal; exact product name unconfirmed"
       - "Microsoft Excel spreadsheets"
       - "POS billing systems"
-      - "SAP store-operation systems; exact modules and actions unconfirmed"
+      - "SAP; basic manager-trained inventory and billing tasks only"
     scope:
       - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
       - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
@@ -432,6 +432,7 @@ experience_inventory:
       - followed up to confirm resolution and recorded case information in a local database
       - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
       - downloaded relevant reports and shared product or inventory updates with brand managers
+      - used SAP for basic stock checks, product record entry or updates, and routine inventory/billing tasks after manager training
       - reported and helped address POS billing-system issues
     presentation_preferences:
       use_for:
@@ -449,6 +450,7 @@ experience_inventory:
         - emphasize ownership from complaint review through resolution and follow-up
         - emphasize ticket handling, cross-store coordination, brand escalation, case records, and operational reporting
         - mention Excel, POS, and SAP only in proportion to the tasks actually performed
+        - describe SAP as basic, manager-trained use; do not imply expertise
         - do not name the internal portal until its identity is confirmed
         - do not lead with daily customer volume
         - keep the official title Associate
