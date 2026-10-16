@@ -27,7 +27,7 @@ Read only the relevant evidence and research. Do not load archives or unrelated 
 
 ## Source ownership
 
-- Candidate facts: `data/facts.yaml`.
+- Candidate facts and flexible experience inventory: `data/facts.yaml` (`experience_inventory` holds evidence-first facts; per-mode `bullets` are legacy approved phrasing, not the only valid wording).
 - Technical proof: `content/github/evidence.md`.
 - Claim, attribution, ownership and status limits: `content/github/boundaries.md`.
 - Requirements: `SPEC.md`.
@@ -65,6 +65,14 @@ bash pipeline/check_run.sh applications/{Name}_{YYYY-MM}
 ```
 
 A run must have a traceable audit and the standard outputs listed in `pipeline/README.md`. Inspect the actual rendered PDF and extracted text. A failed fact, fit, readability, parsing or one-page gate blocks delivery.
+
+## Experience interview and data maintenance
+
+- Keep verified facts separate from resume wording. `experience_inventory` is a fact inventory, not a source of pre-written bullets.
+- Existing `experience[].bullets` and project `bullet` fields are examples/legacy presentation defaults. SELECT must be allowed to derive new wording from the evidence for the current JD; it must not copy them mechanically.
+- Never add an internship, project, date, title, result, certification, metric, or contribution from inference. Mark unknown fields as pending and ask the candidate.
+- Update `data/facts.yaml` only after candidate confirmation or source verification. Keep source links and attribution limits close to the facts.
+- Treat each virtual internship separately from employment and record the issuing program/platform accurately.
 
 ## Maintenance
 
