@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+        elif title == "Certifications":
+            output.extend([r"\\section{Certifications}", *render_certifications(body)])
 """Render the constrained mode-resume Markdown format into the shared LaTeX template."""
 
 from __future__ import annotations
@@ -181,6 +183,21 @@ def render_education(lines: list[str]) -> list[str]:
         raise ValueError("education institution line must end with '· dates'")
     institution, dates = (part.strip() for part in institution_line.rsplit("·", 1))
     return [r"\resumeEducation{" + tex_text(institution) + "}{" + tex_text(dates) + "}{" + tex_text(degree) + "}"]
+
+
+def render_certifications(lines: list[str]) -> list[str]:
+    """Render a compact set of linked credential names as a single ATS-readable paragraph."""
+    names: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if not stripped.startswith("- "):
+            raise ValueError(f"expected a certification bullet, got: {stripped}")
+        names.append(stripped[2:])
+    if not names:
+        return []
+    return [r"\\tightpar{" + tex_text(" · ".join(names)) + "}"]
 
 
 def render_skills(lines: list[str]) -> list[str]:
