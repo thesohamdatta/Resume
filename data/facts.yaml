@@ -409,15 +409,41 @@ experience_inventory:
     organisation: Reliance
     dates: "Jul 2024 – Oct 2024"
     facts_source: content/github/evidence.md
+    candidate_reported_volume:
+      customer_cases_per_typical_day: "approximately 30–40"
+      confidence: candidate_estimate
+      note: "Approximate personal workload recalled by the candidate; not a company-wide metric."
     scope:
-      - customer-service desk and follow-up
-      - POS, membership, voucher, and exchange workflows
-      - inventory/store support, reporting, and documentation
-      - coordination with managers and store teams
+      - customer-facing support for product and service issues
+      - reviewed customer complaints and tickets through Reliance's online portal
+      - replied to customer emails, updated ticket records, and closed tickets after follow-up
+      - called customers to understand issues and explain resolution steps
+      - supported returns, exchanges, refunds, memberships, coupons, redemption offers, and online billing issues
+      - helped identify and report POS billing-system issues
+      - escalated cases and shared updates with managers
+      - coordinated with the CSR team on complaint handling and process follow-through
+    presentation_preferences:
+      use_for:
+        - customer support
+        - customer experience
+        - customer success
+        - service operations
+        - business operations
+        - support operations
+      usually_omit_for:
+        - AI/ML engineering
+        - software engineering
+        - technical research roles when space is limited
+      framing:
+        - emphasize online ticket handling, customer communication, issue resolution, and escalation
+        - use the approximate 30–40 daily case volume only where relevant
+        - keep the official title Associate
+        - do not connect store revenue to the candidate's personal performance
     constraints:
       - preserve official title Associate
       - do not present as software engineering or advanced SAP administration
       - 50% improvement claim remains unverified
+      - do not invent resolution rates, satisfaction scores, revenue impact, or time savings
   - id: pes_research
     type: research_support
     title: Research / Library Assistant
