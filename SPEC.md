@@ -134,6 +134,8 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   designed < owned < architected. Open-source status MUST be preserved exactly: issue ≠
   implementation, proposal ≠ merge, approval ≠ merge, downstream adoption ≠ authorship,
   draft ≠ shipped.
+- **REQ-T5** — The agent MUST inspect relevant available source evidence before asking the
+  candidate to recall technical details.
 
 ### Pipeline
 
@@ -144,6 +146,8 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   company brand or a generic job title.
 - **REQ-P4** — A new job description MUST require only a new `input.md`. No step, prompt, or
   file may be added per JD or per company.
+- **REQ-P5** — Repository investigation MUST be targeted to likely relevant projects and
+  MUST use available source, commit, issue/PR, test, and CI evidence before candidate questions.
 
 ### Output
 
@@ -175,6 +179,7 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   the author's history or local machine layout.
 
 - **REQ-C5** — Experience and project facts MUST be stored independently of role-specific resume phrasing. A run MAY derive new wording from sourced facts, evidence, and the target role; it MUST NOT treat existing bullets as exhaustive or copy them mechanically.
+- **REQ-C6** — Retrieved information MUST be distilled to relevant findings with direct source pointers, not dumped raw into active context.
 
 ### Verification
 
