@@ -5,7 +5,7 @@ Mode: `mnc` · Display name: Soham Datta
 Target role: entry-level Software Engineer / SDE / SWE intern at MNC tech companies
 Primary domain: Backend/Platform (SWE); AI/ML secondary
 Output depth: D2, selective D3 in Aura (firmware/services) and Mia (verification gates)
-Template: `templates/v3/resume-openfont.cls` (canonical structure preserved, content only)
+Template: `templates/1/resume.cls` (shared class; approved Lato layout preserved)
 
 ## Selected evidence
 

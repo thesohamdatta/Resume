@@ -145,7 +145,4 @@ funding, revenue, awards, publications, certification status, research findings,
 improvements, production status, ownership, deployment status. When a missing fact materially
 changes domain, depth, ownership, dates, scope, or certification status, stop and ask.
 
-## Master principle
 
-Do not make the candidate sound better than they are. Make the reader see more clearly how good
-the evidence already is.

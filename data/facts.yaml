@@ -7,6 +7,7 @@ personal:
   referral_name: "Soham Karande"
   location: "Pune, India"
   email: "thesohamdatta@gmail.com"
+  phone: "+91 94209 84066"
   links:
     linkedin: "https://www.linkedin.com/in/thesohamdatta/"
     github: "https://github.com/thesohamdatta"
@@ -70,9 +71,9 @@ experience:
         - "Designed and iterated its physical enclosure and wearable form factor, connecting the device to AI and backend services."
         - "Adapted and extended Omi ecosystem components while contributing software and open-source engineering work."
       mnc:
-        - "Built and integrated an ESP32-S3 wearable system with 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA firmware support."
-        - "Adapted Omi-based software/backend components for streaming audio, memory/context processing, knowledge-graph functionality, speaker identification, and AI integrations."
-        - "Diagnosed and contributed technical fixes/design work across the wearable software stack and Omi open-source ecosystem."
+        - "Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates."
+        - "Adapted Omi software components for streaming audio, context extraction, knowledge-graph links, speaker identification, and AI integrations."
+        - "Connected wearable audio and image capture to backend workflows for transcription, vision analysis, AI chat, and searchable memory."
 
   - id: aicte_internship
     title: "AI/ML Intern"
@@ -99,7 +100,7 @@ experience:
       startup:
         - "Built hands-on computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference."
       mnc:
-        - "Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference."
+        - "Built computer-vision workflows for object detection and image classification, integrating TensorFlow Lite models with Android inference."
 
   - id: reliance
     title: "Associate"
@@ -124,7 +125,7 @@ experience:
       startup:
         - "Managed customer-service, POS, membership, voucher, exchange, documentation, and daily follow-up workflows."
       mnc:
-        - "Handled customer-service, POS, membership, voucher, exchange, documentation, and reporting workflows while coordinating with managers and store teams."
+        - "Supported customer-service, POS, membership, voucher, exchange, and reporting workflows with store teams."
 
   - id: pes_research
     title: "Research / Library Assistant"
@@ -153,7 +154,7 @@ experience:
       startup:
         - "Supported research and digital-library workflows across literature discovery, documentation, digitization, and organisation of academic resources."
       mnc:
-        - "Supported literature discovery, research documentation, digitization, archive organisation, and student access to digital learning resources."
+        - "Supported research documentation, literature discovery, and digitization; organized 3,000+ pages of archive material."
 
 projects:
   - id: mia
@@ -178,7 +179,7 @@ projects:
       - "Immutable JSONL state tracking"
       - "Automated lint, typecheck, and Vitest verification gates"
       - "Stateless event-driven execution after ADR-0001"
-    bullet: "Built a local-first TypeScript CLI around explicit AI engineering workflows with model adapters, verification gates, and immutable JSONL state."
+    bullet: "Built a CLI for staged AI-assisted engineering workflows, with model adapters, append-only JSONL state, and lint, typecheck, and test gates."
 
   - id: llm_council
     title: "LLM-Council · Multi-Model Consensus Engine"
@@ -197,7 +198,7 @@ projects:
       - "Multiple LLM providers"
       - "Analyst → Skeptic → Synthesizer pipeline"
       - "Response comparison and synthesis"
-    bullet: "Built a multi-model evaluation workflow using an Analyst → Skeptic → Synthesizer pipeline to compare and synthesize LLM responses."
+    bullet: "Built a multi-model response workflow with Analyst, Skeptic, and Synthesizer stages to compare and combine LLM outputs."
 
   - id: john
     title: "John · Android Voice Client"
@@ -220,7 +221,7 @@ projects:
       - "Android LiveKit client"
       - "Python LiveKit agent"
       - "Tool calling"
-    bullet: "Built an Android voice client connected to a Python LiveKit agent for realtime interaction and tool calling."
+    bullet: "Connected an Android client to a Python LiveKit agent over WebRTC, with voice interaction and tool-calling handlers for calendar and task actions."
 
   - id: voice_ai
     title: "Voice AI Systems"

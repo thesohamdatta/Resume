@@ -194,7 +194,7 @@ expect_fail "a run missing an output artifact is rejected" "$MISSING"
 
 # A run whose resume.tex does not use the canonical template is rejected (REQ-C1).
 BADTEX="$WORK/run-badtex"; cp -a "$BASE" "$BADTEX"
-sed -i 's#\\documentclass{\.\./\.\./\.\./templates/v3/resume-openfont}#\\documentclass{article}#' \
+sed -i 's#\documentclass{../../../templates/1/resume}#\documentclass{article}#' \
   "$BADTEX/$RUN/output/resume.tex"
 expect_fail "a run not using the canonical template is rejected" "$BADTEX"
 

@@ -1,15 +1,16 @@
-\documentclass{../../../templates/v3/resume-openfont}
+\documentclass{../../../templates/1/resume}
 
 % SWE (MNC) v1 — Software Engineer, entry level.
-% Canonical v3 template structure preserved. Content only.
+% Template 1 shared class; this file contains application-specific resume content.
 \begin{document}
 
-\resumeHeader{Soham Datta}{Pune, India}{\href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} | +91 9420984066 | \href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
+\resumeHeader{Soham Datta}{Pune, India}{\href{mailto:thesohamdatta@gmail.com}{thesohamdatta@gmail.com} | +91 94209 84066}{\href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
 
 {\small\bfseries Software Engineer | Backend / Platform | AI Systems}\par\vspace{2pt}
 \tightpar{Software engineer building tested backend services and developer tooling in Python and TypeScript, with C/C++ firmware experience on an ESP32-S3 wearable.}
 
 \section{Experience}
+
 \resumeRole{Aura}{Founder}{Jun 2026 -- Present}{Wearable AI System | Python, TypeScript, C/C++ | Under Development}
 \begin{resumeitemize}
 \item Implemented ESP32-S3 firmware in C/C++: 16 kHz I2S DMA audio capture, on-device Opus compression, FreeRTOS tasks, and OTA updates.
@@ -33,6 +34,12 @@
 \end{resumeitemize}
 
 \section{Projects}
+
+\resumeProject{Omi: Offline speaker clustering}{\href{https://github.com/BasedHardware/omi}{GitHub}}{Agglomerative hierarchical clustering | SciPy cosine linkage}
+\begin{resumeitemize}
+\item Authored an offline speaker-clustering implementation using agglomerative hierarchical clustering and SciPy cosine linkage, with 52 tests, in a closed unmerged PR; its approach was later adopted downstream.
+\end{resumeitemize}
+
 \resumeProject{Mia: AI Engineering CLI}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}{TypeScript | Bun | Vitest | JSONL}
 \begin{resumeitemize}
 \item Built a TypeScript CLI on Bun running a five-stage engineering workflow (grill, spec, plan, review, ship) with structured skill executors and multi-provider LLM adapters for Claude, Codex, and local models.
@@ -50,9 +57,11 @@
 \end{resumeitemize}
 
 \section{Education}
+
 \resumeEducation{Savitribai Phule Pune University (SPPU)}{2022 -- Jun 2026}{B.E. in Artificial Intelligence \& Machine Learning | Pune, India}
 
 \section{Technical Skills}
+
 \resumeSkills{Languages:}{Python, TypeScript/JavaScript, C/C++, Kotlin}
 \resumeSkills{Backend \& APIs:}{FastAPI, REST APIs, WebSockets, MCP (Model Context Protocol)}
 \resumeSkills{Testing \& Foundations:}{Git/GitHub, Vitest, unit testing, Data Structures \& Algorithms, debugging}

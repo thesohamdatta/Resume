@@ -2,7 +2,7 @@
 
 **AI Engineer · Personal AI · Wearable Systems**
 
-Pune, India · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub](https://github.com/thesohamdatta) · [Portfolio](https://sohamdatta.framer.ai)
+Pune, India · thesohamdatta@gmail.com · +91 94209 84066 · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub](https://github.com/thesohamdatta) · [Portfolio](https://sohamdatta.framer.ai)
 
 ## Summary
 
@@ -10,25 +10,25 @@ AI engineer building practical systems across personal AI, wearable hardware, ag
 
 ## Experience
 
-### Founder · Aura
+### Aura · Founder
 **Jun 2026 – Present** | Wearable AI · Embedded Systems · Open Source
 
 - Built Aura, a wearable AI system across hardware, firmware, software, and AI integrations.
 - Designed and iterated its physical enclosure and wearable form factor, connecting the device to AI and backend services.
 - Adapted and extended Omi ecosystem components while contributing software and open-source engineering work.
 
-### AI/ML Intern · AICTE
+### AICTE · AI/ML Intern
 **Oct 2024 – Dec 2024** | 10-week AICTE program
 
 - Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 
-### Associate · Reliance
-**Jul 2024 – Oct 2024**
+### Reliance · Associate
+**Jul 2024 – Oct 2024** | Customer Operations
 
 - Managed customer-service, POS, membership, voucher, exchange, documentation, and follow-up workflows.
 
-### Research / Library Assistant · PES Modern College
-**Sep 2023 – Mar 2024**
+### PES Modern College · Research / Library Assistant
+**Sep 2023 – Mar 2024** | Research Support · Digital Library
 
 - Supported research and digital-library workflows across literature discovery, documentation, digitization, and organisation of academic resources.
 
@@ -45,7 +45,7 @@ AI engineer building practical systems across personal AI, wearable hardware, ag
 
 - Built and tested realtime voice-agent systems across streaming audio, VAD, STT, TTS, and tool calling.
 
-### LLM-Council
+### LLM-Council · Multi-Model Evaluation
 **Python · FastAPI · React/Vite · OpenRouter**  
 [GitHub](https://github.com/thesohamdatta/LLM-Council)
 

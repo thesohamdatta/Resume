@@ -45,7 +45,7 @@ jobs:
           set -euo pipefail
           mkdir -p /tmp/resume-artifacts
           for mode in referral startup mnc; do
-            pdf="versions/$mode/resume.pdf"
+            pdf="/tmp/resume-base-build/$mode/resume.pdf"
             test -s "$pdf"
             pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
             test "$pages" = "1"
@@ -59,11 +59,12 @@ jobs:
         run: |
           set -euo pipefail
           run=applications/SWE_MNC_2026-10/output
-          ( cd "$run" && for _ in 1 2; do xelatex -interaction=nonstopmode -halt-on-error resume.tex; done )
-          test -s "$run/resume.pdf"
-          pages="$(pdfinfo "$run/resume.pdf" | awk '/^Pages:/ {print $2}')"
+          mkdir -p /tmp/resume-base-build/application
+          ( cd "$run" && for _ in 1 2; do xelatex -output-directory=/tmp/resume-base-build/application -interaction=nonstopmode -halt-on-error resume.tex; done )
+          test -s /tmp/resume-base-build/application/resume.pdf
+          pages="$(pdfinfo /tmp/resume-base-build/application/resume.pdf | awk '/^Pages:/ {print $2}')"
           test "$pages" = "1"
-          pdftotext -layout "$run/resume.pdf" /tmp/resume-artifacts/run.txt
+          pdftotext -layout /tmp/resume-base-build/application/resume.pdf /tmp/resume-artifacts/run.txt
           grep -q "Soham" /tmp/resume-artifacts/run.txt
 
       - name: Upload resume QA artifacts
@@ -71,9 +72,9 @@ jobs:
         with:
           name: resume-qa
           path: |
-            versions/referral/resume.pdf
-            versions/startup/resume.pdf
-            versions/mnc/resume.pdf
-            applications/SWE_MNC_2026-10/output/resume.pdf
+            /tmp/resume-base-build/referral/resume.pdf
+            /tmp/resume-base-build/startup/resume.pdf
+            /tmp/resume-base-build/mnc/resume.pdf
+            /tmp/resume-base-build/application/resume.pdf
             /tmp/resume-artifacts/*.txt
             /tmp/resume-artifacts/*.png

@@ -29,12 +29,16 @@ Modes: `startup`, `mnc`, `referral`. A mode changes emphasis and selection; it n
 | Claim and ownership limits | `content/github/boundaries.md` |
 | Voice and language | `docs/voice.md` |
 | Hard resume constraints | `DONT.MD` |
-| Mode settings and base content | `modes/{mode}.yaml`, `versions/{mode}/_base.md` |
-| Canonical visual template | `templates/v3/` |
+| Mode settings and editable base content | `modes/{mode}.yaml`, `versions/{mode}/_base.md` |
+| Generated mode TeX | `pipeline/render_mode.py` → `versions/{mode}/resume.tex` |
+| Canonical visual template | `templates/1/` |
 | Application input and output | `applications/{Name}_{YYYY-MM}/` |
 | External research, not candidate facts | `research/` |
 | Durable lessons | `memory/lessons.md` |
 | Historical material | `archive/` |
+
+Folder guides: [applications](applications/README.md), [research](research/README.md),
+[archive](archive/README.md), and [mode versions](versions/README.md).
 
 Each rule and each candidate fact should have one authoritative owner. Link to that owner rather than copying content into another file.
 

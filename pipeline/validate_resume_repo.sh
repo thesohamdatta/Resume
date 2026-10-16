@@ -5,6 +5,14 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 fail() { echo "FAIL: $*" >&2; exit 1; }
 ok() { echo "PASS: $*"; }
 
+PY=""
+if command -v python3 >/dev/null 2>&1 && python3 -c 'import sys' 2>/dev/null; then
+  PY=python3
+elif command -v python >/dev/null 2>&1 && python -c 'import sys' 2>/dev/null; then
+  PY=python
+fi
+[ -n "$PY" ] || fail "no working Python interpreter found"
+
 # Fail if a pattern matches any of the given files (paths relative to $ROOT).
 assert_absent() {
   local desc="$1" pattern="$2"; shift 2
@@ -31,8 +39,8 @@ CANON=(
   modes/referral.yaml
   modes/startup.yaml
   modes/mnc.yaml
-  templates/v3/resume-openfont.cls
-  templates/v3/resume.tex
+  templates/1/resume.cls
+  pipeline/render_mode.py
   pipeline/check_run.sh
   pipeline/check_audit.py
   pipeline/check_metrics.py
@@ -84,11 +92,12 @@ for mode in "${MODES[@]}"; do
   test -f "$ROOT/modes/$mode.yaml" || fail "missing mode config: $mode"
   test -f "$ROOT/versions/$mode/_base.md" || fail "missing $mode base"
   test -f "$ROOT/versions/$mode/resume.tex" || fail "missing $mode resume.tex"
-  grep -qF '\documentclass{../../templates/v3/resume-openfont}' "$ROOT/versions/$mode/resume.tex" \
+  grep -qF '\documentclass{../../templates/1/resume}' "$ROOT/versions/$mode/resume.tex" \
     || fail "$mode does not use the canonical template"
+  "$PY" "$ROOT/pipeline/render_mode.py" "$mode" --check || fail "$mode generated TeX is stale"
   grep -qE '^name_key:' "$ROOT/modes/$mode.yaml" || fail "$mode config missing name_key"
 done
-ok "all three modes have a config, a base, and use templates/v3"
+ok "all three modes have a config, a canonical Markdown source, current generated TeX, and use templates/1"
 
 # --- modes are exactly the canonical three (REQ-P2) ---
 expected_modes="$(printf '%s\n' "${MODES[@]}" | sort)"
@@ -172,7 +181,7 @@ ACTIVE_FILES=(
   AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD
   docs/voice.md
   modes/referral.yaml modes/startup.yaml modes/mnc.yaml
-  templates/v3/resume.tex
+  templates/1/resume.cls
   versions/referral/_base.md versions/referral/resume.tex
   versions/startup/_base.md versions/startup/resume.tex
   versions/mnc/_base.md versions/mnc/resume.tex
@@ -198,14 +207,14 @@ assert_absent "active base resumes contain no deprecated CAD/enclosure framing" 
 # --- template integrity ---
 assert_absent "canonical template has no horizontal section rules" \
   '\\hrule|\\titlerule' \
-  templates/v3/resume-openfont.cls
+  templates/1/resume.cls
 
 assert_absent "canonical template contains no dummy content" \
   'Jane Doe|Anycompany|dummy-certification|Project 1|lorem ipsum' \
-  templates/v3
+  templates/1
 
 # --- no tracked build junk in active surfaces ---
-if git -C "$ROOT" ls-files templates/v3 versions/referral versions/startup versions/mnc pipeline modes | \
+if git -C "$ROOT" ls-files templates/1 versions/referral versions/startup versions/mnc pipeline modes | \
    grep -E '\.(aux|log|out|synctex\.gz|fls|fdb_latexmk)$' >/tmp/resume-build-check 2>/dev/null; then
   cat /tmp/resume-build-check
   fail "tracked LaTeX build artifacts found in active surfaces"

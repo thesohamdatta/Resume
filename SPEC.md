@@ -106,8 +106,9 @@ lens. Nothing else changes between runs.
 | Evidence | technical proof | `content/github/evidence.md` |
 | Boundaries | claim / ownership / status limits | `content/github/boundaries.md` |
 | Modes | per-mode settings | `modes/{mode}.yaml` |
-| Bases | per-mode content | `versions/{mode}/_base.md` |
-| Template | the only visual foundation | `templates/v3/` |
+| Bases | per-mode editable content | `versions/{mode}/_base.md` |
+| Base renderer | generated TeX from the constrained Markdown format | `pipeline/render_mode.py` |
+| Template | the only visual foundation | `templates/1/` |
 | Runs | per-application input and output | `applications/{Name}_{YYYY-MM}/` |
 | Checks | deterministic repository validation | `pipeline/validate_resume_repo.sh` |
 | Lessons | durable, evidence-backed learnings | `memory/lessons.md` |
@@ -227,6 +228,10 @@ trade-off. Decisions that meet fewer than three live only in the conversation.
   is code: the repository contract, the build, the page count, the extraction test. Prose
   carries only what needs judgment. Trade-off: the prose still governs the parts a script cannot
   reach, so it must stay short.
+- **ADR-8 — Markdown is the editable mode source; TeX is generated.**
+  `versions/{mode}/_base.md` owns mode content. `pipeline/render_mode.py` produces
+  `versions/{mode}/resume.tex`, and validation rejects stale generated TeX. Trade-off: mode
+  content follows a small supported Markdown format instead of arbitrary LaTeX.
 
 ## 8. Context engineering
 
@@ -328,8 +333,9 @@ docs/voice.md          language and tone
 data/facts.yaml        candidate facts
 content/github/        evidence.md, boundaries.md, and related proof
 modes/{mode}.yaml      per-mode settings
-versions/{mode}/       per-mode base content and rendered base
-templates/v3/          the only visual template
+versions/{mode}/       per-mode content source and generated TeX
+pipeline/render_mode.py deterministic Markdown-to-LaTeX renderer for mode bases
+templates/1/          the only visual template
 pipeline/              workflow, validation, build
 applications/          per-run inputs and outputs
 research/              external research (never candidate facts)
@@ -342,6 +348,7 @@ archive/               history only
 The system grows by configuration and by deletion, not by accretion.
 
 - **A new mode** — add `modes/{mode}.yaml` and `versions/{mode}/_base.md`. Do not add a stage.
+- Regenerate `versions/{mode}/resume.tex` from its Markdown source; never edit generated TeX.
 - **A new evidence source** — add it to the truth layer it belongs to and let the read order
   pick it up. Do not create a parallel truth file.
 - **A new rule** — add it only when it solves a demonstrated failure, and give it one owner.

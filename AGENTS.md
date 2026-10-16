@@ -35,7 +35,7 @@ Read only the relevant evidence and research. Do not load archives or unrelated 
 - Resume rules and hard failures: `RESUME_RULES.md` and `DONT.MD`.
 - Voice: `docs/voice.md`.
 - Mode settings: `modes/{mode}.yaml`.
-- Template: `templates/v3/`.
+- Template: `templates/1/`.
 - Application input/output: `applications/{Name}_{YYYY-MM}/`.
 
 One owner per rule or fact. Link to existing sources rather than copying them into new files.

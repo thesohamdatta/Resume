@@ -13,6 +13,26 @@ run="${1:-}"
 [ -d "$run" ] || { echo "FAIL: $run: not a directory" >&2; exit 1; }
 fail() { echo "FAIL: $run: $*" >&2; exit 1; }
 
+# Resolve a working Python interpreter (python3 on CI, `python` on this Windows host).
+PY=""
+if command -v python3 >/dev/null 2>&1 && python3 -c 'import sys' 2>/dev/null; then
+  PY=python3
+elif command -v python >/dev/null 2>&1 && python -c 'import sys' 2>/dev/null; then
+  PY=python
+fi
+[ -n "$PY" ] || fail "no working Python interpreter found (REQ-V1)"
+
+# Resolve paths in Bash first. Convert them for native Windows Python when this
+# script runs under MSYS; keep POSIX paths on Linux and other Unix hosts.
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+RUN_DIR="$(cd "$run" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+if command -v cygpath >/dev/null 2>&1; then
+  SCRIPT_DIR="$(cygpath -w "$SCRIPT_DIR")"
+  RUN_DIR="$(cygpath -w "$RUN_DIR")"
+  ROOT_DIR="$(cygpath -w "$ROOT_DIR")"
+fi
+
 input="$run/input.md"
 [ -f "$input" ] || fail "missing input.md (the only file a run requires) (REQ-P1)"
 
@@ -37,11 +57,9 @@ for f in resume.tex extracted.txt audit.md; do
   [ -f "$run/output/$f" ] || fail "output/ is missing $f (REQ-O5)"
 done
 
-# The delivered resume must use a canonical template (REQ-C1).
-# Two canonical templates are accepted: the openfont class and the supplied
-# templates/v3/main.tex. A run may use either; neither may be forked per JD.
-grep -qE 'templates/v3/(resume-openfont|main\.tex)' "$run/output/resume.tex" \
-  || fail "output/resume.tex does not use a canonical template (REQ-C1)"
+# The delivered resume must use the shared canonical template (REQ-O3).
+grep -qE 'templates/1/resume' "$run/output/resume.tex" \
+  || fail "output/resume.tex does not use the canonical template (REQ-O3)"
 
 # The extraction proof must read as a resume, not a stub (REQ-O5, REQ-V1).
 extract="$run/output/extracted.txt"
@@ -53,12 +71,12 @@ grep -q '@' "$extract" \
   || fail "output/extracted.txt has no contact info; not a resume (REQ-O5)"
 
 # The trace must be checkable (REQ-T1).
-python3 "$(dirname "$0")/check_audit.py" "$run/output/audit.md" >/dev/null \
+$PY "$SCRIPT_DIR/check_audit.py" "$RUN_DIR/output/audit.md" >/dev/null \
   || fail "output/audit.md is not traceable (REQ-T1)"
 
 # No invented metric: a number the resume cannot support is worse than no number (REQ-T2).
-python3 "$(dirname "$0")/check_metrics.py" \
-  "$(dirname "$0")/../data/facts.yaml" "$run/output/resume.tex" \
+$PY "$SCRIPT_DIR/check_metrics.py" \
+  "$ROOT_DIR/data/facts.yaml" "$RUN_DIR/output/resume.tex" \
   || fail "output/resume.tex states an unverified metric (REQ-T2)"
 
 # The run records its quality, not just its trace (REQ-O5). Each affirmation must be

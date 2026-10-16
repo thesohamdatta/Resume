@@ -4,7 +4,7 @@ company: Generic MNC Tech
 mode: mnc
 role: Software Engineer / Software Engineer Intern / New-Grad SDE (entry level)
 run_folder: applications/SWE_MNC_2026-10/
-template: templates/v3/resume-openfont.cls  (canonical; RenderCV theme as visual reference)
+template: templates/1/resume.cls  (canonical)
 
 ## Target
 
