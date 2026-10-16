@@ -234,6 +234,8 @@ def render_mode(mode: str) -> str:
             output.extend([r"\section{Education}", *render_education(body)])
         elif title == "Technical Skills":
             output.extend([r"\section{Technical Skills}", *render_skills(body)])
+        elif title == "Certifications":
+            output.extend([r"\section{Certifications}", *render_certifications(body)])
         else:
             raise ValueError(f"unsupported mode section: {title}")
     output.extend([r"\end{document}", ""])
