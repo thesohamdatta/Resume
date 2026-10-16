@@ -351,6 +351,91 @@ open_source:
     - "Authored Markdown export specification in Issue #12360; draft PR #12927 was not merged."
     - "PR #7379 security hardening and PR #7654 web refactor received maintainer approval but closed unmerged."
 
+# Experience inventory (evidence-first; items are not resume bullets).
+# Keep candidate facts here; tailor wording at selection/render time.
+# Unknown fields are intentionally omitted until confirmed by the candidate.
+experience_inventory:
+  - id: aura
+    type: founder_project
+    title: Founder
+    organisation: Aura
+    dates: "Jun 2026 – Present"
+    current_status: under_development
+    facts_source: content/github/evidence.md
+    attribution: independent_project_with_adapted_omi_components
+    scope:
+      - wearable AI pendant and Android companion app
+      - ESP32-S3 C/C++ firmware
+      - 16 kHz I2S DMA audio capture and Opus compression
+      - FreeRTOS event handling and OTA support
+      - custom CAD and 3D-printed enclosure
+      - integration with existing Omi ecosystem software
+      - FastAPI backend components for audio, memory/context, and AI workflows
+    constraints:
+      - no verified customers, revenue, funding, user traction, or production scale
+      - no measured battery, latency, accuracy, or performance claims
+      - do not claim the Omi backend was built from scratch
+  - id: aicte_internship
+    type: virtual_internship
+    title: AI/ML Intern
+    organisation: AICTE internship program
+    dates: "Oct 2024 – Dec 2024"
+    duration: "10 weeks"
+    facts_source: content/github/evidence.md
+    scope:
+      - computer vision
+      - TensorFlow and TensorFlow Lite
+      - Google ML Kit and Android inference
+      - custom object detection, tracking, and image classification
+    constraints:
+      - not employment at Google
+      - no verified accuracy, mAP, dataset size, latency, or production deployment
+  - id: reliance
+    type: employment
+    title: Associate
+    organisation: Reliance
+    dates: "Jul 2024 – Oct 2024"
+    facts_source: content/github/evidence.md
+    scope:
+      - customer-service desk and follow-up
+      - POS, membership, voucher, and exchange workflows
+      - inventory/store support, reporting, and documentation
+      - coordination with managers and store teams
+    constraints:
+      - preserve official title Associate
+      - do not present as software engineering or advanced SAP administration
+      - 50% improvement claim remains unverified
+  - id: pes_research
+    type: research_support
+    title: Research / Library Assistant
+    organisation: Progressive Education Society's Modern College of Engineering
+    dates: "Sep 2023 – Mar 2024"
+    facts_source: content/github/experience_ps_modern_institute.md
+    scope:
+      - literature and academic resource discovery
+      - digital-library research and resource support
+      - digitisation and organisation of 3000+ pages of material
+      - research documentation, LaTeX, DELNET, and OPAC
+      - student-facing digital-learning support
+    constraints:
+      - role was support work under professor/librarian review
+      - do not claim sole authorship of professor-led work
+      - no verified student, workshop, reach, or learning-outcome metrics
+  - id: virtual_internship_2
+    type: virtual_internship
+    status: selected_details_pending
+    organisation: null
+    title: null
+    dates: null
+    scope: []
+  - id: virtual_internship_3
+    type: virtual_internship
+    status: selected_details_pending
+    organisation: null
+    title: null
+    dates: null
+    scope: []
+
 certifications:
   verified:
     - "Claude 101 — Anthropic Education"
