@@ -89,25 +89,34 @@ No accepted evidence for exact accuracy, mAP, dataset size, latency, or producti
 
 Repository: https://github.com/BasedHardware/omi
 
-Summary:
-- 21 issues authored.
-- 5 architectural RFCs.
-- 7 PRs authored.
-- 3 authored PRs approved by maintainers.
-- 0 authored PRs merged directly.
-- 120+ documented tests.
-- 52 tests in the speaker-clustering contribution.
+Attribution rule: these are contributions to a shared open-source project, not employment at Omi. Distinguish issue/spec authorship, personal PR code, discussion/review participation, and implementations merged by others.
 
-Selected evidence:
-- Issue #8438: diagnosed Windows Electron/WebGL GPU/compositor issue; downstream resolution in PR #8902.
-- PR #8919: authored offline speaker clustering with 52 tests; closed unmerged; approach adopted downstream in PR #12471.
-- Issue #8918: authored speaker-grounding proposal; adopted downstream in PR #12089.
-- Issue #8991: authored Windows local file-indexing specification; downstream implementation followed.
-- Issue #12360: authored Markdown export specification; draft PR #12927 not merged.
-- PR #7379: security hardening, maintainer-approved, closed unmerged.
-- PR #7654: web/configuration refactor with 13 integration tests, maintainer-approved, closed unmerged.
-- PR #8442: Windows database/OCR/WebSocket work and tests, positively reviewed, closed unmerged.
-- PR #8352: type-safety changes requested, closed unmerged.
+### Profile snapshot
+- Public GitHub search previously found 22 issues authored and 7 PRs authored; recheck before publishing counts because the inventory and search results may change.
+- The 7 authored upstream PRs inspected in the October 2026 review were closed unmerged. Three received maintainer approval or positive review, but no authored upstream PR was merged directly.
+- PR #8919 reports 52 passing tests; treat this as a PR-reported test result, not proof of production use or an accuracy gain.
+- Do not use "120+ documented tests" as a personal test count unless every counted test is traced to a candidate-authored change. Repository-wide or downstream test totals are not the candidate's personal testing contribution.
+
+### Direct PR work
+- [#8919](https://github.com/BasedHardware/omi/pull/8919): proposed and implemented an offline agglomerative speaker-clustering approach, speaker-count validation, embedding checks/fallback, and forwarding user identity to action-item extraction. Added tests and responded to review. Closed unmerged. A later related implementation was authored by another contributor in [#12471](https://github.com/BasedHardware/omi/pull/12471); describe the later work as related/downstream only where the issue and technical link supports it, not as the candidate's merged code or proven adoption.
+- [#8442](https://github.com/BasedHardware/omi/pull/8442): Windows reliability work covering SQLite database-path isolation, WebSocket failure classification, OCR backfill pacing, and targeted regression tests. Positive review; closed unmerged. The PR conversation reported 519 passing tests, 0 failed, and 3 skipped; this is a candidate-reported run, not independently reproduced here.
+- [#7379](https://github.com/BasedHardware/omi/pull/7379): proposed safer parsing in Redis/cache and migration paths, replacing unsafe eval use with literal or JSON parsing. Addressed automated review findings and received maintainer approval; closed unmerged.
+- [#7654](https://github.com/BasedHardware/omi/pull/7654): web product/configuration and redirect refactor with integration tests; received maintainer approval, closed unmerged.
+- [#8352](https://github.com/BasedHardware/omi/pull/8352): test-fixture typing proposal; review requested changes; closed unmerged.
+- [#8348](https://github.com/BasedHardware/omi/pull/8348): Windows lint and memory-delete UX changes; closed unmerged; not a top resume example.
+- [#4649](https://github.com/BasedHardware/omi/pull/4649): camera-buffer race-condition proposal; closed as stale/unverified, with review concerns about actual thread safety. Do not claim the race was fixed.
+
+### Issue-led problem solving and design proposals
+- [#8438](https://github.com/BasedHardware/omi/issues/8438): reported and diagnosed high GPU usage on the Memories page involving Windows Electron/WebGL/compositor behavior. A related CSS fix was merged by a maintainer in [#8902](https://github.com/BasedHardware/omi/pull/8902). Candidate contribution: problem report and diagnosis, not the merged implementation.
+- [#8453](https://github.com/BasedHardware/omi/issues/8453): proposed a local OCR-to-Markdown pipeline using SQLite OCR boxes, spatial row clustering, left-to-right ordering, chrome filtering, and temporal deduplication. A closely related implementation was merged by another contributor in [#12362](https://github.com/BasedHardware/omi/pull/12362). Credit the candidate with the proposal/specification; do not claim the merged code or its benchmarks.
+- [#8991](https://github.com/BasedHardware/omi/issues/8991): proposed Windows local file indexing for AI context. Related implementation and hardening followed from other contributors, including [#7896](https://github.com/BasedHardware/omi/pull/7896) and [#9595](https://github.com/BasedHardware/omi/pull/9595), alongside broader Windows-port work. Describe as proposal/problem definition unless additional direct contribution is verified.
+- [#8917](https://github.com/BasedHardware/omi/issues/8917) and [#8918](https://github.com/BasedHardware/omi/issues/8918): authored proposals around offline speaker diarization and grounding speaker labels for action-item extraction. Related clustering code later appeared in PR #12471 by another contributor; a relationship to any later speaker-grounding PR must be checked directly before calling it adoption.
+- [#12360](https://github.com/BasedHardware/omi/issues/12360): proposed one-click Markdown export for conversations. Another contributor opened draft [#12927](https://github.com/BasedHardware/omi/pull/12927), which was still open/draft in the reviewed snapshot; do not call it shipped.
+- [#8452](https://github.com/BasedHardware/omi/issues/8452): proposed dynamic MTU negotiation/audio packet fragmentation; another contributor opened [#13488](https://github.com/BasedHardware/omi/pull/13488). This is a proposal, not candidate-authored firmware code.
+- [#8912](https://github.com/BasedHardware/omi/issues/8912): proposed Windows TTS/AudioWorklet/VAD work; issue was later closed as fixed after other contributors' Windows-port work. Do not claim that implementation.
+
+### How to represent this work
+Prefer wording such as "authored technical proposals", "diagnosed", "specified", "implemented in an unmerged PR", "responded to code review", and "related implementation later landed from another contributor" where supported. Do not say "maintainer", "core contributor", "merged seven PRs", or imply authorship of #8902, #12471, #12362, #7896, #9595, #10236, or #12927.
 
 ## Research / Library Assistant
 
