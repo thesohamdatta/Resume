@@ -412,16 +412,20 @@ experience_inventory:
     candidate_reported_volume:
       customer_cases_per_typical_day: "approximately 30–40"
       confidence: candidate_estimate
-      note: "Approximate personal workload recalled by the candidate; not a company-wide metric."
+      resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
+    candidate_reported_resolution:
+      routine_issues_resolved_at_store_level: "approximately 90%"
+      confidence: candidate_estimate
+      resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
     scope:
-      - customer-facing support for product and service issues
-      - reviewed customer complaints and tickets through Reliance's online portal
-      - replied to customer emails, updated ticket records, and closed tickets after follow-up
-      - called customers to understand issues and explain resolution steps
-      - supported returns, exchanges, refunds, memberships, coupons, redemption offers, and online billing issues
-      - helped identify and report POS billing-system issues
-      - escalated cases and shared updates with managers
-      - coordinated with the CSR team on complaint handling and process follow-through
+      - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
+      - handled customer follow-up through email and phone calls, explained processes, and updated or closed tickets
+      - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
+      - coordinated with other stores and the CSJ department when cases required cross-store support
+      - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
+      - routed product damage and warranty cases to the relevant brand employee for inspection and handling
+      - followed up to confirm resolution, recorded case information in a local database, and updated managers
+      - reported and helped address POS billing-system issues
     presentation_preferences:
       use_for:
         - customer support
@@ -435,9 +439,11 @@ experience_inventory:
         - software engineering
         - technical research roles when space is limited
       framing:
-        - emphasize online ticket handling, customer communication, issue resolution, and escalation
-        - use the approximate 30–40 daily case volume only where relevant
+        - emphasize ownership from complaint review through resolution and follow-up
+        - emphasize ticket handling, cross-store coordination, brand escalation, and case records
+        - do not lead with daily customer volume
         - keep the official title Associate
+        - use resolution-rate estimates only after confirming how they were calculated
         - do not connect store revenue to the candidate's personal performance
     constraints:
       - preserve official title Associate
