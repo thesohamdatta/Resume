@@ -430,8 +430,9 @@ experience_inventory:
     dates: "Jul 2024 – Oct 2024"
     facts_source: content/github/evidence.md
     candidate_reported_volume:
-      customer_cases_per_typical_day: "approximately 30–40"
+      customer_cases_per_shift: "more than 30; sometimes 50–60+ on busy days"
       confidence: candidate_estimate
+      note: "Volume varied with store traffic; candidate later clarified busy days could reach 50–60+ people/cases."
       resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
     candidate_reported_resolution:
       routine_issues_resolved_at_store_level: "approximately 90%"
