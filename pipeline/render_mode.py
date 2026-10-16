@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-        elif title == "Certifications":
-            output.extend([r"\section{Certifications}", *render_certifications(body)])
 """Render the constrained mode-resume Markdown format into the shared LaTeX template."""
 
 from __future__ import annotations
