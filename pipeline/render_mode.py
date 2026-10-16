@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
         elif title == "Certifications":
-            output.extend([r"\\section{Certifications}", *render_certifications(body)])
+            output.extend([r"\section{Certifications}", *render_certifications(body)])
 """Render the constrained mode-resume Markdown format into the shared LaTeX template."""
 
 from __future__ import annotations
@@ -197,7 +197,7 @@ def render_certifications(lines: list[str]) -> list[str]:
         names.append(stripped[2:])
     if not names:
         return []
-    return [r"\\tightpar{" + tex_text(" · ".join(names)) + "}"]
+    return [r"\tightpar{" + tex_text(" · ".join(names)) + "}"]
 
 
 def render_skills(lines: list[str]) -> list[str]:
