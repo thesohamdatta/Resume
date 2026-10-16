@@ -41,43 +41,43 @@ This file is binding. No resume track may outrun these boundaries.
 
 ## Omi open-source contributions
 
-### Current record
-- 21 issues authored.
-- 5 architectural RFCs.
-- 7 PRs authored.
-- 3 authored PRs approved by maintainers.
-- 0 authored PRs merged directly.
-- 120+ documented tests.
-- 52 tests in the speaker-clustering contribution.
+### What this work represents
+Omi contributions include issue-based problem identification, technical design/specifications, code in authored PRs, and discussion/review participation. Record each separately. This is not employment at Omi and does not establish maintainer/core-contributor status.
 
-### Truth-tested wording
-Use:
-- authored
-- diagnosed
-- proposed
-- approved by maintainers
-- adopted downstream
-- resolved downstream
+### Current GitHub snapshot
+- A prior public GitHub search found 22 issues authored and 7 upstream PRs authored; recheck counts before using them in a submitted resume.
+- The 7 authored upstream PRs inspected in October 2026 were closed unmerged; some received maintainer approval or positive review.
+- PR #8919 reported 52 passing tests; this is a PR-reported result, not proof of production use or accuracy improvement.
+- Do not treat "120+ documented tests" as personal tests without tracing each test to candidate-authored work.
 
-Do not say:
-- merged 7 PRs
-- maintained Omi
-- core contributor
-- maintainer
-- authored downstream PRs
-- personally merged PR #8902, #12471, #12089, or #12927
-- PR #12927 shipped/merged
+### Claim rules
+Allowed, when source-linked:
+- authored a technical issue or specification
+- diagnosed a defect and documented evidence
+- proposed a design or implementation approach
+- implemented code in an unmerged PR
+- added tests and responded to review feedback
+- a related implementation later appeared in another contributor's PR, when the relationship is evidenced
 
-### Selected evidence
-- Issue #8438: diagnosed Windows Electron/WebGL GPU/compositor issue; resolution was merged downstream in PR #8902.
-- PR #8919: authored offline speaker clustering with 52 tests; closed unmerged; approach adopted downstream in PR #12471.
-- Issue #8918: authored speaker-grounding proposal; adopted downstream in PR #12089.
-- Issue #8991: authored Windows file-indexing specification; downstream implementation followed.
-- Issue #12360: authored Markdown export specification; draft PR #12927 was not merged.
-- PR #7379: security hardening; maintainer-approved, closed unmerged.
-- PR #7654: web/configuration refactor; maintainer-approved, closed unmerged.
-- PR #8442: Windows database/OCR/WebSocket fixes and tests; positively reviewed, closed unmerged.
-- PR #8352: changes requested, closed unmerged.
+Do not claim:
+- merged 7 PRs, Omi maintainer, or core contributor
+- authorship of downstream PRs
+- that unmerged PRs shipped
+- that another contributor adopted the candidate's idea unless the issue/PR explicitly links or discusses it
+- performance gains from a diagnosis unless a merged fix measured those gains and the candidate's role is described accurately
+
+### Selected evidence with attribution
+- [Issue #8438](https://github.com/BasedHardware/omi/issues/8438): candidate reported/diagnosed the GPU/compositor problem. Related fix merged by a maintainer in [PR #8902](https://github.com/BasedHardware/omi/pull/8902).
+- [PR #8919](https://github.com/BasedHardware/omi/pull/8919): candidate's offline clustering implementation and tests; closed unmerged. Related code by another contributor later merged in [PR #12471](https://github.com/BasedHardware/omi/pull/12471). Do not imply the candidate-authored PR was merged or proven causal.
+- [Issue #8453](https://github.com/BasedHardware/omi/issues/8453): candidate's OCR-to-Markdown proposal. Closely related implementation by another contributor merged in [PR #12362](https://github.com/BasedHardware/omi/pull/12362). Benchmarks/tests reported in that PR belong to that implementation, not the candidate.
+- [Issue #8991](https://github.com/BasedHardware/omi/issues/8991): candidate's Windows file-indexing specification; related implementation/hardening came from other contributors, including [PR #7896](https://github.com/BasedHardware/omi/pull/7896) and [PR #9595](https://github.com/BasedHardware/omi/pull/9595).
+- [Issues #8917](https://github.com/BasedHardware/omi/issues/8917) and [#8918](https://github.com/BasedHardware/omi/issues/8918): diarization and speaker-grounding proposals. Verify direct links before calling any later work an adoption.
+- [Issue #12360](https://github.com/BasedHardware/omi/issues/12360): Markdown export proposal; draft [PR #12927](https://github.com/BasedHardware/omi/pull/12927) belonged to another contributor and was not merged in the reviewed snapshot.
+- [Issue #8452](https://github.com/BasedHardware/omi/issues/8452): dynamic MTU/audio fragmentation proposal; related [PR #13488](https://github.com/BasedHardware/omi/pull/13488) was authored by another contributor.
+- [Issue #8912](https://github.com/BasedHardware/omi/issues/8912): Windows TTS proposal; later closed as fixed after work by other contributors.
+- [PR #7379](https://github.com/BasedHardware/omi/pull/7379): safer parsing, maintainer-approved, closed unmerged.
+- [PR #7654](https://github.com/BasedHardware/omi/pull/7654): web configuration refactor, maintainer-approved, closed unmerged.
+- [PR #8442](https://github.com/BasedHardware/omi/pull/8442): Windows DB/WebSocket/OCR reliability work with targeted tests, positively reviewed, closed unmerged.
 
 ## AI/ML virtual internship
 

@@ -1,6 +1,7 @@
-# Single source of truth for resume facts
-# Keep verified identity, dates, role titles, and resume bullets here.
-# Technical detail and supporting evidence are maintained in content/github/.
+# Single source of truth for candidate facts and evidence pointers.
+# Keep biographical facts, verified dates/titles, scoped work, constraints, and sources here.
+# Technical proof and attribution context live in content/github/.
+# Existing bullets are presentation defaults; SELECT may derive different truthful wording for the target JD.
 
 personal:
   name: "Soham Datta"
@@ -25,6 +26,168 @@ education:
   dates: "2022 – Jun 2026"
   location: "Pune, India"
   gpa: null
+
+
+# Credential inventory. Resume selection must use the official credential link where available.
+# The Notion record links preserve the candidate's personal source-of-truth inventory.
+# Include only credentials relevant to the target role; do not treat audits or in-progress study as certifications.
+credentials:
+  inventory_url: "https://melon-apparatus-f56.notion.site/2dc63de0cd3280eba665e6071fb41a11?v=2dc63de0cd3280489cff000c57cd205a"
+  completed:
+    - id: claude_code_in_action
+      name: "Claude Code in Action"
+      issuer: "Anthropic"
+      status: completed
+      credential_url: "https://verify.skilljar.com/c/5pfb8moqjmcm"
+      notion_url: "https://app.notion.com/p/30363de0cd3280e5a930ef1fe99877d1"
+      issued: "Feb 2026"
+      themes: [software_engineering, ai_tools]
+    - id: ai_fluency_framework
+      name: "AI Fluency Framework & Foundations"
+      issuer: "Anthropic"
+      status: completed
+      credential_url: "https://verify.skilljar.com/c/9w59qgep2zir"
+      notion_url: "https://app.notion.com/p/30363de0cd3280479cfae3e40e31355b"
+      issued: "Jan 2026"
+      themes: [ai_fluency, ai_tools]
+    - id: claude_101
+      name: "Claude 101"
+      issuer: "Anthropic"
+      status: completed
+      credential_url: "https://verify.skilljar.com/c/4wcktidccs9o"
+      notion_url: "https://app.notion.com/p/30363de0cd32803c8c1df27ac5acfe56"
+      issued: "Jan 2026"
+      themes: [ai_tools]
+    - id: aws_educate_generative_ai
+      name: "AWS Educate: Introduction to Generative AI"
+      issuer: "Amazon Web Services Training and Certification"
+      status: completed
+      credential_url: "https://www.credly.com/earner/earned/badge/b3c25e65-bc43-4165-a169-25f12f222b7c"
+      notion_url: "https://app.notion.com/p/2dc63de0cd32813a8751f41e70ebd01d"
+      issued: "2025-07-09"
+      themes: [generative_ai, cloud]
+    - id: aws_educate_machine_learning_foundations
+      name: "AWS Educate: Machine Learning Foundations"
+      issuer: "Amazon Web Services Training and Certification"
+      status: completed
+      credential_url: "https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38"
+      notion_url: "https://app.notion.com/p/2dc63de0cd328134a661d642d9c0dee7"
+      issued: "2025-07-09"
+      themes: [machine_learning, cloud]
+    - id: google_ai_essentials
+      name: "Google AI Essentials"
+      issuer: "Coursera"
+      status: completed
+      credential_url: "https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3281839cebdbeaabeb9601"
+      issued: "2025-01-20"
+      themes: [ai_foundations]
+    - id: introduction_to_generative_ai
+      name: "Introduction to Generative AI"
+      issuer: "Coursera"
+      status: completed
+      credential_url: "https://coursera.org/share/ac9229a4e720bcf71e8e1e970e1192a7"
+      notion_url: "https://app.notion.com/p/2dc63de0cd328134ba71efc8edff084b"
+      issued: "2024-04-19"
+      themes: [generative_ai]
+    - id: learning_how_to_learn
+      name: "Learning How to Learn"
+      issuer: "Coursera"
+      status: completed
+      credential_url: "https://coursera.org/share/a9559eb8ed1b34b946af3851955a7bf5"
+      notion_url: "https://app.notion.com/p/2dc63de0cd32819c842ee3e8fda2808a"
+      issued: "2024-07-18"
+      themes: [learning]
+    - id: efset_english_test
+      name: "EF SET English Test (90-minute)"
+      issuer: "EF SET"
+      status: completed
+      credential_url: "https://cert.efset.org/gEgqp3"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280f9b287e4dbd6fb6c44"
+      issued: "2025-06-30"
+      themes: [english]
+    - id: introducing_generative_ai_with_aws
+      name: "Introducing Generative AI with AWS"
+      issuer: "Udacity"
+      status: completed
+      credential_url: "https://www.udacity.com/certificate/e/4caf2a74-532a-11f0-b49a-a380b355eef5"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280c98a9dd0a29cc4e96e"
+      issued: "2025-07-12"
+      themes: [generative_ai, cloud]
+    - id: google_aicte_virtual_internship
+      name: "Google for Developers AI/ML Virtual Internship"
+      issuer: "AICTE / EduSkills, supported by Google for Developers"
+      status: completed
+      credential_url: "https://aictecert.eduskillsfoundation.org/pages/home/"
+      notion_url: "https://app.notion.com/p/2dc63de0cd32800b8ed5c3625cb6e64d"
+      issued: "2024-12-14"
+      duration: "10 weeks"
+      themes: [computer_vision, machine_learning]
+      constraints:
+        - "Virtual internship program; not employment at Google."
+        - "Use the generic certificate portal or personal Notion record as a link; do not imply the portal link is an individual public certificate URL."
+    - id: aws_cloud_practitioner_essentials
+      name: "AWS Cloud Practitioner Essentials"
+      issuer: "Amazon Web Services"
+      status: completed
+      credential_url: "https://drive.google.com/file/d/1zfOHFEjJBrmqx_KJsSGkCA9fhwt4M_3G/view?usp=sharing"
+      notion_url: "https://app.notion.com/p/2dc63de0cd328052ba55cc694c913bd7"
+      issued: "2025-01-03"
+      themes: [cloud, aws]
+    - id: foundations_of_prompt_engineering
+      name: "Foundations of Prompt Engineering"
+      issuer: "Amazon Web Services"
+      status: completed
+      credential_url: "https://drive.google.com/file/d/1I52SF9ckC_9EtvSTvf1uZvWmihHi8-5L/view?usp=sharing"
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280539e05ce7e975a8ef6"
+      issued: "2024-12-28"
+      themes: [prompt_engineering, generative_ai]
+    - id: foundations_of_ux_design
+      name: "Foundations of User Experience (UX) Design"
+      issuer: "Coursera"
+      status: completed
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd3281fb9215d5c1dc084576"
+      issued: null
+      review_note: "Notion has no credential URL and its date field conflicts with the Completed status; confirm before adding to a resume."
+  learning:
+    - id: ielts_academic_test_preparation
+      name: "IELTS Academic Test Preparation"
+      issuer: "edX"
+      status: in_progress
+      progress_note: "about 60% complete as recorded in Notion"
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd328015a4cefa4730adee20"
+    - id: cs50_introduction_to_computer_science
+      name: "CS50's Introduction to Computer Science"
+      issuer: "HarvardX / edX"
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280bca3e0c8e7dcec7653"
+    - id: introduction_to_psychology
+      name: "Introduction to Psychology"
+      issuer: null
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/30863de0cd32807baa5dd1eb45b99d61"
+    - id: crash_course_psychology
+      name: "Crash Course Psychology"
+      issuer: "Crash Course"
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2f563de0cd328044a6f6d6689130b54a"
+    - id: ai_for_everyone
+      name: "AI for Everyone"
+      issuer: null
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2dc63de0cd3280b1b70ffe7df2cb94d7"
+    - id: nvidia_deep_research_agent
+      name: "NVIDIA: A Deep Research Agent"
+      issuer: "NVIDIA Training"
+      status: self_directed_audit
+      credential_url: null
+      notion_url: "https://app.notion.com/p/2f563de0cd328000af69e6d731ad31e1"
 
 experience:
   - id: aura
@@ -63,17 +226,17 @@ experience:
         - "Do not claim measured battery life, latency, accuracy, or other performance numbers without new evidence."
     bullets:
       referral:
-        - "Built Aura, an independent wearable AI system spanning hardware, firmware, software, and AI integrations."
-        - "Designed and iterated custom 3D-printed enclosures around an ESP32-S3 wearable platform, then connected the device to AI and backend services."
-        - "Adapted and extended Omi ecosystem components while contributing software, interface, and open-source engineering work."
+        - "Building Aura, an independent wearable AI system that connects audio and image capture with AI services, contextual memory, and an Android companion app."
+        - "Integrated and extended existing Omi ecosystem components to support streaming audio, transcription, vision analysis, AI chat, and searchable memory."
+        - "Implemented ESP32-S3 firmware and connected device capture with software workflows for multimodal AI experiences."
       startup:
-        - "Built Aura, a wearable AI system across hardware, firmware, software, and AI integrations."
-        - "Designed and iterated its physical enclosure and wearable form factor, connecting the device to AI and backend services."
-        - "Adapted and extended Omi ecosystem components while contributing software and open-source engineering work."
+        - "Building Aura, a wearable AI system connecting device capture, multimodal AI services, contextual memory, and an Android companion app."
+        - "Integrated existing Omi ecosystem components for audio streaming, transcription, vision analysis, AI chat, and searchable memory."
+        - "Developed ESP32-S3 firmware and software integrations for an end-to-end wearable AI workflow."
       mnc:
         - "Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates."
-        - "Adapted Omi software components for streaming audio, context extraction, knowledge-graph links, speaker identification, and AI integrations."
-        - "Connected wearable audio and image capture to backend workflows for transcription, vision analysis, AI chat, and searchable memory."
+        - "Integrated Omi software components with audio streaming, transcription, vision analysis, context extraction, and AI chat workflows."
+        - "Connected wearable audio and image capture to backend services for multimodal processing and searchable memory."
 
   - id: aicte_internship
     title: "AI/ML Intern"
@@ -288,14 +451,15 @@ projects:
 open_source:
   project: "Omi"
   repository: "https://github.com/BasedHardware/omi"
+  evidence_source: "content/github/evidence.md"
   summary:
-    issues_authored: 21
-    architectural_rfcs: 5
-    prs_authored: 7
-    maintainer_approved_prs: 3
-    authored_prs_merged_directly: 0
-    documented_tests: "120+"
-    diarization_tests: 52
+    issues_authored: 22
+    authored_upstream_prs: 7
+    authored_upstream_prs_merged_directly: 0
+    maintainer_approved_or_positively_reviewed_prs: 3
+    diarization_pr_tests_reported: 52
+    counts_snapshot: "Initial GitHub inventory reviewed in October 2026; recheck before using counts in a submitted resume."
+    tests_note: "Do not claim repository-wide or downstream test totals as personally authored tests."
   detail:
     role_in_resume: "Supporting engineering evidence under Aura, not a separate employment role."
     technical_areas:
@@ -339,7 +503,7 @@ open_source:
       - 12360
       - 7628
     attribution_limits:
-      - "Seven authored PRs; three approved by maintainers; zero authored PRs merged directly."
+      - "Seven authored upstream PRs inspected in October 2026; zero merged directly; three received maintainer approval or positive review."
       - "Do not claim Omi maintainer/core-contributor status."
       - "Do not claim authorship of downstream PRs."
       - "Use authored, diagnosed, proposed, approved by maintainers, adopted downstream, or addressed downstream as appropriate."
@@ -361,20 +525,51 @@ experience_inventory:
     organisation: Aura
     dates: "Jun 2026 – Present"
     current_status: under_development
+    candidate_confirmed_status: "Candidate reports physically testing a working audio-to-text-and-summary flow using Omi Glass/firmware and the Omi AI backend, with output shown in the app's Voice, Memory, and Tasks areas. Confirm exact Aura-authored changes through code/commit evidence before making ownership claims."
     facts_source: content/github/evidence.md
     attribution: independent_project_with_adapted_omi_components
+    architecture_understanding:
+      - "Omi Glass code is documented as an ESP32-S3-based camera/audio device with separate firmware and integration into the Omi app ecosystem."
+      - "Omi's documented pipeline supports wearable audio capture and streaming, transcription, structured conversation summaries/action items, separate extracted memories, and companion-app access."
+      - "Aura has its own firmware, FastAPI backend, and Android app directories; the current README describes audio and image frames flowing to its backend for searchable memory and recall."
+      - "Treat the device firmware and Omi backend as reused/adapted ecosystem layers unless Aura-specific commits show the exact modifications made by the candidate."
+    field_testing:
+      - "Tested microphone/audio capture in metro and crowded public environments."
+      - "Tested speaker performance, device heating, and wearable enclosure in person with project teammates."
+      - "Physical tests and observations were reported by the candidate; no measurements, photos, or formal test logs currently supplied."
+    confirmed_workflows_reported_by_candidate:
+      - "Captured audio, transcribed speech to text, and generated a summary."
+      - "Stored audio and text outputs in the companion application, organised into voice, memory, and task experiences."
+      - "Candidate reports testing the workflow in real-world environments, including crowded public places."
+    presentation_preferences:
+      primary_focus:
+        - audio capture and real-world testing
+        - speech-to-text and summarisation workflow
+        - integration with the Omi Glass firmware and Omi AI backend
+        - companion-app workflow across voice, memory, and tasks
+        - multimodal AI workflows where repository evidence supports them
+      de_emphasise:
+        - CAD and physical enclosure details
+      source_attribution:
+        - "The Omi ecosystem provides existing device firmware/backend/app capabilities; describe Aura work as integration, adaptation, and extension unless direct authorship is confirmed."
+        - "Do not say the Omi AI backend or firmware was built from scratch."
+      future_work:
+        - "Candidate plans to add further AI/ML work; do not present it as completed until implementation and evidence are reviewed."
     scope:
       - wearable AI pendant and Android companion app
       - ESP32-S3 C/C++ firmware
       - 16 kHz I2S DMA audio capture and Opus compression
       - FreeRTOS event handling and OTA support
-      - custom CAD and 3D-printed enclosure
-      - integration with existing Omi ecosystem software
+      - integration and extension of existing Omi Glass firmware/backend components
       - FastAPI backend components for audio, memory/context, and AI workflows
+      - reported audio-to-transcription-to-summary flow surfaced in app voice, memory, and task areas
     constraints:
       - no verified customers, revenue, funding, user traction, or production scale
-      - no measured battery, latency, accuracy, or performance claims
+      - no measured microphone accuracy, noise reduction, heating, latency, battery life, or performance claims
+      - no formal test report or photos supplied for physical tests yet
       - do not claim the Omi backend was built from scratch
+      - do not attribute all documented Omi database and memory architecture to Aura
+      - verify which audio assets are persisted by Aura and where before naming specific storage systems
   - id: aicte_internship
     type: virtual_internship
     title: AI/ML Intern
@@ -396,15 +591,70 @@ experience_inventory:
     organisation: Reliance
     dates: "Jul 2024 – Oct 2024"
     facts_source: content/github/evidence.md
+    candidate_reported_volume:
+      customer_cases_per_shift: "more than 30; sometimes 50–60+ on busy days"
+      confidence: candidate_estimate
+      note: "Volume varied with store traffic; candidate later clarified busy days could reach 50–60+ people/cases."
+      resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
+    candidate_reported_resolution:
+      routine_issues_resolved_at_store_level: "approximately 90%"
+      confidence: candidate_estimate
+      resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
+    tools_used:
+      - "Reliance internal portal; exact product name unconfirmed"
+      - "Microsoft Excel spreadsheets"
+      - "POS billing systems"
+      - "SAP; basic manager-trained inventory and billing tasks only"
+    case_workflow:
+      - "Contacted customers to understand the reported issue."
+      - "Created portal tickets that notified the relevant brand manager, sales employee, and other staff involved."
+      - "Coordinated with the relevant store, CSJ department, brand manager, or brand employee until the case was addressed."
+      - "Recorded the final outcome, updated case status (such as resolved or unresolved), and tracked the assigned/responsible person."
+      - "Followed up with the brand manager and customer to verify the resolution before closing each case."
     scope:
-      - customer-service desk and follow-up
-      - POS, membership, voucher, and exchange workflows
-      - inventory/store support, reporting, and documentation
-      - coordination with managers and store teams
+      - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
+      - owned cases from initial customer contact and ticket creation through coordination, resolution checks, and closure
+      - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
+      - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
+      - coordinated with other stores and the CSJ department when cases required cross-store support
+      - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
+      - routed product damage and warranty cases to the relevant brand employee for inspection and handling
+      - recorded case outcomes, status, and responsible staff in the ticket workflow/local database
+      - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
+      - downloaded relevant reports and shared product or inventory updates with brand managers
+      - used SAP for basic stock checks, product record entry or updates, and routine inventory/billing tasks after manager training
+      - reported and helped address POS billing-system issues
+    presentation_preferences:
+      use_for:
+        - customer support
+        - customer experience
+        - customer success
+        - service operations
+        - business operations
+        - support operations
+      usually_omit_for:
+        - AI/ML engineering
+        - software engineering
+        - AI/ML research roles when space is limited
+      technical_resume_rule:
+        - "Do not discard this employment from the master facts inventory."
+        - "For AI/ML and software roles, omit it when technical experience and projects make better use of the space."
+        - "If employment history needs to be shown, compress to one neutral line focused on ticket workflows, issue resolution, and coordination; do not lead with retail/customer-service framing."
+      framing:
+        - emphasize end-to-end case ownership, ticket creation, cross-team coordination, and verified closure
+        - emphasize customer communication, brand escalation, case records, and operational reporting for relevant roles
+        - mention Excel, POS, and SAP only in proportion to the tasks actually performed
+        - describe SAP as basic, manager-trained use; do not imply expertise
+        - do not name the internal portal until its identity is confirmed
+        - do not lead with daily customer volume
+        - keep the official title Associate
+        - use resolution-rate estimates only after confirming how they were calculated
+        - do not connect store revenue to the candidate's personal performance
     constraints:
       - preserve official title Associate
       - do not present as software engineering or advanced SAP administration
       - 50% improvement claim remains unverified
+      - do not invent resolution rates, satisfaction scores, revenue impact, or time savings
   - id: pes_research
     type: research_support
     title: Research / Library Assistant

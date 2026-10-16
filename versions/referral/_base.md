@@ -56,8 +56,16 @@ AI/ML engineer building practical systems across wearable AI, agents, voice syst
 **B.E. Artificial Intelligence & Machine Learning**  
 Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
 
+
 ## Technical Skills
 
 **AI:** LLMs, AI Agents, Computer Vision, TensorFlow, PyTorch, TFLite  
 **Engineering:** Python, TypeScript/JavaScript, FastAPI, React, Git/GitHub, Vitest  
 **Realtime/Systems:** LiveKit, WebRTC, ESP32-S3, FreeRTOS, I2S, Opus
+
+## Certifications
+
+- [Google AI/ML Virtual Internship](https://app.notion.com/p/2dc63de0cd32800b8ed5c3625cb6e64d)
+- [Google AI Essentials](https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85)
+- [AWS Educate: Machine Learning Foundations](https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38)
+- [Foundations of Prompt Engineering](https://drive.google.com/file/d/1I52SF9ckC_9EtvSTvf1uZvWmihHi8-5L/view?usp=sharing)

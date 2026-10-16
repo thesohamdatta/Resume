@@ -183,6 +183,21 @@ def render_education(lines: list[str]) -> list[str]:
     return [r"\resumeEducation{" + tex_text(institution) + "}{" + tex_text(dates) + "}{" + tex_text(degree) + "}"]
 
 
+def render_certifications(lines: list[str]) -> list[str]:
+    """Render a compact set of linked credential names as a single ATS-readable paragraph."""
+    names: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if not stripped.startswith("- "):
+            raise ValueError(f"expected a certification bullet, got: {stripped}")
+        names.append(stripped[2:])
+    if not names:
+        return []
+    return [r"\tightpar{" + tex_text(" · ".join(names)) + "}"]
+
+
 def render_skills(lines: list[str]) -> list[str]:
     output: list[str] = []
     for line in lines:
@@ -217,6 +232,8 @@ def render_mode(mode: str) -> str:
             output.extend([r"\section{Education}", *render_education(body)])
         elif title == "Technical Skills":
             output.extend([r"\section{Technical Skills}", *render_skills(body)])
+        elif title == "Certifications":
+            output.extend([r"\section{Certifications}", *render_certifications(body)])
         else:
             raise ValueError(f"unsupported mode section: {title}")
     output.extend([r"\end{document}", ""])
