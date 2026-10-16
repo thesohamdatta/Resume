@@ -59,6 +59,13 @@ AI/ML graduate working across LLM applications, retrieval and context workflows,
 **B.E. Artificial Intelligence & Machine Learning**  
 Savitribai Phule Pune University · 2022 – Jun 2026
 
+## Certifications
+
+- [AWS Educate: Machine Learning Foundations](https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38)
+- [AWS Cloud Practitioner Essentials](https://drive.google.com/file/d/1zfOHFEjJBrmqx_KJsSGkCA9fhwt4M_3G/view?usp=sharing)
+- [Google AI Essentials](https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85)
+- [AWS Educate: Generative AI](https://www.credly.com/earner/earned/badge/b3c25e65-bc43-4165-a169-25f12f222b7c)
+
 ## Technical Skills
 
 **AI/ML:** LLM applications, RAG, AI agents, tool calling, multi-model evaluation, computer vision, TensorFlow, TensorFlow Lite, PyTorch  
