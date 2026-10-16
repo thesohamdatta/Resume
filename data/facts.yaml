@@ -422,8 +422,14 @@ experience_inventory:
       - "Microsoft Excel spreadsheets"
       - "POS billing systems"
       - "SAP; basic manager-trained inventory and billing tasks only"
+    case_workflow:
+      - "Contacted customers to understand the reported issue."
+      - "Created portal tickets that notified the relevant brand manager, sales employee, and other staff involved."
+      - "Coordinated with the relevant store, CSJ department, brand manager, or brand employee until the case was addressed."
+      - "Followed up with the brand manager and customer to verify the resolution before closing each case."
     scope:
       - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
+      - owned cases from initial customer contact and ticket creation through coordination, resolution checks, and closure
       - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
       - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
       - coordinated with other stores and the CSJ department when cases required cross-store support
