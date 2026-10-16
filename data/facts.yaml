@@ -426,6 +426,7 @@ experience_inventory:
       - "Contacted customers to understand the reported issue."
       - "Created portal tickets that notified the relevant brand manager, sales employee, and other staff involved."
       - "Coordinated with the relevant store, CSJ department, brand manager, or brand employee until the case was addressed."
+      - "Recorded the final outcome, updated case status (such as resolved or unresolved), and tracked the assigned/responsible person."
       - "Followed up with the brand manager and customer to verify the resolution before closing each case."
     scope:
       - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
@@ -435,7 +436,7 @@ experience_inventory:
       - coordinated with other stores and the CSJ department when cases required cross-store support
       - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
       - routed product damage and warranty cases to the relevant brand employee for inspection and handling
-      - followed up to confirm resolution and recorded case information in a local database
+      - recorded case outcomes, status, and responsible staff in the ticket workflow/local database
       - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
       - downloaded relevant reports and shared product or inventory updates with brand managers
       - used SAP for basic stock checks, product record entry or updates, and routine inventory/billing tasks after manager training
@@ -451,10 +452,14 @@ experience_inventory:
       usually_omit_for:
         - AI/ML engineering
         - software engineering
-        - technical research roles when space is limited
+        - AI/ML research roles when space is limited
+      technical_resume_rule:
+        - "Do not discard this employment from the master facts inventory."
+        - "For AI/ML and software roles, omit it when technical experience and projects make better use of the space."
+        - "If employment history needs to be shown, compress to one neutral line focused on ticket workflows, issue resolution, and coordination; do not lead with retail/customer-service framing."
       framing:
-        - emphasize ownership from complaint review through resolution and follow-up
-        - emphasize ticket handling, cross-store coordination, brand escalation, case records, and operational reporting
+        - emphasize end-to-end case ownership, ticket creation, cross-team coordination, and verified closure
+        - emphasize customer communication, brand escalation, case records, and operational reporting for relevant roles
         - mention Excel, POS, and SAP only in proportion to the tasks actually performed
         - describe SAP as basic, manager-trained use; do not imply expertise
         - do not name the internal portal until its identity is confirmed
