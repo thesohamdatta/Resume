@@ -64,17 +64,17 @@ experience:
         - "Do not claim measured battery life, latency, accuracy, or other performance numbers without new evidence."
     bullets:
       referral:
-        - "Built Aura, an independent wearable AI system spanning hardware, firmware, software, and AI integrations."
-        - "Designed and iterated custom 3D-printed enclosures around an ESP32-S3 wearable platform, then connected the device to AI and backend services."
-        - "Adapted and extended Omi ecosystem components while contributing software, interface, and open-source engineering work."
+        - "Building Aura, an independent wearable AI system that connects audio and image capture with AI services, contextual memory, and an Android companion app."
+        - "Integrated and extended existing Omi ecosystem components to support streaming audio, transcription, vision analysis, AI chat, and searchable memory."
+        - "Implemented ESP32-S3 firmware and connected device capture with software workflows for multimodal AI experiences."
       startup:
-        - "Built Aura, a wearable AI system across hardware, firmware, software, and AI integrations."
-        - "Designed and iterated its physical enclosure and wearable form factor, connecting the device to AI and backend services."
-        - "Adapted and extended Omi ecosystem components while contributing software and open-source engineering work."
+        - "Building Aura, a wearable AI system connecting device capture, multimodal AI services, contextual memory, and an Android companion app."
+        - "Integrated existing Omi ecosystem components for audio streaming, transcription, vision analysis, AI chat, and searchable memory."
+        - "Developed ESP32-S3 firmware and software integrations for an end-to-end wearable AI workflow."
       mnc:
         - "Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates."
-        - "Adapted Omi software components for streaming audio, context extraction, knowledge-graph links, speaker identification, and AI integrations."
-        - "Connected wearable audio and image capture to backend workflows for transcription, vision analysis, AI chat, and searchable memory."
+        - "Integrated Omi software components with audio streaming, transcription, vision analysis, context extraction, and AI chat workflows."
+        - "Connected wearable audio and image capture to backend services for multimodal processing and searchable memory."
 
   - id: aicte_internship
     title: "AI/ML Intern"
@@ -363,8 +363,19 @@ experience_inventory:
     organisation: Aura
     dates: "Jun 2026 – Present"
     current_status: under_development
+    candidate_confirmed_status: "At least one complete device-to-AI flow works; exact flow and demo evidence to be recorded."
     facts_source: content/github/evidence.md
     attribution: independent_project_with_adapted_omi_components
+    presentation_preferences:
+      primary_focus:
+        - multimodal AI workflows
+        - AI service integration
+        - audio/image capture to contextual memory
+        - Android companion app
+      de_emphasise:
+        - CAD and physical enclosure details
+      future_work:
+        - "Candidate plans to add further AI/ML work over the next 2–3 days; do not present it as completed until the implementation and evidence are reviewed."
     scope:
       - wearable AI pendant and Android companion app
       - ESP32-S3 C/C++ firmware
