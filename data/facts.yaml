@@ -417,14 +417,21 @@ experience_inventory:
       routine_issues_resolved_at_store_level: "approximately 90%"
       confidence: candidate_estimate
       resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
+    tools_used:
+      - "Reliance internal portal; exact product name unconfirmed"
+      - "Microsoft Excel spreadsheets"
+      - "POS billing systems"
+      - "SAP store-operation systems; exact modules and actions unconfirmed"
     scope:
       - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
-      - handled customer follow-up through email and phone calls, explained processes, and updated or closed tickets
+      - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
       - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
       - coordinated with other stores and the CSJ department when cases required cross-store support
       - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
       - routed product damage and warranty cases to the relevant brand employee for inspection and handling
-      - followed up to confirm resolution, recorded case information in a local database, and updated managers
+      - followed up to confirm resolution and recorded case information in a local database
+      - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
+      - downloaded relevant reports and shared product or inventory updates with brand managers
       - reported and helped address POS billing-system issues
     presentation_preferences:
       use_for:
@@ -440,7 +447,9 @@ experience_inventory:
         - technical research roles when space is limited
       framing:
         - emphasize ownership from complaint review through resolution and follow-up
-        - emphasize ticket handling, cross-store coordination, brand escalation, and case records
+        - emphasize ticket handling, cross-store coordination, brand escalation, case records, and operational reporting
+        - mention Excel, POS, and SAP only in proportion to the tasks actually performed
+        - do not name the internal portal until its identity is confirmed
         - do not lead with daily customer volume
         - keep the official title Associate
         - use resolution-rate estimates only after confirming how they were calculated
