@@ -174,7 +174,7 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
 - **REQ-C4** — The system MUST remain portable: no absolute workstation paths, no dependency on
   the author's history or local machine layout.
 
- - **REQ-C5** — Experience and project facts MUST be stored independently of role-specific resume phrasing. A run MAY derive new wording from sourced facts, evidence, and the target role; it MUST NOT treat existing bullets as exhaustive or copy them mechanically.
+- **REQ-C5** — Experience and project facts MUST be stored independently of role-specific resume phrasing. A run MAY derive new wording from sourced facts, evidence, and the target role; it MUST NOT treat existing bullets as exhaustive or copy them mechanically.
 
 ### Verification
 
