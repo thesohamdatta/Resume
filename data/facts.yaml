@@ -363,31 +363,46 @@ experience_inventory:
     organisation: Aura
     dates: "Jun 2026 – Present"
     current_status: under_development
-    candidate_confirmed_status: "At least one complete device-to-AI flow works; exact flow and demo evidence to be recorded."
+    candidate_confirmed_status: "Candidate reports testing a working audio-to-text-and-summary flow and storing audio/text outputs in the app's voice, memory, and task areas; verify exact persistence path and which parts are Aura-authored versus adapted Omi components before making low-level architecture claims."
     facts_source: content/github/evidence.md
     attribution: independent_project_with_adapted_omi_components
+    field_testing:
+      - "Tested microphone/audio capture in metro and crowded public environments."
+      - "Tested speaker performance, device heating, and wearable enclosure in person with project teammates."
+      - "Physical tests and observations were reported by the candidate; no measurements, photos, or formal test logs currently supplied."
+    confirmed_workflows_reported_by_candidate:
+      - "Captured audio, transcribed speech to text, and generated a summary."
+      - "Stored audio and text outputs in the companion application, organised into voice, memory, and task experiences."
+      - "Candidate reports testing the workflow in real-world environments, including crowded public places."
     presentation_preferences:
       primary_focus:
-        - multimodal AI workflows
-        - AI service integration
-        - audio/image capture to contextual memory
-        - Android companion app
+        - audio capture and real-world testing
+        - speech-to-text and summarisation workflow
+        - integration with a companion application
+        - memory and task extraction/storage
+        - multimodal AI workflows where repository evidence supports them
       de_emphasise:
         - CAD and physical enclosure details
+      source_attribution:
+        - "Omi's public documentation describes a general flow of streaming audio, transcription, conversation records, structured summaries/action items, separate extracted memories, and audio-file storage."
+        - "Treat these as Omi ecosystem architecture unless Aura-specific code or implementation evidence confirms the candidate's own changes."
       future_work:
-        - "Candidate plans to add further AI/ML work over the next 2–3 days; do not present it as completed until the implementation and evidence are reviewed."
+        - "Candidate plans to add further AI/ML work; do not present it as completed until the implementation and evidence are reviewed."
     scope:
       - wearable AI pendant and Android companion app
       - ESP32-S3 C/C++ firmware
       - 16 kHz I2S DMA audio capture and Opus compression
       - FreeRTOS event handling and OTA support
-      - custom CAD and 3D-printed enclosure
-      - integration with existing Omi ecosystem software
+      - integration and extension of existing Omi ecosystem software
       - FastAPI backend components for audio, memory/context, and AI workflows
+      - reported audio-to-transcription-to-summary flow surfaced in app voice, memory, and task areas
     constraints:
       - no verified customers, revenue, funding, user traction, or production scale
-      - no measured battery, latency, accuracy, or performance claims
+      - no measured microphone accuracy, noise reduction, heating, latency, battery life, or performance claims
+      - no formal test report or photos supplied for physical tests yet
       - do not claim the Omi backend was built from scratch
+      - do not attribute all documented Omi database and memory architecture to Aura
+      - verify which audio assets are persisted by Aura and where before naming specific storage systems
   - id: aicte_internship
     type: virtual_internship
     title: AI/ML Intern
