@@ -1,6 +1,7 @@
-# Single source of truth for resume facts
-# Keep verified identity, dates, role titles, and resume bullets here.
-# Technical detail and supporting evidence are maintained in content/github/.
+# Single source of truth for candidate facts and evidence pointers.
+# Keep biographical facts, verified dates/titles, scoped work, constraints, and sources here.
+# Technical proof and attribution context live in content/github/.
+# Existing bullets are presentation defaults; SELECT may derive different truthful wording for the target JD.
 
 personal:
   name: "Soham Datta"
@@ -288,14 +289,15 @@ projects:
 open_source:
   project: "Omi"
   repository: "https://github.com/BasedHardware/omi"
+  evidence_source: "content/github/evidence.md"
   summary:
-    issues_authored: 21
-    architectural_rfcs: 5
-    prs_authored: 7
-    maintainer_approved_prs: 3
-    authored_prs_merged_directly: 0
-    documented_tests: "120+"
-    diarization_tests: 52
+    issues_authored: 22
+    authored_upstream_prs: 7
+    authored_upstream_prs_merged_directly: 0
+    maintainer_approved_or_positively_reviewed_prs: 3
+    diarization_pr_tests_reported: 52
+    counts_snapshot: "Initial GitHub inventory reviewed in October 2026; recheck before using counts in a submitted resume."
+    tests_note: "Do not claim repository-wide or downstream test totals as personally authored tests."
   detail:
     role_in_resume: "Supporting engineering evidence under Aura, not a separate employment role."
     technical_areas:
@@ -339,7 +341,7 @@ open_source:
       - 12360
       - 7628
     attribution_limits:
-      - "Seven authored PRs; three approved by maintainers; zero authored PRs merged directly."
+      - "Seven authored upstream PRs inspected in October 2026; zero merged directly; three received maintainer approval or positive review."
       - "Do not claim Omi maintainer/core-contributor status."
       - "Do not claim authorship of downstream PRs."
       - "Use authored, diagnosed, proposed, approved by maintainers, adopted downstream, or addressed downstream as appropriate."
