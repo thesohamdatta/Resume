@@ -41,6 +41,14 @@ Read only the relevant evidence and research. Do not load archives or unrelated 
 
 One owner per rule or fact. Link to existing sources rather than copying them into new files.
 
+## Evidence-first source review
+
+Before asking about technical details, inspect relevant repositories, docs, commits, issues, PRs, tests, and CI using available tools. Check the existing fact and evidence files too. Use the smallest targeted source set, not every old project.
+
+Label findings **Verified** (direct source + pointer), **Candidate-reported** (said by candidate), **Inference** (not a fact), or **Unknown/conflict**. Keep these states separate. Prefer executable code and test results over aspirational README text when they disagree. A README, planned feature, sample output, mock response, closed/unmerged PR, or another contributor's implementation does not prove shipped candidate work. Capture only concise findings and source links in active context; do not paste raw repository dumps.
+
+Use tools for objective questions that repository history can answer. Ask only when source review cannot settle a material point, such as personal ownership of shared code, private physical testing, an unrecorded outcome, or conflicting personal context. Ask one narrow question at a time. If the answer does not materially change the resume, omit or weaken the claim instead of interrupting the candidate.
+
 ## Hard constraints
 
 1. Truth outranks persuasion. Never invent skills, metrics, experience, employers, dates, certifications, ownership, customers, production status or results.

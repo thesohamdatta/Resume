@@ -16,6 +16,26 @@ Candidate facts come from `data/facts.yaml`. Technical proof comes from
 `content/github/evidence.md`. Claim, ownership, metric, and status limits come from
 `content/github/boundaries.md`. `DONT.MD` holds hard-fail checks.
 
+## Source-first investigation
+
+For technical and project claims, inspect relevant repositories and direct evidence before
+asking the candidate: source files, documentation, commit history, issues/PRs and discussion,
+tests, CI, releases, and linked upstream changes. Use targeted retrieval; do not inspect every
+old project by default.
+
+Record each finding as one of:
+- VERIFIED: directly supported, with a source pointer.
+- CANDIDATE-REPORTED: stated by the candidate but not independently verified.
+- INFERENCE: cautious interpretation, not an established fact.
+- UNKNOWN/CONFLICT: unresolved after source review.
+
+Executable code and test/CI results can contradict README promises. Preserve that difference.
+Mock outputs, roadmap items, closed/unmerged PRs, and another contributor's implementation do
+not establish shipped candidate work.
+
+Ask only when available evidence cannot answer a material question and the answer changes a
+resume claim. Otherwise omit or safely weaken the claim. Ask one narrow question at a time.
+
 ## Evidence model
 
 Classify candidate evidence by type:
