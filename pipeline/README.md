@@ -42,16 +42,21 @@ Turn the JD and the truth sources into an evidence plan.
 1. Read the JD. Extract only what changes resume decisions: role, seniority, must-haves,
    preferred skills, responsibilities, technical priorities, and verbatim keywords.
 2. Read the truth sources. Build `requirement -> evidence -> strength -> action`.
-3. Apply the mode's emphasis and depth from `modes/{mode}.yaml`. Choose the primary
+3. For relevant projects, inspect source, docs, commit history, issues/PRs, tests and CI using
+   available tools before asking the candidate to recall technical details. Prefer executable
+   implementation and current test/CI evidence over README aspirations or roadmap checkboxes.
+4. Keep evidence states explicit: VERIFIED (direct source link), CANDIDATE-REPORTED,
+   INFERENCE, or UNKNOWN/CONFLICT. Never promote inference to candidate fact, and preserve
+   ownership and status of issues, PRs, merges, releases and downstream work.
+5. Apply the mode's emphasis and depth from `modes/{mode}.yaml`. Choose the primary
    technical domain and the output depth (D1/D2/D3).
-4. Decide foreground / compress / omit for each piece of evidence. Confirm every real gap
+6. Decide foreground / compress / omit for each piece of evidence. Confirm every real gap
    against `boundaries.md` before calling it a gap.
 
 **Gate A — traceability.** Every selected item traces to a source. Anything untraceable is
 dropped, not softened. Any real gap is confirmed against `boundaries.md`.
 
-Output: an evidence plan. Stop and ask (max 3 questions) only if a missing fact would change
-the domain, depth, attribution, scope, dates, or certification status.
+Output: an evidence plan. Ask at most three questions only when source review cannot resolve a missing fact and its answer would change the domain, depth, attribution, scope, dates, certification status or material outcome. Ask one concise question at a time; do not ask about facts recoverable from commits, docs, issues/PRs, tests or CI. Omit non-essential unknowns.
 
 ## Phase 2 — RENDER
 
