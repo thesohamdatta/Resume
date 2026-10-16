@@ -41,22 +41,32 @@ Turn the JD and the truth sources into an evidence plan.
 
 1. Read the JD. Extract only what changes resume decisions: role, seniority, must-haves,
    preferred skills, responsibilities, technical priorities, and verbatim keywords.
-2. Read the truth sources. Build `requirement -> evidence -> strength -> action`.
-3. For relevant projects, inspect source, docs, commit history, issues/PRs, tests and CI using
+2. Read candidate facts, technical evidence and claim boundaries. Build
+   `requirement -> evidence -> strength -> action`.
+3. Apply the mode's emphasis and depth from `modes/{mode}.yaml`; choose the primary domain
+   and output depth (D1/D2/D3) from the JD and verified evidence.
+4. For relevant projects, inspect source, docs, commit history, issues/PRs, tests and CI using
    available tools before asking the candidate to recall technical details. Prefer executable
    implementation and current test/CI evidence over README aspirations or roadmap checkboxes.
-4. Keep evidence states explicit: VERIFIED (direct source link), CANDIDATE-REPORTED,
-   INFERENCE, or UNKNOWN/CONFLICT. Never promote inference to candidate fact, and preserve
-   ownership and status of issues, PRs, merges, releases and downstream work.
-5. Apply the mode's emphasis and depth from `modes/{mode}.yaml`. Choose the primary
-   technical domain and the output depth (D1/D2/D3).
-6. Decide foreground / compress / omit for each piece of evidence. Confirm every real gap
-   against `boundaries.md` before calling it a gap.
+5. Label findings VERIFIED (direct source + pointer), CANDIDATE-REPORTED, INFERENCE, or
+   UNKNOWN/CONFLICT. Never promote inference to candidate fact; preserve authorship, review,
+   merge, release, deployment and downstream attribution exactly.
+6. Decide foreground / compress / omit for each item. Check every potential gap against
+   `boundaries.md` and all relevant sources before calling it a genuine gap.
 
 **Gate A — traceability.** Every selected item traces to a source. Anything untraceable is
 dropped, not softened. Any real gap is confirmed against `boundaries.md`.
 
-Output: an evidence plan. Ask at most three questions only when source review cannot resolve a missing fact and its answer would change the domain, depth, attribution, scope, dates, certification status or material outcome. Ask one concise question at a time; do not ask about facts recoverable from commits, docs, issues/PRs, tests or CI. Omit non-essential unknowns.
+Output: a compact evidence plan. Ask at most three questions only when source review cannot
+resolve a missing fact and its answer would materially change the resume. Ask one concise
+question at a time. Do not ask about facts recoverable from commits, docs, issues/PRs, tests or
+CI. Omit non-essential unknowns.
+
+## Candidate questions
+
+A question is justified only when source review cannot answer it, the answer materially changes
+the resume, and the uncertainty cannot safely be handled by omitting or weakening the claim.
+Do not ask generic recall questions when tools can locate the evidence.
 
 ## Phase 2 — RENDER
 
