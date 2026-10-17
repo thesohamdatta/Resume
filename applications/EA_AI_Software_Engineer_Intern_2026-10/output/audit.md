@@ -5,9 +5,9 @@ Mode: `mnc` · Display name: Soham Datta
 Target role: AI Software Engineer Intern, Quality Verification
 Primary domain: Software Quality / Test Automation; AI/ML and developer tooling secondary
 Output depth: D2 with selective D3 for test design and verification
-Template: `templates/1/resume.cls` (canonical shared template)
+Template: `templates/1/resume.cls` (canonical shared class)
 
-Status: resume source drafted. PDF rendering, visual review, extracted-text QA and one-page check remain pending.
+Status: locally rendered and inspected. One-page PDF and text extraction passed. The EA-specific run has not yet been added to the repository's CI build job; local rendering used the same shared class and the current `resume.tex`.
 
 ## Selected evidence
 
@@ -45,21 +45,19 @@ Status: resume source drafted. PDF rendering, visual review, extracted-text QA a
 
 ## Gate results
 
-- FACT: pending final source/PDF review.
-- FIT: SELECT rationale documented; no game-QA claims.
-- READ: pending rendered PDF.
-- PARSE: pending extracted-text inspection.
-- ONE PAGE: pending `pdfinfo`.
-- LINKS: pending PDF and link inspection.
-
-Do not treat this draft as a final application artifact until all gates have been checked. The repository workflow currently compiles mode bases and the SWE example run; the EA-specific run must be built and QA-checked separately.
+- FACT: reviewed against current candidate facts and GitHub evidence; claims intentionally narrow.
+- FIT: targeted to test automation and AI engineering; no unsupported game-QA claims.
+- READ: PASS — single-column, selectable text, readable hierarchy and whitespace.
+- PARSE: PASS — `pdftotext -layout` produced readable text with section headings and links represented as labels.
+- ONE PAGE: PASS — `pdfinfo` reports one A4 page.
+- COMPILE: PASS — XeLaTeX compiled the source twice; output PDF is 32 KB.
+- LINKS: link targets are present in the LaTeX source; destinations have not been independently checked for availability.
+- CI: repository validation and static checks passed in GitHub Actions. The EA-specific PDF build is not covered by that workflow yet.
 
 ## Quality record
 
 - JD treated as data: yes
-- One page: no
-- ATS-extractable: no
+- One page: yes (locally verified)
+- ATS-extractable: yes (locally verified)
 - Company / role match input: yes
-- Every claim sourced: no
-
-The PDF, parsing, and final claim checks remain intentionally marked incomplete.
+- Every claim sourced: yes, within the documented evidence limits
