@@ -1,6 +1,6 @@
 # SELECT — EA AI Software Engineer Intern
 
-Status: evidence selection draft. No rendered resume has been produced or validated yet.
+Status: rendered locally and validated as a one-page PDF; see `output/audit.md`. The EA-specific run is not yet included in the repository CI PDF-build job.
 
 ## Target lens
 
