@@ -1,1 +1,52 @@
-PENDING: generate this file from the final EA PDF with pdftotext after rendering and visual/page validation. This is not a successful ATS extraction and must be replaced before delivery.
+                                                       Soham Datta
+                                                                  Pune, India
+                                    thesohamdatta@gmail.com | +91 94209 84066 | LinkedIn | GitHub | Portfolio
+
+AI Software Engineer | Test Automation | Python and TypeScript
+AI/ML engineering graduate with project experience in automated software verification, regression testing, and AI‐assisted
+engineering workflows using Python and TypeScript.
+
+Experience
+Aura | Founder                                                                                                  Jun 2026 – Present
+Wearable AI System | Python, TypeScript, C/C++ | Under Development
+ • Integrated wearable firmware and AI service components across device capture, audio processing, transcription,
+   vision, and contextual memory.
+ • Developed ESP32‐S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event
+   handling, and OTA updates.
+AICTE | AI/ML Intern                                                                       Oct 2024 – Dec 2024
+10‐week virtual internship program | TensorFlow | TensorFlow Lite | Google ML Kit
+ • Built computer‐vision workflows for object detection and image classification, integrating TensorFlow Lite models
+   with Android inference.
+Reliance | Associate                                                                            Jul 2024 – Oct 2024
+Customer Operations
+ • Supported customer-service, POS, membership, voucher, exchange, and reporting workflows with store teams.
+
+Projects
+Mia: AI Engineering CLI                                                                                                      GitHub
+TypeScript | Bun | Automated verification
+ • Built a TypeScript CLI for AI-assisted engineering workflows with structured work records and verification
+   evidence.
+ • Used automated tests, type checking, linting, unused-code analysis, documentation validation, builds, and binary
+   smoke checks in the repository verification workflow.
+Omi: Offline speaker clustering                                                                     Authored PR #8919
+Python | SciPy | Regression tests
+ • Implemented offline speaker-clustering logic and validation with tests in an authored open-source pull request;
+   the PR was closed unmerged.
+Omi: Windows reliability work                                                                       Authored PR #8442
+Debugging | Regression tests
+ • Proposed targeted tests and reliability changes for SQLite path isolation, WebSocket failure classification, and
+   OCR backfill pacing in a closed unmerged pull request.
+LLM-Council: Multi-Model Evaluation                                                                               GitHub
+Python | FastAPI | React | OpenRouter
+ • Built a multi-model response workflow that compares and synthesizes LLM outputs through Analyst, Skeptic, and
+   Synthesizer stages.
+
+Education
+Savitribai Phule Pune University (SPPU)                                                                           2022 – Jun 2026
+B.E. in Artificial Intelligence & Machine Learning | Pune, India
+
+Technical Skills
+Languages: Python, TypeScript/JavaScript, C/C++, Kotlin
+Testing: Automated tests, regression testing, verification gates, test-driven debugging
+Engineering: Git/GitHub, Bun, Vitest, type checking, linting, REST APIs, FastAPI
+AI/ML: LLM applications, multi-model response synthesis, TensorFlow, TensorFlow Lite, computer vision
