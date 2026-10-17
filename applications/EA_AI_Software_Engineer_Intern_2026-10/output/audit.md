@@ -6,59 +6,53 @@ Target role: AI Software Engineer Intern, Quality Verification
 Primary domain: Software Quality / Test Automation; AI/ML and developer tooling secondary
 Output depth: D2 with selective D3 for test design and verification
 Template: `templates/1/resume.cls` (canonical shared template)
-Status: SELECT audit only. Resume rendering and PDF validation have not yet been completed.
+
+Status: resume source drafted. PDF rendering, visual review, extracted-text QA and one-page check remain pending.
 
 ## Selected evidence
 
-- Mia: Bun/TypeScript engineering CLI, tests, type checking, lint, unused-code analysis, build, and binary smoke verification in the repository CI.
-- Omi open-source contributions: authored offline speaker-clustering and Windows reliability PRs with targeted tests; both are closed unmerged. Their implementation work may be described with explicit PR status, never as shipped/merged code.
-- LLM-Council: multi-model Analyst/Skeptic/Synthesizer response comparison and synthesis; no measured correctness gain is established.
+- MIA: Bun/TypeScript CLI, automated tests, type checking, lint, unused-code analysis, documentation validation, build, and binary smoke checks in the repository workflow.
+- Omi PR #8919: offline speaker-clustering implementation and test work in an authored pull request; closed unmerged.
+- Omi PR #8442: Windows reliability changes and targeted test work in an authored pull request; closed unmerged.
 - AICTE/EduSkills: 10-week virtual AI/ML internship program, TensorFlow, TensorFlow Lite, ML Kit, and mobile computer-vision workflows.
-- Aura: integration and development across wearable firmware and AI services; only limited support relevance for this QA-focused target.
+- Aura: device firmware and service integration work across capture and multimodal processing; not represented as a QA role.
+- LLM-Council: multi-model output comparison and synthesis; not described as a correctness benchmark.
 
 ## Deliberately omitted
 
-- Game QA, game-production testing, telemetry analysis, test-reporting tooling: no evidence.
-- Mobile test automation and API testing: underlying mobile/API projects do not themselves prove test automation coverage.
-- SQL / relational database depth, Java, Linux / Ubuntu: no accepted evidence of proficiency in the current candidate source record.
-- CI/CD ownership: the repository has a GitHub Actions workflow, but personal ownership is not established merely by repository presence.
-- Quantified time savings, coverage improvements, defect reductions, AI answer accuracy, or productivity gains: no verified metrics.
-- Certification list: do not add unless the certification selection and verification conflict is resolved per candidate truth source.
+- Game QA, game production test support, telemetry analysis, and test reporting tools: no evidence.
+- API test automation, mobile app test automation, SQL/relational database depth, Java, Linux/Ubuntu: no confirmed evidence in the current fact inventory.
+- CI ownership, measured coverage/time savings, reduced defects, accuracy gains, or production claims: not established.
+- Certifications: omitted pending existing verification conflict.
 
 ## Evidence trace
 
 | Item | JD requirement | Source | Strength | Action |
 |---|---|---|---|---|
-| MIA tests and verification checks | Automated testing / quality engineering | content/github/evidence.md | DIRECT | FOREGROUND |
-| MIA TypeScript/Bun CLI | Scripting and engineering workflows | content/github/evidence.md | DIRECT | FOREGROUND |
-| Omi speaker-clustering PR and targeted tests | Test implementation / problem solving | content/github/evidence.md | DIRECT | SUPPORT |
-| Omi Windows reliability PR and targeted regression tests | Debugging / regression testing | content/github/evidence.md | DIRECT | SUPPORT |
+| Mia CLI with automated verification workflow | Scripting / engineering quality | content/github/evidence.md | DIRECT | FOREGROUND |
+| Mia automated test and verification gates | Automated testing | content/github/evidence.md | DIRECT | FOREGROUND |
+| Omi speaker-clustering implementation and tests in closed unmerged PR | Test implementation / debugging | content/github/evidence.md | DIRECT | SUPPORT |
+| Omi Windows reliability PR and targeted tests, closed unmerged | Regression testing / reliability | content/github/evidence.md | DIRECT | SUPPORT |
 | LLM-Council response comparison and synthesis | AI-assisted workflows | content/github/evidence.md | ADJACENT | SUPPORT |
-| AICTE virtual AI/ML internship | AI/ML coursework or project experience | data/facts.yaml | DIRECT | SUPPORT |
-| Game-specific QA | Game production test support |  | NONE | OMIT |
+| AICTE virtual AI/ML internship program | AI/ML project experience | data/facts.yaml | DIRECT | SUPPORT |
+| Game-specific QA | Game production testing |  | NONE | OMIT |
 | API test automation | API testing |  | NONE | OMIT |
-| Mobile app test automation | Mobile application testing |  | NONE | OMIT |
-| SQL / relational database proficiency | Nice-to-have database |  | NONE | OMIT |
-| Linux / Ubuntu proficiency | Nice-to-have operating system |  | NONE | OMIT |
+| Mobile test automation | Mobile application testing |  | NONE | OMIT |
+| SQL/relational database proficiency | Nice-to-have database experience |  | NONE | OMIT |
+| Linux/Ubuntu proficiency | Nice-to-have platform |  | NONE | OMIT |
 | CI pipeline ownership | Automated build pipelines |  | NONE | OMIT |
-| Measured reduction in repetitive manual testing | Automation impact |  | NONE | OMIT |
-
-## JD fit
-
-- **Direct:** general-purpose scripting through TypeScript and Python projects; documented automated tests and verification checks; GitHub-based project and review experience; AI/ML project experience.
-- **Adjacent:** use of a multi-model response comparison/synthesis workflow and backend/mobile projects.
-- **Missing from current evidence:** game-specific testing, QA automation frameworks, API/mobile test coverage, telemetry/reporting, SQL, and demonstrated AI-output correctness evaluation.
+| Measured reduction in manual testing | Automation impact |  | NONE | OMIT |
 
 ## Gate results
 
-- FACT: pending complete resume draft and claim audit.
-- FIT: SELECT only; strongest available testing evidence chosen for the target.
+- FACT: pending final source/PDF review.
+- FIT: SELECT rationale documented; no game-QA claims.
 - READ: pending rendered PDF.
-- PARSE: pending extraction of rendered PDF.
-- ONE PAGE: pending `pdfinfo` on rendered PDF.
-- LINK CHECK: pending output inspection.
+- PARSE: pending extracted-text inspection.
+- ONE PAGE: pending `pdfinfo`.
+- LINKS: pending PDF and link inspection.
 
-No PDF is marked ready from this audit. RENDER must create the standard `resume.tex`, `extracted.txt`, `audit.md`, and single PDF output. Run `bash pipeline/check_run.sh applications/EA_AI_Software_Engineer_Intern_2026-10`, inspect the extracted text and visual PDF, and do not claim the application-specific gates pass until their results are observed.
+Do not treat this draft as a final application artifact until all gates have been checked. The repository workflow currently compiles mode bases and the SWE example run; the EA-specific run must be built and QA-checked separately.
 
 ## Quality record
 
@@ -68,4 +62,4 @@ No PDF is marked ready from this audit. RENDER must create the standard `resume.
 - Company / role match input: yes
 - Every claim sourced: no
 
-These are honest current statuses for an incomplete selection-stage run, not a completed delivery.
+The PDF, parsing, and final claim checks remain intentionally marked incomplete.
