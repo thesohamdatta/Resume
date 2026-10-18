@@ -286,5 +286,36 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertEqual(state["postings"]["source-1"]["current"]["record"]["last_seen_at"], "2026-10-19T10:00:00Z")
 
 
+    def test_fit_does_not_count_skills_only_in_claim_limits(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Java"]
+        result = workflow.evaluate_fit(
+            item,
+            {
+                "data/facts.yaml": (
+                    "constraints:\n"
+                    "  - Do not claim Java; it was planned and not implemented.\n"
+                ),
+                "content/github/evidence.md": (
+                    "# Do not claim\n"
+                    "Java was not implemented or shipped.\n"
+                ),
+            },
+        )
+        self.assertEqual(result["matched_skills"], [])
+        self.assertEqual(result["missing_skills"], ["Java"])
+        self.assertEqual(result["score"], 0)
+
+    def test_fit_can_match_skill_from_positive_evidence(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Java"]
+        result = workflow.evaluate_fit(
+            item,
+            {"data/facts.yaml": "Implemented Java APIs for a project."},
+        )
+        self.assertEqual(result["matched_skills"], ["Java"])
+        self.assertEqual(result["score"], 100)
+
+
 if __name__ == "__main__":
     unittest.main()
