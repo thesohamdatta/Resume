@@ -1,6 +1,6 @@
 # Job Search Contract
 
-Status: initial contract. No source adapters are enabled yet.
+Status: canonical contract implemented. Adzuna India and Remotive adapters are opt-in; CI uses fixtures only.
 
 ## Purpose
 
