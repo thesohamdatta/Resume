@@ -175,5 +175,38 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertEqual(result["status"], "Eligible")
 
 
+    def test_similar_titles_are_only_linked_with_shared_requisition_evidence(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting("adzuna-123", "Junior AI Engineer"))
+        workflow.upsert_posting(state, posting("remotive-123", "Junior AI Engineer"))
+        opportunity_id = workflow.link_postings(
+            state,
+            ["adzuna-123", "remotive-123"],
+            "EMP-REQ-42",
+            "https://employer.example/careers/EMP-REQ-42",
+        )
+        self.assertEqual(set(state["opportunities"][opportunity_id]["posting_ids"]), {"adzuna-123", "remotive-123"})
+        self.assertEqual(
+            state["opportunities"][opportunity_id]["identity_evidence"]["type"],
+            "shared_employer_requisition_id",
+        )
+        self.assertEqual(workflow.opportunity_id_for_posting(state, "adzuna-123"), opportunity_id)
+        self.assertEqual(workflow.opportunity_id_for_posting(state, "remotive-123"), opportunity_id)
+
+    def test_linking_rejects_missing_identity_evidence(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting("source-1"))
+        workflow.upsert_posting(state, posting("source-2"))
+        with self.assertRaisesRegex(ValueError, "shared employer requisition ID"):
+            workflow.link_postings(state, ["source-1", "source-2"], "", "https://employer.example/jobs")
+
+    def test_linking_rejects_missing_evidence_source(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting("source-1"))
+        workflow.upsert_posting(state, posting("source-2"))
+        with self.assertRaisesRegex(ValueError, "evidence source"):
+            workflow.link_postings(state, ["source-1", "source-2"], "REQ-12", "")
+
+
 if __name__ == "__main__":
     unittest.main()
