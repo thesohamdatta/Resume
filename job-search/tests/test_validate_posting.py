@@ -117,5 +117,20 @@ class PostingSchemaTests(unittest.TestCase):
         self.assertTrue(self.errors(posting))
 
 
+    def test_minimum_experience_cannot_exceed_maximum(self) -> None:
+        posting = valid_posting()
+        posting["job"]["experience_min_years"] = 5
+        posting["job"]["experience_max_years"] = 2
+        errors = validate_posting.validate_posting_object(posting)
+        self.assertTrue(any("cannot exceed" in error for error in errors))
+
+    def test_first_seen_cannot_be_after_last_seen(self) -> None:
+        posting = valid_posting()
+        posting["record"]["first_seen_at"] = "2026-10-20T10:00:00Z"
+        posting["record"]["last_seen_at"] = "2026-10-19T10:00:00Z"
+        errors = validate_posting.validate_posting_object(posting)
+        self.assertTrue(any("cannot be later" in error for error in errors))
+
+
 if __name__ == "__main__":
     unittest.main()
