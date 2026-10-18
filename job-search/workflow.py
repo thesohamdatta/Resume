@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import json
 import os
+import re
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -204,17 +205,16 @@ def _contains_term(text: str, term: str) -> bool:
     if not normalized_term:
         return False
     if " " not in normalized_term:
-        import re
         return re.search(rf"(?<![a-z0-9]){re.escape(normalized_term)}(?![a-z0-9])", normalized_text) is not None
     return normalized_term in normalized_text
 
 
-NEGATIVE_EVIDENCE = __import__("re").compile(
+NEGATIVE_EVIDENCE = re.compile(
     r"\b(?:do not|don't|never|must not|should not)\s+(?:claim|say|present|describe|use|include|state|imply)\b"
     r"|\b(?:not|never)\s+(?:implemented|shipped|merged|production|verified|available|completed|owned|authored|built|employment)\b"
     r"|\bplanned\b|\broadmap\b|\bpending confirmation\b|\bself[- ]directed audit\b"
     r"|\bunverified\b|\bunsupported\b|\bno verified\b|\bnot proof\b|\bnot a claim\b",
-    __import__("re").IGNORECASE,
+    re.IGNORECASE,
 )
 EXCLUDED_SOURCE_BLOCKS = {
     "attribution_limits", "constraints", "review_note", "bullets", "bullet",
