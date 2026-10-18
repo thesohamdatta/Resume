@@ -115,8 +115,13 @@ def run_search(args: argparse.Namespace) -> dict[str, Any]:
 
 def safe_component(value: str) -> str:
     cleaned = re.sub(r"[^A-Za-z0-9]+", "_", value).strip("_")
-    return cleaned[:80] or "job"
+    return cleaned[:45] or "job"
 
+
+def safe_header_value(value: str, fallback: str) -> str:
+    """Keep imported source text on one line so it cannot add input fields."""
+    cleaned = " ".join(str(value).replace("\r", " ").replace("\n", " ").split())
+    return cleaned or fallback
 
 def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
     state = workflow.load_state(args.state)
