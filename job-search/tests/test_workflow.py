@@ -52,20 +52,20 @@ class JobSearchWorkflowTests(unittest.TestCase):
 
     def test_unmet_mandatory_requirement_blocks_eligibility(self) -> None:
         result = workflow.evaluate_eligibility([
-            {"description": "Must have current work authorization", "mandatory": True, "status": "unmet"}
+            {"description": "Must have current work authorization", "mandatory": True, "status": "unmet", "evidence": "Posting states authorization is required; candidate has none.", "evidence_source": "verified candidate eligibility review"}
         ])
         self.assertEqual(result["status"], "Ineligible")
 
     def test_all_confirmed_mandatory_requirements_can_be_eligible(self) -> None:
         result = workflow.evaluate_eligibility([
-            {"description": "Required degree", "mandatory": True, "status": "met"},
-            {"description": "Required location", "mandatory": True, "status": "met"},
+            {"description": "Required degree", "mandatory": True, "status": "met", "evidence": "B.E. completed.", "evidence_source": "data/facts.yaml: education"},
+            {"description": "Required location", "mandatory": True, "status": "met", "evidence": "India-based role.", "evidence_source": "original posting URL"},
         ])
         self.assertEqual(result["status"], "Eligible")
 
     def test_partial_or_unknown_mandatory_requirements_remain_unknown(self) -> None:
         result = workflow.evaluate_eligibility([
-            {"description": "Required degree", "mandatory": True, "status": "met"},
+            {"description": "Required degree", "mandatory": True, "status": "met", "evidence": "B.E. completed.", "evidence_source": "data/facts.yaml: education"},
             {"description": "Required experience", "mandatory": True, "status": "unknown"},
         ])
         self.assertEqual(result["status"], "Unknown")
