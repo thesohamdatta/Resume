@@ -6,6 +6,7 @@ import copy
 import json
 import os
 import tempfile
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -109,6 +110,13 @@ def save_state(path: Path, state: dict[str, Any]) -> None:
         raise
 
 
+def _timestamp(value: str) -> datetime:
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None:
+        raise ValueError("Timestamps must include a timezone.")
+    return parsed.astimezone(timezone.utc)
+
+
 def upsert_posting(state: dict[str, Any], posting: dict[str, Any]) -> str:
     """Insert or refresh one source listing while preserving prior versions and decisions."""
     errors = validate_posting_object(posting)
@@ -119,7 +127,6 @@ def upsert_posting(state: dict[str, Any], posting: dict[str, Any]) -> str:
     incoming = copy.deepcopy(posting)
     existing = state["postings"].get(posting_id)
     if existing is None:
-        incoming["record"]["first_seen_at"] = posting["record"].get("first_seen_at") or posting["source"]["retrieved_at"]
         state["postings"][posting_id] = {"current": incoming, "history": []}
         return "inserted"
 
@@ -128,19 +135,28 @@ def upsert_posting(state: dict[str, Any], posting: dict[str, Any]) -> str:
     new_hash = incoming["record"].get("content_hash")
     old_status = previous["record"].get("status")
     new_status = incoming["record"].get("status")
-    if old_hash != new_hash or old_status != new_status:
+    old_url = previous["source"].get("url")
+    new_url = incoming["source"].get("url")
+    if old_hash != new_hash or old_status != new_status or old_url != new_url:
+        if old_hash != new_hash:
+            change = "content_changed"
+        elif old_status != new_status:
+            change = "status_changed"
+        else:
+            change = "source_url_changed"
         existing["history"].append({
             "posting": copy.deepcopy(previous),
-            "change": "content_changed" if old_hash != new_hash else "status_changed",
+            "change": change,
             "observed_at": incoming["source"]["retrieved_at"],
         })
     incoming["record"]["first_seen_at"] = previous["record"]["first_seen_at"]
-    incoming["record"]["last_seen_at"] = max(
-        str(previous["record"].get("last_seen_at", "")),
-        str(incoming["record"].get("last_seen_at", "")),
+    previous_seen = previous["record"]["last_seen_at"]
+    incoming_seen = incoming["record"]["last_seen_at"]
+    incoming["record"]["last_seen_at"] = (
+        incoming_seen if _timestamp(incoming_seen) > _timestamp(previous_seen) else previous_seen
     )
     existing["current"] = incoming
-    return "updated" if old_hash != new_hash or old_status != new_status else "unchanged"
+    return "updated" if old_hash != new_hash or old_status != new_status or old_url != new_url else "unchanged"
 
 
 def evaluate_eligibility(checks: list[dict[str, Any]] | None) -> dict[str, Any]:
