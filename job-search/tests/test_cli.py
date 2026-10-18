@@ -206,5 +206,49 @@ class JobSearchCliTests(unittest.TestCase):
                     job_search.cmd_handoff(args)
 
 
+    def test_handoff_cannot_reset_an_existing_applied_record(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting())
+        state["opportunities"]["fixture-123"] = {
+            "posting_ids": ["fixture-123"],
+            "decision": "Shortlisted",
+        }
+        state["applications"]["fixture-123"] = {
+            "posting_id": "fixture-123",
+            "status": "Applied",
+            "applied_at": "2026-10-19T10:00:00Z",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            state_path = root / "state" / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(posting_id="fixture-123", state=state_path, mode="mnc", run_name="no-reset")
+            with patch.object(job_search, "REPO_ROOT", root):
+                with self.assertRaisesRegex(ValueError, "cannot move it back to Preparing"):
+                    job_search.cmd_handoff(args)
+            saved = workflow.load_state(state_path)
+            self.assertEqual(saved["applications"]["fixture-123"]["status"], "Applied")
+            self.assertFalse((root / "applications" / "no-reset").exists())
+
+    def test_withdrawn_before_submission_does_not_create_applied_at(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting())
+        state["opportunities"]["fixture-123"] = {
+            "posting_ids": ["fixture-123"],
+            "decision": "Shortlisted",
+        }
+        state["applications"]["fixture-123"] = {
+            "posting_id": "fixture-123",
+            "status": "Preparing",
+            "notes": "",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(posting_id="fixture-123", state=state_path, status="Withdrawn", notes="Decided not to apply.")
+            result = job_search.cmd_application(args)
+            self.assertNotIn("applied_at", result)
+
+
 if __name__ == "__main__":
     unittest.main()
