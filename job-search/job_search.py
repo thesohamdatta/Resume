@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -56,8 +57,8 @@ def run_search(args: argparse.Namespace) -> dict[str, Any]:
 
     for source_name in selected:
         if source_name == "Adzuna" and not (
-            __import__("os").environ.get("ADZUNA_APP_ID", "").strip()
-            and __import__("os").environ.get("ADZUNA_APP_KEY", "").strip()
+            os.environ.get("ADZUNA_APP_ID", "").strip()
+            and os.environ.get("ADZUNA_APP_KEY", "").strip()
         ):
             source_results.append({
                 "source": "Adzuna", "status": "failed", "checked_at": checked_at,
@@ -113,8 +114,9 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
     rows = []
     for posting_id, record in sorted(state["postings"].items()):
         posting = record["current"]
-        opportunity = state["opportunities"].get(posting_id, {})
-        application = state["applications"].get(posting_id)
+        opportunity_id = workflow.opportunity_id_for_posting(state, posting_id)
+        opportunity = state["opportunities"].get(opportunity_id, {})
+        application = state["applications"].get(opportunity_id)
         rows.append({
             "posting_id": posting_id,
             "title": posting["job"]["title"],
@@ -134,15 +136,17 @@ def cmd_decision(args: argparse.Namespace) -> dict[str, Any]:
     posting_id = args.posting_id
     if posting_id not in state["postings"]:
         raise ValueError(f"Unknown posting ID: {posting_id}")
-    if posting_id in state["applications"]:
+    opportunity_id = workflow.opportunity_id_for_posting(state, posting_id)
+    if opportunity_id in state["applications"]:
         raise ValueError("This opportunity already has an application record; do not move it back to a pre-application decision.")
-    state["opportunities"][posting_id] = {
-        "posting_ids": [posting_id],
-        "decision": "Shortlisted" if args.decision == "shortlist" else "Not pursuing",
-        "updated_at": timestamp_now(),
-    }
+    opportunity = state["opportunities"].get(opportunity_id)
+    if not opportunity:
+        opportunity = {"posting_ids": [posting_id]}
+        state["opportunities"][opportunity_id] = opportunity
+    opportunity["decision"] = "Shortlisted" if args.decision == "shortlist" else "Not pursuing"
+    opportunity["updated_at"] = timestamp_now()
     workflow.save_state(args.state, state)
-    return {"posting_id": posting_id, "decision": state["opportunities"][posting_id]["decision"]}
+    return {"posting_id": posting_id, "opportunity_id": opportunity_id, "decision": opportunity["decision"]}
 
 
 def cmd_application(args: argparse.Namespace) -> dict[str, Any]:
@@ -150,12 +154,15 @@ def cmd_application(args: argparse.Namespace) -> dict[str, Any]:
     posting_id = args.posting_id
     if posting_id not in state["postings"]:
         raise ValueError(f"Unknown posting ID: {posting_id}")
-    opportunity = state["opportunities"].get(posting_id)
+    opportunity_id = workflow.opportunity_id_for_posting(state, posting_id)
+    opportunity = state["opportunities"].get(opportunity_id)
     if not opportunity or opportunity.get("decision") != "Shortlisted":
         raise ValueError("Shortlist the opportunity before tracking an application.")
     now = timestamp_now()
-    application = state["applications"].get(posting_id, {
+    application = state["applications"].get(opportunity_id, {
+        "opportunity_id": opportunity_id,
         "posting_id": posting_id,
+        "posting_ids": opportunity.get("posting_ids", [posting_id]),
         "created_at": now,
         "notes": "",
     })
@@ -165,7 +172,7 @@ def cmd_application(args: argparse.Namespace) -> dict[str, Any]:
         application["notes"] = args.notes
     if args.status in {"Applied", "Interview", "Rejected", "Offer", "Withdrawn"}:
         application.setdefault("applied_at", now)
-    state["applications"][posting_id] = application
+    state["applications"][opportunity_id] = application
     workflow.save_state(args.state, state)
     return application
 
@@ -175,7 +182,8 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
     posting_id = args.posting_id
     if posting_id not in state["postings"]:
         raise ValueError(f"Unknown posting ID: {posting_id}")
-    opportunity = state["opportunities"].get(posting_id)
+    opportunity_id = workflow.opportunity_id_for_posting(state, posting_id)
+    opportunity = state["opportunities"].get(opportunity_id)
     if not opportunity or opportunity.get("decision") != "Shortlisted":
         raise ValueError("Only a shortlisted opportunity can be handed to the Resume Engine.")
 
@@ -214,15 +222,17 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
     )
     run_dir.mkdir(parents=True, exist_ok=True)
     input_path.write_text(content, encoding="utf-8")
-    application = state["applications"].get(posting_id, {
+    application = state["applications"].get(opportunity_id, {
+        "opportunity_id": opportunity_id,
         "posting_id": posting_id,
+        "posting_ids": opportunity.get("posting_ids", [posting_id]),
         "created_at": timestamp_now(),
         "notes": "",
     })
     application["status"] = "Preparing"
     application["updated_at"] = timestamp_now()
     application["resume_input"] = str(input_path.relative_to(REPO_ROOT))
-    state["applications"][posting_id] = application
+    state["applications"][opportunity_id] = application
     workflow.save_state(args.state, state)
     return {
         "posting_id": posting_id,
@@ -256,6 +266,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     listing = sub.add_parser("list", help="List saved postings and separate application status.")
     listing.add_argument("--state", type=Path, default=DEFAULT_STATE)
+
+    link = sub.add_parser("link-postings", help="Link listings only when a shared employer requisition ID is verified.")
+    link.add_argument("posting_ids", nargs="+")
+    link.add_argument("--requisition-id", required=True)
+    link.add_argument("--evidence-source", required=True, help="URL or source reference supporting the shared requisition ID.")
+    link.add_argument("--state", type=Path, default=DEFAULT_STATE)
 
     decision = sub.add_parser("shortlist", help="Shortlist a saved posting for possible application preparation.")
     decision.add_argument("posting_id")
@@ -318,6 +334,13 @@ def main(argv: list[str] | None = None) -> int:
             result = run_search(args)
         elif args.command == "list":
             result = cmd_list(args)
+        elif args.command == "link-postings":
+            state = workflow.load_state(args.state)
+            opportunity_id = workflow.link_postings(
+                state, args.posting_ids, args.requisition_id, args.evidence_source
+            )
+            workflow.save_state(args.state, state)
+            result = {"opportunity_id": opportunity_id, **state["opportunities"][opportunity_id]}
         elif args.command in {"shortlist", "not-pursuing"}:
             result = cmd_decision(args)
         elif args.command == "application":
