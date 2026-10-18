@@ -111,5 +111,11 @@ class PostingSchemaTests(unittest.TestCase):
         self.assertEqual(self.errors(posting), self.errors(copy.deepcopy(posting)))
 
 
+    def test_whitespace_only_required_title_is_rejected(self) -> None:
+        posting = valid_posting()
+        posting["job"]["title"] = "   "
+        self.assertTrue(self.errors(posting))
+
+
 if __name__ == "__main__":
     unittest.main()
