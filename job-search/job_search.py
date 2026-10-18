@@ -147,7 +147,11 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
             if not locations:
                 unknown_filters.append("location")
             elif not any(location_filter in location.casefold() for location in locations):
-                continue
+                broad_location_terms = {"india", "india (nationwide)", "nationwide", "worldwide", "anywhere", "global", "all locations"}
+                if any(location.strip().casefold() in broad_location_terms for location in locations):
+                    unknown_filters.append("location")
+                else:
+                    continue
         if requested_mode and actual_mode != requested_mode:
             if actual_mode == "unknown":
                 unknown_filters.append("work_mode")
