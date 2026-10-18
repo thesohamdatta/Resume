@@ -247,6 +247,8 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
         raise ValueError("Only a shortlisted opportunity can be handed to the Resume Engine.")
 
     posting = state["postings"][posting_id]["current"]
+    if posting["record"]["status"] == "closed":
+        raise ValueError("This listing is confirmed closed; verify a current employer listing before preparing a resume.")
     now = datetime.now(timezone.utc)
     run_name = args.run_name or (
         f"{safe_component(posting['job']['company'])}_"
