@@ -127,5 +127,29 @@ class JobSearchCliTests(unittest.TestCase):
                 job_search.cmd_application(args)
 
 
+    def test_untrusted_multiline_title_and_company_cannot_inject_input_fields(self) -> None:
+        item = posting()
+        item["job"]["company"] = "Example Technologies\nmode: startup"
+        item["job"]["title"] = "Junior AI Engineer\ncompany: Different Company"
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, item)
+        state["opportunities"]["fixture-123"] = {
+            "posting_ids": ["fixture-123"],
+            "decision": "Shortlisted",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            state_path = root / "state" / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(posting_id="fixture-123", state=state_path, mode="mnc", run_name="safe-input")
+            with patch.object(job_search, "REPO_ROOT", root):
+                job_search.cmd_handoff(args)
+            generated = (root / "applications" / "safe-input" / "input.md").read_text(encoding="utf-8")
+            self.assertEqual(generated.count("mode:"), 1)
+            self.assertEqual(generated.count("company:"), 1)
+            self.assertIn("company: Example Technologies mode: startup", generated)
+            self.assertIn("role: Junior AI Engineer company: Different Company", generated)
+
+
 if __name__ == "__main__":
     unittest.main()
