@@ -421,9 +421,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         if args.command == "validate":
-            validator = workflow.load_schema()
-            from jsonschema import Draft202012Validator, FormatChecker
-            compiled = Draft202012Validator(validator, format_checker=FormatChecker())
+            workflow.load_schema()
             failures: list[str] = []
             for path in args.files:
                 try:
@@ -431,9 +429,9 @@ def main(argv: list[str] | None = None) -> int:
                 except (OSError, json.JSONDecodeError) as exc:
                     failures.append(f"{path}: cannot read JSON: {exc}")
                     continue
-                errors = sorted(compiled.iter_errors(data), key=lambda error: list(map(str, error.absolute_path)))
+                errors = workflow.validate_posting_object(data)
                 if errors:
-                    failures.extend(f"{path}: {'/'.join(map(str, error.absolute_path)) or '<root>'}: {error.message}" for error in errors)
+                    failures.extend(f"{path}: {error}" for error in errors)
                 else:
                     print(f"PASS: {path}")
             if failures:
