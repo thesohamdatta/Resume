@@ -250,5 +250,27 @@ class JobSearchCliTests(unittest.TestCase):
             self.assertNotIn("applied_at", result)
 
 
+    def test_broad_country_location_remains_unknown_for_city_filter(self) -> None:
+        state = workflow.empty_state()
+        item = posting()
+        item["job"]["locations"] = ["India"]
+        workflow.upsert_posting(state, item)
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(
+                state=state_path,
+                role=None,
+                location="Pune",
+                work_mode=None,
+                employment_type=None,
+                max_experience=None,
+            )
+            result = job_search.cmd_list(args)
+        self.assertEqual(result["count"], 1)
+        self.assertEqual(result["postings"][0]["filter_status"], "Unknown")
+        self.assertIn("location", result["postings"][0]["filter_notes"])
+
+
 if __name__ == "__main__":
     unittest.main()
