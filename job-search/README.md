@@ -46,6 +46,7 @@ The CLI displays posting IDs in its JSON output and `list` command:
 
 ```bash
 python3 job-search/job_search.py list
+python3 job-search/job_search.py list --role "AI Engineer" --location Pune --work-mode hybrid --max-experience 2
 python3 job-search/job_search.py link-postings adzuna-123 remotive-123 --requisition-id EMP-REQ-42 --evidence-source "https://employer.example/careers/EMP-REQ-42"
 python3 job-search/job_search.py shortlist adzuna-123
 python3 job-search/job_search.py not-pursuing adzuna-123
@@ -53,6 +54,8 @@ python3 job-search/job_search.py application adzuna-123 --status Applied --notes
 ```
 
 Application records are separate from posting records. A refresh can update a posting and save prior content in its history without overwriting application status or notes.
+
+The `list` filters support role-title text, location text, work mode, employment type, and the maximum confirmed minimum-experience requirement. If the source does not provide a filter field, that listing remains visible with `filter_status: Unknown` rather than being treated as a match or discarded. Known conflicts with a filter are excluded.
 
 ## Eligibility and fit
 
@@ -90,7 +93,7 @@ The command requires a shortlisted posting, creates the standard `applications/<
 validate <posting.json>...
 run-fixtures [--fixtures PATH] [--state PATH]
 search --source Adzuna|Remotive|both --query TEXT [--location India] [--limit N]
-list [--state PATH]
+list [--role TEXT] [--location TEXT] [--work-mode MODE] [--employment-type TYPE] [--max-experience YEARS] [--state PATH]
 link-postings POSTING_ID POSTING_ID... --requisition-id ID --evidence-source URL
 shortlist POSTING_ID
 not-pursuing POSTING_ID
