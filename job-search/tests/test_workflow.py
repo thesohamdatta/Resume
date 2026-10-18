@@ -277,6 +277,7 @@ class JobSearchWorkflowTests(unittest.TestCase):
     def test_last_seen_compares_timestamps_by_instant_not_string(self) -> None:
         state = workflow.empty_state()
         first = posting()
+        first["record"]["first_seen_at"] = "2026-10-19T08:00:00Z"
         first["record"]["last_seen_at"] = "2026-10-19T11:00:00+02:00"
         workflow.upsert_posting(state, first)
         second = posting()
@@ -304,7 +305,7 @@ class JobSearchWorkflowTests(unittest.TestCase):
         )
         self.assertEqual(result["matched_skills"], [])
         self.assertEqual(result["missing_skills"], ["Java"])
-        self.assertEqual(result["score"], 0)
+        self.assertIsNone(result["score"])
 
     def test_fit_can_match_skill_from_positive_evidence(self) -> None:
         item = posting()
