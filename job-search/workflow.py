@@ -209,8 +209,69 @@ def _contains_term(text: str, term: str) -> bool:
     return normalized_term in normalized_text
 
 
+NEGATIVE_EVIDENCE = __import__("re").compile(
+    r"\b(?:do not|don't|never|must not|should not)\s+(?:claim|say|present|describe|use|include|state|imply)\b"
+    r"|\b(?:not|never)\s+(?:implemented|shipped|merged|production|verified|available|completed|owned|authored|built|employment)\b"
+    r"|\bplanned\b|\broadmap\b|\bpending confirmation\b|\bself[- ]directed audit\b"
+    r"|\bunverified\b|\bunsupported\b|\bno verified\b|\bnot proof\b|\bnot a claim\b",
+    __import__("re").IGNORECASE,
+)
+EXCLUDED_SOURCE_BLOCKS = {
+    "attribution_limits", "constraints", "review_note", "bullets", "bullet",
+    "learning", "credentials", "notion_url", "credential_url", "inventory_url",
+    "status", "progress_note", "planned", "future_work", "known_gaps",
+}
+
+
+def positive_evidence_text(content: str) -> str:
+    """Remove explicit no-claim, plan, and constraint blocks before keyword matching."""
+    positive: list[str] = []
+    markdown_skip_level: int | None = None
+    yaml_skip_indent: int | None = None
+
+    for line in content.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            continue
+
+        if stripped.startswith("#"):
+            level = len(stripped) - len(stripped.lstrip("#"))
+            heading = stripped[level:].strip().casefold()
+            if markdown_skip_level is not None:
+                if level <= markdown_skip_level:
+                    markdown_skip_level = None
+                else:
+                    continue
+            if any(term in heading for term in ("do not claim", "claim limits", "boundaries", "planned features")):
+                markdown_skip_level = level
+            continue
+        if markdown_skip_level is not None:
+            continue
+
+        indentation = len(line) - len(line.lstrip())
+        if yaml_skip_indent is not None:
+            if indentation > yaml_skip_indent:
+                continue
+            yaml_skip_indent = None
+
+        normalized = stripped.rstrip(":").casefold()
+        if stripped.endswith(":") and normalized in EXCLUDED_SOURCE_BLOCKS:
+            yaml_skip_indent = indentation
+            continue
+        if ":" in stripped:
+            key = stripped.split(":", 1)[0].strip().casefold()
+            if key in EXCLUDED_SOURCE_BLOCKS:
+                continue
+        if NEGATIVE_EVIDENCE.search(stripped):
+            continue
+        positive.append(stripped)
+
+    return "\n".join(positive)
+
+
 def evaluate_fit(posting: dict[str, Any], candidate_evidence: dict[str, str]) -> dict[str, Any]:
     skills = list(dict.fromkeys(posting.get("job", {}).get("skills", [])))
+    candidate_evidence = {name: positive_evidence_text(text) for name, text in candidate_evidence.items()}
     if not skills:
         return {
             "score": None,
