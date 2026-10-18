@@ -18,12 +18,20 @@ jobs:
       - name: Validate repository
         run: bash pipeline/validate_resume_repo.sh
 
-      - name: Compile the pipeline (static check)
-        run: python3 -m compileall -q pipeline
+      - name: Compile the pipeline and job-search code
+        run: python3 -m compileall -q pipeline job-search
 
       - name: Validator contract tests
         run: bash pipeline/test_validate_contract.sh
 
+      - name: Install job-search schema validator
+        run: python3 -m pip install --requirement job-search/requirements.txt
+
+      - name: Job-posting contract tests
+        run: python3 -m unittest discover -s job-search/tests -v
+
+      - name: Validate schema JSON
+        run: python3 -c "import json; json.load(open('job-search/schemas/job-posting.schema.json', encoding='utf-8'))"
 
   build-resumes:
     needs: validate
@@ -49,10 +57,10 @@ jobs:
             test -s "$pdf"
             pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
             test "$pages" = "1"
-            pdftotext -layout "$pdf" "/tmp/resume-artifacts/${mode}.txt"
-            grep -q "Soham" "/tmp/resume-artifacts/${mode}.txt"
-            test -s "/tmp/resume-artifacts/${mode}.txt"
-            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/${mode}"
+            pdftotext -layout "$pdf" "/tmp/resume-artifacts/\${mode}.txt"
+            grep -q "Soham" "/tmp/resume-artifacts/\${mode}.txt"
+            test -s "/tmp/resume-artifacts/\${mode}.txt"
+            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/\${mode}"
           done
 
       - name: Build and QA the example run
