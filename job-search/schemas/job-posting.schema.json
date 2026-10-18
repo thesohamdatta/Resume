@@ -36,11 +36,6 @@
         "employment_type",
         "description",
         "skills",
-        "experience_min_years",
-        "experience_max_years",
-        "posted_at",
-        "deadline",
-        "apply_url"
       ],
       "properties": {
         "title": { "type": "string", "minLength": 1 },
