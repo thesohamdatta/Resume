@@ -229,7 +229,9 @@ def cmd_application(args: argparse.Namespace) -> dict[str, Any]:
     application["updated_at"] = now
     if args.notes is not None:
         application["notes"] = args.notes
-    if args.status in {"Applied", "Interview", "Rejected", "Offer", "Withdrawn"}:
+    if args.status in {"Applied", "Interview", "Rejected", "Offer"} or (
+        args.status == "Withdrawn" and previous_status in {"Applied", "Interview"}
+    ):
         application.setdefault("applied_at", now)
     state["applications"][opportunity_id] = application
     workflow.save_state(args.state, state)
@@ -261,8 +263,11 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
     if run_dir.exists():
         raise ValueError(f"Application run directory already exists and was not overwritten: {run_dir.relative_to(REPO_ROOT)}")
     existing_application = state["applications"].get(opportunity_id)
-    if existing_application and existing_application.get("resume_input"):
-        raise ValueError("A Resume Engine input is already recorded for this opportunity; it was not replaced.")
+    if existing_application:
+        if existing_application.get("resume_input"):
+            raise ValueError("A Resume Engine input is already recorded for this opportunity; it was not replaced.")
+        if existing_application.get("status") not in {"Preparing"}:
+            raise ValueError("This opportunity already has an application status; handoff cannot move it back to Preparing.")
 
     job = posting["job"]
     source = posting["source"]
