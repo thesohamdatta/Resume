@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "source": "FixtureSource",
+      "status": "success",
+      "checked_at": "2026-10-19T10:00:00Z",
+      "postings": [
+        {
+          "schema_version": "1.0",
+          "posting_id": "fixture-junior-ai-100",
+          "source": {
+            "name": "FixtureSource",
+            "url": "https://example.com/jobs/100",
+            "retrieved_at": "2026-10-19T10:00:00Z"
+          },
+          "job": {
+            "title": "Junior AI Engineer",
+            "company": "Example Technologies",
+            "locations": [
+              "India"
+            ],
+            "work_mode": "unknown",
+            "employment_type": "full_time",
+            "description": "Build Python and FastAPI services for machine learning applications.",
+            "skills": [
+              "Python",
+              "FastAPI",
+              "Machine Learning"
+            ],
+            "experience_min_years": null,
+            "experience_max_years": null,
+            "posted_at": null,
+            "deadline": null,
+            "apply_url": "https://example.com/apply/100"
+          },
+          "record": {
+            "first_seen_at": "2026-10-19T10:00:00Z",
+            "last_seen_at": "2026-10-19T10:00:00Z",
+            "status": "open",
+            "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        }
+      ]
+    },
+    {
+      "source": "EmptyFixtureSource",
+      "status": "success",
+      "checked_at": "2026-10-19T10:00:00Z",
+      "postings": []
+    },
+    {
+      "source": "BlockedFixtureSource",
+      "status": "blocked",
+      "checked_at": "2026-10-19T10:00:00Z",
+      "postings": [],
+      "error": "Access was denied by the source."
+    }
+  ]
+}
