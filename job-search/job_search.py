@@ -21,6 +21,15 @@ EVIDENCE_PATHS = (
     "content/github/evidence.md",
 )
 APPLICATION_STATUSES = ("Preparing", "Applied", "Interview", "Rejected", "Offer", "Withdrawn")
+APPLICATION_TRANSITIONS = {
+    None: {"Preparing", "Applied"},
+    "Preparing": {"Preparing", "Applied", "Withdrawn"},
+    "Applied": {"Applied", "Interview", "Rejected", "Offer", "Withdrawn"},
+    "Interview": {"Interview", "Rejected", "Offer", "Withdrawn"},
+    "Rejected": set(),
+    "Offer": set(),
+    "Withdrawn": set(),
+}
 
 
 def timestamp_now() -> str:
@@ -166,6 +175,9 @@ def cmd_application(args: argparse.Namespace) -> dict[str, Any]:
         "created_at": now,
         "notes": "",
     })
+    previous_status = application.get("status")
+    if args.status not in APPLICATION_TRANSITIONS.get(previous_status, set()):
+        raise ValueError(f"Invalid application status transition: {previous_status or 'None'} -> {args.status}")
     application["status"] = args.status
     application["updated_at"] = now
     if args.notes is not None:
@@ -197,8 +209,11 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
         raise ValueError("Run name may contain only letters, numbers, underscores, and hyphens.")
     run_dir = REPO_ROOT / "applications" / run_name
     input_path = run_dir / "input.md"
-    if input_path.exists():
-        raise ValueError(f"Application input already exists and was not overwritten: {input_path.relative_to(REPO_ROOT)}")
+    if run_dir.exists():
+        raise ValueError(f"Application run directory already exists and was not overwritten: {run_dir.relative_to(REPO_ROOT)}")
+    existing_application = state["applications"].get(opportunity_id)
+    if existing_application and existing_application.get("resume_input"):
+        raise ValueError("A Resume Engine input is already recorded for this opportunity; it was not replaced.")
 
     job = posting["job"]
     source = posting["source"]
