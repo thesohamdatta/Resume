@@ -283,7 +283,8 @@ class JobSearchCliTests(unittest.TestCase):
                 state=state_path,
                 evidence_source="https://example.com/careers/closure-notice",
             )
-            result = job_search.cmd_mark_closed(args)
+            with patch.object(job_search, "timestamp_now", return_value="2026-10-20T10:00:00Z"):
+                result = job_search.cmd_mark_closed(args)
             saved = workflow.load_state(state_path)
             entry = saved["postings"]["fixture-123"]
         self.assertEqual(result["status"], "closed")
