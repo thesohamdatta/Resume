@@ -222,6 +222,8 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
 
     job = posting["job"]
     source = posting["source"]
+    company = safe_header_value(job["company"], "Unknown company")
+    role = safe_header_value(job["title"], "Untitled role")
     jd_lines = (job.get("description") or "").replace("\r", "").split("\n")
     jd_block = "\n".join("  " + line for line in jd_lines)
     notes = (
@@ -231,9 +233,9 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
     )
     content = (
         "# Application Input\n\n"
-        f"company: {job['company']}\n"
+        f"company: {company}\n"
         f"mode: {args.mode}\n"
-        f"role: {job['title']}\n"
+        f"role: {role}\n"
         f"jd_url: {source['url']}\n"
         "jd: |\n"
         f"{jd_block}\n"
