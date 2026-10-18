@@ -272,5 +272,50 @@ class JobSearchCliTests(unittest.TestCase):
         self.assertIn("location", result["postings"][0]["filter_notes"])
 
 
+    def test_mark_closed_requires_evidence_and_preserves_history(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting())
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(
+                posting_id="fixture-123",
+                state=state_path,
+                evidence_source="https://example.com/careers/closure-notice",
+            )
+            result = job_search.cmd_mark_closed(args)
+            saved = workflow.load_state(state_path)
+            entry = saved["postings"]["fixture-123"]
+        self.assertEqual(result["status"], "closed")
+        self.assertEqual(entry["current"]["record"]["status"], "closed")
+        self.assertEqual(len(entry["history"]), 1)
+        self.assertEqual(entry["history"][0]["posting"]["record"]["status"], "open")
+        self.assertEqual(entry["closure_evidence"]["evidence_source"], "https://example.com/careers/closure-notice")
+
+    def test_mark_closed_rejects_missing_evidence(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting())
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(posting_id="fixture-123", state=state_path, evidence_source=" ")
+            with self.assertRaisesRegex(ValueError, "reference supporting"):
+                job_search.cmd_mark_closed(args)
+
+    def test_open_refresh_clears_manual_closure_confirmation(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting())
+        entry = state["postings"]["fixture-123"]
+        entry["closure_evidence"] = {
+            "confirmed_at": "2026-10-19T10:00:00Z",
+            "evidence_source": "https://example.com/closure",
+        }
+        reopened = posting()
+        reopened["source"]["retrieved_at"] = "2026-10-20T10:00:00Z"
+        reopened["record"]["last_seen_at"] = "2026-10-20T10:00:00Z"
+        workflow.upsert_posting(state, reopened)
+        self.assertNotIn("closure_evidence", state["postings"]["fixture-123"])
+
+
 if __name__ == "__main__":
     unittest.main()
