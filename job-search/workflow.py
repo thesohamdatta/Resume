@@ -147,11 +147,22 @@ def upsert_posting(state: dict[str, Any], posting: dict[str, Any]) -> str:
 def evaluate_eligibility(checks: list[dict[str, Any]] | None) -> dict[str, Any]:
     """Evaluate only explicit, reviewed mandatory checks; never guess eligibility."""
     checks = checks or []
-    for item in checks:
+    normalized_checks = []
+    for original in checks:
+        item = copy.deepcopy(original)
         if item.get("status") not in ELIGIBILITY_STATUSES:
             raise ValueError("Each eligibility check needs status met, unmet, or unknown")
+        # A positive or negative eligibility judgement needs a reviewable source.
+        # Without it, the status is preserved as unknown rather than trusted.
+        if item.get("status") in {"met", "unmet"} and not (
+            isinstance(item.get("evidence"), str) and item["evidence"].strip()
+            and isinstance(item.get("evidence_source"), str) and item["evidence_source"].strip()
+        ):
+            item["status"] = "unknown"
+            item["evidence_warning"] = "No evidence text and evidence source were provided."
+        normalized_checks.append(item)
 
-    mandatory = [item for item in checks if item.get("mandatory") is True]
+    mandatory = [item for item in normalized_checks if item.get("mandatory") is True]
     if any(item["status"] == "unmet" for item in mandatory):
         status = "Ineligible"
     elif mandatory and all(item["status"] == "met" for item in mandatory):
@@ -161,13 +172,14 @@ def evaluate_eligibility(checks: list[dict[str, Any]] | None) -> dict[str, Any]:
 
     reasons = [
         f"{item.get('description', 'Mandatory requirement')}: {item['status']}"
+        + (f" (evidence: {item['evidence_source']})" if item.get("evidence_source") and item["status"] != "unknown" else "")
         for item in mandatory
     ]
     if not mandatory:
         reasons.append("No reviewed mandatory requirements are available; eligibility remains unknown.")
     elif status == "Unknown":
         reasons.append("At least one mandatory requirement is not confirmed.")
-    return {"status": status, "reasons": reasons, "checks": copy.deepcopy(checks)}
+    return {"status": status, "reasons": reasons, "checks": normalized_checks}
 
 
 def _contains_term(text: str, term: str) -> bool:
