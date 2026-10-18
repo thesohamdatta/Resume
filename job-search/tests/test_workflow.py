@@ -262,5 +262,29 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertEqual(workflow.opportunity_id_for_posting(state, "adzuna-123"), second_id)
 
 
+    def test_changed_source_url_is_preserved_in_history(self) -> None:
+        state = workflow.empty_state()
+        first = posting()
+        workflow.upsert_posting(state, first)
+        changed = posting()
+        changed["source"]["url"] = "https://example.com/jobs/redirected-source-1"
+        workflow.upsert_posting(state, changed)
+        item = state["postings"]["source-1"]
+        self.assertEqual(len(item["history"]), 1)
+        self.assertEqual(item["history"][0]["change"], "source_url_changed")
+        self.assertEqual(item["history"][0]["posting"]["source"]["url"], "https://example.com/jobs/source-1")
+
+    def test_last_seen_compares_timestamps_by_instant_not_string(self) -> None:
+        state = workflow.empty_state()
+        first = posting()
+        first["record"]["last_seen_at"] = "2026-10-19T11:00:00+02:00"
+        workflow.upsert_posting(state, first)
+        second = posting()
+        second["record"]["last_seen_at"] = "2026-10-19T10:00:00Z"
+        second["source"]["retrieved_at"] = "2026-10-19T10:00:00Z"
+        workflow.upsert_posting(state, second)
+        self.assertEqual(state["postings"]["source-1"]["current"]["record"]["last_seen_at"], "2026-10-19T10:00:00Z")
+
+
 if __name__ == "__main__":
     unittest.main()
