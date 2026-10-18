@@ -316,6 +316,61 @@ def process_source_results(
     return {"sources": summaries, "evaluations": evaluations, "changes": changes}
 
 
+
+def opportunity_id_for_posting(state: dict[str, Any], posting_id: str) -> str:
+    """Return a linked opportunity ID, or the posting ID when it is not linked."""
+    for opportunity_id, opportunity in state["opportunities"].items():
+        if posting_id in opportunity.get("posting_ids", []):
+            return opportunity_id
+    return posting_id
+
+
+def link_postings(
+    state: dict[str, Any],
+    posting_ids: list[str],
+    requisition_id: str,
+    evidence_source: str,
+) -> str:
+    """Explicitly link source listings only when the user supplies shared requisition evidence."""
+    ids = sorted(set(posting_ids))
+    requisition_id = requisition_id.strip()
+    evidence_source = evidence_source.strip()
+    if len(ids) < 2:
+        raise ValueError("Provide at least two distinct posting IDs to link.")
+    if not requisition_id:
+        raise ValueError("A shared employer requisition ID is required; title/company similarity is not enough.")
+    if not evidence_source:
+        raise ValueError("An evidence source URL or reference is required.")
+    for posting_id in ids:
+        if posting_id not in state["postings"]:
+            raise ValueError(f"Unknown posting ID: {posting_id}")
+        existing_opportunity_id = opportunity_id_for_posting(state, posting_id)
+        existing = state["opportunities"].get(existing_opportunity_id, {})
+        if existing.get("decision") not in (None, "Discovered"):
+            raise ValueError("Cannot link postings after a shortlist/not-pursuing decision; decide first how to preserve the record.")
+        if posting_id in state["applications"]:
+            raise ValueError("Cannot link postings that already have application records.")
+        if existing.get("identity_evidence") and existing["identity_evidence"].get("requisition_id") != requisition_id:
+            raise ValueError("Conflicting requisition evidence already exists for a posting.")
+    identity_material = "|".join(ids) + "|" + requisition_id
+    import hashlib
+    opportunity_id = "opportunity-" + hashlib.sha256(identity_material.encode("utf-8")).hexdigest()[:16]
+    existing_opportunity = state["opportunities"].get(opportunity_id)
+    linked_ids = set(ids)
+    if existing_opportunity:
+        linked_ids.update(existing_opportunity.get("posting_ids", []))
+    state["opportunities"][opportunity_id] = {
+        "posting_ids": sorted(linked_ids),
+        "decision": "Discovered",
+        "identity_evidence": {
+            "type": "shared_employer_requisition_id",
+            "requisition_id": requisition_id,
+            "evidence_source": evidence_source,
+        },
+    }
+    return opportunity_id
+
+
 def run_fixture_workflow(
     fixture_path: Path,
     state_path: Path,
