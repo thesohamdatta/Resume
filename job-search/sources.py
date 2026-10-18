@@ -141,7 +141,7 @@ def normalize_adzuna_job(raw: dict[str, Any], retrieved_at: str) -> dict[str, An
             "first_seen_at": retrieved_at,
             "last_seen_at": retrieved_at,
             "status": "open",
-            "content_hash": content_digest(job),
+            "content_hash": content_digest({"source_url": url, "job": job}),
         },
     }
 
