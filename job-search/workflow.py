@@ -172,6 +172,8 @@ def upsert_posting(state: dict[str, Any], posting: dict[str, Any]) -> str:
         incoming_seen if _timestamp(incoming_seen) > _timestamp(previous_seen) else previous_seen
     )
     existing["current"] = incoming
+    if incoming["record"]["status"] != "closed":
+        existing.pop("closure_evidence", None)
     return "updated" if old_hash != new_hash or old_status != new_status or old_url != new_url else "unchanged"
 
 
