@@ -44,7 +44,6 @@ SKILL_ALIASES: dict[str, tuple[str, ...]] = {
     "AWS": ("aws", "amazon web services"),
     "SQL": ("sql",),
     "Automation": ("automation",),
-    "FastAPI": ("fastapi",),
 }
 
 
@@ -205,7 +204,6 @@ def evaluate_fit(posting: dict[str, Any], candidate_evidence: dict[str, str]) ->
             "evidence_sources": [],
         }
 
-    combined = "\n".join(candidate_evidence.values())
     matched: list[str] = []
     missing: list[str] = []
     reasons: list[str] = []
@@ -250,6 +248,7 @@ def evaluate_posting(
         "posting_id": posting["posting_id"],
         "title": posting["job"]["title"],
         "company": posting["job"]["company"],
+        "source": posting["source"]["name"],
         "source_url": posting["source"]["url"],
         "retrieved_at": posting["source"]["retrieved_at"],
         "posting_status": posting["record"]["status"],
