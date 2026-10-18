@@ -24,6 +24,17 @@ jobs:
       - name: Validator contract tests
         run: bash pipeline/test_validate_contract.sh
 
+      - name: Install job-search schema validator
+        run: python3 -m pip install --requirement job-search/requirements.txt
+
+      - name: Job-posting contract tests
+        run: python3 -m unittest discover -s job-search/tests -v
+
+      - name: Validate schema and Python syntax
+        run: |
+          python3 -m compileall -q pipeline job-search
+          python3 -c "import json; json.load(open('job-search/schemas/job-posting.schema.json', encoding='utf-8'))"
+
 
   build-resumes:
     needs: validate
