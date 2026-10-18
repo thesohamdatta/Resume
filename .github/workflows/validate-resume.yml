@@ -60,10 +60,10 @@ jobs:
             test -s "$pdf"
             pages="$(pdfinfo "$pdf" | awk '/^Pages:/ {print $2}')"
             test "$pages" = "1"
-            pdftotext -layout "$pdf" "/tmp/resume-artifacts/\${mode}.txt"
-            grep -q "Soham" "/tmp/resume-artifacts/\${mode}.txt"
-            test -s "/tmp/resume-artifacts/\${mode}.txt"
-            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/\${mode}"
+            pdftotext -layout "$pdf" "/tmp/resume-artifacts/${mode}.txt"
+            grep -q "Soham" "/tmp/resume-artifacts/${mode}.txt"
+            test -s "/tmp/resume-artifacts/${mode}.txt"
+            pdftoppm -singlefile -png -r 120 "$pdf" "/tmp/resume-artifacts/${mode}"
           done
 
       - name: Build and QA the example run
