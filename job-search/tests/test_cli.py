@@ -185,5 +185,24 @@ class JobSearchCliTests(unittest.TestCase):
         self.assertIn("experience_min_years", result["postings"][0]["filter_notes"])
 
 
+    def test_handoff_blocks_a_confirmed_closed_listing(self) -> None:
+        item = posting()
+        item["record"]["status"] = "closed"
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, item)
+        state["opportunities"]["fixture-123"] = {
+            "posting_ids": ["fixture-123"],
+            "decision": "Shortlisted",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            state_path = root / "state" / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(posting_id="fixture-123", state=state_path, mode="mnc", run_name="closed-job")
+            with patch.object(job_search, "REPO_ROOT", root):
+                with self.assertRaisesRegex(ValueError, "confirmed closed"):
+                    job_search.cmd_handoff(args)
+
+
 if __name__ == "__main__":
     unittest.main()
