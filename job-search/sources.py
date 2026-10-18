@@ -100,15 +100,17 @@ def content_digest(job: dict[str, Any]) -> str:
 
 
 def normalize_adzuna_job(raw: dict[str, Any], retrieved_at: str) -> dict[str, Any]:
+    if not isinstance(raw, dict):
+        raise ValueError("Adzuna item must be a JSON object.")
     title = str(raw.get("title") or "").strip()
-    company_data = raw.get("company") or {}
-    company = str(company_data.get("display_name") or "").strip()
+    company_data = raw.get("company")
+    company = str(company_data.get("display_name") or "").strip() if isinstance(company_data, dict) else ""
     url = str(raw.get("redirect_url") or "").strip()
     if not title or not company or not url:
         raise ValueError("Adzuna item is missing title, company, or original listing URL.")
 
-    location_data = raw.get("location") or {}
-    location = str(location_data.get("display_name") or "").strip()
+    location_data = raw.get("location")
+    location = str(location_data.get("display_name") or "").strip() if isinstance(location_data, dict) else ""
     locations = [location] if location else []
     description = strip_html(raw.get("description"))
     job_text = f"{title} {description}"
@@ -145,6 +147,8 @@ def normalize_adzuna_job(raw: dict[str, Any], retrieved_at: str) -> dict[str, An
 
 
 def normalize_remotive_job(raw: dict[str, Any], retrieved_at: str) -> dict[str, Any]:
+    if not isinstance(raw, dict):
+        raise ValueError("Remotive item must be a JSON object.")
     title = str(raw.get("title") or "").strip()
     company = str(raw.get("company_name") or "").strip()
     url = str(raw.get("url") or "").strip()
@@ -250,6 +254,13 @@ def request_json(url: str, timeout: float = 20.0, opener: Callable[..., Any] | N
         raise SourceRequestError("failed", f"Source request failed: {type(exc).__name__}.") from exc
 
 
+def _items_from_payload(payload: Any, key: str, source: str) -> list[dict[str, Any]]:
+    if not isinstance(payload, dict) or not isinstance(payload.get(key), list):
+        raise SourceRequestError("failed", f"{source} returned an unexpected response shape; the search is incomplete.")
+    items = payload[key]
+    return items
+
+
 def search_adzuna(query: str, location: str, limit: int, retrieved_at: str,
                   opener: Callable[..., Any] | None = None) -> dict[str, Any]:
     app_id = os.environ.get("ADZUNA_APP_ID", "").strip()
@@ -266,12 +277,12 @@ def search_adzuna(query: str, location: str, limit: int, retrieved_at: str,
     }
     url = ADZUNA_ENDPOINT + "?" + urllib.parse.urlencode(params)
     payload = request_json(url, opener=opener)
-    raw_jobs = payload.get("results", []) if isinstance(payload, dict) else []
+    raw_jobs = _items_from_payload(payload, "results", "Adzuna")
     postings, invalid = [], []
     for index, item in enumerate(raw_jobs):
         try:
             postings.append(normalize_adzuna_job(item, retrieved_at))
-        except (TypeError, ValueError) as exc:
+        except (AttributeError, TypeError, ValueError) as exc:
             invalid.append(f"Adzuna result {index + 1} ignored: {exc}")
     result = {"source": "Adzuna", "status": "success", "checked_at": retrieved_at,
               "postings": postings, "error": None}
@@ -286,12 +297,12 @@ def search_remotive(query: str, limit: int, retrieved_at: str,
     params = {"search": query, "limit": max(1, min(int(limit), 100))}
     url = REMOTIVE_ENDPOINT + "?" + urllib.parse.urlencode(params)
     payload = request_json(url, opener=opener)
-    raw_jobs = payload.get("jobs", []) if isinstance(payload, dict) else []
+    raw_jobs = _items_from_payload(payload, "jobs", "Remotive")
     postings, invalid = [], []
     for index, item in enumerate(raw_jobs):
         try:
             postings.append(normalize_remotive_job(item, retrieved_at))
-        except (TypeError, ValueError) as exc:
+        except (AttributeError, TypeError, ValueError) as exc:
             invalid.append(f"Remotive result {index + 1} ignored: {exc}")
     result = {"source": "Remotive", "status": "success", "checked_at": retrieved_at,
               "postings": postings, "error": None}
