@@ -208,5 +208,34 @@ class JobSearchWorkflowTests(unittest.TestCase):
             workflow.link_postings(state, ["source-1", "source-2"], "REQ-12", "")
 
 
+    def test_state_round_trip_preserves_postings_and_history(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "jobs.json"
+            state = workflow.empty_state()
+            workflow.upsert_posting(state, posting())
+            workflow.save_state(path, state)
+            loaded = workflow.load_state(path)
+            self.assertEqual(loaded["postings"]["source-1"]["current"]["posting_id"], "source-1")
+            self.assertEqual(loaded["postings"]["source-1"]["history"], [])
+
+    def test_fixture_workflow_keeps_source_status_and_persists_state(self) -> None:
+        fixture = ROOT / "fixtures" / "sample-search-results.json"
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            result = workflow.run_fixture_workflow(
+                fixture,
+                state_path,
+                candidate_evidence={"data/facts.yaml": "Python FastAPI machine learning"},
+            )
+            self.assertEqual(result["state_posting_count"], 1)
+            self.assertEqual(result["changes"]["inserted"], 1)
+            statuses = {item["source"]: item["status"] for item in result["sources"]}
+            self.assertEqual(statuses["FixtureSource"], "success")
+            self.assertEqual(statuses["EmptyFixtureSource"], "success")
+            self.assertEqual(statuses["BlockedFixtureSource"], "blocked")
+            self.assertIsNone(next(item for item in result["sources"] if item["source"] == "BlockedFixtureSource")["zero_results"])
+            self.assertTrue(state_path.exists())
+
+
 if __name__ == "__main__":
     unittest.main()
