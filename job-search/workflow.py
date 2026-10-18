@@ -341,24 +341,35 @@ def link_postings(
         raise ValueError("A shared employer requisition ID is required; title/company similarity is not enough.")
     if not evidence_source:
         raise ValueError("An evidence source URL or reference is required.")
+
+    linked_ids = set(ids)
+    prior_opportunity_ids: set[str] = set()
     for posting_id in ids:
         if posting_id not in state["postings"]:
             raise ValueError(f"Unknown posting ID: {posting_id}")
         existing_opportunity_id = opportunity_id_for_posting(state, posting_id)
         existing = state["opportunities"].get(existing_opportunity_id, {})
+        if existing_opportunity_id != posting_id and existing:
+            prior_opportunity_ids.add(existing_opportunity_id)
+            linked_ids.update(existing.get("posting_ids", []))
         if existing.get("decision") not in (None, "Discovered"):
             raise ValueError("Cannot link postings after a shortlist/not-pursuing decision; decide first how to preserve the record.")
-        if posting_id in state["applications"]:
+        if posting_id in state["applications"] or existing_opportunity_id in state["applications"]:
             raise ValueError("Cannot link postings that already have application records.")
-        if existing.get("identity_evidence") and existing["identity_evidence"].get("requisition_id") != requisition_id:
+        evidence = existing.get("identity_evidence")
+        if evidence and evidence.get("requisition_id") != requisition_id:
             raise ValueError("Conflicting requisition evidence already exists for a posting.")
-    identity_material = "|".join(ids) + "|" + requisition_id
+
+    for posting_id in linked_ids:
+        if posting_id not in state["postings"]:
+            raise ValueError(f"Linked opportunity references missing posting: {posting_id}")
+
+    identity_material = "|".join(sorted(linked_ids)) + "|" + requisition_id
     import hashlib
     opportunity_id = "opportunity-" + hashlib.sha256(identity_material.encode("utf-8")).hexdigest()[:16]
-    existing_opportunity = state["opportunities"].get(opportunity_id)
-    linked_ids = set(ids)
-    if existing_opportunity:
-        linked_ids.update(existing_opportunity.get("posting_ids", []))
+    for prior_id in prior_opportunity_ids:
+        if prior_id != opportunity_id:
+            state["opportunities"].pop(prior_id, None)
     state["opportunities"][opportunity_id] = {
         "posting_ids": sorted(linked_ids),
         "decision": "Discovered",
@@ -369,7 +380,6 @@ def link_postings(
         },
     }
     return opportunity_id
-
 
 def run_fixture_workflow(
     fixture_path: Path,
