@@ -151,5 +151,39 @@ class JobSearchCliTests(unittest.TestCase):
             self.assertIn("role: Junior AI Engineer company: Different Company", generated)
 
 
+    def test_list_filters_preserve_unknown_values_as_unknown(self) -> None:
+        state = workflow.empty_state()
+        unknown = posting()
+        unknown["job"]["work_mode"] = "unknown"
+        unknown["job"]["experience_min_years"] = None
+        workflow.upsert_posting(state, unknown)
+        known_high_requirement = posting()
+        known_high_requirement["posting_id"] = "fixture-456"
+        known_high_requirement["source"]["url"] = "https://example.com/jobs/fixture-456"
+        known_high_requirement["job"]["title"] = "Junior AI Engineer II"
+        known_high_requirement["job"]["work_mode"] = "remote"
+        known_high_requirement["job"]["locations"] = ["India"]
+        known_high_requirement["job"]["experience_min_years"] = 4
+        known_high_requirement["job"]["apply_url"] = "https://example.com/apply/fixture-456"
+        workflow.upsert_posting(state, known_high_requirement)
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(
+                state=state_path,
+                role="AI",
+                location="Ind",
+                work_mode="remote",
+                employment_type=None,
+                max_experience=2,
+            )
+            result = job_search.cmd_list(args)
+        self.assertEqual(result["count"], 1)
+        self.assertEqual(result["postings"][0]["posting_id"], "fixture-123")
+        self.assertEqual(result["postings"][0]["filter_status"], "Unknown")
+        self.assertIn("work_mode", result["postings"][0]["filter_notes"])
+        self.assertIn("experience_min_years", result["postings"][0]["filter_notes"])
+
+
 if __name__ == "__main__":
     unittest.main()
