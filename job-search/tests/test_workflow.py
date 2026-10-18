@@ -155,5 +155,25 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertNotIn("private candidate data", str(result["fit"]["reasons"]).lower())
 
 
+    def test_eligibility_claim_without_evidence_stays_unknown(self) -> None:
+        result = workflow.evaluate_eligibility([
+            {"description": "Required degree", "mandatory": True, "status": "met"}
+        ])
+        self.assertEqual(result["status"], "Unknown")
+        self.assertEqual(result["checks"][0]["status"], "unknown")
+
+    def test_eligibility_claim_with_evidence_is_used(self) -> None:
+        result = workflow.evaluate_eligibility([
+            {
+                "description": "Required degree",
+                "mandatory": True,
+                "status": "met",
+                "evidence": "Candidate has a completed B.E. degree.",
+                "evidence_source": "data/facts.yaml: education",
+            }
+        ])
+        self.assertEqual(result["status"], "Eligible")
+
+
 if __name__ == "__main__":
     unittest.main()
