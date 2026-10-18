@@ -11,6 +11,7 @@
     "posting_id": {
       "type": "string",
       "minLength": 1,
+      "pattern": "\\S",
       "description": "Stable identity for this listing at its source, not a cross-source opportunity ID."
     },
     "source": {
@@ -18,7 +19,7 @@
       "additionalProperties": false,
       "required": ["name", "url", "retrieved_at"],
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
         "url": { "type": "string", "format": "uri" },
         "retrieved_at": { "type": "string", "format": "date-time" }
       }
@@ -28,11 +29,11 @@
       "additionalProperties": false,
       "required": ["title", "company", "locations", "work_mode", "employment_type", "description", "skills"],
       "properties": {
-        "title": { "type": "string", "minLength": 1 },
-        "company": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "company": { "type": "string", "minLength": 1, "pattern": "\\S" },
         "locations": {
           "type": "array",
-          "items": { "type": "string", "minLength": 1 },
+          "items": { "type": "string", "minLength": 1, "pattern": "\\S" },
           "uniqueItems": true
         },
         "work_mode": { "enum": ["onsite", "hybrid", "remote", "unknown"] },
