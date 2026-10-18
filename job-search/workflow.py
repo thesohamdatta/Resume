@@ -61,10 +61,25 @@ def validate_posting_object(posting: dict[str, Any]) -> list[str]:
         validator.iter_errors(posting),
         key=lambda error: list(map(str, error.absolute_path)),
     )
-    return [
+    messages = [
         f"{'/'.join(map(str, error.absolute_path)) or '<root>'}: {error.message}"
         for error in errors
     ]
+    if messages or not isinstance(posting, dict):
+        return messages
+
+    job = posting["job"]
+    minimum = job.get("experience_min_years")
+    maximum = job.get("experience_max_years")
+    if minimum is not None and maximum is not None and minimum > maximum:
+        messages.append("job/experience_min_years: cannot exceed job/experience_max_years")
+
+    record = posting["record"]
+    first_seen = _timestamp(record["first_seen_at"])
+    last_seen = _timestamp(record["last_seen_at"])
+    if first_seen > last_seen:
+        messages.append("record/first_seen_at: cannot be later than record/last_seen_at")
+    return messages
 
 
 def empty_state() -> dict[str, Any]:
@@ -271,13 +286,26 @@ def positive_evidence_text(content: str) -> str:
 
 def evaluate_fit(posting: dict[str, Any], candidate_evidence: dict[str, str]) -> dict[str, Any]:
     skills = list(dict.fromkeys(posting.get("job", {}).get("skills", [])))
-    candidate_evidence = {name: positive_evidence_text(text) for name, text in candidate_evidence.items()}
+    candidate_evidence = {
+        name: positive_evidence_text(text)
+        for name, text in candidate_evidence.items()
+        if text.strip()
+    }
+    candidate_evidence = {name: text for name, text in candidate_evidence.items() if text.strip()}
     if not skills:
         return {
             "score": None,
             "matched_skills": [],
             "missing_skills": [],
             "reasons": ["The listing has no structured skills to compare; no fit score was guessed."],
+            "evidence_sources": [],
+        }
+    if not candidate_evidence:
+        return {
+            "score": None,
+            "matched_skills": [],
+            "missing_skills": skills,
+            "reasons": ["No positive candidate evidence was available; fit was not scored."],
             "evidence_sources": [],
         }
 
