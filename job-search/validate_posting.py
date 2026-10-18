@@ -58,7 +58,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"PASS: {path} conforms to the canonical job-posting contract")
 
     if all_errors:
-        print("\\n".join(all_errors), file=sys.stderr)
+        print("\n".join(all_errors), file=sys.stderr)
         return 1
     return 0
 
