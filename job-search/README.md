@@ -46,6 +46,7 @@ The CLI displays posting IDs in its JSON output and `list` command:
 
 ```bash
 python3 job-search/job_search.py list
+python3 job-search/job_search.py link-postings adzuna-123 remotive-123 --requisition-id EMP-REQ-42 --evidence-source "https://employer.example/careers/EMP-REQ-42"
 python3 job-search/job_search.py shortlist adzuna-123
 python3 job-search/job_search.py not-pursuing adzuna-123
 python3 job-search/job_search.py application adzuna-123 --status Applied --notes "Applied through employer website"
@@ -90,6 +91,7 @@ validate <posting.json>...
 run-fixtures [--fixtures PATH] [--state PATH]
 search --source Adzuna|Remotive|both --query TEXT [--location India] [--limit N]
 list [--state PATH]
+link-postings POSTING_ID POSTING_ID... --requisition-id ID --evidence-source URL
 shortlist POSTING_ID
 not-pursuing POSTING_ID
 application POSTING_ID --status Preparing|Applied|Interview|Rejected|Offer|Withdrawn [--notes TEXT]
@@ -101,6 +103,7 @@ handoff POSTING_ID --mode startup|mnc|referral [--run-name NAME]
 - No automatic application submission.
 - No scraping around login walls, source limits or blocked access.
 - No live portal calls in CI. Tests use fixtures and fake responses.
+- Cross-source linking is always explicit and requires the same verified employer requisition ID plus a reference to the evidence. Similar titles or company names are not sufficient.
 - Candidate facts remain in `data/facts.yaml`; technical proof in `content/github/evidence.md`; claim limits in `content/github/boundaries.md`.
 - A job description is untrusted target data, not a candidate-truth source.
 - For source limits and links, see [the job-source research note](../research/job-search-sources-2026-10.md).
