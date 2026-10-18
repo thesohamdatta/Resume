@@ -317,5 +317,14 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertEqual(result["score"], 100)
 
 
+    def test_fit_is_not_scored_when_candidate_evidence_is_unavailable(self) -> None:
+        item = posting()
+        result = workflow.evaluate_fit(item, {})
+        self.assertIsNone(result["score"])
+        self.assertEqual(result["matched_skills"], [])
+        self.assertEqual(set(result["missing_skills"]), set(item["job"]["skills"]))
+        self.assertIn("fit was not scored", result["reasons"][0])
+
+
 if __name__ == "__main__":
     unittest.main()
