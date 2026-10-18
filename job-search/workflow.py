@@ -261,11 +261,12 @@ def evaluate_posting(
 def summarize_source_result(result: dict[str, Any]) -> dict[str, Any]:
     status = result.get("status")
     count = len(result.get("postings") or [])
+    zero_results = (count == 0) if status == "success" else None
     return {
         "source": result.get("source", "unknown"),
         "status": status,
         "count": count,
-        "zero_results": (status == "success" and count == 0) if status in {"success", "blocked", "failed"} else None,
+        "zero_results": zero_results,
         "error": result.get("error"),
     }
 
