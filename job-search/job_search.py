@@ -185,6 +185,7 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
             "filter_status": "Unknown" if unknown_filters else "Matched",
             "filter_notes": unknown_filters,
             "posting_status": posting["record"]["status"],
+            "closure_evidence_source": record.get("closure_evidence", {}).get("evidence_source"),
             "decision": opportunity.get("decision", "Discovered"),
             "application_status": application.get("status") if application else None,
             "last_seen_at": posting["record"]["last_seen_at"],
@@ -207,6 +208,38 @@ def cmd_decision(args: argparse.Namespace) -> dict[str, Any]:
     opportunity["updated_at"] = timestamp_now()
     workflow.save_state(args.state, state)
     return {"posting_id": posting_id, "opportunity_id": opportunity_id, "decision": opportunity["decision"]}
+
+
+def cmd_mark_closed(args: argparse.Namespace) -> dict[str, Any]:
+    state = workflow.load_state(args.state)
+    posting_id = args.posting_id
+    if posting_id not in state["postings"]:
+        raise ValueError(f"Unknown posting ID: {posting_id}")
+    evidence_source = args.evidence_source.strip()
+    if not evidence_source:
+        raise ValueError("A reference supporting the confirmed closure is required.")
+
+    current = state["postings"][posting_id]["current"]
+    if current["record"]["status"] == "closed":
+        raise ValueError("This posting is already marked closed.")
+    now = timestamp_now()
+    updated = json.loads(json.dumps(current))
+    updated["source"]["retrieved_at"] = now
+    updated["record"]["last_seen_at"] = now
+    updated["record"]["status"] = "closed"
+    workflow.upsert_posting(state, updated)
+    state["postings"][posting_id]["closure_evidence"] = {
+        "confirmed_at": now,
+        "evidence_source": evidence_source,
+    }
+    workflow.save_state(args.state, state)
+    return {
+        "posting_id": posting_id,
+        "status": "closed",
+        "confirmed_at": now,
+        "evidence_source": evidence_source,
+        "history_versions": len(state["postings"][posting_id]["history"]),
+    }
 
 
 def cmd_application(args: argparse.Namespace) -> dict[str, Any]:
@@ -363,6 +396,11 @@ def build_parser() -> argparse.ArgumentParser:
     reject.add_argument("--state", type=Path, default=DEFAULT_STATE)
     reject.set_defaults(decision="not-pursuing")
 
+    close_posting = sub.add_parser("mark-closed", help="Record a confirmed closure while preserving posting history.")
+    close_posting.add_argument("posting_id")
+    close_posting.add_argument("--evidence-source", required=True, help="URL or reference confirming the listing is closed.")
+    close_posting.add_argument("--state", type=Path, default=DEFAULT_STATE)
+
     application = sub.add_parser("application", help="Record the user's application progress; this does not submit an application.")
     application.add_argument("posting_id")
     application.add_argument("--status", choices=APPLICATION_STATUSES, required=True)
@@ -423,6 +461,8 @@ def main(argv: list[str] | None = None) -> int:
             result = {"opportunity_id": opportunity_id, **state["opportunities"][opportunity_id]}
         elif args.command in {"shortlist", "not-pursuing"}:
             result = cmd_decision(args)
+        elif args.command == "mark-closed":
+            result = cmd_mark_closed(args)
         elif args.command == "application":
             result = cmd_application(args)
         elif args.command == "handoff":
