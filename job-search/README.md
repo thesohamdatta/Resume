@@ -59,7 +59,7 @@ The `list` filters support role-title text, location text, work mode, employment
 
 ## Eligibility and fit
 
-Fit is an explainable direct text match against the currently loaded candidate facts and technical evidence. It is only a rough ranking aid, not a claim of proficiency. An absent skill in loaded evidence is shown as missing evidence, not proof the candidate lacks it.
+Fit is an explainable text-match aid, not a claim of proficiency. Each listed job skill has equal weight: `score = 100 × matched skills / listed skills`, rounded to a whole percent. A match means the skill phrase was found in the currently loaded candidate facts or technical evidence after explicit claim-limit/planning notes are excluded. It does not measure depth or semantic relevance. An absent skill is shown as missing evidence, not proof the candidate lacks it. If the listing has no structured skills or no positive candidate evidence is available, the score is `null` rather than a guessed zero.
 
 Eligibility is separate. Without explicit, evidence-backed checks, the result remains `Unknown`. You can supply a local JSON file keyed by posting ID using this shape:
 
