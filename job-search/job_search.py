@@ -126,24 +126,66 @@ def safe_header_value(value: str, fallback: str) -> str:
 def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
     state = workflow.load_state(args.state)
     rows = []
+    requested_mode = getattr(args, "work_mode", None)
+    requested_type = getattr(args, "employment_type", None)
+    role_filter = (getattr(args, "role", None) or "").casefold().strip()
+    location_filter = (getattr(args, "location", None) or "").casefold().strip()
+    max_experience = getattr(args, "max_experience", None)
     for posting_id, record in sorted(state["postings"].items()):
         posting = record["current"]
+        job = posting["job"]
+        title = job["title"]
+        locations = job.get("locations", [])
+        actual_mode = job.get("work_mode", "unknown")
+        actual_type = job.get("employment_type", "unknown")
+        required_min = job.get("experience_min_years")
+        unknown_filters = []
+
+        if role_filter and role_filter not in title.casefold():
+            continue
+        if location_filter:
+            if not locations:
+                unknown_filters.append("location")
+            elif not any(location_filter in location.casefold() for location in locations):
+                continue
+        if requested_mode and actual_mode != requested_mode:
+            if actual_mode == "unknown":
+                unknown_filters.append("work_mode")
+            else:
+                continue
+        if requested_type and actual_type != requested_type:
+            if actual_type == "unknown":
+                unknown_filters.append("employment_type")
+            else:
+                continue
+        if max_experience is not None:
+            if required_min is None:
+                unknown_filters.append("experience_min_years")
+            elif required_min > max_experience:
+                continue
+
         opportunity_id = workflow.opportunity_id_for_posting(state, posting_id)
         opportunity = state["opportunities"].get(opportunity_id, {})
         application = state["applications"].get(opportunity_id)
         rows.append({
             "posting_id": posting_id,
-            "title": posting["job"]["title"],
-            "company": posting["job"]["company"],
+            "title": title,
+            "company": job["company"],
             "source": posting["source"]["name"],
             "source_url": posting["source"]["url"],
+            "locations": locations,
+            "work_mode": actual_mode,
+            "employment_type": actual_type,
+            "experience_min_years": required_min,
+            "experience_max_years": job.get("experience_max_years"),
+            "filter_status": "Unknown" if unknown_filters else "Matched",
+            "filter_notes": unknown_filters,
             "posting_status": posting["record"]["status"],
             "decision": opportunity.get("decision", "Discovered"),
             "application_status": application.get("status") if application else None,
             "last_seen_at": posting["record"]["last_seen_at"],
         })
     return {"postings": rows, "count": len(rows), "state_path": str(args.state)}
-
 
 def cmd_decision(args: argparse.Namespace) -> dict[str, Any]:
     state = workflow.load_state(args.state)
@@ -287,6 +329,11 @@ def build_parser() -> argparse.ArgumentParser:
     search.add_argument("--eligibility-checks", type=Path, default=Path("job-search/state/eligibility-checks.json"))
 
     listing = sub.add_parser("list", help="List saved postings and separate application status.")
+    listing.add_argument("--role", help="Case-insensitive title substring.")
+    listing.add_argument("--location", help="Case-insensitive location substring.")
+    listing.add_argument("--work-mode", choices=("onsite", "hybrid", "remote"))
+    listing.add_argument("--employment-type", choices=("full_time", "part_time", "contract", "internship", "temporary"))
+    listing.add_argument("--max-experience", type=float, help="Maximum confirmed minimum-experience requirement in years; unknown requirements remain visible.")
     listing.add_argument("--state", type=Path, default=DEFAULT_STATE)
 
     link = sub.add_parser("link-postings", help="Link listings only when a shared employer requisition ID is verified.")
