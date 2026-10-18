@@ -44,3 +44,6 @@ node_modules/
 
 # Agent-local state
 .openhands/
+
+# Local job-search state and personal application tracking
+job-search/state/
