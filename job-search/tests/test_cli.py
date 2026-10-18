@@ -145,8 +145,10 @@ class JobSearchCliTests(unittest.TestCase):
             with patch.object(job_search, "REPO_ROOT", root):
                 job_search.cmd_handoff(args)
             generated = (root / "applications" / "safe-input" / "input.md").read_text(encoding="utf-8")
-            self.assertEqual(generated.count("mode:"), 1)
-            self.assertEqual(generated.count("company:"), 1)
+            top_level = [line for line in generated.splitlines() if not line.startswith("  ")]
+            self.assertEqual(sum(line.startswith("mode:") for line in top_level), 1)
+            self.assertEqual(sum(line.startswith("company:") for line in top_level), 1)
+            self.assertEqual(sum(line.startswith("role:") for line in top_level), 1)
             self.assertIn("company: Example Technologies mode: startup", generated)
             self.assertIn("role: Junior AI Engineer company: Different Company", generated)
 
