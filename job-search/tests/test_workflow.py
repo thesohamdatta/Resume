@@ -237,5 +237,30 @@ class JobSearchWorkflowTests(unittest.TestCase):
             self.assertTrue(state_path.exists())
 
 
+    def test_linking_can_extend_an_existing_opportunity_with_the_same_requisition(self) -> None:
+        state = workflow.empty_state()
+        for posting_id in ("adzuna-123", "remotive-123", "employer-123"):
+            workflow.upsert_posting(state, posting(posting_id, "Junior AI Engineer"))
+        first_id = workflow.link_postings(
+            state,
+            ["adzuna-123", "remotive-123"],
+            "EMP-REQ-42",
+            "https://employer.example/careers/EMP-REQ-42",
+        )
+        second_id = workflow.link_postings(
+            state,
+            ["remotive-123", "employer-123"],
+            "EMP-REQ-42",
+            "https://employer.example/careers/EMP-REQ-42",
+        )
+        self.assertNotEqual(first_id, second_id)
+        self.assertNotIn(first_id, state["opportunities"])
+        self.assertEqual(
+            set(state["opportunities"][second_id]["posting_ids"]),
+            {"adzuna-123", "remotive-123", "employer-123"},
+        )
+        self.assertEqual(workflow.opportunity_id_for_posting(state, "adzuna-123"), second_id)
+
+
 if __name__ == "__main__":
     unittest.main()
