@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import json
 import sys
 import unittest
+import urllib.error
+from unittest.mock import patch
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -79,6 +82,77 @@ class SourceAdapterTests(unittest.TestCase):
             "2026-10-17T04:00:00Z",
         ]
         self.assertIsNone(sources.source_budget_error(state, "Remotive", now))
+
+
+    def test_remotive_success_with_empty_jobs_is_zero_results(self) -> None:
+        class Response:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+            def read(self):
+                return b'{"jobs": []}'
+
+        result = sources.search_remotive(
+            "Python",
+            10,
+            "2026-10-19T10:00:00Z",
+            opener=lambda *_args, **_kwargs: Response(),
+        )
+        self.assertEqual(result["status"], "success")
+        self.assertEqual(result["postings"], [])
+
+    def test_malformed_remotive_response_is_a_source_failure(self) -> None:
+        class Response:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+            def read(self):
+                return b'{"unexpected": []}'
+
+        with self.assertRaisesRegex(sources.SourceRequestError, "unexpected response shape"):
+            sources.search_remotive(
+                "Python",
+                10,
+                "2026-10-19T10:00:00Z",
+                opener=lambda *_args, **_kwargs: Response(),
+            )
+
+    def test_http_forbidden_is_reported_as_blocked_not_empty(self) -> None:
+        def forbidden(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                "https://remotive.com/api/remote-jobs",
+                403,
+                "Forbidden",
+                None,
+                None,
+            )
+
+        with self.assertRaises(sources.SourceRequestError) as caught:
+            sources.search_remotive(
+                "Python",
+                10,
+                "2026-10-19T10:00:00Z",
+                opener=forbidden,
+            )
+        self.assertEqual(caught.exception.status, "blocked")
+
+    def test_malformed_adzuna_company_shape_is_rejected_without_crashing(self) -> None:
+        with self.assertRaisesRegex(ValueError, "title, company, or original listing URL"):
+            sources.normalize_adzuna_job(
+                {
+                    "id": 10,
+                    "title": "Python Developer",
+                    "company": "not an object",
+                    "redirect_url": "https://example.com/jobs/10",
+                },
+                "2026-10-19T10:00:00Z",
+            )
 
 
 if __name__ == "__main__":
