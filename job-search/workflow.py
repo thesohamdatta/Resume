@@ -176,7 +176,7 @@ def _contains_term(text: str, term: str) -> bool:
     normalized_term = " ".join(term.casefold().replace("/", " ").replace("-", " ").split())
     if not normalized_term:
         return False
-    if " " not in normalized_term and len(normalized_term) <= 3:
+    if " " not in normalized_term:
         import re
         return re.search(rf"(?<![a-z0-9]){re.escape(normalized_term)}(?![a-z0-9])", normalized_text) is not None
     return normalized_term in normalized_text
@@ -273,7 +273,7 @@ def process_source_results(
     for result in source_results:
         summary = summarize_source_result(result)
         errors: list[str] = []
-        if result.get("status") == "success":
+        if result.get("status") in {"success", "partial"}:
             for index, posting in enumerate(result.get("postings") or []):
                 validation_errors = validate_posting_object(posting)
                 if validation_errors:
