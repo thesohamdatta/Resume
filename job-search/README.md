@@ -50,10 +50,11 @@ python3 job-search/job_search.py list --role "AI Engineer" --location Pune --wor
 python3 job-search/job_search.py link-postings adzuna-123 remotive-123 --requisition-id EMP-REQ-42 --evidence-source "https://employer.example/careers/EMP-REQ-42"
 python3 job-search/job_search.py shortlist adzuna-123
 python3 job-search/job_search.py not-pursuing adzuna-123
+python3 job-search/job_search.py mark-closed adzuna-123 --evidence-source "https://employer.example/careers/closure-notice"
 python3 job-search/job_search.py application adzuna-123 --status Applied --notes "Applied through employer website"
 ```
 
-Application records are separate from posting records. A refresh can update a posting and save prior content in its history without overwriting application status or notes.
+Application records are separate from posting records. A refresh can update a posting and save prior content in its history without overwriting application status or notes. Use `mark-closed` only after checking the listing or a closure notice; it requires an evidence reference and keeps the prior open version. An absent listing in a search does not itself prove closure.
 
 The `list` filters support role-title text, location text, work mode, employment type, and the maximum confirmed minimum-experience requirement. If the source does not provide a filter field, that listing remains visible with `filter_status: Unknown` rather than being treated as a match or discarded. Known conflicts with a filter are excluded.
 
@@ -94,6 +95,7 @@ validate <posting.json>...
 run-fixtures [--fixtures PATH] [--state PATH]
 search --source Adzuna|Remotive|both --query TEXT [--location India] [--limit N]
 list [--role TEXT] [--location TEXT] [--work-mode MODE] [--employment-type TYPE] [--max-experience YEARS] [--state PATH]
+mark-closed POSTING_ID --evidence-source URL
 link-postings POSTING_ID POSTING_ID... --requisition-id ID --evidence-source URL
 shortlist POSTING_ID
 not-pursuing POSTING_ID
