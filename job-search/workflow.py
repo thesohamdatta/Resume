@@ -240,8 +240,20 @@ EXCLUDED_SOURCE_BLOCKS = {
 }
 
 
+EXCLUDED_MARKDOWN_HEADINGS = (
+    "do not claim", "claim limits", "cannot claim", "boundaries", "boundary",
+    "constraints", "attribution limits", "planned features", "future work",
+    "known gaps", "excluded claims", "unverified claims",
+)
+POSITIVE_MARKDOWN_HEADINGS = ("can claim", "allowed claims", "verified evidence")
+
+
+def _heading_contains(heading: str, phrases: tuple[str, ...]) -> bool:
+    return any(phrase in heading for phrase in phrases)
+
+
 def positive_evidence_text(content: str) -> str:
-    """Remove explicit no-claim, plan, and constraint blocks before keyword matching."""
+    """Keep evidence text outside explicitly excluded Markdown/YAML sections."""
     positive: list[str] = []
     markdown_skip_level: int | None = None
     yaml_skip_indent: int | None = None
@@ -255,11 +267,11 @@ def positive_evidence_text(content: str) -> str:
             level = len(stripped) - len(stripped.lstrip("#"))
             heading = stripped[level:].strip().casefold()
             if markdown_skip_level is not None:
-                if level <= markdown_skip_level:
+                if level <= markdown_skip_level or _heading_contains(heading, POSITIVE_MARKDOWN_HEADINGS):
                     markdown_skip_level = None
                 else:
                     continue
-            if any(term in heading for term in ("do not claim", "claim limits", "boundaries", "planned features")):
+            if _heading_contains(heading, EXCLUDED_MARKDOWN_HEADINGS):
                 markdown_skip_level = level
             continue
         if markdown_skip_level is not None:
@@ -287,7 +299,7 @@ def positive_evidence_text(content: str) -> str:
 
 
 def _skill_is_explicitly_limited(skill: str, boundaries: str) -> bool:
-    """Return true when a skill is listed under an explicit claim-limit heading."""
+    """Return true only when the skill appears in an active claim-limit section."""
     aliases = SKILL_ALIASES.get(skill, (skill,))
     in_limit_section = False
     section_level: int | None = None
@@ -300,7 +312,10 @@ def _skill_is_explicitly_limited(skill: str, boundaries: str) -> bool:
             if section_level is not None and level <= section_level:
                 in_limit_section = False
                 section_level = None
-            if any(term in heading for term in ("do not claim", "claim limits", "cannot claim")):
+            if _heading_contains(heading, POSITIVE_MARKDOWN_HEADINGS):
+                in_limit_section = False
+                section_level = None
+            elif _heading_contains(heading, ("do not claim", "claim limits", "cannot claim")):
                 in_limit_section = True
                 section_level = level
             continue
