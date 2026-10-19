@@ -404,5 +404,26 @@ class JobSearchWorkflowTests(unittest.TestCase):
 
 
 
+    def test_contextual_ml_boundaries_do_not_block_machine_learning_skill(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Machine Learning"]
+        result = workflow.evaluate_fit(
+            item,
+            {
+                "data/facts.yaml": "Completed an AI/ML internship using machine learning and TensorFlow.",
+                "content/github/boundaries.md": (
+                    "# Truth Boundaries\n"
+                    "## AI/ML virtual internship\n"
+                    "### Do not claim\n"
+                    "- Google employee, Google Engineer, or Google ML Engineer.\n"
+                    "- Production ML deployment.\n"
+                ),
+            },
+        )
+        self.assertEqual(result["matched_skills"], ["Machine Learning"])
+        self.assertEqual(result["score"], 100)
+
+
+
 if __name__ == "__main__":
     unittest.main()
