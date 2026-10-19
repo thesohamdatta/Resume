@@ -355,7 +355,7 @@ class JobSearchWorkflowTests(unittest.TestCase):
                 "content/github/evidence.md": (
                     "# Technical Evidence\\n"
                     "## Boundary\\n"
-                    "Java was discussed but not implemented.\\n"
+                    "Java integration is discussed in the boundary notes.\\n"
                     "## Working project\\n"
                     "Implemented Python APIs.\\n"
                 ),
@@ -394,7 +394,7 @@ class JobSearchWorkflowTests(unittest.TestCase):
                     "## Aura\\n"
                     "### Do not claim\\n"
                     "- Java\\n"
-                    "### Other notes\\n"
+                    "#### Java attribution\\n"
                     "- Java is excluded from candidate claims.\\n"
                 ),
             },
