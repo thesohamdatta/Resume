@@ -390,12 +390,12 @@ class JobSearchWorkflowTests(unittest.TestCase):
             {
                 "data/facts.yaml": "Implemented Java APIs for a project.",
                 "content/github/boundaries.md": (
-                    "# Truth Boundaries\\n"
-                    "## Do not claim\\n"
-                    "### Java attribution\\n"
-                    "- Java\\n"
-                    "#### Java status\\n"
-                    "- Java is excluded from candidate claims.\\n"
+                    "# Truth Boundaries\n"
+                    "## Do not claim\n"
+                    "### Java attribution\n"
+                    "- Java\n"
+                    "#### Java status\n"
+                    "- Java is excluded from candidate claims.\n"
                 ),
             },
         )
