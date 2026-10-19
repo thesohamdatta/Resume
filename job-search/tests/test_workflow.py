@@ -425,8 +425,8 @@ class JobSearchWorkflowTests(unittest.TestCase):
                 ),
             },
         )
-        self.assertEqual(result["fit"]["matched_skills"] if "fit" in result else result["matched_skills"], ["Machine Learning", "Git/GitHub"])
-        self.assertEqual(result["score"] if "score" in result else result["fit"]["score"], 100)
+        self.assertEqual(result["matched_skills"], ["Machine Learning", "Git/GitHub"])
+        self.assertEqual(result["score"], 100)
 
 
 if __name__ == "__main__":
