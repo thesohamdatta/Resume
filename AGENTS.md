@@ -86,3 +86,17 @@ A run must have a traceable audit and the standard outputs listed in `pipeline/R
 ## Maintenance
 
 Keep this entry point short. Put execution detail in the workflow, domain rules in the rules files, and deterministic checks in scripts. Add modules only for distinct responsibilities. Do not restate rules already owned elsewhere.
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues are the source of truth for specs and tickets. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the canonical `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, and `wontfix` labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+This is a single-context repository. Read `AGENTS.md`, relevant spec/workflow files, and ADRs if present. See `docs/agents/domain.md`.

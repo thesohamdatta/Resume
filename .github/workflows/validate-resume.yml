@@ -18,12 +18,23 @@ jobs:
       - name: Validate repository
         run: bash pipeline/validate_resume_repo.sh
 
-      - name: Compile the pipeline (static check)
-        run: python3 -m compileall -q pipeline
+      - name: Compile the pipeline and job-search code
+        run: python3 -m compileall -q pipeline job-search
 
       - name: Validator contract tests
         run: bash pipeline/test_validate_contract.sh
 
+      - name: Install job-search schema validator
+        run: python3 -m pip install --requirement job-search/requirements.txt
+
+      - name: Job-posting contract tests
+        run: python3 -m unittest discover -s job-search/tests -v
+
+      - name: Run offline job-search workflow
+        run: python3 job-search/job_search.py run-fixtures --fixtures job-search/fixtures/sample-search-results.json --state /tmp/job-search-state/jobs.json --eligibility-checks /tmp/no-eligibility-checks.json
+
+      - name: Validate schema JSON
+        run: python3 -c "import json; json.load(open('job-search/schemas/job-posting.schema.json', encoding='utf-8'))"
 
   build-resumes:
     needs: validate

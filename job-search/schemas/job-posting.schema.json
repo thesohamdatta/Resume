@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thesohamdatta/Resume/blob/main/job-search/schemas/job-posting.schema.json",
+  "title": "Canonical Job Posting",
+  "description": "One source listing. This is not the underlying opportunity or application record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "posting_id", "source", "job", "record"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "posting_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Stable identity for this listing at its source, not a cross-source opportunity ID."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "url", "retrieved_at"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "url": { "type": "string", "format": "uri" },
+        "retrieved_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "company", "locations", "work_mode", "employment_type", "description", "skills"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "company": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "locations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "pattern": "\\S" },
+          "uniqueItems": true
+        },
+        "work_mode": { "enum": ["onsite", "hybrid", "remote", "unknown"] },
+        "employment_type": { "enum": ["full_time", "part_time", "contract", "internship", "temporary", "unknown"] },
+        "description": { "type": "string" },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "experience_min_years": { "type": ["number", "null"], "minimum": 0 },
+        "experience_max_years": { "type": ["number", "null"], "minimum": 0 },
+        "posted_at": { "type": ["string", "null"], "format": "date-time" },
+        "deadline": { "type": ["string", "null"], "format": "date-time" },
+        "apply_url": { "type": ["string", "null"], "format": "uri" }
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["first_seen_at", "last_seen_at", "status", "content_hash"],
+      "properties": {
+        "first_seen_at": { "type": "string", "format": "date-time" },
+        "last_seen_at": { "type": "string", "format": "date-time" },
+        "status": { "enum": ["open", "closed", "unknown"] },
+        "content_hash": {
+          "type": ["string", "null"],
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "description": "SHA-256 of normalized source content, or null if content was not captured."
+        }
+      }
+    }
+  }
+}
