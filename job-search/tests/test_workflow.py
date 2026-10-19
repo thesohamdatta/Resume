@@ -353,11 +353,11 @@ class JobSearchWorkflowTests(unittest.TestCase):
             item,
             {
                 "content/github/evidence.md": (
-                    "# Technical Evidence\\n"
-                    "## Boundary\\n"
-                    "Java integration is discussed in the boundary notes.\\n"
-                    "## Working project\\n"
-                    "Implemented Python APIs.\\n"
+                    "# Technical Evidence\n"
+                    "## Boundary\n"
+                    "Java integration is discussed in the boundary notes.\n"
+                    "## Working project\n"
+                    "Implemented Python APIs.\n"
                 ),
             },
         )
@@ -372,10 +372,10 @@ class JobSearchWorkflowTests(unittest.TestCase):
             {
                 "data/facts.yaml": "Implemented Java APIs for a project.",
                 "content/github/boundaries.md": (
-                    "# Truth Boundaries\\n"
-                    "## Do not claim\\n"
-                    "### Can claim\\n"
-                    "- Java implementation with direct evidence.\\n"
+                    "# Truth Boundaries\n"
+                    "## Do not claim\n"
+                    "### Can claim\n"
+                    "- Java implementation with direct evidence.\n"
                 ),
             },
         )
@@ -390,12 +390,12 @@ class JobSearchWorkflowTests(unittest.TestCase):
             {
                 "data/facts.yaml": "Implemented Java APIs for a project.",
                 "content/github/boundaries.md": (
-                    "# Truth Boundaries\\n"
-                    "## Aura\\n"
-                    "### Do not claim\\n"
-                    "- Java\\n"
-                    "#### Java attribution\\n"
-                    "- Java is excluded from candidate claims.\\n"
+                    "# Truth Boundaries\n"
+                    "## Aura\n"
+                    "### Do not claim\n"
+                    "- Java\n"
+                    "#### Java attribution\n"
+                    "- Java is excluded from candidate claims.\n"
                 ),
             },
         )
