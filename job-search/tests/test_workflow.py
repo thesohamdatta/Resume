@@ -333,7 +333,7 @@ class JobSearchWorkflowTests(unittest.TestCase):
         )
         self.assertEqual(result["matched_skills"], [])
         self.assertEqual(result["missing_skills"], ["Java"])
-        self.assertIsNone(result["score"])
+        self.assertEqual(result["score"], 0)
         self.assertIn("explicit candidate claim boundary", result["reasons"][0])
 
 
