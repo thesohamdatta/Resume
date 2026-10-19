@@ -298,29 +298,107 @@ def positive_evidence_text(content: str) -> str:
     return "\n".join(positive)
 
 
+GLOBAL_CLAIM_SCOPE_HEADINGS = {
+    "global rules",
+    "general writing constraints",
+    "global skill limits",
+    "global claim limits",
+}
+
+
+def _line_explicitly_limits_skill(line: str, aliases: tuple[str, ...]) -> bool:
+    """Match a skill only when the boundary line directly limits that skill."""
+    statement = re.sub(r"^\s*(?:[-*+]\s+|\d+[.)]\s+)", "", line.strip())
+    statement = re.sub(r"[\x60*_]", "", statement).casefold()
+    normalized = " ".join(statement.replace("/", " ").replace("-", " ").split())
+    normalized = normalized.strip(" .,:;!?()[]{}")
+
+    for alias in aliases:
+        normalized_alias = " ".join(
+            alias.casefold().replace("/", " ").replace("-", " ").split()
+        ).strip(" .,:;!?()[]{}")
+        if not normalized_alias:
+            continue
+        if normalized == normalized_alias:
+            return True
+
+        # Explicit prohibitions must name the skill directly, not a job title
+        # or a qualified claim such as "production ML deployment".
+        directive = (
+            r"\b(?:do not|don't|never|must not|should not|cannot)\s+"
+            r"(?:claim|say|present|describe|use|include|state|imply)\s+"
+        )
+        if re.search(
+            directive + re.escape(normalized_alias) + r"(?:\b|$)",
+            normalized,
+        ):
+            return True
+
+        if normalized.startswith(normalized_alias + " "):
+            remainder = normalized[len(normalized_alias):].strip()
+            if re.match(
+                r"^(?:(?:is|was|were|are|has been|have been)\s+)?"
+                r"(?:not|never|excluded|unsupported|unverified|planned|roadmap)\b",
+                remainder,
+            ):
+                return True
+        if normalized.startswith(normalized_alias + ":"):
+            remainder = normalized[len(normalized_alias) + 1:].strip()
+            if re.match(
+                r"^(?:planned|roadmap|unverified|unsupported|excluded|"
+                r"not\s+(?:implemented|shipped|merged|built|owned|authored|"
+                r"completed|verified|available|supported))\b",
+                remainder,
+            ):
+                return True
+
+    return False
+
+
 def _skill_is_explicitly_limited(skill: str, boundaries: str) -> bool:
-    """Return true only when the skill appears in an active claim-limit section."""
+    """Apply only global skill bans; project-specific claim limits stay scoped."""
     aliases = SKILL_ALIASES.get(skill, (skill,))
     in_limit_section = False
     section_level: int | None = None
+    parent_heading: str | None = None
 
     for line in boundaries.splitlines():
         stripped = line.strip()
         if stripped.startswith("#"):
             level = len(stripped) - len(stripped.lstrip("#"))
             heading = stripped[level:].strip().casefold()
+
             if section_level is not None and level <= section_level:
                 in_limit_section = False
                 section_level = None
-            if _heading_contains(heading, POSITIVE_MARKDOWN_HEADINGS):
+
+            positive_heading = _heading_contains(
+                heading, POSITIVE_MARKDOWN_HEADINGS
+            )
+            limit_heading = _heading_contains(
+                heading, ("do not claim", "claim limits", "cannot claim")
+            )
+
+            if positive_heading:
                 in_limit_section = False
                 section_level = None
-            elif _heading_contains(heading, ("do not claim", "claim limits", "cannot claim")):
-                in_limit_section = True
-                section_level = level
+            elif limit_heading:
+                # A restriction inside a project section only limits claims about
+                # that project. Job fit is candidate-wide, so don't hide a skill
+                # used elsewhere because one project lacks a related capability.
+                global_scope = (
+                    parent_heading is None
+                    or parent_heading in GLOBAL_CLAIM_SCOPE_HEADINGS
+                )
+                in_limit_section = global_scope
+                section_level = level if global_scope else None
+            if level == 2 and not limit_heading and not positive_heading:
+                parent_heading = heading
             continue
-        if in_limit_section and any(_contains_term(stripped, alias) for alias in aliases):
+
+        if in_limit_section and _line_explicitly_limits_skill(stripped, aliases):
             return True
+
     return False
 
 
