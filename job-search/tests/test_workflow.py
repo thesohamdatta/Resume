@@ -346,5 +346,63 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertIn("fit was not scored", result["reasons"][0])
 
 
+    def test_fit_ignores_markdown_boundary_sections_but_keeps_following_evidence(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Java", "Python"]
+        result = workflow.evaluate_fit(
+            item,
+            {
+                "content/github/evidence.md": (
+                    "# Technical Evidence\\n"
+                    "## Boundary\\n"
+                    "Java was discussed but not implemented.\\n"
+                    "## Working project\\n"
+                    "Implemented Python APIs.\\n"
+                ),
+            },
+        )
+        self.assertEqual(result["matched_skills"], ["Python"])
+        self.assertEqual(result["missing_skills"], ["Java"])
+
+    def test_boundary_parser_does_not_treat_nested_can_claim_as_a_limit(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Java"]
+        result = workflow.evaluate_fit(
+            item,
+            {
+                "data/facts.yaml": "Implemented Java APIs for a project.",
+                "content/github/boundaries.md": (
+                    "# Truth Boundaries\\n"
+                    "## Do not claim\\n"
+                    "### Can claim\\n"
+                    "- Java implementation with direct evidence.\\n"
+                ),
+            },
+        )
+        self.assertEqual(result["matched_skills"], ["Java"])
+        self.assertEqual(result["score"], 100)
+
+    def test_boundary_parser_applies_nested_do_not_claim_heading(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Java"]
+        result = workflow.evaluate_fit(
+            item,
+            {
+                "data/facts.yaml": "Implemented Java APIs for a project.",
+                "content/github/boundaries.md": (
+                    "# Truth Boundaries\\n"
+                    "## Aura\\n"
+                    "### Do not claim\\n"
+                    "- Java\\n"
+                    "### Other notes\\n"
+                    "- Java is excluded from candidate claims.\\n"
+                ),
+            },
+        )
+        self.assertEqual(result["matched_skills"], [])
+        self.assertEqual(result["missing_skills"], ["Java"])
+
+
+
 if __name__ == "__main__":
     unittest.main()
