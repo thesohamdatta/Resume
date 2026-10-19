@@ -286,12 +286,37 @@ def positive_evidence_text(content: str) -> str:
     return "\n".join(positive)
 
 
+def _skill_is_explicitly_limited(skill: str, boundaries: str) -> bool:
+    """Return true when a skill is listed under an explicit claim-limit heading."""
+    aliases = SKILL_ALIASES.get(skill, (skill,))
+    in_limit_section = False
+    section_level: int | None = None
+
+    for line in boundaries.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("#"):
+            level = len(stripped) - len(stripped.lstrip("#"))
+            heading = stripped[level:].strip().casefold()
+            if section_level is not None and level <= section_level:
+                in_limit_section = False
+                section_level = None
+            if any(term in heading for term in ("do not claim", "claim limits", "cannot claim")):
+                in_limit_section = True
+                section_level = level
+            continue
+        if in_limit_section and any(_contains_term(stripped, alias) for alias in aliases):
+            return True
+    return False
+
+
 def evaluate_fit(posting: dict[str, Any], candidate_evidence: dict[str, str]) -> dict[str, Any]:
     skills = list(dict.fromkeys(posting.get("job", {}).get("skills", [])))
+    boundaries = candidate_evidence.get("content/github/boundaries.md", "")
+    limited_skills = {skill for skill in skills if _skill_is_explicitly_limited(skill, boundaries)}
     candidate_evidence = {
         name: positive_evidence_text(text)
         for name, text in candidate_evidence.items()
-        if text.strip()
+        if name != "content/github/boundaries.md" and text.strip()
     }
     candidate_evidence = {name: text for name, text in candidate_evidence.items() if text.strip()}
     if not skills:
@@ -321,7 +346,10 @@ def evaluate_fit(posting: dict[str, Any], candidate_evidence: dict[str, str]) ->
             name for name, content in candidate_evidence.items()
             if any(_contains_term(content, alias) for alias in aliases)
         ]
-        if matched_in_sources:
+        if skill in limited_skills:
+            missing.append(skill)
+            reasons.append(f"{skill}: excluded by an explicit candidate claim boundary.")
+        elif matched_in_sources:
             matched.append(skill)
             evidence_sources.update(matched_in_sources)
             reasons.append(

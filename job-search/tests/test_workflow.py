@@ -317,6 +317,25 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertEqual(result["matched_skills"], ["Java"])
         self.assertEqual(result["score"], 100)
 
+    def test_explicit_boundary_overrides_other_positive_skill_evidence(self) -> None:
+        item = posting()
+        item["job"]["skills"] = ["Java"]
+        result = workflow.evaluate_fit(
+            item,
+            {
+                "data/facts.yaml": "Implemented Java APIs for a project.",
+                "content/github/boundaries.md": (
+                    "# Truth Boundaries\n\n"
+                    "## Do not claim\n"
+                    "- Java\n"
+                ),
+            },
+        )
+        self.assertEqual(result["matched_skills"], [])
+        self.assertEqual(result["missing_skills"], ["Java"])
+        self.assertIsNone(result["score"])
+        self.assertIn("explicit candidate claim boundary", result["reasons"][0])
+
 
     def test_fit_is_not_scored_when_candidate_evidence_is_unavailable(self) -> None:
         item = posting()

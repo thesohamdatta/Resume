@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,6 +20,7 @@ DEFAULT_STATE = Path("job-search/state/jobs.json")
 EVIDENCE_PATHS = (
     "data/facts.yaml",
     "content/github/evidence.md",
+    "content/github/boundaries.md",
 )
 APPLICATION_STATUSES = ("Preparing", "Applied", "Interview", "Rejected", "Offer", "Withdrawn")
 APPLICATION_TRANSITIONS = {
@@ -54,10 +56,27 @@ def load_eligibility_checks(path: Path | None) -> dict[str, list[dict[str, Any]]
         raise ValueError(f"Cannot read eligibility checks from {path}: {exc}") from exc
     if not isinstance(data, dict):
         raise ValueError("Eligibility checks file must be an object keyed by posting ID.")
+    for posting_id, checks in data.items():
+        if not isinstance(posting_id, str) or not posting_id.strip():
+            raise ValueError("Eligibility check keys must be non-empty posting IDs.")
+        if not isinstance(checks, list):
+            raise ValueError(f"Eligibility checks for {posting_id!r} must be a list.")
+        for index, check in enumerate(checks):
+            prefix = f"Eligibility check {index + 1} for {posting_id!r}"
+            if not isinstance(check, dict):
+                raise ValueError(f"{prefix} must be an object.")
+            if check.get("status") not in workflow.ELIGIBILITY_STATUSES:
+                raise ValueError(f"{prefix} needs status met, unmet, or unknown.")
+            if not isinstance(check.get("mandatory"), bool):
+                raise ValueError(f"{prefix} needs a boolean mandatory field.")
+            for field in ("description", "evidence", "evidence_source"):
+                if field in check and not isinstance(check[field], str):
+                    raise ValueError(f"{prefix} field {field!r} must be a string.")
     return data
 
 
 def run_search(args: argparse.Namespace) -> dict[str, Any]:
+    eligibility_checks = load_eligibility_checks(args.eligibility_checks)
     state = workflow.load_state(args.state)
     checked_at = timestamp_now()
     now = datetime.fromisoformat(checked_at.replace("Z", "+00:00"))
@@ -105,7 +124,7 @@ def run_search(args: argparse.Namespace) -> dict[str, Any]:
         source_results,
         state,
         candidate_evidence=load_candidate_evidence(),
-        eligibility_checks_by_posting=load_eligibility_checks(args.eligibility_checks),
+        eligibility_checks_by_posting=eligibility_checks,
     )
     workflow.save_state(args.state, state)
     result["state_path"] = str(args.state)
@@ -328,20 +347,25 @@ def cmd_handoff(args: argparse.Namespace) -> dict[str, Any]:
         "notes: |\n"
         f"  {notes}\n"
     )
-    run_dir.mkdir(parents=True, exist_ok=True)
-    input_path.write_text(content, encoding="utf-8")
-    application = state["applications"].get(opportunity_id, {
-        "opportunity_id": opportunity_id,
-        "posting_id": posting_id,
-        "posting_ids": opportunity.get("posting_ids", [posting_id]),
-        "created_at": timestamp_now(),
-        "notes": "",
-    })
-    application["status"] = "Preparing"
-    application["updated_at"] = timestamp_now()
-    application["resume_input"] = str(input_path.relative_to(REPO_ROOT))
-    state["applications"][opportunity_id] = application
-    workflow.save_state(args.state, state)
+    run_dir.mkdir(parents=True, exist_ok=False)
+    try:
+        input_path.write_text(content, encoding="utf-8")
+        application = state["applications"].get(opportunity_id, {
+            "opportunity_id": opportunity_id,
+            "posting_id": posting_id,
+            "posting_ids": opportunity.get("posting_ids", [posting_id]),
+            "created_at": timestamp_now(),
+            "notes": "",
+        })
+        application["status"] = "Preparing"
+        application["updated_at"] = timestamp_now()
+        application["resume_input"] = str(input_path.relative_to(REPO_ROOT))
+        state["applications"][opportunity_id] = application
+        workflow.save_state(args.state, state)
+    except Exception:
+        # Remove only the directory created by this invocation; leave no orphaned handoff.
+        shutil.rmtree(run_dir, ignore_errors=True)
+        raise
     return {
         "posting_id": posting_id,
         "status": "Preparing",

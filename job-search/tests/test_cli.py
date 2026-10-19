@@ -49,6 +49,43 @@ def posting() -> dict:
 
 
 class JobSearchCliTests(unittest.TestCase):
+    def test_eligibility_checks_reject_malformed_shapes(self) -> None:
+        invalid_documents = (
+            '{"fixture-123": {}}',
+            '{"fixture-123": [null]}',
+            '{"fixture-123": [{"mandatory": true}]}',
+            '{"fixture-123": [{"mandatory": "yes", "status": "met"}]}',
+            '{"fixture-123": [{"mandatory": true, "status": "invalid"}]}',
+            '{"fixture-123": [{"mandatory": true, "status": "met", "evidence": 7}]}',
+        )
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "eligibility.json"
+            for document in invalid_documents:
+                with self.subTest(document=document):
+                    path.write_text(document, encoding="utf-8")
+                    with self.assertRaises(ValueError):
+                        job_search.load_eligibility_checks(path)
+
+    def test_invalid_eligibility_is_rejected_before_network_or_state_change(self) -> None:
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            state_path = root / "jobs.json"
+            eligibility_path = root / "eligibility.json"
+            eligibility_path.write_text('{"fixture-123": [null]}', encoding="utf-8")
+            args = Namespace(
+                state=state_path,
+                eligibility_checks=eligibility_path,
+                source="Remotive",
+                query="Python",
+                location="India",
+                limit=10,
+            )
+            with patch.object(job_search.sources, "search_remotive") as search:
+                with self.assertRaisesRegex(ValueError, "must be an object"):
+                    job_search.run_search(args)
+                search.assert_not_called()
+            self.assertFalse(state_path.exists())
+
     def test_handoff_requires_shortlist(self) -> None:
         state = workflow.empty_state()
         workflow.upsert_posting(state, posting())
@@ -85,6 +122,27 @@ class JobSearchCliTests(unittest.TestCase):
             self.assertFalse(result["automatic_submission"])
             saved = workflow.load_state(state_path)
             self.assertEqual(saved["applications"]["fixture-123"]["status"], "Preparing")
+
+    def test_handoff_rolls_back_new_input_when_state_save_fails(self) -> None:
+        state = workflow.empty_state()
+        workflow.upsert_posting(state, posting())
+        state["opportunities"]["fixture-123"] = {
+            "posting_ids": ["fixture-123"],
+            "decision": "Shortlisted",
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            state_path = root / "state" / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(posting_id="fixture-123", state=state_path, mode="mnc", run_name="failed-handoff")
+            with patch.object(job_search, "REPO_ROOT", root), patch.object(
+                job_search.workflow, "save_state", side_effect=OSError("disk full")
+            ):
+                with self.assertRaisesRegex(OSError, "disk full"):
+                    job_search.cmd_handoff(args)
+            self.assertFalse((root / "applications" / "failed-handoff").exists())
+            saved = workflow.load_state(state_path)
+            self.assertNotIn("fixture-123", saved["applications"])
 
     def test_handoff_refuses_to_overwrite_existing_run_directory(self) -> None:
         state = workflow.empty_state()
