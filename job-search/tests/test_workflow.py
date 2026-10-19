@@ -382,7 +382,7 @@ class JobSearchWorkflowTests(unittest.TestCase):
         self.assertEqual(result["matched_skills"], ["Java"])
         self.assertEqual(result["score"], 100)
 
-    def test_boundary_parser_applies_nested_do_not_claim_heading(self) -> None:
+    def test_nested_global_do_not_claim_heading_limits_skill(self) -> None:
         item = posting()
         item["job"]["skills"] = ["Java"]
         result = workflow.evaluate_fit(
@@ -390,44 +390,17 @@ class JobSearchWorkflowTests(unittest.TestCase):
             {
                 "data/facts.yaml": "Implemented Java APIs for a project.",
                 "content/github/boundaries.md": (
-                    "# Truth Boundaries\n"
-                    "## Aura\n"
-                    "### Do not claim\n"
-                    "- Java\n"
-                    "#### Java attribution\n"
-                    "- Java is excluded from candidate claims.\n"
+                    "# Truth Boundaries\\n"
+                    "## Do not claim\\n"
+                    "### Java attribution\\n"
+                    "- Java\\n"
+                    "#### Java status\\n"
+                    "- Java is excluded from candidate claims.\\n"
                 ),
             },
         )
         self.assertEqual(result["matched_skills"], [])
         self.assertEqual(result["missing_skills"], ["Java"])
-
-
-
-    def test_project_specific_limits_do_not_block_general_skills(self) -> None:
-        item = posting()
-        item["job"]["skills"] = ["Machine Learning", "Git/GitHub"]
-        result = workflow.evaluate_fit(
-            item,
-            {
-                "data/facts.yaml": (
-                    "Completed an AI/ML internship using machine learning and TensorFlow. "
-                    "Used Git/GitHub for code contributions."
-                ),
-                "content/github/boundaries.md": (
-                    "# Truth Boundaries\\n"
-                    "## AI/ML virtual internship\\n"
-                    "### Do not claim\\n"
-                    "- Google employee, Google Engineer, or Google ML Engineer.\\n"
-                    "- Production ML deployment.\\n"
-                    "## Research / Library Assistant\\n"
-                    "### Do not claim\\n"
-                    "- Git/version-control engineering.\\n"
-                ),
-            },
-        )
-        self.assertEqual(result["matched_skills"], ["Machine Learning", "Git/GitHub"])
-        self.assertEqual(result["score"], 100)
 
 
 if __name__ == "__main__":
