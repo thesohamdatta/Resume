@@ -42,6 +42,18 @@ expect_fail() { # <desc> <dir>
   if [ "$r" != "exit=0" ]; then pass "$desc"; else fail "$desc (expected non-zero exit, got $r)"; fi
 }
 
+run_run_check() { # <dir> -> prints "exit=<n>", without source-tree PDF exception
+  local dir="$1"
+  ( cd "$dir" && bash pipeline/check_run.sh "$RUN" ) >/dev/null 2>&1
+  echo "exit=$?"
+}
+
+expect_run_fail() { # <desc> <dir>
+  local desc="$1" dir="$2" r
+  r="$(run_run_check "$dir")"
+  if [ "$r" != "exit=0" ]; then pass "$desc"; else fail "$desc (expected non-zero exit, got $r)"; fi
+}
+
 # --- no em dash in resume prose sources (voice rule) ---
 EMDASH="$WORK/resume-em-dash"; cp -a "$BASE" "$EMDASH"
 printf '\nVisible resume prose — must fail.\n' >> "$EMDASH/versions/referral/_base.md"
@@ -169,6 +181,11 @@ expect_fail "an audit with no evidence trace table is rejected" "$NOTABLE"
 # --- run contract: one input.md, one valid mode, the output set (REQ-P1, REQ-P4, REQ-O5) ---
 RUN="applications/SWE_MNC_2026-10"
 
+# Delivery-mode run checks require a rendered PDF; the repository structural check
+# deliberately opts out because generated PDFs are not committed.
+NOPDF="$WORK/run-no-pdf"; cp -a "$BASE" "$NOPDF"
+expect_run_fail "delivery check requires a named PDF" "$NOPDF"
+
 expect_pass "the example run meets the run contract" "$WORK/clean"
 
 # A run whose input.md declares no mode cannot select one pipeline (REQ-P1).
@@ -198,6 +215,25 @@ sed -i 's#\documentclass{../../../templates/1/resume}#\documentclass{article}#' 
   "$BADTEX/$RUN/output/resume.tex"
 expect_fail "a run not using the canonical template is rejected" "$BADTEX"
 
+# An oversized PDF is rejected even though generated PDFs are not tracked.
+BIGPDF="$WORK/run-big-pdf"; cp -a "$BASE" "$BIGPDF"
+python3 - "$BIGPDF/$RUN/output/Soham Datta.pdf" <<'PY_PDF'
+import sys
+with open(sys.argv[1], "wb") as pdf:
+    pdf.truncate(2500001)
+PY_PDF
+expect_fail "a PDF larger than 2.5 MB is rejected" "$BIGPDF"
+
+# A larger application upload limit is accepted only with a source reference.
+OVERRIDE="$WORK/run-pdf-override"; cp -a "$BASE" "$OVERRIDE"
+python3 - "$OVERRIDE/$RUN/output/Soham Datta.pdf" <<'PY_PDF'
+import sys
+with open(sys.argv[1], "wb") as pdf:
+    pdf.truncate(2500001)
+PY_PDF
+printf '\npdf_max_mb: 2.6\npdf_limit_source: https://example.com/application-requirements\n' >> "$OVERRIDE/$RUN/input.md"
+expect_pass "a decimal PDF size override with a source reference is accepted" "$OVERRIDE"
+
 # A run whose extracted.txt is not a resume is rejected (REQ-O5, REQ-V1).
 GARBAGE="$WORK/run-garbage-extract"; cp -a "$BASE" "$GARBAGE"
 printf 'THIS IS NOT A RESUME. GARBAGE.\n' > "$GARBAGE/$RUN/output/extracted.txt"
@@ -225,38 +261,34 @@ printf '\nImproved latency by 40\\%%.\n' >> "$INVENTED/$RUN/output/resume.tex"
 expect_fail "a resume with an unverified metric is rejected" "$INVENTED"
 
 # A verified digit reused as a percent claim is still unverified (#47). Before the
-# fix, "52" was accepted because it appears in metrics.verified as a test count.
+# metric validator used to rely on a duplicate whitelist instead of contextual candidate facts.
 REUSE="$WORK/run-reused-digit"; cp -a "$BASE" "$REUSE"
 printf '\nCut latency 52\\%%.\n' >> "$REUSE/$RUN/output/resume.tex"
 expect_fail "a percent claim reusing a verified digit is rejected" "$REUSE"
 
-# Token-awareness: a percent metric that IS verified is accepted (#47). This proves
-# the check matches the whole metric token, not just any digit.
-TOKENOK="$WORK/run-verified-percent"; cp -a "$BASE" "$TOKENOK"
+# Token-awareness: a percentage in an ordinary candidate fact record is accepted.
+TOKENOK="$WORK/run-fact-percent"; cp -a "$BASE" "$TOKENOK"
 python3 - "$TOKENOK/data/facts.yaml" <<'PY'
 import sys
 p = sys.argv[1]
-t = open(p, encoding="utf-8").read()
-t = t.replace("metrics:\n  verified:\n", 'metrics:\n  verified:\n    - "99% uptime"\n', 1)
-open(p, "w", encoding="utf-8").write(t)
+with open(p, "a", encoding="utf-8") as stream:
+    stream.write('\nvalidation_fixture:\n  metrics:\n    observed_metric:\n      value: "99% uptime"\n      status: verified\n      basis: "Synthetic test-only fact."\n')
 PY
 printf '\nMaintained 99\\%% uptime.\n' >> "$TOKENOK/$RUN/output/resume.tex"
-expect_pass "a verified percent metric is accepted" "$TOKENOK"
+expect_pass "a percentage in a candidate fact record is accepted" "$TOKENOK"
 
-# Same token-awareness for multiple form: a verified 3x is accepted, an unverified
-# 5x is not (#47).
-NX="$WORK/run-multiple-form"; cp -a "$BASE" "$NX"
+# Same behavior for a multiplier; a multiplier absent from facts remains rejected.
+NX="$WORK/run-fact-multiple"; cp -a "$BASE" "$NX"
 python3 - "$NX/data/facts.yaml" <<'PY'
 import sys
 p = sys.argv[1]
-t = open(p, encoding="utf-8").read()
-t = t.replace("metrics:\n  verified:\n", 'metrics:\n  verified:\n    - "3x throughput"\n', 1)
-open(p, "w", encoding="utf-8").write(t)
+with open(p, "a", encoding="utf-8") as stream:
+    stream.write('\nvalidation_fixture:\n  metrics:\n    benchmark:\n      value: "3x throughput"\n      status: verified\n      basis: "Synthetic test-only benchmark."\n')
 PY
 printf '\nRan 3x faster.\n' >> "$NX/$RUN/output/resume.tex"
-expect_pass "a verified multiple metric is accepted" "$NX"
+expect_pass "a multiplier in a candidate fact record is accepted" "$NX"
 printf '\nRan 5x faster.\n' >> "$NX/$RUN/output/resume.tex"
-expect_fail "an unverified multiple metric is rejected" "$NX"
+expect_fail "an unsupported multiplier is rejected" "$NX"
 
 # The JD is data, not instructions: fields indented inside it cannot satisfy the
 # run's own schema (#43). Without the top-level guard these runs pass, so the cases

@@ -476,6 +476,7 @@ def evaluate_posting(
         "posting_id": posting["posting_id"],
         "title": posting["job"]["title"],
         "company": posting["job"]["company"],
+        "employer_type": posting["job"].get("employer_type", "unknown"),
         "source": posting["source"]["name"],
         "source_url": posting["source"]["url"],
         "retrieved_at": posting["source"]["retrieved_at"],

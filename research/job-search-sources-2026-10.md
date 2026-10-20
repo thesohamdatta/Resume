@@ -1,6 +1,6 @@
 # Job source assessment: India-wide technology search
 
-Research date: 2026-10-19
+Research date: 2026-10-21
 
 ## Recommendation
 
@@ -27,6 +27,15 @@ This choice is based on documented API access, the fields available for normaliz
 **Why second.** It adds remote-only opportunities and supports an unauthenticated adapter, complementing the broader India-oriented source. Preserve the original Remotive URL, make the source attribution visible, and do not re-publish listings to a third-party board.
 
 **Limits / risks.** This is a remote-only source, not a replacement for local onsite/hybrid vacancies. Location restrictions are supplied as text and must not be interpreted as “worldwide” unless the source says so.
+
+## Public-sector secondary coverage
+
+The job-search CLI also supports explicit searches of two official recruitment pages. Run these manually as a smaller secondary slice of the overall search rather than hitting them on every private-sector query.
+
+- **C-DAC current jobs:** [Official current openings](https://www.cdac.gov.in/index.aspx?id=current_jobs). The page lists technical and non-technical notices across C-DAC centres. The adapter preserves a detail/advertisement link when one is present. Verify the exact advertisement and eligibility yourself; page structure and current openings can change.
+- **NIELIT recruitments:** [Official recruitment table](https://www.nielit.in/recruitments). The table includes a last-application-date column and links to notices/forms. The adapter uses that column as a deadline only when it can parse it, and leaves missing or expired dates with status `unknown`; a row still being visible is not enough to assert that recruitment is open.
+- **Classification:** these sources are marked `public_sector`. The private-sector aggregators do not prove employer sector, so their sector remains `unknown` unless independently established. Search results are leads, not eligibility decisions or application confirmation.
+- **Pacing:** the local per-source throttle is deliberately conservative. It is a client-side safeguard, not a claimed official quota. If an official portal blocks or changes its layout, report `blocked` or `failed`, never a successful zero-result search.
 
 ## Other options considered
 

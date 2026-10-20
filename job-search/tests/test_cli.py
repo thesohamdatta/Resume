@@ -245,6 +245,39 @@ class JobSearchCliTests(unittest.TestCase):
         self.assertIn("experience_min_years", result["postings"][0]["filter_notes"])
 
 
+    def test_employer_type_filter_keeps_unknown_sector_visible(self) -> None:
+        state = workflow.empty_state()
+        unknown = posting()
+        workflow.upsert_posting(state, unknown)
+        public = posting()
+        public["posting_id"] = "public-456"
+        public["source"]["url"] = "https://gov.example/jobs/public-456"
+        public["job"]["title"] = "Project Engineer"
+        public["job"]["company"] = "C-DAC"
+        public["job"]["employer_type"] = "public_sector"
+        workflow.upsert_posting(state, public)
+
+        with tempfile.TemporaryDirectory() as temp:
+            state_path = Path(temp) / "jobs.json"
+            workflow.save_state(state_path, state)
+            args = Namespace(
+                state=state_path,
+                role=None,
+                location=None,
+                work_mode=None,
+                employment_type=None,
+                employer_type="public_sector",
+                max_experience=None,
+            )
+            result = job_search.cmd_list(args)
+        self.assertEqual(result["count"], 2)
+        rows = {row["posting_id"]: row for row in result["postings"]}
+        self.assertEqual(rows["public-456"]["filter_status"], "Matched")
+        self.assertEqual(rows["public-456"]["employer_type"], "public_sector")
+        self.assertEqual(rows["fixture-123"]["filter_status"], "Unknown")
+        self.assertIn("employer_type", rows["fixture-123"]["filter_notes"])
+
+
     def test_handoff_blocks_a_confirmed_closed_listing(self) -> None:
         item = posting()
         item["record"]["status"] = "closed"

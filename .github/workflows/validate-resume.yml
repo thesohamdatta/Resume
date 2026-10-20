@@ -15,6 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install validators
+        run: python3 -m pip install --requirement job-search/requirements.txt
+
       - name: Validate repository
         run: bash pipeline/validate_resume_repo.sh
 
@@ -23,9 +26,6 @@ jobs:
 
       - name: Validator contract tests
         run: bash pipeline/test_validate_contract.sh
-
-      - name: Install job-search schema validator
-        run: python3 -m pip install --requirement job-search/requirements.txt
 
       - name: Job-posting contract tests
         run: python3 -m unittest discover -s job-search/tests -v
@@ -77,6 +77,8 @@ jobs:
           test "$pages" = "1"
           pdftotext -layout /tmp/resume-base-build/application/resume.pdf /tmp/resume-artifacts/run.txt
           grep -q "Soham" /tmp/resume-artifacts/run.txt
+          pdf_bytes="$(wc -c < /tmp/resume-base-build/application/resume.pdf | tr -d ' ')"
+          test "$pdf_bytes" -le 2500000
 
       - name: Upload resume QA artifacts
         uses: actions/upload-artifact@v4

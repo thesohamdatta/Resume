@@ -44,11 +44,51 @@ CANON=(
   pipeline/check_run.sh
   pipeline/check_audit.py
   pipeline/check_metrics.py
+  pipeline/test_check_metrics.py
 )
 for f in "${CANON[@]}"; do
   test -f "$ROOT/$f" || fail "missing canonical module: $f"
 done
 ok "canonical module set present"
+
+# Metric validation uses the canonical YAML parser and has a focused regression suite.
+"$PY" "$ROOT/pipeline/test_check_metrics.py" >/dev/null || fail "metric checker tests failed"
+ok "metric checker regression tests pass"
+
+# The fixed representative-JD regression pack is present and internally consistent.
+REGRESSION_DIR="$ROOT/pipeline/fixtures/resume-regression"
+for f in manifest.json ai_ml.md llm_agents.md software_engineer.md review-template.md; do
+  test -s "$REGRESSION_DIR/$f" || fail "missing regression fixture: $f"
+done
+"$PY" - "$REGRESSION_DIR" <<'PY_FIXTURES' || fail "representative-JD regression fixtures are invalid"
+import json
+import re
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1]).resolve()
+manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+assert manifest.get("schema_version") == "1.0", "unsupported manifest schema"
+assert re.fullmatch(r"[0-9a-f]{40}", str(manifest.get("baseline_commit", ""))), "missing baseline commit SHA"
+cases = manifest.get("cases")
+assert isinstance(cases, list), "cases must be a list"
+assert {case.get("id") for case in cases} == {"ai_ml", "llm_agents", "software_engineer"}, "expected three representative JD cases"
+assert {case.get("domain") for case in cases} == {"AI/ML", "LLM/Agent Systems", "General Software Engineering"}, "missing a representative job domain"
+for case in cases:
+    input_path = (root / str(case.get("input", ""))).resolve()
+    assert input_path.parent == root and input_path.is_file(), f"invalid input fixture for {case.get('id')}"
+    lines = input_path.read_text(encoding="utf-8").splitlines()
+    top = {}
+    for line in lines:
+        match = re.match(r"^(company|role|mode):\s*(.*?)\s*$", line)
+        if match:
+            top[match.group(1)] = match.group(2)
+    assert top.get("company") and top.get("role"), f"{case.get('id')} needs company and role"
+    assert top.get("mode") == case.get("mode"), f"{case.get('id')} mode mismatch"
+    assert "jd: |" in lines, f"{case.get('id')} needs a JD body"
+print("PASS: representative-JD regression fixture pack")
+PY_FIXTURES
+ok "representative-JD regression fixtures are valid"
 
 # --- specification contract ---
 # The spec is the system definition; the contract must reference it and it must not drift.
@@ -82,6 +122,9 @@ if [ -n "$undefined_reqs" ]; then
   fail "pipeline/ cites undefined requirement id(s): $undefined_reqs"
 fi
 ok "every requirement id cited in pipeline/ is defined in SPEC.md"
+
+grep -qF "REQ-O6" "$ROOT/SPEC.md" || fail "SPEC.md lacks the PDF-size contract (REQ-O6)"
+ok "PDF-size contract is documented"
 
 assert_absent "SPEC.md contains no prior-application reference" \
   '[Aa]mazon|[Aa]ccenture|applications/[A-Za-z0-9]+_20[0-9][0-9]-' \
@@ -147,7 +190,7 @@ ok "base resume sections follow the canonical order"
 # --- example run: output contract, traceability, reproducibility (REQ-P1/P4/O5/T1/C1) ---
 # The example run demonstrates the whole path; older runs predate the contract.
 EXAMPLE="applications/SWE_MNC_2026-10"
-bash "$ROOT/pipeline/check_run.sh" "$ROOT/$EXAMPLE" || fail "example run violates the run contract"
+bash "$ROOT/pipeline/check_run.sh" "$ROOT/$EXAMPLE" --allow-missing-pdf || fail "example run violates the source-tree run contract"
 ok "example run meets the run contract"
 
 # --- retirement: old pipeline surfaces and drifting twins must be gone ---

@@ -5,15 +5,15 @@ Contributor: @thesohamdatta
 
 ## Contribution summary
 
-- 21 issues authored
+- The original detailed inventory counted 21 authored issues. A later profile snapshot in `content/github/evidence.md` records 22. Treat the total as unconfirmed until checked against the live repository; do not reuse either count blindly.
 - 5 architectural RFCs
 - 7 pull requests authored
 - 3 authored PRs approved by maintainers
-- 0 authored PRs merged directly
-- 120+ documented tests across relevant contributions
+- 0 authored PRs merged directly in the reviewed snapshot
+- 120+ documented repository tests across relevant contributions; this is not a claim that the candidate authored all of them
 - 52 tests in the speaker-clustering contribution
 
-Omi is supporting engineering evidence under Aura, not a separate employment role.
+The current candidate summary is owned by `data/facts.yaml`; this detailed inventory preserves earlier evidence and contribution links, not the final owner for changing totals. Omi is supporting engineering evidence under Aura, not a separate employment role.
 
 ## Selected evidence
 

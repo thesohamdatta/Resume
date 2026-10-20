@@ -1,6 +1,7 @@
 # Single source of truth for candidate facts and evidence pointers.
 # Keep biographical facts, verified dates/titles, scoped work, constraints, and sources here.
 # Technical proof and attribution context live in content/github/.
+# Keep metric data beside the relevant experience/project. Put percentage/multiplier outcomes in its nested metrics field; keep status, basis, and limits there too.
 # Existing bullets are presentation defaults; SELECT may derive different truthful wording for the target JD.
 
 personal:
@@ -26,6 +27,7 @@ education:
   dates: "2022 – Jun 2026"
   location: "Pune, India"
   gpa: null
+  gpa_review_note: "A previous 8.69/10 value was marked unverified; do not use until confirmed against an official record."
 
 
 # Credential inventory. Resume selection must use the official credential link where available.
@@ -453,13 +455,20 @@ open_source:
   repository: "https://github.com/BasedHardware/omi"
   evidence_source: "content/github/evidence.md"
   summary:
-    issues_authored: 22
+    issues_authored: null
     authored_upstream_prs: 7
     authored_upstream_prs_merged_directly: 0
     maintainer_approved_or_positively_reviewed_prs: 3
     diarization_pr_tests_reported: 52
-    counts_snapshot: "Initial GitHub inventory reviewed in October 2026; recheck before using counts in a submitted resume."
-    tests_note: "Do not claim repository-wide or downstream test totals as personally authored tests."
+    counts_snapshot: "Later public GitHub search recorded in evidence.md during October 2026; the detailed contribution inventory still contains an older 21-issue count. Reconcile with the live repository before using totals in a submitted resume."
+    documented_repository_test_count: "120+"
+    tests_note: "The count is repository-wide and is not a count of tests personally authored. Do not claim it as personal output."
+  metrics:
+    issues_authored:
+      value: 22
+      status: unverified
+      basis: "A later public GitHub search recorded 22, while the detailed inventory records an earlier 21-count snapshot."
+      resume_use: "Hold until reconciled against the live repository."
   detail:
     role_in_resume: "Supporting engineering evidence under Aura, not a separate employment role."
     technical_areas:
@@ -596,10 +605,13 @@ experience_inventory:
       confidence: candidate_estimate
       note: "Volume varied with store traffic; candidate later clarified busy days could reach 50–60+ people/cases."
       resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
-    candidate_reported_resolution:
-      routine_issues_resolved_at_store_level: "approximately 90%"
-      confidence: candidate_estimate
-      resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
+    metrics:
+      routine_issues_resolved_at_store_level:
+        value: "approximately 90%"
+        status: candidate_estimate
+        basis: "Candidate-reported estimate; sample count and independent measurement are not available."
+        confidence: candidate_estimate
+        resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
     tools_used:
       - "Reliance internal portal; exact product name unconfirmed"
       - "Microsoft Excel spreadsheets"
@@ -670,7 +682,7 @@ experience_inventory:
     constraints:
       - role was support work under professor/librarian review
       - do not claim sole authorship of professor-led work
-      - no verified student, workshop, reach, or learning-outcome metrics
+      - no verified student, workshop, reach, learning-outcome, or research-efficiency metrics
   - id: virtual_internship_2
     type: virtual_internship
     status: selected_details_pending
@@ -743,22 +755,6 @@ skills:
   infrastructure:
     - Kubernetes
     - Helm
-
-metrics:
-  verified:
-    - "21 Omi issues authored"
-    - "7 Omi PRs authored"
-    - "3 Omi PRs approved by maintainers"
-    - "120+ documented Omi tests"
-    - "52 speaker-clustering tests"
-    - "10-week AI/ML internship"
-    - "3,000+ pages archived/organised in research/library work"
-  hold:
-    - "Aura performance/battery/latency/accuracy"
-    - "Aura user/customer counts"
-    - "Reliance 50% improvement"
-    - "Research efficiency percentage"
-    - "GPA/CGPA 8.69/10"
 
 excluded:
   - "Google employment"

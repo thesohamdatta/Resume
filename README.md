@@ -1,6 +1,6 @@
 # Resume Engine
 
-A small, evidence-first engine that turns a job description into one truthful, one-page, mode-specific resume.
+A small, evidence-first workflow for finding relevant technology jobs, tracking applications, and turning selected job descriptions into truthful, one-page resumes. Job Search feeds the existing Resume Engine; it does not replace it.
 
 ```
 run(jd, mode) -> resume.pdf  # exactly one page, ATS-readable, truth-traceable
@@ -9,6 +9,10 @@ run(jd, mode) -> resume.pdf  # exactly one page, ATS-readable, truth-traceable
 ## One pipeline, three modes
 
 Modes: `startup`, `mnc`, `referral`. A mode changes emphasis and selection; it never changes facts and never forks the pipeline. Settings live in `modes/{mode}.yaml`.
+
+## Job Search
+
+The local-first workflow is in [job-search/README.md](job-search/README.md). It finds postings from supported sources, preserves source links, separates eligibility from fit, tracks decisions locally, and hands shortlisted roles into the existing resume engine. Live source calls are opt-in; CI uses fixtures. Private-sector searches are the default priority (about 90% of effort). A separate `--source public-sector` command checks official C-DAC and NIELIT recruitment pages for the smaller secondary search (about 10%).
 
 ## Quick start
 
@@ -44,9 +48,18 @@ Each rule and each candidate fact should have one authoritative owner. Link to t
 
 ## Validation
 
+Install the pinned Python dependencies before running the full checks:
+
+```bash
+python3 -m pip install -r job-search/requirements.txt
+```
+
+Then run:
+
 ```bash
 bash pipeline/validate_resume_repo.sh   # repository structure and invariants
 bash pipeline/test_validate_contract.sh # validator regression tests
+python3 pipeline/test_check_metrics.py # metric validator regression tests
 bash pipeline/build_base_resumes.sh     # compile all mode bases and check page count
 bash pipeline/check_run.sh applications/{Name}_{YYYY-MM}
 ```

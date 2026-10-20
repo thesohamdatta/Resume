@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "note": "Synthetic job descriptions for manual comparison of the current baseline and a refactored agent-assisted run. They are not real openings and do not add candidate facts.",
+  "baseline_commit": "235a13de04ce48e9600a79f4685b30d6cca375f9",
+  "cases": [
+    {
+      "id": "ai_ml",
+      "input": "ai_ml.md",
+      "domain": "AI/ML",
+      "mode": "mnc",
+      "review": [
+        "factual claims and ownership",
+        "fit to model/data/evaluation duties",
+        "audit trace and metric checks",
+        "one-page ATS-readable PDF and size"
+      ]
+    },
+    {
+      "id": "llm_agents",
+      "input": "llm_agents.md",
+      "domain": "LLM/Agent Systems",
+      "mode": "startup",
+      "review": [
+        "adapted components vs candidate-authored work",
+        "relevant LLM/RAG/tool-calling evidence",
+        "boundary/ownership trace",
+        "one-page ATS-readable PDF and size"
+      ]
+    },
+    {
+      "id": "software_engineer",
+      "input": "software_engineer.md",
+      "domain": "General Software Engineering",
+      "mode": "mnc",
+      "review": [
+        "implementation/testing/debugging evidence",
+        "open-source issue/PR status exactness",
+        "human readability and relevance",
+        "one-page ATS-readable PDF and size"
+      ]
+    }
+  ]
+}
