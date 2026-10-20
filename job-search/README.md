@@ -1,6 +1,6 @@
 # Job Search
 
-A local-first workflow for finding and tracking private-sector technology jobs across India. It feeds shortlisted jobs into the existing Resume Engine; it does not replace that pipeline.
+A local-first workflow for finding and tracking technology jobs across India. Private-sector roles are the priority (about 90% of search effort); public-sector technology roles are a smaller secondary goal (about 10%). The default `both` search uses Adzuna and Remotive. Use `--source public-sector` for a separate, manually triggered search of official C-DAC and NIELIT recruitment pages. Selected roles feed the existing Resume Engine; this workflow does not replace that pipeline.
 
 ## Requirements
 
@@ -36,9 +36,13 @@ python3 job-search/job_search.py search --source Remotive --query "Python AI eng
 
 # Try both; each source reports its own success, block, or failure.
 python3 job-search/job_search.py search --source both --query "Java backend developer" --location India
+
+# Secondary public-sector search using official C-DAC and NIELIT recruitment pages.
+python3 job-search/job_search.py search --source public-sector --query "AI Engineer"
+python3 job-search/job_search.py list --employer-type public_sector
 ```
 
-A live call is made only when `search` is explicitly run. The Adzuna adapter requires credentials. Remotive contains remote-only jobs, delays listings, and must be credited when results are displayed. Source limits are recorded in `research/job-search-sources-2026-10.md`; the local request history avoids exceeding the documented budgets in normal single-user use. Use one CLI process at a time to avoid racing local state.
+A live call is made only when `search` is explicitly run. The Adzuna adapter requires credentials. Remotive contains remote-only jobs, delays listings, and must be credited when results are displayed. `--source public-sector` queries the official C-DAC and NIELIT recruitment pages; it is a secondary search, not an always-on feed. The portal parsers may miss postings if the page layout changes. Verify the official notice before relying on a role. Unknown or past deadlines stay `Unknown`, not falsely closed or open. Use employer-type filters only as far as the source supports classification: Adzuna/Remotive employer sector is unknown unless separately established. Source limits and access notes are recorded in `research/job-search-sources-2026-10.md`; local pacing limits are conservative client-side safeguards, not the portals' claimed quotas. Use one CLI process at a time to avoid racing local state.
 
 ## Review and track a posting
 
@@ -87,6 +91,18 @@ python3 job-search/job_search.py handoff adzuna-123 --mode mnc
 ```
 
 The command requires a shortlisted posting, creates the standard `applications/<run-name>/input.md`, and records the application as `Preparing`. It does not submit any application. Verify the original listing, ensure the full job description is present (source snippets may be incomplete), then run the existing workflow and checks described in `pipeline/README.md`. Select `startup`, `mnc`, or `referral`; the job description never changes candidate facts.
+
+## Application preparation
+
+After a role is shortlisted and handed off:
+
+1. Verify the original posting and fill in the complete JD; source snippets may be incomplete.
+2. Generate and validate the tailored resume through the existing Resume Engine.
+3. Prepare a short application or referral message from verified candidate facts. Create a cover letter only when requested or clearly useful.
+4. Check the employer, role, recipient, links, file type, and application instructions before sending.
+5. Use the local application tracker to record the real status. Mark `Applied` only after submission.
+
+The CLI does not send applications or messages. Keep external submission under human control; never claim an application was submitted just because a packet was prepared.
 
 ## Commands
 

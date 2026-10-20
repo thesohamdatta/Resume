@@ -37,6 +37,7 @@
           "uniqueItems": true
         },
         "work_mode": { "enum": ["onsite", "hybrid", "remote", "unknown"] },
+        "employer_type": { "enum": ["private_sector", "public_sector", "government", "unknown"], "default": "unknown", "description": "Employer sector, only when supported by the source; unknown otherwise." },
         "employment_type": { "enum": ["full_time", "part_time", "contract", "internship", "temporary", "unknown"] },
         "description": { "type": "string" },
         "skills": {

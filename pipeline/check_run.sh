@@ -9,7 +9,16 @@
 set -uo pipefail
 
 run="${1:-}"
-[ -n "$run" ] || { echo "usage: check_run.sh <run_dir>" >&2; exit 2; }
+[ -n "$run" ] || { echo "usage: check_run.sh <run_dir> [--allow-missing-pdf]" >&2; exit 2; }
+allow_missing_pdf=0
+if [ "$#" -gt 2 ]; then
+  echo "usage: check_run.sh <run_dir> [--allow-missing-pdf]" >&2
+  exit 2
+fi
+if [ "$#" -eq 2 ]; then
+  [ "$2" = "--allow-missing-pdf" ] || { echo "FAIL: unknown option: $2" >&2; exit 2; }
+  allow_missing_pdf=1
+fi
 [ -d "$run" ] || { echo "FAIL: $run: not a directory" >&2; exit 1; }
 fail() { echo "FAIL: $run: $*" >&2; exit 1; }
 
@@ -57,6 +66,29 @@ for f in resume.tex extracted.txt audit.md; do
   [ -f "$run/output/$f" ] || fail "output/ is missing $f (REQ-O5)"
 done
 
+# A completed run requires a non-empty PDF. The repository structure validator may
+# explicitly opt out because generated PDFs are ignored by Git.
+pdf="$run/output/Soham Datta.pdf"
+if [ "$allow_missing_pdf" -ne 1 ]; then
+  [ -s "$pdf" ] || fail "output/ is missing the delivered PDF (REQ-O5)"
+fi
+if [ -f "$pdf" ]; then
+  [ -s "$pdf" ] || fail "delivered PDF exists but is empty (REQ-O5)"
+  pdf_bytes="$(wc -c < "$pdf" | tr -d ' ')"
+  max_pdf_bytes=2500000
+  # A documented application-specific limit may override the default through top-level
+  # input fields. Fields nested under jd: are untrusted job-description text.
+  override_mb="$(grep -E '^pdf_max_mb:' "$input" | head -1 | sed -E 's/^pdf_max_mb:[[:space:]]*//; s/[[:space:]]+$//')"
+  if [ -n "$override_mb" ]; then
+    [[ "$override_mb" =~ ^[0-9]+([.][0-9]+)?$ ]] \
+      || fail "pdf_max_mb must be a positive number"
+    max_pdf_bytes="$(awk -v mb="$override_mb" 'BEGIN { if (mb <= 0) exit 1; printf "%.0f", mb * 1000000 }')" \
+      || fail "pdf_max_mb must be a positive number"
+    grep -qE '^pdf_limit_source:[[:space:]]*[^[:space:]]' "$input" \
+      || fail "pdf_max_mb override requires a top-level pdf_limit_source reference"
+  fi
+  [ "$pdf_bytes" -le "$max_pdf_bytes" ] || fail "delivered PDF exceeds the configured size limit (REQ-O6)"
+fi
 # The delivered resume must use the shared canonical template (REQ-O3).
 grep -qE 'templates/1/resume' "$run/output/resume.tex" \
   || fail "output/resume.tex does not use the canonical template (REQ-O3)"

@@ -68,6 +68,19 @@ A question is justified only when source review cannot answer it, the answer mat
 the resume, and the uncertainty cannot safely be handled by omitting or weakening the claim.
 Do not ask generic recall questions when tools can locate the evidence.
 
+## Separate profile-enrichment session
+
+Profile enrichment is an optional reusable workflow, separate from per-JD resume generation. Use it when the candidate wants to improve the master profile, especially to recover scope, methods, ownership, outcomes, and defensible metrics.
+
+1. Inspect the relevant experience record in `data/facts.yaml`, technical evidence, boundaries, repository sources, issues/PRs, tests, and available history first.
+2. List only material gaps that existing evidence cannot answer. Do not ask the candidate to repeat known details.
+3. Ask one focused question at a time. Branch the next question based on the answer; probe scope, personal contribution, method/tools, baseline, outcome, metric definition, measurement basis, time period, and limitations only where relevant.
+4. Separate directly verified facts, candidate-confirmed reports, candidate estimates, inferences, and unknowns. An estimate needs a clear basis and qualifying wording; if its basis is weak or contradicted, hold it back.
+5. Update the relevant record in `data/facts.yaml` only after the candidate confirms the new fact or estimate. Keep the evidence pointer and any limitations with that record. Do not save raw chat transcripts as a second source of truth.
+6. Re-run checks after an update. Never turn an estimate into a verified measurement merely because it sounds useful for a job.
+
+This workflow enriches the existing candidate profile; it does not create a second resume pipeline or a separate metrics file.
+
 ## Phase 2 — RENDER
 
 Turn the evidence plan into the one-page PDF.
@@ -105,7 +118,10 @@ output/
 ```
 
 A run delivers exactly one resume, named `Soham Datta.pdf`. `resume.pdf` is an intermediate
-build artifact; it is not kept alongside the deliverable.
+build artifact; it is not kept alongside the deliverable. The delivered PDF must be no larger
+than 2.5 MB unless the application explicitly documents a different limit. For an exception,
+set top-level `pdf_max_mb` and `pdf_limit_source` in `input.md`; a value inside the JD cannot
+override this gate.
 
 `audit.md` carries an `## Evidence trace` table, machine-checked by
 `pipeline/check_audit.py`. Every selected item names the JD requirement it answers, its
@@ -143,13 +159,46 @@ bash pipeline/check_run.sh applications/{Name}_{YYYY-MM}   # run contract + trac
 
 ## Running the repo checks
 
+Install the pinned parser/schema dependencies first:
+
+```
+python3 -m pip install -r job-search/requirements.txt
+```
+
+Then run:
+
 ```
 bash pipeline/validate_resume_repo.sh        # repo contract (includes the example run)
 bash pipeline/test_validate_contract.sh      # contract tests for the validator
 bash pipeline/build_base_resumes.sh          # compile the three base resumes, one page each
 bash pipeline/check_run.sh <run_dir>         # one run: input, mode, outputs, trace
 python3 pipeline/check_audit.py <audit.md>   # traceability of one run's audit
+python3 pipeline/test_check_metrics.py # metric validation contract
 ```
+
+## Representative-JD regression comparison
+
+The fixed regression inputs live under \`pipeline/fixtures/resume-regression/\`:
+
+- \`ai_ml.md\` — AI/ML engineering
+- \`llm_agents.md\` — LLM and agent applications
+- \`software_engineer.md\` — general software engineering
+- \`manifest.json\` — modes, comparison baseline, and review focus
+- \`review-template.md\` — hard gates and human comparison record
+
+The baseline for issue #71 is commit \`235a13de04ce48e9600a79f4685b30d6cca375f9\`. Compare that checkout with the candidate commit. Keep each run isolated, use the same fixture and mode in both checkouts, and do not compare runs made with different role inputs.
+
+The resume-selection step is agent-assisted and has no deterministic CLI, so CI cannot honestly score relevance or recruiter readability. Use the existing run validator and PDF tools for hard gates, then complete \`review-template.md\` for the qualitative comparison.
+
+For each fixture and checkout:
+
+1. Copy the fixture to an isolated run directory as \`input.md\`; generate the normal \`output/\` artifacts using the same Resume Engine workflow.
+2. Run \`bash pipeline/check_run.sh <run_dir>\` from that checkout.
+3. Check the generated PDF with \`pdfinfo\` (exactly one page) and \`wc -c\` (at most 2,500,000 bytes unless the run records a supported application-specific exception). Extract text with \`pdftotext -layout\` and read it.
+4. Compare \`audit.md\`, extracted text, and rendered PDFs side by side. Record claims added/removed and the evidence source for each meaningful change.
+5. Block the candidate version for any new truth, ownership, status, metric, traceability, one-page, or ATS regression. Do not average a factual failure away with style improvements.
+
+The fixture JDs are synthetic test inputs, not real vacancies and not evidence about the candidate. The review pack is deliberately not an ATS-match percentage or an automatic claim that the new version is better.
 
 ## Human checkpoints
 

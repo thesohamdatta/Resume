@@ -155,5 +155,99 @@ class SourceAdapterTests(unittest.TestCase):
             )
 
 
+
+    def test_nielit_adapter_normalizes_current_technical_vacancy_and_preserves_deadline(self) -> None:
+        html = """
+        <h2>Current Openings</h2>
+        <table>
+          <tr><th>S.No.</th><th>Title</th><th>Last Date of Application</th></tr>
+          <tr>
+            <td>1</td>
+            <td>Recruitment for AI Engineer and Python Developer at Pune on contract.
+              <a href="/docs/ai-advertisement.pdf">Detailed Advertisement</a>
+              <a href="/apply/ai">Apply Online</a>
+            </td>
+            <td>30 October, 2026</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Recruitment for AI Developer at Pune.
+              <a href="/docs/old-advertisement.pdf">Detailed Advertisement</a>
+            </td>
+            <td>04 May, 2026</td>
+          </tr>
+        </table>
+        <h2>Archived Jobs</h2>
+        <table><tr><td>Recruitment for AI Engineer Python at Pune</td>
+          <td><a href="/archive/old.pdf">Detailed Advertisement</a></td><td>30 October, 2026</td>
+        </tr></table>
+        """
+        postings = sources.parse_official_recruitment_page(
+            html,
+            "NIELIT",
+            "https://www.nielit.in/recruitments",
+            "AI Engineer Python",
+            "2026-10-21T10:00:00Z",
+        )
+        self.assertEqual(len(postings), 1)
+        posting = postings[0]
+        self.assertEqual(posting["source"]["name"], "NIELIT")
+        self.assertEqual(posting["source"]["url"], "https://www.nielit.in/docs/ai-advertisement.pdf")
+        self.assertEqual(posting["job"]["employer_type"], "public_sector")
+        self.assertEqual(posting["job"]["apply_url"], "https://www.nielit.in/apply/ai")
+        self.assertTrue(posting["job"]["deadline"].startswith("2026-10-30T"))
+        self.assertEqual(posting["record"]["status"], "open")
+        self.assertEqual(workflow.validate_posting_object(posting), [])
+
+    def test_old_official_deadline_stays_unknown_not_falsely_closed(self) -> None:
+        html = """
+        <table><tr><th>Serial</th><th>Title</th><th>Last Date of Application</th></tr>
+        <tr><td>1</td><td>Recruitment for AI Developer.
+        <a href="/old-advt.pdf">Detailed Advertisement</a></td><td>04 May, 2026</td></tr></table>
+        """
+        postings = sources.parse_official_recruitment_page(
+            html, "NIELIT", "https://www.nielit.in/recruitments",
+            "AI Developer", "2026-10-21T10:00:00Z",
+        )
+        self.assertEqual(len(postings), 1)
+        self.assertEqual(postings[0]["record"]["status"], "unknown")
+        self.assertTrue(postings[0]["job"]["deadline"].startswith("2026-05-04T"))
+
+    def test_cdac_adapter_ignores_archived_links_and_keeps_unknown_fields_unknown(self) -> None:
+        html = """
+        <h2>Current Job Opportunities</h2>
+        <ul><li><a href="/docs/project-engineer.pdf">Walk-in Interview for Project Engineer and AI Engineer at C-DAC Pune</a></li></ul>
+        <h2>Archived Jobs</h2>
+        <ul><li><a href="/archive/old-developer.pdf">Recruitment for Project Developer and Python Engineer</a></li></ul>
+        """
+        postings = sources.parse_official_recruitment_page(
+            html, "CDAC", "https://www.cdac.gov.in/index.aspx?id=current_jobs",
+            "Project Engineer", "2026-10-21T10:00:00Z",
+        )
+        self.assertEqual(len(postings), 1)
+        self.assertEqual(postings[0]["source"]["url"], "https://www.cdac.gov.in/docs/project-engineer.pdf")
+        self.assertEqual(postings[0]["record"]["status"], "unknown")
+        self.assertEqual(postings[0]["job"]["employer_type"], "public_sector")
+        self.assertIsNone(postings[0]["job"]["deadline"])
+        self.assertEqual(workflow.validate_posting_object(postings[0]), [])
+
+    def test_unrecognized_official_page_is_a_failure_not_zero_results(self) -> None:
+        with self.assertRaisesRegex(sources.SourceRequestError, "did not contain recognizable listing rows"):
+            sources.parse_official_recruitment_page(
+                "<html><body><h1>Temporary maintenance notice</h1></body></html>",
+                "CDAC", "https://www.cdac.gov.in/index.aspx?id=current_jobs",
+                "Python Engineer", "2026-10-21T10:00:00Z",
+            )
+
+    def test_official_source_access_block_is_reported_as_blocked(self) -> None:
+        def forbidden(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                "https://www.nielit.in/recruitments", 403, "Forbidden", None, None,
+            )
+        with self.assertRaises(sources.SourceRequestError) as caught:
+            sources.search_nielit("AI Engineer", 10, "2026-10-21T10:00:00Z", opener=forbidden)
+        self.assertEqual(caught.exception.status, "blocked")
+
+
 if __name__ == "__main__":
     unittest.main()

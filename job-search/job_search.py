@@ -80,7 +80,12 @@ def run_search(args: argparse.Namespace) -> dict[str, Any]:
     state = workflow.load_state(args.state)
     checked_at = timestamp_now()
     now = datetime.fromisoformat(checked_at.replace("Z", "+00:00"))
-    selected = ["Adzuna", "Remotive"] if args.source == "both" else [args.source]
+    if args.source == "both":
+        selected = ["Adzuna", "Remotive"]
+    elif args.source == "public-sector":
+        selected = ["CDAC", "NIELIT"]
+    else:
+        selected = [args.source]
     source_results: list[dict[str, Any]] = []
 
     for source_name in selected:
@@ -106,8 +111,14 @@ def run_search(args: argparse.Namespace) -> dict[str, Any]:
         try:
             if source_name == "Adzuna":
                 result = sources.search_adzuna(args.query, args.location, args.limit, checked_at)
-            else:
+            elif source_name == "Remotive":
                 result = sources.search_remotive(args.query, args.limit, checked_at)
+            elif source_name == "CDAC":
+                result = sources.search_cdac(args.query, args.limit, checked_at)
+            elif source_name == "NIELIT":
+                result = sources.search_nielit(args.query, args.limit, checked_at)
+            else:
+                raise ValueError(f"Unsupported source: {source_name}")
         except sources.SourceRequestError as exc:
             result = {
                 "source": source_name, "status": exc.status, "checked_at": checked_at,
@@ -147,6 +158,7 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
     rows = []
     requested_mode = getattr(args, "work_mode", None)
     requested_type = getattr(args, "employment_type", None)
+    requested_employer_type = getattr(args, "employer_type", None)
     role_filter = (getattr(args, "role", None) or "").casefold().strip()
     location_filter = (getattr(args, "location", None) or "").casefold().strip()
     max_experience = getattr(args, "max_experience", None)
@@ -157,6 +169,7 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
         locations = job.get("locations", [])
         actual_mode = job.get("work_mode", "unknown")
         actual_type = job.get("employment_type", "unknown")
+        actual_employer_type = job.get("employer_type", "unknown")
         required_min = job.get("experience_min_years")
         unknown_filters = []
 
@@ -181,6 +194,11 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
                 unknown_filters.append("employment_type")
             else:
                 continue
+        if requested_employer_type and actual_employer_type != requested_employer_type:
+            if actual_employer_type == "unknown":
+                unknown_filters.append("employer_type")
+            else:
+                continue
         if max_experience is not None:
             if required_min is None:
                 unknown_filters.append("experience_min_years")
@@ -199,6 +217,7 @@ def cmd_list(args: argparse.Namespace) -> dict[str, Any]:
             "locations": locations,
             "work_mode": actual_mode,
             "employment_type": actual_type,
+            "employer_type": actual_employer_type,
             "experience_min_years": required_min,
             "experience_max_years": job.get("experience_max_years"),
             "filter_status": "Unknown" if unknown_filters else "Matched",
@@ -389,7 +408,7 @@ def build_parser() -> argparse.ArgumentParser:
     fixtures.add_argument("--eligibility-checks", type=Path, default=Path("job-search/state/eligibility-checks.json"))
 
     search = sub.add_parser("search", help="Search permitted live sources. No search runs during import or setup.")
-    search.add_argument("--source", choices=("Adzuna", "Remotive", "both"), default="both")
+    search.add_argument("--source", choices=("Adzuna", "Remotive", "CDAC", "NIELIT", "public-sector", "both"), default="both")
     search.add_argument("--query", required=True, help="Role or technology keywords.")
     search.add_argument("--location", default="India", help="Adzuna location query; defaults to India.")
     search.add_argument("--limit", type=int, default=20)
@@ -401,6 +420,7 @@ def build_parser() -> argparse.ArgumentParser:
     listing.add_argument("--location", help="Case-insensitive location substring.")
     listing.add_argument("--work-mode", choices=("onsite", "hybrid", "remote"))
     listing.add_argument("--employment-type", choices=("full_time", "part_time", "contract", "internship", "temporary"))
+    listing.add_argument("--employer-type", choices=("private_sector", "public_sector", "government", "unknown"), help="Filter by confirmed employer sector; unknown sectors remain visible with filter_status=Unknown.")
     listing.add_argument("--max-experience", type=float, help="Maximum confirmed minimum-experience requirement in years; unknown requirements remain visible.")
     listing.add_argument("--state", type=Path, default=DEFAULT_STATE)
 

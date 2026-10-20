@@ -1,7 +1,9 @@
 # Research index
 
-External sources and job-market context only. Research is not a source of candidate facts and
-does not auto-load. Reuse a dossier only when its role and source dates fit the current application.
+External sources and job-market context only. Start with the JD, then research only the details
+that affect role identity, requirements, employer context, or application instructions. Research
+is not candidate evidence and does not auto-load. Reuse a dossier only when its role and source
+dates fit the current application.
 
 ## Company dossiers
 

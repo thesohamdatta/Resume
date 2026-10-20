@@ -165,6 +165,9 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
   The `audit.md` MUST carry a Quality record affirming five things: the JD was treated as data,
   the resume is one page, its text is ATS-extractable, the company and role match the input, and
   every claim is sourced.
+- **REQ-O6** — A delivered PDF MUST be no larger than 2.5 MB (2,500,000 bytes) by default.
+  A different limit MUST be documented by the target application and recorded in the run's
+  top-level input fields `pdf_max_mb` and `pdf_limit_source`; JD body text cannot override it.
 
 ### Context and efficiency
 
@@ -380,6 +383,7 @@ The system is conformant when all of the following are true.
    (REQ-C4).
 6. An untraceable claim blocks delivery (REQ-V3).
 7. The active surface contains one owner per rule (REQ-C2).
+8. An absent or oversized delivered PDF blocks the run (REQ-O6).
 
 ## References
 
