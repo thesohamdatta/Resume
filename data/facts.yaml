@@ -32,7 +32,7 @@ education:
 # The Notion record links preserve the candidate's personal source-of-truth inventory.
 # Include only credentials relevant to the target role; do not treat audits or in-progress study as certifications.
 credentials:
-  inventory_url: "https://app.notion.com/p/2dc63de0cd3280eba665e6071fb41a11"
+  inventory_url: "https://melon-apparatus-f56.notion.site/2dc63de0cd3280eba665e6071fb41a11?v=2dc63de0cd3280489cff000c57cd205a"
   completed:
     - id: claude_code_in_action
       name: "Claude Code in Action"
@@ -64,7 +64,7 @@ credentials:
       status: completed
       credential_url: "https://www.credly.com/earner/earned/badge/b3c25e65-bc43-4165-a169-25f12f222b7c"
       notion_url: "https://app.notion.com/p/2dc63de0cd32813a8751f41e70ebd01d"
-      issued: null
+      issued: "2025-07-09"
       themes: [generative_ai, cloud]
     - id: aws_educate_machine_learning_foundations
       name: "Machine Learning Foundations"
@@ -72,7 +72,7 @@ credentials:
       status: completed
       credential_url: "https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38"
       notion_url: "https://app.notion.com/p/2dc63de0cd328134a661d642d9c0dee7"
-      issued: null
+      issued: "2025-07-09"
       themes: [machine_learning, cloud]
     - id: google_ai_essentials
       name: "Google AI Essentials"
@@ -80,7 +80,7 @@ credentials:
       status: completed
       credential_url: "https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85"
       notion_url: "https://app.notion.com/p/2dc63de0cd3281839cebdbeaabeb9601"
-      issued: null
+      issued: "2025-01-20"
       themes: [ai_foundations]
     - id: introduction_to_generative_ai
       name: "Introduction to Generative AI"
@@ -115,18 +115,7 @@ credentials:
       notion_url: "https://app.notion.com/p/2dc63de0cd3280c98a9dd0a29cc4e96e"
       issued: "2025-07-12"
       themes: [generative_ai, cloud]
-    - id: google_aicte_virtual_internship
-      name: "Google AI-ML Virtual Internship (AICTE)"
-      issuer: "AICTE / EduSkills"
-      status: completed
-      credential_url: "https://aictecert.eduskillsfoundation.org/pages/home/"
-      notion_url: "https://app.notion.com/p/2dc63de0cd32800b8ed5c3625cb6e64d"
-      issued: "2024-12-14"
-      duration: "10 weeks"
-      themes: [computer_vision, machine_learning]
-      constraints:
-        - "Virtual internship program; not employment at Google."
-        - "This is the certificate portal, not an individual public certificate. Confirm before using it on a resume."
+
     - id: aws_cloud_practitioner_essentials
       name: "AWS Cloud Practitioner Essentials"
       issuer: "Amazon Web Services"
