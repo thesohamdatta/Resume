@@ -53,6 +53,9 @@ Turn the JD and the truth sources into an evidence plan.
    merge, release, deployment and downstream attribution exactly.
 6. Decide foreground / compress / omit for each item. Check every potential gap against
    `boundaries.md` and all relevant sources before calling it a genuine gap.
+7. Treat `evidence_notes` as raw knowledge, not sentence templates. Compose each resume bullet
+   from selected facts for this JD; do not copy or lightly paraphrase a note. Keep estimates,
+   candidate-reported metrics, ownership, and project status accurately qualified.
 
 **Gate A — traceability.** Every selected item traces to a source. Anything untraceable is
 dropped, not softened. Any real gap is confirmed against `boundaries.md`.
