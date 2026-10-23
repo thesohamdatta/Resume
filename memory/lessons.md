@@ -17,5 +17,7 @@ Distilled, evidence-backed learnings. History stays in `archive/`; only lessons 
 11. **Non-tech experience can be useful when specific.** Reliance and PES should use concrete responsibilities rather than generic labels.
 12. **Research-role specificity.** Preserve both research/resource discovery and student-facing digital-learning support when relevant.
 13. **Official-title rule.** Reliance must remain "Associate" in the master record and final resumes.
-14. **Internship attribution rule.** The AI/ML internship is an AICTE program, not employment at Google. Represent the internship as "AICTE" only; do not name the platform provider.
+14. **Internship attribution rule.** The AI/ML internship is an AICTE–EduSkills program with a Google for Developers learning track, not employment at Google. Describe the program and learning track accurately; never imply Google employment.
 15. **Aura status rule.** Aura remains an independent wearable AI project under development. No customer, funding, production, or unsupported performance claims.
+16. **Aura is a moving target.** Review current code, commits, tests, and project notes whenever tailoring a resume. Use progressive overload across iterations: add one evidence-backed layer of technical depth or measured scope at a time, keep verified history, and never present planned or untested work as completed.
+17. **Portfolio direction.** Existing projects are useful evidence but may not be distinctive enough for every target role. Do not oversell them; identify gaps from target job descriptions and build new, focused projects with a clear problem, working implementation, tests/evaluation, and reproducible evidence before adding strong claims.
