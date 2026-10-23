@@ -278,18 +278,21 @@ experience:
         - "Do not present this role as software engineering or advanced SAP administration."
     bullets:
       referral:
-        - "Managed customer-service, POS, membership, voucher, exchange, documentation, and daily follow-up workflows while coordinating issue resolution with store teams."
+        - "Reviewed an estimated 30–60 new and pending complaint cases per day, coordinating investigation, assignment, escalation, customer follow-up, and closure with store teams."
+        - "Used Google Bard to draft targeted complaint emails; estimated it cut email-drafting time by 60–70%, while ticket assignment and resolution remained manual."
       startup:
-        - "Managed customer-service, POS, membership, voucher, exchange, documentation, and daily follow-up workflows."
+        - "Tracked an estimated 30–60 new and pending complaint cases per day and coordinated resolution across customer service, brand, store, inventory, and delivery teams."
+        - "Used Google Bard for complaint-email drafts, with an estimated 60–70% reduction in drafting time; maintained manual control of tickets and follow-up."
       mnc:
-        - "Supported customer-service, POS, membership, voucher, exchange, and reporting workflows with store teams."
+        - "Reviewed an estimated 30–60 complaint cases daily and coordinated cross-team investigation, escalation, and customer follow-up."
+        - "Applied Google Bard to email drafting, with a candidate-reported 60–70% reduction in drafting time; case assignment and closure remained manual."
 
   - id: pes_research
     title: "Research / Library Assistant"
     company: "Progressive Education Society's Modern College of Engineering"
     dates: "Sep 2023 – Mar 2024"
     tags: "Research Support · Digital Library · Digitisation · Archive Management · Student Support"
-    scale: "Candidate estimates 100+ digitised/organised resources; quantity not independently counted. Candidate recalls approximately 22–50+ institutional activities in a year, but exact count and date range need confirmation."
+    scale: "100+ digitised/organised books, articles, research papers, and archival resources; supported 50+ institutional events/activities per year. Previous 3,000-page figure withdrawn."
     scope:
       summary: "Supported professor and librarian workflows through academic resource discovery, document digitisation and archiving, digital-library guidance, student support, event coordination, and a professor-reviewed research-paper draft."
       responsibilities:
@@ -307,17 +310,17 @@ experience:
           value: 100
           comparator: "plus"
           unit: "documents_or_resources"
-          status: candidate_estimate
-          basis: "Candidate estimates 100+ books, articles, papers, old documents, and other resources based on recurring scanning and archiving work."
-          caveat: "No inventory/export was supplied to verify the total. Do not use as a precise measured count."
+          status: candidate_reported_resume_claim
+          basis: "Candidate confirms 100+ books, research materials, articles, and other archival resources as a figure they consider genuine."
+          caveat: "Candidate-reported total; no archive inventory/export supplied for independent verification."
         - id: institutional_activities_per_year
           metric: "Approximate annual number of library/college activities supported or archived"
-          value_min: 22
-          value_max: 50
+          value: 50
+          comparator: "plus"
           unit: "activities_per_year"
-          status: candidate_estimate
-          basis: "Candidate recalled approximately 22–30 activities, possibly 50+, including orientations, workshops, and commemorative/educational activities."
-          caveat: "Range and date scope need confirmation against the event/archive records. Do not convert to a confirmed achievement count until records are checked."
+          status: candidate_reported_resume_claim
+          basis: "Candidate asks to use 50+ activities/events per year, recalling that the event archive contains activity records, photos, videos, and feedback."
+          caveat: "Candidate-reported count; confirm the archive-year scope and unique-event count before treating as independently verified."
         - id: student_support_volume
           metric: "Approximate students supported across campus libraries"
           value: 100
@@ -336,16 +339,17 @@ experience:
         - "Do not describe archive organisation as Git/version control."
     bullets:
       referral:
-        - "Supported academic research and digital-library operations by discovering resources, digitising and indexing archival documents, and guiding students through college and open-learning resources."
-        - "Organised digital and offline archives with domain-based tagging, directory structures, and backups; helped retrieve and share relevant academic materials."
-        - "Supported workshops and educational events, and maintained event documentation for librarian reporting."
-        - "Prepared a research-paper draft on student access to academic information under professor guidance; final publication status is unknown."
+        - "Digitised and organised 100+ books, articles, research papers, and archival resources using domain tags, directory structures, and digital/offline backups."
+        - "Supported 50+ annual workshops, orientations, and educational events; prepared learning materials and maintained event records, photos, videos, and feedback for librarian reporting."
+        - "Guided students and staff in finding research papers, university archives, past question papers, OPAC/DELNET records, and free learning resources including MIT OpenCourseWare, NPTEL, SWAYAM, and edX."
+        - "Prepared a research-paper draft on student access to academic information using literature research and Overleaf/ChatGPT, under professor guidance; publication status is unknown."
       startup:
-        - "Supported research and digital-library workflows across resource discovery, document digitisation, archive organisation, and student guidance."
-        - "Used Overleaf, Paperpile, ChatGPT, and academic platforms to support literature research and a professor-reviewed paper draft."
+        - "Organised 100+ academic and archival resources across digital directories and offline backups; guided students toward research papers, university archives, and open-learning resources."
+        - "Supported 50+ annual educational events and workshops, including resource setup, student guidance, and event documentation."
+        - "Used Overleaf, Paperpile, ChatGPT, and research platforms to prepare a professor-reviewed draft on student access to academic information."
       mnc:
-        - "Supported academic resource discovery, digitisation, domain-based document organisation, backup storage, and digital-library access across departmental locations."
-        - "Guided students and staff in using OPAC, DELNET, university archives, and open-courseware resources."
+        - "Digitised and organised 100+ academic and archival resources with domain-based tagging, directory structures, and backup copies."
+        - "Supported 50+ annual workshops, orientations, and educational events and guided students through OPAC, DELNET, university archives, and open-courseware."
 
 
 # Experience inventory (evidence-first; items are not resume bullets).
