@@ -288,30 +288,65 @@ experience:
     title: "Research / Library Assistant"
     company: "Progressive Education Society's Modern College of Engineering"
     dates: "Sep 2023 – Mar 2024"
-    tags: "Research Support · Digital Library · Documentation · Student Support"
-    scale: "3,000+ pages of material archived or organised"
+    tags: "Research Support · Digital Library · Digitisation · Archive Management · Student Support"
+    scale: "Candidate estimates 100+ digitised/organised resources; quantity not independently counted. Candidate recalls approximately 22–50+ institutional activities in a year, but exact count and date range need confirmation."
     scope:
-      summary: "Supported academic literature discovery, digital-library resources, digitisation, documentation, and student access to digital learning material."
+      summary: "Supported professor and librarian workflows through academic resource discovery, document digitisation and archiving, digital-library guidance, student support, event coordination, and a professor-reviewed research-paper draft."
       responsibilities:
-        - "Discovered literature and resources across books, articles, research repositories, and open-courseware platforms"
-        - "Organised and digitised books, documents, records, and annual institutional material"
-        - "Worked with DELNET and OPAC resources"
-        - "Prepared formatting, tables, figures, citations, references, and research documentation using LaTeX where appropriate"
-        - "Helped students and staff find and use digital learning resources"
-        - "Supported workshops and awareness activities around open courseware, arXiv, coding resources, and online learning"
-        - "Worked under professor and librarian review"
+        - "Searched for books, articles, research papers, theses, patents, past university question papers, university archives, open-courseware, and free learning resources."
+        - "Guided students and staff in finding and using college digital resources, OPAC, DELNET, university resources, and open-learning platforms such as MIT OpenCourseWare, NPTEL, SWAYAM, AICTE resources, and edX."
+        - "Scanned physical books, papers, magazines, articles, and archival documents; tagged materials by domain; organised directories; maintained digital copies, local/offline storage, and backup drives; retrieved and shared relevant files."
+        - "Supported library operations across departmental locations, including checking access to computers, printers, scanners, physical holdings, and digital resources."
+        - "Helped students connect syllabus topics with books, research material, courseware, and other academic resources."
+        - "Supported workshops, orientations, and commemorative/educational activities; arranged books and learning materials, guided attendees on resource access, and maintained records with photos, videos, and feedback for librarian reporting."
+        - "Prepared a research-paper draft about student access to, use of, and exposure to academic information, using literature research, Overleaf/LaTeX, ChatGPT, and research tools under professor guidance. Professor reviewed/edited it; publication status is unknown."
+        - "Used scanning/printing equipment, Excel, Google Drive, college archive/network resources, OPAC, DELNET, Paperpile, Overleaf, ChatGPT, and other research tools as part of the described workflows."
+      candidate_reported_metrics:
+        - id: digitised_resources_count
+          metric: "Approximate number of digitised/organised resources"
+          value: 100
+          comparator: "plus"
+          unit: "documents_or_resources"
+          status: candidate_estimate
+          basis: "Candidate estimates 100+ books, articles, papers, old documents, and other resources based on recurring scanning and archiving work."
+          caveat: "No inventory/export was supplied to verify the total. Do not use as a precise measured count."
+        - id: institutional_activities_per_year
+          metric: "Approximate annual number of library/college activities supported or archived"
+          value_min: 22
+          value_max: 50
+          unit: "activities_per_year"
+          status: candidate_estimate
+          basis: "Candidate recalled approximately 22–30 activities, possibly 50+, including orientations, workshops, and commemorative/educational activities."
+          caveat: "Range and date scope need confirmation against the event/archive records. Do not convert to a confirmed achievement count until records are checked."
+        - id: student_support_volume
+          metric: "Approximate students supported across campus libraries"
+          value: 100
+          comparator: "plus"
+          unit: "students_per_day"
+          status: candidate_estimate_low_confidence
+          basis: "Candidate estimated probably 100+ students across campus; stated that the exact count was unknown."
+          caveat: "Unverified and low-confidence. Do not use as a resume metric unless attendance/service records support it."
       evidence_source: "content/github/experience_ps_modern_institute.md"
       attribution_limits:
-        - "The role was research and library support, not sole authorship of professor-led publications."
-        - "Do not claim student counts, workshop counts, campaign reach, or measurable learning outcomes without evidence."
+        - "The role was research/library support, not sole authorship of professor-led publications."
+        - "A research-paper draft was routed through professor and librarian to the college domain; publication, formal credit, and final destination are unknown."
+        - "The earlier 3,000+ page count was described by the candidate as a random guess; remove it from claimable experience bullets."
+        - "Keep 100+ resources and 22–50+ activities as candidate estimates unless checked against records."
+        - "Do not claim student reach, measurable learning gains, efficiency improvement, or event outcomes without evidence."
         - "Do not describe archive organisation as Git/version control."
     bullets:
       referral:
-        - "Supported academic research and digital-library workflows across literature discovery, documentation, digitization, and organisation of 3,000+ pages of material."
+        - "Supported academic research and digital-library operations by discovering resources, digitising and indexing archival documents, and guiding students through college and open-learning resources."
+        - "Organised digital and offline archives with domain-based tagging, directory structures, and backups; helped retrieve and share relevant academic materials."
+        - "Supported workshops and educational events, and maintained event documentation for librarian reporting."
+        - "Prepared a research-paper draft on student access to academic information under professor guidance; final publication status is unknown."
       startup:
-        - "Supported research and digital-library workflows across literature discovery, documentation, digitization, and organisation of academic resources."
+        - "Supported research and digital-library workflows across resource discovery, document digitisation, archive organisation, and student guidance."
+        - "Used Overleaf, Paperpile, ChatGPT, and academic platforms to support literature research and a professor-reviewed paper draft."
       mnc:
-        - "Supported research documentation, literature discovery, and digitization; organized 3,000+ pages of archive material."
+        - "Supported academic resource discovery, digitisation, domain-based document organisation, backup storage, and digital-library access across departmental locations."
+        - "Guided students and staff in using OPAC, DELNET, university archives, and open-courseware resources."
+
 
 # Experience inventory (evidence-first; items are not resume bullets).
 # Keep candidate facts here; tailor wording at selection/render time.
