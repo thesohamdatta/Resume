@@ -26,7 +26,7 @@ def fold_token(token: str) -> str:
 
 
 def verified_tokens(facts_path: Path) -> set[str]:
-    """The metric tokens under metrics.verified only; metrics.hold is not verified."""
+    """The metric tokens under metrics.verified only; context_only and hold are not approved."""
     tokens: set[str] = set()
     in_metrics = in_verified = False
     for line in facts_path.read_text(encoding="utf-8").splitlines():

@@ -2,6 +2,11 @@
 # Keep biographical facts, verified dates/titles, scoped work, constraints, and sources here.
 # Technical proof and attribution context live in content/github/.
 # Existing bullets are presentation defaults; SELECT may derive different truthful wording for the target JD.
+# Navigation: credentials owns credential details; credential_selection references its IDs.
+# experience is a concise presentation view; experience_inventory is authoritative for detailed role facts and limits.
+# Projects/open_source hold project proof; skills is a relevance index.
+# metrics.verified is check_metrics' token allowlist; context_only and hold are not claimable.
+# excluded holds hard stops.
 
 personal:
   name: "Soham Datta"
@@ -165,6 +170,19 @@ credentials:
       credential_url: null
       notion_url: "https://app.notion.com/p/2dc63de0cd328015a4cefa4730adee20"
 
+# Selection/review groups reference IDs from credentials above; credential details remain canonical in credentials.
+credential_selection:
+  verified:
+    - claude_101
+    - google_ai_essentials
+    - aws_educate_generative_ai
+  verify_before_use:
+    - aws_educate_machine_learning_foundations
+    - ai_fluency_framework
+
+
+# This section keeps concise role context and legacy per-mode bullets.
+# experience_inventory immediately below owns detailed role facts, attribution, and limits.
 experience:
   - id: aura
     title: "Founder"
@@ -294,6 +312,203 @@ experience:
         - "Supported research and digital-library workflows across literature discovery, documentation, digitization, and organisation of academic resources."
       mnc:
         - "Supported research documentation, literature discovery, and digitization; organized 3,000+ pages of archive material."
+
+# Experience inventory (evidence-first; items are not resume bullets).
+# Keep candidate facts here; tailor wording at selection/render time.
+# Unknown fields are intentionally omitted until confirmed by the candidate.
+experience_inventory:
+  - id: aura
+    type: founder_project
+    title: Founder
+    organisation: Aura
+    dates: "Jun 2026 – Present"
+    current_status: under_development
+    candidate_confirmed_status: "Candidate reports physically testing a working audio-to-text-and-summary flow using Omi Glass/firmware and the Omi AI backend, with output shown in the app's Voice, Memory, and Tasks areas. Confirm exact Aura-authored changes through code/commit evidence before making ownership claims."
+    facts_source: content/github/evidence.md
+    attribution: independent_project_with_adapted_omi_components
+    architecture_understanding:
+      - "Omi Glass code is documented as an ESP32-S3-based camera/audio device with separate firmware and integration into the Omi app ecosystem."
+      - "Omi's documented pipeline supports wearable audio capture and streaming, transcription, structured conversation summaries/action items, separate extracted memories, and companion-app access."
+      - "Aura has its own firmware, FastAPI backend, and Android app directories; the current README describes audio and image frames flowing to its backend for searchable memory and recall."
+      - "Treat the device firmware and Omi backend as reused/adapted ecosystem layers unless Aura-specific commits show the exact modifications made by the candidate."
+    field_testing:
+      - "Tested microphone/audio capture in metro and crowded public environments."
+      - "Tested speaker performance, device heating, and wearable enclosure in person with project teammates."
+      - "Candidate reports testing combined camera and audio capture outdoors; low-resolution images were usable, but visual testing remains preliminary and is not a strong quality evaluation."
+      - "Physical tests and observations were reported by the candidate; no measurements, photos, or formal test logs currently supplied."
+    candidate_reported_design_work:
+      enclosure:
+        approximate_physical_versions: "7-8, candidate estimate"
+        progression: "Started with basic 3D-printed cases, explored aluminum in blue and gold finishes and other materials, and currently uses a DIY pendant case while continuing design work."
+        current_case_reported_function:
+          - "Holds the components together in pendant form."
+          - "Uses a magnetic clip to attach on the chest."
+          - "Candidate reports the camera and microphones work during capture; no measured quality result is available."
+        public_artifact: "https://github.com/thesohamdatta/aura/blob/main/hardware/CASE.stl"
+      app_interface_and_branding:
+        candidate_reported_changes:
+          - "Changed the Aura logo and app colors."
+          - "Adjusted interface positioning and layers and simplified the interface across Tasks, Memory, Settings, and Capture."
+        attribution_limit: "Candidate-reported; the current public repository contains Android branding assets but does not include the app screen source needed to verify these UI changes."
+      backend_integration:
+        candidate_reported_scope: "Connected Aura with the Omi-derived backend and made some changes; exact personally authored backend code remains to be identified from source history."
+      repository_verified_website_work:
+        - "Candidate-authored Aura website commit adds a scroll-based hero interaction with parallax/light animation: https://github.com/thesohamdatta/aura/commit/a3367638"
+        - "Candidate-authored Aura website commits extract shared visual classes and add design tokens/color-system updates: https://github.com/thesohamdatta/aura/commit/4c61f13c and https://github.com/thesohamdatta/aura/commit/2c47f57d"
+        - "Candidate-authored CSS cleanup removes 30+ unused classes/keyframes: https://github.com/thesohamdatta/aura/commit/13cf368c"
+    unresolved_runtime_estimates:
+      - "Camera-and-audio prototype: candidate estimates about 2 hours from a full charge under average active use; runtime varies by usage and has no formal test log."
+      - "Audio-only runtime is unresolved: candidate earlier recalled about a day and later estimated about 5 hours, then said they were unsure which estimate was accurate. Battery capacity was recalled as around 250 mAh but is also uncertain. Do not use as a resume metric."
+    confirmed_workflows_reported_by_candidate:
+      - "Captured audio, transcribed speech to text, and generated a summary."
+      - "Stored audio and text outputs in the companion application, organised into voice, memory, and task experiences."
+      - "Candidate reports testing the workflow in real-world environments, including crowded public places."
+    presentation_preferences:
+      primary_focus:
+        - audio capture and real-world testing
+        - speech-to-text and summarisation workflow
+        - integration with the Omi Glass firmware and Omi AI backend
+        - companion-app workflow across voice, memory, and tasks
+        - multimodal AI workflows where repository evidence supports them
+      de_emphasise:
+        - CAD and physical enclosure details
+      source_attribution:
+        - "The Omi ecosystem provides existing device firmware/backend/app capabilities; describe Aura work as integration, adaptation, and extension unless direct authorship is confirmed."
+        - "Do not say the Omi AI backend or firmware was built from scratch."
+      future_work:
+        - "Candidate plans to add further AI/ML work; do not present it as completed until implementation and evidence are reviewed."
+    scope:
+      - wearable AI pendant and Android companion app
+      - ESP32-S3 C/C++ firmware
+      - 16 kHz I2S DMA audio capture and Opus compression
+      - FreeRTOS event handling and OTA support
+      - integration and extension of existing Omi Glass firmware/backend components
+      - FastAPI backend components for audio, memory/context, and AI workflows
+      - reported audio-to-transcription-to-summary flow surfaced in app voice, memory, and task areas
+    constraints:
+      - no verified customers, revenue, funding, user traction, or production scale
+      - no measured microphone accuracy, noise reduction, heating, latency, battery life, or performance claims
+      - no formal test report or photos supplied for physical tests yet
+      - "Do not claim strong vision quality: candidate says outdoor visual testing is preliminary and images were low resolution."
+      - do not claim the Omi backend was built from scratch
+      - do not attribute all documented Omi database and memory architecture to Aura
+      - verify which audio assets are persisted by Aura and where before naming specific storage systems
+  - id: aicte_internship
+    type: virtual_internship
+    title: AI/ML Intern
+    organisation: AICTE internship program
+    dates: "Oct 2024 – Dec 2024"
+    duration: "10 weeks"
+    facts_source: content/github/evidence.md
+    scope:
+      - computer vision
+      - TensorFlow and TensorFlow Lite
+      - Google ML Kit and Android inference
+      - custom object detection, tracking, and image classification
+    constraints:
+      - not employment at Google
+      - no verified accuracy, mAP, dataset size, latency, or production deployment
+  - id: reliance
+    type: employment
+    title: Associate
+    organisation: Reliance
+    dates: "Jul 2024 – Oct 2024"
+    facts_source: content/github/evidence.md
+    candidate_reported_volume:
+      customer_cases_per_shift: "more than 30; sometimes 50–60+ on busy days"
+      confidence: candidate_estimate
+      note: "Volume varied with store traffic; candidate later clarified busy days could reach 50–60+ people/cases."
+      resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
+    candidate_reported_resolution:
+      routine_issues_resolved_at_store_level: "approximately 90%"
+      confidence: candidate_estimate
+      resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
+    tools_used:
+      - "Reliance internal portal; exact product name unconfirmed"
+      - "Microsoft Excel spreadsheets"
+      - "POS billing systems"
+      - "SAP; basic manager-trained inventory and billing tasks only"
+    case_workflow:
+      - "Contacted customers to understand the reported issue."
+      - "Created portal tickets that notified the relevant brand manager, sales employee, and other staff involved."
+      - "Coordinated with the relevant store, CSJ department, brand manager, or brand employee until the case was addressed."
+      - "Recorded the final outcome, updated case status (such as resolved or unresolved), and tracked the assigned/responsible person."
+      - "Followed up with the brand manager and customer to verify the resolution before closing each case."
+    scope:
+      - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
+      - owned cases from initial customer contact and ticket creation through coordination, resolution checks, and closure
+      - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
+      - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
+      - coordinated with other stores and the CSJ department when cases required cross-store support
+      - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
+      - routed product damage and warranty cases to the relevant brand employee for inspection and handling
+      - recorded case outcomes, status, and responsible staff in the ticket workflow/local database
+      - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
+      - downloaded relevant reports and shared product or inventory updates with brand managers
+      - used SAP for basic stock checks, product record entry or updates, and routine inventory/billing tasks after manager training
+      - reported and helped address POS billing-system issues
+    presentation_preferences:
+      use_for:
+        - customer support
+        - customer experience
+        - customer success
+        - service operations
+        - business operations
+        - support operations
+      usually_omit_for:
+        - AI/ML engineering
+        - software engineering
+        - AI/ML research roles when space is limited
+      technical_resume_rule:
+        - "Do not discard this employment from the master facts inventory."
+        - "For AI/ML and software roles, omit it when technical experience and projects make better use of the space."
+        - "If employment history needs to be shown, compress to one neutral line focused on ticket workflows, issue resolution, and coordination; do not lead with retail/customer-service framing."
+      framing:
+        - emphasize end-to-end case ownership, ticket creation, cross-team coordination, and verified closure
+        - emphasize customer communication, brand escalation, case records, and operational reporting for relevant roles
+        - mention Excel, POS, and SAP only in proportion to the tasks actually performed
+        - describe SAP as basic, manager-trained use; do not imply expertise
+        - do not name the internal portal until its identity is confirmed
+        - do not lead with daily customer volume
+        - keep the official title Associate
+        - use resolution-rate estimates only after confirming how they were calculated
+        - do not connect store revenue to the candidate's personal performance
+    constraints:
+      - preserve official title Associate
+      - do not present as software engineering or advanced SAP administration
+      - 50% improvement claim remains unverified
+      - do not invent resolution rates, satisfaction scores, revenue impact, or time savings
+  - id: pes_research
+    type: research_support
+    title: Research / Library Assistant
+    organisation: Progressive Education Society's Modern College of Engineering
+    dates: "Sep 2023 – Mar 2024"
+    facts_source: content/github/experience_ps_modern_institute.md
+    scope:
+      - literature and academic resource discovery
+      - digital-library research and resource support
+      - digitisation and organisation of 3000+ pages of material
+      - research documentation, LaTeX, DELNET, and OPAC
+      - student-facing digital-learning support
+    constraints:
+      - role was support work under professor/librarian review
+      - do not claim sole authorship of professor-led work
+      - no verified student, workshop, reach, or learning-outcome metrics
+  - id: virtual_internship_2
+    type: virtual_internship
+    status: selected_details_pending
+    organisation: null
+    title: null
+    dates: null
+    scope: []
+  - id: virtual_internship_3
+    type: virtual_internship
+    status: selected_details_pending
+    organisation: null
+    title: null
+    dates: null
+    scope: []
+
 
 projects:
   - id: mia
@@ -495,211 +710,6 @@ open_source:
     - "Authored Markdown export specification in Issue #12360; draft PR #12927 was not merged."
     - "PR #7379 security hardening and PR #7654 web refactor received maintainer approval but closed unmerged."
 
-# Experience inventory (evidence-first; items are not resume bullets).
-# Keep candidate facts here; tailor wording at selection/render time.
-# Unknown fields are intentionally omitted until confirmed by the candidate.
-experience_inventory:
-  - id: aura
-    type: founder_project
-    title: Founder
-    organisation: Aura
-    dates: "Jun 2026 – Present"
-    current_status: under_development
-    candidate_confirmed_status: "Candidate reports physically testing a working audio-to-text-and-summary flow using Omi Glass/firmware and the Omi AI backend, with output shown in the app's Voice, Memory, and Tasks areas. Confirm exact Aura-authored changes through code/commit evidence before making ownership claims."
-    facts_source: content/github/evidence.md
-    attribution: independent_project_with_adapted_omi_components
-    architecture_understanding:
-      - "Omi Glass code is documented as an ESP32-S3-based camera/audio device with separate firmware and integration into the Omi app ecosystem."
-      - "Omi's documented pipeline supports wearable audio capture and streaming, transcription, structured conversation summaries/action items, separate extracted memories, and companion-app access."
-      - "Aura has its own firmware, FastAPI backend, and Android app directories; the current README describes audio and image frames flowing to its backend for searchable memory and recall."
-      - "Treat the device firmware and Omi backend as reused/adapted ecosystem layers unless Aura-specific commits show the exact modifications made by the candidate."
-    field_testing:
-      - "Tested microphone/audio capture in metro and crowded public environments."
-      - "Tested speaker performance, device heating, and wearable enclosure in person with project teammates."
-      - "Candidate reports testing combined camera and audio capture outdoors; low-resolution images were usable, but visual testing remains preliminary and is not a strong quality evaluation."
-      - "Physical tests and observations were reported by the candidate; no measurements, photos, or formal test logs currently supplied."
-    candidate_reported_design_work:
-      enclosure:
-        approximate_physical_versions: "7-8, candidate estimate"
-        progression: "Started with basic 3D-printed cases, explored aluminum in blue and gold finishes and other materials, and currently uses a DIY pendant case while continuing design work."
-        current_case_reported_function:
-          - "Holds the components together in pendant form."
-          - "Uses a magnetic clip to attach on the chest."
-          - "Candidate reports the camera and microphones work during capture; no measured quality result is available."
-        public_artifact: "https://github.com/thesohamdatta/aura/blob/main/hardware/CASE.stl"
-      app_interface_and_branding:
-        candidate_reported_changes:
-          - "Changed the Aura logo and app colors."
-          - "Adjusted interface positioning and layers and simplified the interface across Tasks, Memory, Settings, and Capture."
-        attribution_limit: "Candidate-reported; the current public repository contains Android branding assets but does not include the app screen source needed to verify these UI changes."
-      backend_integration:
-        candidate_reported_scope: "Connected Aura with the Omi-derived backend and made some changes; exact personally authored backend code remains to be identified from source history."
-      repository_verified_website_work:
-        - "Candidate-authored Aura website commit adds a scroll-based hero interaction with parallax/light animation: https://github.com/thesohamdatta/aura/commit/a3367638"
-        - "Candidate-authored Aura website commits extract shared visual classes and add design tokens/color-system updates: https://github.com/thesohamdatta/aura/commit/4c61f13c and https://github.com/thesohamdatta/aura/commit/2c47f57d"
-        - "Candidate-authored CSS cleanup removes 30+ unused classes/keyframes: https://github.com/thesohamdatta/aura/commit/13cf368c"
-    unresolved_runtime_estimates:
-      - "Camera-and-audio prototype: candidate estimates about 2 hours from a full charge under average active use; runtime varies by usage and has no formal test log."
-      - "Audio-only runtime is unresolved: candidate earlier recalled about a day and later estimated about 5 hours, then said they were unsure which estimate was accurate. Battery capacity was recalled as around 250 mAh but is also uncertain. Do not use as a resume metric."
-    confirmed_workflows_reported_by_candidate:
-      - "Captured audio, transcribed speech to text, and generated a summary."
-      - "Stored audio and text outputs in the companion application, organised into voice, memory, and task experiences."
-      - "Candidate reports testing the workflow in real-world environments, including crowded public places."
-    presentation_preferences:
-      primary_focus:
-        - audio capture and real-world testing
-        - speech-to-text and summarisation workflow
-        - integration with the Omi Glass firmware and Omi AI backend
-        - companion-app workflow across voice, memory, and tasks
-        - multimodal AI workflows where repository evidence supports them
-      de_emphasise:
-        - CAD and physical enclosure details
-      source_attribution:
-        - "The Omi ecosystem provides existing device firmware/backend/app capabilities; describe Aura work as integration, adaptation, and extension unless direct authorship is confirmed."
-        - "Do not say the Omi AI backend or firmware was built from scratch."
-      future_work:
-        - "Candidate plans to add further AI/ML work; do not present it as completed until implementation and evidence are reviewed."
-    scope:
-      - wearable AI pendant and Android companion app
-      - ESP32-S3 C/C++ firmware
-      - 16 kHz I2S DMA audio capture and Opus compression
-      - FreeRTOS event handling and OTA support
-      - integration and extension of existing Omi Glass firmware/backend components
-      - FastAPI backend components for audio, memory/context, and AI workflows
-      - reported audio-to-transcription-to-summary flow surfaced in app voice, memory, and task areas
-    constraints:
-      - no verified customers, revenue, funding, user traction, or production scale
-      - no measured microphone accuracy, noise reduction, heating, latency, battery life, or performance claims
-      - no formal test report or photos supplied for physical tests yet
-      - "Do not claim strong vision quality: candidate says outdoor visual testing is preliminary and images were low resolution."
-      - do not claim the Omi backend was built from scratch
-      - do not attribute all documented Omi database and memory architecture to Aura
-      - verify which audio assets are persisted by Aura and where before naming specific storage systems
-  - id: aicte_internship
-    type: virtual_internship
-    title: AI/ML Intern
-    organisation: AICTE internship program
-    dates: "Oct 2024 – Dec 2024"
-    duration: "10 weeks"
-    facts_source: content/github/evidence.md
-    scope:
-      - computer vision
-      - TensorFlow and TensorFlow Lite
-      - Google ML Kit and Android inference
-      - custom object detection, tracking, and image classification
-    constraints:
-      - not employment at Google
-      - no verified accuracy, mAP, dataset size, latency, or production deployment
-  - id: reliance
-    type: employment
-    title: Associate
-    organisation: Reliance
-    dates: "Jul 2024 – Oct 2024"
-    facts_source: content/github/evidence.md
-    candidate_reported_volume:
-      customer_cases_per_shift: "more than 30; sometimes 50–60+ on busy days"
-      confidence: candidate_estimate
-      note: "Volume varied with store traffic; candidate later clarified busy days could reach 50–60+ people/cases."
-      resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
-    candidate_reported_resolution:
-      routine_issues_resolved_at_store_level: "approximately 90%"
-      confidence: candidate_estimate
-      resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
-    tools_used:
-      - "Reliance internal portal; exact product name unconfirmed"
-      - "Microsoft Excel spreadsheets"
-      - "POS billing systems"
-      - "SAP; basic manager-trained inventory and billing tasks only"
-    case_workflow:
-      - "Contacted customers to understand the reported issue."
-      - "Created portal tickets that notified the relevant brand manager, sales employee, and other staff involved."
-      - "Coordinated with the relevant store, CSJ department, brand manager, or brand employee until the case was addressed."
-      - "Recorded the final outcome, updated case status (such as resolved or unresolved), and tracked the assigned/responsible person."
-      - "Followed up with the brand manager and customer to verify the resolution before closing each case."
-    scope:
-      - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
-      - owned cases from initial customer contact and ticket creation through coordination, resolution checks, and closure
-      - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
-      - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
-      - coordinated with other stores and the CSJ department when cases required cross-store support
-      - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
-      - routed product damage and warranty cases to the relevant brand employee for inspection and handling
-      - recorded case outcomes, status, and responsible staff in the ticket workflow/local database
-      - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
-      - downloaded relevant reports and shared product or inventory updates with brand managers
-      - used SAP for basic stock checks, product record entry or updates, and routine inventory/billing tasks after manager training
-      - reported and helped address POS billing-system issues
-    presentation_preferences:
-      use_for:
-        - customer support
-        - customer experience
-        - customer success
-        - service operations
-        - business operations
-        - support operations
-      usually_omit_for:
-        - AI/ML engineering
-        - software engineering
-        - AI/ML research roles when space is limited
-      technical_resume_rule:
-        - "Do not discard this employment from the master facts inventory."
-        - "For AI/ML and software roles, omit it when technical experience and projects make better use of the space."
-        - "If employment history needs to be shown, compress to one neutral line focused on ticket workflows, issue resolution, and coordination; do not lead with retail/customer-service framing."
-      framing:
-        - emphasize end-to-end case ownership, ticket creation, cross-team coordination, and verified closure
-        - emphasize customer communication, brand escalation, case records, and operational reporting for relevant roles
-        - mention Excel, POS, and SAP only in proportion to the tasks actually performed
-        - describe SAP as basic, manager-trained use; do not imply expertise
-        - do not name the internal portal until its identity is confirmed
-        - do not lead with daily customer volume
-        - keep the official title Associate
-        - use resolution-rate estimates only after confirming how they were calculated
-        - do not connect store revenue to the candidate's personal performance
-    constraints:
-      - preserve official title Associate
-      - do not present as software engineering or advanced SAP administration
-      - 50% improvement claim remains unverified
-      - do not invent resolution rates, satisfaction scores, revenue impact, or time savings
-  - id: pes_research
-    type: research_support
-    title: Research / Library Assistant
-    organisation: Progressive Education Society's Modern College of Engineering
-    dates: "Sep 2023 – Mar 2024"
-    facts_source: content/github/experience_ps_modern_institute.md
-    scope:
-      - literature and academic resource discovery
-      - digital-library research and resource support
-      - digitisation and organisation of 3000+ pages of material
-      - research documentation, LaTeX, DELNET, and OPAC
-      - student-facing digital-learning support
-    constraints:
-      - role was support work under professor/librarian review
-      - do not claim sole authorship of professor-led work
-      - no verified student, workshop, reach, or learning-outcome metrics
-  - id: virtual_internship_2
-    type: virtual_internship
-    status: selected_details_pending
-    organisation: null
-    title: null
-    dates: null
-    scope: []
-  - id: virtual_internship_3
-    type: virtual_internship
-    status: selected_details_pending
-    organisation: null
-    title: null
-    dates: null
-    scope: []
-
-certifications:
-  verified:
-    - "Claude 101 — Anthropic Education"
-    - "Google AI Essentials V1"
-    - "AWS Educate: Introduction to Generative AI"
-  verify_before_use:
-    - "AWS Educate: Machine Learning Foundations"
-    - "AI Fluency: Framework & Foundations"
-
 skills:
   languages:
     - Python
@@ -749,15 +759,17 @@ skills:
     - Kubernetes
     - Helm
 
+# Exact metric tokens accepted by pipeline/check_metrics.py; facts and provenance stay with their domain owners above.
 metrics:
   verified:
-    - "21 Omi issues authored"
+    - "22 Omi issues authored"
     - "7 Omi PRs authored"
-    - "3 Omi PRs approved by maintainers"
-    - "120+ documented Omi tests"
+    - "3 Omi PRs approved or positively reviewed by maintainers"
     - "52 speaker-clustering tests"
     - "10-week AI/ML internship"
     - "3,000+ pages archived/organised in research/library work"
+  context_only:
+    - "120+ tests are documented across the Omi repository; this is repository-wide context, not a candidate-authored test count."
   hold:
     - "Aura performance/battery/latency/accuracy"
     - "Aura user/customer counts"
