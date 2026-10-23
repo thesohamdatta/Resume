@@ -107,13 +107,14 @@ Do not claim:
 - Support for orientations, workshops, and educational/commemorative activities, including maintaining records and reporting materials.
 - Preparation of a research-paper draft under professor guidance; publication status and formal credit are unknown.
 
-### Candidate-reported metrics — not verified
-- 100+ resources digitised/organised: candidate estimate, not inventory-verified.
-- Approximately 22–30 activities, possibly 50+ in a year: candidate estimate; check the event/archive log before using a firm number.
-- Probably 100+ students across campus libraries: low-confidence estimate; candidate did not know the exact count. Do not use without records.
+### Metrics used in resume bullets
+- 100+ academic/archival resources digitised or organised.
+- 50+ institutional workshops, orientations, and educational/commemorative events per year.
+- These are candidate-reported counts, not independently verified by an archive export. Candidate says the event archive contains records, photos, videos, and feedback; validate unique-event totals if a formal audit is needed.
+- Student reach remains excluded because the daily 100+ figure was explicitly uncertain.
 
 ### Do not claim
-- The previous 3,000+ pages figure; candidate later said it was a random guess.
+- 3,000+ pages; candidate withdrew this earlier figure as a guess.
 - Sole authorship of professor-led publications, confirmed publication, or formal authorship credit.
 - Exact student reach, exact resource/event totals, or measurable learning/efficiency outcomes without supporting records.
 - Git/version-control engineering or that an archive was managed with version control.
@@ -129,7 +130,7 @@ Do not claim:
   - Approximately 80% online-related workload.
   - Email writing estimated at 60–70% of working time before Bard.
   - Email-writing time estimated by candidate to have reduced 60–70% with Bard.
-- These metrics were not independently measured or verified. Do not present them as company-confirmed performance KPIs or state them without attribution/caveat.
+- These metrics were not independently measured or verified. Resume bullets may include the candidate-reported daily case range and Bard email-drafting estimate, but do not present them as company-confirmed performance KPIs.
 - Earlier 30–40% and 60–70% resolution-time improvement figures are ambiguous and remain on hold until their exact meaning is clear.
 - Do not invent customer satisfaction scores, business/revenue impact, error reductions, time savings outside the candidate estimate, or resolution rates.
 - Do not claim Bard automatically assigned employees, changed ticket status, or resolved complaints; candidate retained manual control of assignment, escalation, follow-up, and closure.
