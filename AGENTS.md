@@ -27,7 +27,7 @@ Read only the relevant evidence and research. Do not load archives or unrelated 
 
 ## Source ownership
 
-- Candidate facts and flexible experience inventory: `data/facts.yaml` (`experience_inventory` is authoritative for detailed role facts, attribution, and limits; `experience` holds concise context and legacy per-mode phrasing). SELECT may derive new wording from evidence and must not copy legacy bullets mechanically.
+- Candidate facts and evidence pointers: `data/facts.yaml` (`experience_inventory` is authoritative for detailed role facts, attribution, and limits; `experience` and `projects` contain factual scope, not resume-ready bullets). SELECT must write fresh wording for each target JD.
 - Credential handling: `credentials.completed` in `data/facts.yaml` is the canonical list for certificates. Link the visible credential name to `credential_url` when available, and keep `notion_url` as a personal record/source link. Use `credentials.learning` for in-progress or audited learning; do not present those items as completed certifications.
 - `credential_selection` contains credential IDs only; `credentials` remains the sole owner of credential names, issuers, status, dates, and links.
 - `metrics.verified` is the metric-token allowlist read by `pipeline/check_metrics.py`. `metrics.context_only` is repository context, not candidate-authored work.
@@ -79,8 +79,8 @@ A run must have a traceable audit and the standard outputs listed in `pipeline/R
 
 ## Experience interview and data maintenance
 
-- Keep verified facts separate from resume wording. `experience_inventory` is a fact inventory, not a source of pre-written bullets.
-- Existing `experience[].bullets` and project `bullet` fields are examples/legacy presentation defaults. SELECT must be allowed to derive new wording from the evidence for the current JD; it must not copy them mechanically.
+- Keep verified facts separate from resume wording. `experience`, `experience_inventory`, and `projects` in `data/facts.yaml` are fact inventories, not sources of pre-written resume bullets.
+- Do not store or reuse resume-ready bullets in `data/facts.yaml`. For every target JD, inspect relevant evidence, map requirements to verified facts, and write new bullets for that application.
 - Never add an internship, project, date, title, result, certification, metric, or contribution from inference. Mark unknown fields as pending and ask the candidate.
 - Update `data/facts.yaml` only after candidate confirmation or source verification. Keep source links and attribution limits close to the facts.
 - Treat each virtual internship separately from employment and record the issuing program/platform accurately.
