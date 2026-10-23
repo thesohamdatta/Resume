@@ -140,6 +140,10 @@ Prefer wording such as "authored technical proposals", "diagnosed", "specified",
 Organisation: Progressive Education Society's Modern College of Engineering  
 Dates: Sep 2023 – Mar 2024
 
+### Resume metrics
+- 100+ books, articles, research papers, and archival resources digitised/organised, per candidate-reported count.
+- 50+ workshops, orientations, and educational/commemorative activities supported in a year, per candidate report; event logs reportedly include photos, videos, and feedback.
+
 ### Work documented from candidate interview
 - Searched books, research papers, articles, theses, patents, past university question papers, university archives, digital-library resources, and open courses.
 - Guided students and staff in using OPAC, DELNET, college resources, university archives, MIT OpenCourseWare, NPTEL, SWAYAM, AICTE resources, edX, and similar platforms.
@@ -149,8 +153,8 @@ Dates: Sep 2023 – Mar 2024
 - Prepared a research-paper draft on how students access, consume, and use academic information, with Overleaf/LaTeX, ChatGPT, and research tools; professor reviewed/edited it, then it went through the professor and librarian to the college domain. Publication and formal credit are unknown.
 
 ### Candidate-reported estimates — not independently verified
-- Digitised/organised resources: candidate now estimates 100+ books, articles, papers, old documents, and related resources. This replaced a prior 3,000+ pages claim that the candidate later described as a random guess. No archive inventory was supplied to verify the total.
-- Activities: candidate estimates approximately 22–30 institutional activities, possibly 50+ over a year, including orientations, workshops, and commemorative/educational events. Check the event/archive log before using a firm count.
+- Digitised/organised resources: use 100+ books, articles, papers, old documents, and related resources in the resume per the candidate’s current instruction. No archive inventory was supplied for independent verification. The earlier 3,000+ pages claim was withdrawn.
+- Activities: use 50+ orientations, workshops, and educational/commemorative events per year in the resume per the candidate’s current instruction. Candidate reports that archive records include photos, videos, and feedback; exact unique-event count has not been independently checked.
 - Student support: candidate estimated probably 100+ students across campus libraries, but explicitly said the count was unknown. Treat as low-confidence and do not use as a resume metric without records.
 
 ### Tool evidence (candidate-reported)
@@ -185,15 +189,15 @@ Dates: Jul 2024 – Oct 2024
 - Whether other staff adopted it and whether it reduced errors or processing time are unconfirmed.
 - Candidate recalls positive feedback from brand and inventory managers for problem-solving and speed. Candidate also recalls HR discussing a possible K2 position during hiring, separate from the role; official title remains Associate.
 
-### Candidate-reported metrics — not independently verified
-- Approximately 30–60 new and pending cases reviewed/tracked per day, depending on workload.
-- Approximately 80% of shared case workload handled by the candidate, with about 20% handled by another person.
+### Candidate-reported metrics used in resume bullets
+- 30–60 new and pending cases reviewed/tracked per day, depending on workload.
+- Approximately 80% of shared case workload handled by the candidate.
 - Approximately 80% of workload described as online-related.
-- Before Bard, email drafting recalled as taking about 60–70% of the candidate's working time.
-- Candidate estimates Bard reduced email-drafting time by about 60–70%.
-- Earlier 30–40% and 60–70% resolution-time improvement figures were mentioned, but the exact measures and basis were unclear; do not use as resume results until clarified.
+- Before Bard, email drafting recalled as taking 60–70% of working time; candidate estimates Bard reduced email-drafting time by 60–70%.
+- Resume bullets may use the case-volume range and email-drafting estimate as candidate-reported figures. The estimates are not independently verified by portal reports or time logs.
+- Earlier 30–40% and 60–70% resolution-time improvement figures remain excluded because their exact measure was unclear.
 
-No independent portal reports, time logs, customer-satisfaction data, or before/after measurements were supplied for these figures. Retain them as candidate-reported estimates with caveats; never imply company-verified KPIs.
+Do not present these as company-verified KPIs. Case assignment, ticket updates, escalation, follow-up, and closure remained manual.
 
 ### Resume boundaries
 - Do not use the historical 50% improvement metric without new evidence.
