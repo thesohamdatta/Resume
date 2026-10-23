@@ -140,15 +140,27 @@ Prefer wording such as "authored technical proposals", "diagnosed", "specified",
 Organisation: Progressive Education Society's Modern College of Engineering  
 Dates: Sep 2023 – Mar 2024
 
-Evidence:
-- Literature and academic resource discovery.
-- Digital learning platform/open-courseware research.
-- Research repositories, books, articles, and archive organisation.
-- Digitization and documentation.
-- LaTeX, DELNET, OPAC, citation/reference support.
-- Student digital-resource support, workshops, and awareness activities.
-- Professor/librarian review and revision workflows.
-- 3,000+ pages of material archived/organised, based on the accepted experience record.
+### Work documented from candidate interview
+- Searched books, research papers, articles, theses, patents, past university question papers, university archives, digital-library resources, and open courses.
+- Guided students and staff in using OPAC, DELNET, college resources, university archives, MIT OpenCourseWare, NPTEL, SWAYAM, AICTE resources, edX, and similar platforms.
+- Scanned physical documents and tagged them by domain; structured folders/directories; maintained digital and offline copies, physical drives, and backups; retrieved and shared requested material.
+- Supported day-to-day library operations across departmental locations, including access to computers, printers, scanners, physical holdings, and digital resources.
+- Supported orientations, workshops, and educational/commemorative activities by arranging learning materials, guiding attendees on access, and recording activities with photos, videos, and feedback for librarian reporting.
+- Prepared a research-paper draft on how students access, consume, and use academic information, with Overleaf/LaTeX, ChatGPT, and research tools; professor reviewed/edited it, then it went through the professor and librarian to the college domain. Publication and formal credit are unknown.
+
+### Candidate-reported estimates — not independently verified
+- Digitised/organised resources: candidate now estimates 100+ books, articles, papers, old documents, and related resources. This replaced a prior 3,000+ pages claim that the candidate later described as a random guess. No archive inventory was supplied to verify the total.
+- Activities: candidate estimates approximately 22–30 institutional activities, possibly 50+ over a year, including orientations, workshops, and commemorative/educational events. Check the event/archive log before using a firm count.
+- Student support: candidate estimated probably 100+ students across campus libraries, but explicitly said the count was unknown. Treat as low-confidence and do not use as a resume metric without records.
+
+### Tool evidence (candidate-reported)
+Scanning/printing equipment, Excel, Google Drive, local/offline directories and physical drives, backups, college archive/network resources, OPAC, DELNET, Paperpile, Overleaf/LaTeX, ChatGPT, and other research tools. Confirm exact names (including any internal platforms) before a technical resume makes them prominent.
+
+### Attribution and boundaries
+- The role involved research and library support; do not claim sole authorship of professor-led publications.
+- The research-paper draft was routed through professor and librarian to the college domain; publication, final destination, and formal credit are unknown.
+- Do not claim a measured student-learning or efficiency improvement, exact student reach, or verified resource/event totals without underlying records.
+- Do not describe archive organisation as Git/version control.
 
 ## Reliance
 
