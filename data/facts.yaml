@@ -333,8 +333,8 @@ experience:
       attribution_limits:
         - "The role was research/library support, not sole authorship of professor-led publications."
         - "A research-paper draft was routed through professor and librarian to the college domain; publication, formal credit, and final destination are unknown."
-        - "The earlier 3,000+ page count was described by the candidate as a random guess; remove it from claimable experience bullets."
-        - "Keep 100+ resources and approximately 22–30, possibly 50+, activities as candidate estimates unless checked against records."
+        - "The earlier 3,000+ page count was described by the candidate as a random guess; do not use it in resume bullets."
+        - "Resume bullets use 100+ resources and 50+ events per year per candidate instruction; retain candidate-reported status until underlying logs are checked."
         - "Do not claim student reach, measurable learning gains, efficiency improvement, or event outcomes without evidence."
         - "Do not describe archive organisation as Git/version control."
     bullets:
