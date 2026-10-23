@@ -213,6 +213,7 @@ experience:
         - "Vector-memory work with Supabase/pgvector; Aura repository documentation also identifies Pinecone in backend configuration"
         - "Android companion app and interface work"
       contribution_scope: "Adapted, integrated, and extended existing Omi ecosystem components alongside independent device, firmware, interface, and software work."
+      update_policy: "Aura is an actively changing project. For each resume review, inspect current code, commits, tests, and project notes; update only claims supported by the latest evidence. Apply progressive overload: add one new, verifiable layer of technical depth or measured scope per iteration, preserve earlier verified work, and never promote a planned or untested feature to completed."
       evidence_source: "content/github/evidence.md"
       attribution_limits:
         - "Aura is under development; do not claim production scale, customers, funding, revenue, or user traction."
