@@ -89,13 +89,14 @@ Do not claim:
 
 ### Can claim
 - 10-week virtual AI/ML internship, Oct–Dec 2024.
-- AICTE (All India Council for Technical Education) internship ecosystem.
-- Computer vision, TensorFlow, TensorFlow Lite, Google ML Kit, Android/mobile inference.
-- Custom object detection, EfficientDet-Lite, TFLite Model Maker, image classification, Google Cloud Vision API, Colab.
+- AICTE–EduSkills AI/ML internship, recorded as October–December 2024 (10 weeks).
+- Describe as a guided AI/ML learning program with practical computer-vision labs, primarily using Google Colab.
+- Relevant topics: Google ML Kit object detection/tracking, TensorFlow Lite custom object detection and image classification, TFLite Model Maker/Task Library, EfficientDet-Lite, and visual product search with Google Cloud Vision API.
 
 ### Do not claim
 - Google employee, Google Engineer, or Google ML Engineer.
-- Production ML deployment.
+- That the guided exercises were a production system independently built or deployed.
+- The 93.85% training accuracy shown in the attached report; it belongs to another student's work.
 - Unsupported accuracy, mAP, latency, dataset size, or model-ownership metrics.
 
 ## Research / Library Assistant
