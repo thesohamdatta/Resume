@@ -27,8 +27,10 @@ Read only the relevant evidence and research. Do not load archives or unrelated 
 
 ## Source ownership
 
-- Candidate facts and flexible experience inventory: `data/facts.yaml` (`experience_inventory` holds evidence-first facts; per-mode `bullets` are legacy approved phrasing, not the only valid wording).
+- Candidate facts and flexible experience inventory: `data/facts.yaml` (`experience_inventory` is authoritative for detailed role facts, attribution, and limits; `experience` holds concise context and legacy per-mode phrasing). SELECT may derive new wording from evidence and must not copy legacy bullets mechanically.
 - Credential handling: `credentials.completed` in `data/facts.yaml` is the canonical list for certificates. Link the visible credential name to `credential_url` when available, and keep `notion_url` as a personal record/source link. Use `credentials.learning` for in-progress or audited learning; do not present those items as completed certifications.
+- `credential_selection` contains credential IDs only; `credentials` remains the sole owner of credential names, issuers, status, dates, and links.
+- `metrics.verified` is the metric-token allowlist read by `pipeline/check_metrics.py`. `metrics.context_only` is repository context, not candidate-authored work.
 - Technical proof: `content/github/evidence.md`.
 - Claim, attribution, ownership and status limits: `content/github/boundaries.md`.
 - Requirements: `SPEC.md`.
