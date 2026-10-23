@@ -234,30 +234,36 @@ experience:
 
   - id: aicte_internship
     title: "AI/ML Intern"
-    company: "AICTE"
+    company: "AICTE–EduSkills AI/ML Internship"
     dates: "Oct 2024 – Dec 2024"
     duration: "10 weeks"
-    support: "AICTE internship program"
-    tags: "Computer Vision · TensorFlow · TensorFlow Lite · Google ML Kit · Android"
+    support: "AICTE internship program; Google for Developers learning track"
+    tags: "Computer Vision · TensorFlow · TensorFlow Lite · Google ML Kit · Google Colab · Cloud Vision API"
     scope:
-      summary: "Ten-week virtual AI/ML internship focused on practical computer-vision workflows and mobile/on-device inference."
+      summary: "Completed a ten-week guided AI/ML learning program focused on computer vision, model training, and applying vision APIs through practical labs."
       workstreams:
-        - "Custom object detection and tracking"
-        - "Image classification and integration of .tflite models"
-        - "EfficientDet-Lite and TFLite Model Maker/Task Library"
-        - "TensorFlow, TensorFlow Lite, Google ML Kit, Google Cloud Vision API, and Colab workflows"
-        - "Android/mobile inference"
+        - "Object detection and tracking with Google ML Kit"
+        - "Custom object detection using TensorFlow Lite Model Maker and Task Library"
+        - "Image classification and export/integration of .tflite models"
+        - "Google Colab workflows for model training and experimentation"
+        - "Visual product search concepts and API workflow using Google Cloud Vision Product Search"
+        - "Foundational exposure to AI/ML concepts, including neural networks and computer vision"
       evidence_source: "content/github/evidence.md"
       attribution_limits:
-        - "Describe this as an AICTE internship program, not employment at Google."
-        - "No verified accuracy, mAP, dataset size, latency, or production-deployment metrics are available."
+        - "Describe this as an AICTE–EduSkills internship with a Google for Developers learning track, not employment at Google."
+        - "The attached report belongs to another student and is reference material only; use it to understand the curriculum, not as proof of the candidate's exact implementation."
+        - "Do not claim the other student's reported 93.85% training accuracy or any unverified dataset size, mAP, latency, or production deployment."
+        - "Describe the work as guided practical labs and learning exercises; do not imply a production system was independently built."
     bullets:
       referral:
-        - "Built hands-on computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference."
+        - "Completed guided computer-vision labs in Google Colab, covering object detection, custom image classification, and TensorFlow Lite model workflows."
+        - "Worked with Google ML Kit and TensorFlow Lite Model Maker to explore object detection, model training, and mobile inference; studied visual product search using Google Cloud Vision API."
       startup:
-        - "Built hands-on computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference."
+        - "Applied TensorFlow, TensorFlow Lite, and Google ML Kit in guided labs for object detection and custom image classification, using Google Colab for model experiments."
+        - "Explored a visual product-search workflow with Google Cloud Vision Product Search, from selecting detected objects to retrieving visually similar products."
       mnc:
-        - "Built computer-vision workflows for object detection and image classification, integrating TensorFlow Lite models with Android inference."
+        - "Completed practical AI/ML labs using Google Colab, TensorFlow, TensorFlow Lite, and Google ML Kit for object detection and image classification."
+        - "Studied custom model training and visual product search with Google Cloud Vision API as part of a ten-week AI/ML internship."
 
   - id: reliance
     title: "Associate"
