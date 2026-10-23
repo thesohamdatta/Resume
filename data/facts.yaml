@@ -1,9 +1,9 @@
 # Single source of truth for candidate facts and evidence pointers.
 # Keep biographical facts, verified dates/titles, scoped work, constraints, and sources here.
 # Technical proof and attribution context live in content/github/.
-# Existing bullets are presentation defaults; SELECT may derive different truthful wording for the target JD.
+# Keep candidate facts and evidence pointers here; generate all resume wording for the target JD.
 # Navigation: credentials owns credential details; credential_selection references its IDs.
-# experience is a concise presentation view; experience_inventory is authoritative for detailed role facts and limits.
+# experience and projects contain factual scope only; derive application-specific wording from evidence.
 # Projects/open_source hold project proof; skills is a relevance index.
 # metrics.verified is check_metrics' token allowlist; context_only and hold are not claimable.
 # excluded holds hard stops.
@@ -181,8 +181,7 @@ credential_selection:
     - ai_fluency_framework
 
 
-# This section keeps concise role context and legacy per-mode bullets.
-# experience_inventory immediately below owns detailed role facts, attribution, and limits.
+# Experience facts and scope. Write fresh resume wording for each target JD from this evidence.
 experience:
   - id: aura
     title: "Founder"
@@ -219,20 +218,6 @@ experience:
         - "Aura is under development; do not claim production scale, customers, funding, revenue, or user traction."
         - "Do not claim that the Omi backend was built from scratch or that the full backend architecture is owned independently."
         - "Do not claim measured battery life, latency, accuracy, or other performance numbers without new evidence."
-    bullets:
-      referral:
-        - "Building Aura, an independent wearable AI system that connects audio and image capture with AI services, contextual memory, and an Android companion app."
-        - "Integrated and extended existing Omi ecosystem components to support streaming audio, transcription, vision analysis, AI chat, and searchable memory."
-        - "Implemented ESP32-S3 firmware and connected device capture with software workflows for multimodal AI experiences."
-      startup:
-        - "Building Aura, a wearable AI system connecting device capture, multimodal AI services, contextual memory, and an Android companion app."
-        - "Integrated existing Omi ecosystem components for audio streaming, transcription, vision analysis, AI chat, and searchable memory."
-        - "Developed ESP32-S3 firmware and software integrations for an end-to-end wearable AI workflow."
-      mnc:
-        - "Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates."
-        - "Integrated Omi software components with audio streaming, transcription, vision analysis, context extraction, and AI chat workflows."
-        - "Connected wearable audio and image capture to backend services for multimodal processing and searchable memory."
-
   - id: aicte_internship
     title: "AI/ML Intern"
     company: "AICTE–EduSkills AI/ML Internship"
@@ -255,17 +240,6 @@ experience:
         - "The attached report belongs to another student and is reference material only; use it to understand the curriculum, not as proof of the candidate's exact implementation."
         - "Do not claim the other student's reported 93.85% training accuracy or any unverified dataset size, mAP, latency, or production deployment."
         - "Describe the work as guided practical labs and learning exercises; do not imply a production system was independently built."
-    bullets:
-      referral:
-        - "Completed guided computer-vision labs in Google Colab, covering object detection, custom image classification, and TensorFlow Lite model workflows."
-        - "Worked with Google ML Kit and TensorFlow Lite Model Maker to explore object detection, model training, and mobile inference; studied visual product search using Google Cloud Vision API."
-      startup:
-        - "Applied TensorFlow, TensorFlow Lite, and Google ML Kit in guided labs for object detection and custom image classification, using Google Colab for model experiments."
-        - "Explored a visual product-search workflow with Google Cloud Vision Product Search, from selecting detected objects to retrieving visually similar products."
-      mnc:
-        - "Completed practical AI/ML labs using Google Colab, TensorFlow, TensorFlow Lite, and Google ML Kit for object detection and image classification."
-        - "Studied custom model training and visual product search with Google Cloud Vision API as part of a ten-week AI/ML internship."
-
   - id: reliance
     title: "Associate"
     company: "Reliance"
@@ -283,17 +257,6 @@ experience:
         - "Keep the official title as Associate."
         - "Do not use the historical 50% improvement metric without independent evidence."
         - "Do not present this role as software engineering or advanced SAP administration."
-    bullets:
-      referral:
-        - "Reviewed an estimated 30–60 new and pending complaint cases per day, coordinating investigation, assignment, escalation, customer follow-up, and closure with store teams."
-        - "Used Google Bard to draft targeted complaint emails; estimated it cut email-drafting time by 60–70%, while ticket assignment and resolution remained manual."
-      startup:
-        - "Tracked an estimated 30–60 new and pending complaint cases per day and coordinated resolution across customer service, brand, store, inventory, and delivery teams."
-        - "Used Google Bard for complaint-email drafts, with an estimated 60–70% reduction in drafting time; maintained manual control of tickets and follow-up."
-      mnc:
-        - "Reviewed an estimated 30–60 complaint cases daily and coordinated cross-team investigation, escalation, and customer follow-up."
-        - "Applied Google Bard to email drafting, with a candidate-reported 60–70% reduction in drafting time; case assignment and closure remained manual."
-
   - id: pes_research
     title: "Research / Library Assistant"
     company: "Progressive Education Society's Modern College of Engineering"
@@ -344,24 +307,6 @@ experience:
         - "Resume bullets use 100+ resources and 50+ events per year per candidate instruction; retain candidate-reported status until underlying logs are checked."
         - "Do not claim student reach, measurable learning gains, efficiency improvement, or event outcomes without evidence."
         - "Do not describe archive organisation as Git/version control."
-    bullets:
-      referral:
-        - "Digitised and organised 100+ books, articles, research papers, and archival resources using domain tags, directory structures, and digital/offline backups."
-        - "Supported 50+ annual workshops, orientations, and educational events; prepared learning materials and maintained event records, photos, videos, and feedback for librarian reporting."
-        - "Guided students and staff in finding research papers, university archives, past question papers, OPAC/DELNET records, and free learning resources including MIT OpenCourseWare, NPTEL, SWAYAM, and edX."
-        - "Prepared a research-paper draft on student access to academic information using literature research and Overleaf/ChatGPT, under professor guidance; publication status is unknown."
-      startup:
-        - "Organised 100+ academic and archival resources across digital directories and offline backups; guided students toward research papers, university archives, and open-learning resources."
-        - "Supported 50+ annual educational events and workshops, including resource setup, student guidance, and event documentation."
-        - "Used Overleaf, Paperpile, ChatGPT, and research platforms to prepare a professor-reviewed draft on student access to academic information."
-      mnc:
-        - "Digitised and organised 100+ academic and archival resources with domain-based tagging, directory structures, and backup copies."
-        - "Supported 50+ annual workshops, orientations, and educational events and guided students through OPAC, DELNET, university archives, and open-courseware."
-
-
-# Experience inventory (evidence-first; items are not resume bullets).
-# Keep candidate facts here; tailor wording at selection/render time.
-# Unknown fields are intentionally omitted until confirmed by the candidate.
 experience_inventory:
   - id: aura
     type: founder_project
@@ -659,7 +604,6 @@ projects:
       - "Immutable JSONL state tracking"
       - "Automated lint, typecheck, and Vitest verification gates"
       - "Stateless event-driven execution after ADR-0001"
-    bullet: "Built a CLI for staged AI-assisted engineering workflows, with model adapters, append-only JSONL state, and lint, typecheck, and test gates."
 
   - id: llm_council
     title: "LLM-Council · Multi-Model Consensus Engine"
@@ -678,7 +622,6 @@ projects:
       - "Multiple LLM providers"
       - "Analyst → Skeptic → Synthesizer pipeline"
       - "Response comparison and synthesis"
-    bullet: "Built a multi-model response workflow with Analyst, Skeptic, and Synthesizer stages to compare and combine LLM outputs."
 
   - id: john
     title: "John · Android Voice Client"
@@ -701,7 +644,6 @@ projects:
       - "Android LiveKit client"
       - "Python LiveKit agent"
       - "Tool calling"
-    bullet: "Connected an Android client to a Python LiveKit agent over WebRTC, with voice interaction and tool-calling handlers for calendar and task actions."
 
   - id: voice_ai
     title: "Voice AI Systems"
@@ -721,7 +663,6 @@ projects:
       attribution_limits:
         - "Attach each provider or capability to the specific project where evidence exists."
         - "Do not describe the collection as a production voice platform."
-    bullet: "Built and tested realtime voice-agent systems across streaming audio, VAD, STT, TTS, and tool calling."
 
   - id: voicecoder
     title: "voicecoder"
@@ -744,17 +685,14 @@ projects:
   - id: codeshot
     title: "codeshot"
     tags: "Moondream · PyTorch · Multimodal Vision"
-    bullet: "Computer-vision experiment for screenshot-to-code extraction using Moondream/PyTorch."
 
   - id: autodev
     title: "AutoDev-Studio"
     tags: "Multi-Agent Systems · SOPs · State Machines"
-    bullet: "Multi-agent software-engineering framework using SOPs, state machines, and role-partitioned agents."
 
   - id: ddpm
     title: "DDPM-Diffusion-Based-Agent"
     tags: "PyTorch · Diffusion Models"
-    bullet: "Diffusion-model implementation/work exploring agent workflows."
 
   - id: microgpt
     title: "Microgpt124M"
@@ -763,7 +701,6 @@ projects:
       summary: "Implementation/work exploring a 124M-parameter decoder-only transformer in PyTorch."
       attribution_limits:
         - "Describe this as an implementation/work only to the extent supported by the linked code; do not imply model training or deployment results without evidence."
-    bullet: "124M-parameter decoder-only transformer implementation in PyTorch."
 
 open_source:
   project: "Omi"
