@@ -265,12 +265,12 @@ experience:
     dates: "Jul 2024 – Oct 2024"
     tags: "Customer Service · POS · Store Operations · Reporting"
     scope:
-      summary: "Customer-facing store operations and service support, with POS, membership, voucher, exchange, documentation, and reporting tasks."
+      summary: "Customer-service operations and end-to-end complaint coordination across online and in-store issues, with AI-assisted email drafting, ticket tracking, cross-team escalation, and documentation."
       responsibilities:
-        - "Handled customer-service desk queries and follow-up"
-        - "Supported POS transactions, membership and voucher workflows, and exchanges"
-        - "Supported inventory/store workflows, reporting, data maintenance, and documentation"
-        - "Coordinated issue resolution with managers and store teams"
+        - "Investigated and tracked new and pending customer complaints in the Reliance portal, routing cases to responsible staff and managers."
+        - "Used Google Bard to assist with targeted customer/manager email drafts while retaining manual assignment, escalation, ticket updates, and closure checks."
+        - "Coordinated issues across brand, store, cashier, inventory, warehouse, delivery, and other-store teams; verified outcomes with customers and staff."
+        - "Created a reusable Google Docs format for daily issue documentation; adoption and impact were not confirmed."
       evidence_source: "content/github/evidence.md"
       attribution_limits:
         - "Keep the official title as Associate."
@@ -414,39 +414,129 @@ experience_inventory:
     organisation: Reliance
     dates: "Jul 2024 – Oct 2024"
     facts_source: content/github/evidence.md
-    candidate_reported_volume:
-      customer_cases_per_shift: "more than 30; sometimes 50–60+ on busy days"
-      confidence: candidate_estimate
-      note: "Volume varied with store traffic; candidate later clarified busy days could reach 50–60+ people/cases."
-      resume_preference: "Do not use as a headline metric; candidate considers the volume unhelpful for resume positioning."
-    candidate_reported_resolution:
-      routine_issues_resolved_at_store_level: "approximately 90%"
-      confidence: candidate_estimate
-      resume_use: "Hold unless the candidate can explain the basis and scope of this estimate."
-    tools_used:
-      - "Reliance internal portal; exact product name unconfirmed"
-      - "Microsoft Excel spreadsheets"
-      - "POS billing systems"
-      - "SAP; basic manager-trained inventory and billing tasks only"
+    scope_summary: "Customer-service and store-operations role with end-to-end complaint/ticket coordination across a large multi-floor store, multiple product departments, and online/offline customer issues."
+    candidate_reported_metrics:
+      - id: daily_cases_reviewed
+        metric: "Complaint cases reviewed or tracked per day"
+        value_min: 30
+        value_max: 60
+        unit: cases_per_day
+        status: candidate_recollection
+        basis: "Candidate recalled handling a mix of new and previously open cases; volume varied by day."
+        caveat: "Not a system-verified count; do not present as a measured average."
+      - id: workload_share
+        metric: "Approximate share of workload handled by candidate"
+        value: 80
+        unit: percent
+        status: candidate_estimate
+        basis: "Candidate estimated about 80% of the shared workload was handled by them and about 20% by another person."
+        caveat: "No workload report or case-level attribution is available."
+      - id: online_case_share
+        metric: "Approximate share of workload involving online cases"
+        value: 80
+        unit: percent
+        status: candidate_estimate
+        basis: "Candidate described around 80% of the workload as online-related."
+        caveat: "No portal export or category report is available."
+      - id: pre_bard_email_time_share
+        metric: "Approximate share of working time spent writing complaint-related emails before using Bard"
+        value_min: 60
+        value_max: 70
+        unit: percent_of_working_time
+        status: candidate_estimate
+        basis: "Candidate selected this interpretation when asked what the 60–70% figure meant."
+        caveat: "Retrospective estimate; no time log or time study."
+      - id: bard_email_writing_time_reduction
+        metric: "Approximate reduction in time spent drafting complaint-related emails after using Bard"
+        value_min: 60
+        value_max: 70
+        unit: percent
+        status: candidate_estimate
+        basis: "Candidate selected this interpretation when asked what the 60–70% figure meant."
+        caveat: "Retrospective estimate; no before/after timing data. Keep explicitly attributed to candidate recollection."
+      - id: resolution_time_improvement
+        metric: "Possible improvement in customer issue resolution time"
+        value_min: 30
+        value_max: 40
+        unit: percent
+        status: unverified_candidate_claim_on_hold
+        basis: "Mentioned earlier by candidate, but the exact measure, comparison period, and calculation remain unclear."
+        caveat: "Do not use as a resume result until the candidate can define what was measured."
+      - id: other_resolution_timeline_reduction
+        metric: "Possible reduction in a resolution timeline"
+        value_min: 60
+        value_max: 70
+        unit: percent
+        status: unverified_candidate_claim_on_hold
+        basis: "Mentioned earlier by candidate, but the metric's meaning overlaps with or differs from the other resolution estimate and remains unclear."
+        caveat: "Do not use as a resume result until the candidate can define what was measured."
+    systems_used:
+      - name: "Reliance internal portal / ticketing workflow"
+        use: "Reviewed complaints, customer and issue details, assigned responsible employees/brand contacts, tracked status, and recorded resolution."
+        product_name_status: "Candidate used multiple names across recollection; exact product name not yet confirmed."
+      - name: "POS"
+        use: "Daily operational use in store workflows."
+      - name: "SAP"
+        use: "Daily basic operational use; candidate described being relatively new to it."
+        boundary: "Do not imply SAP administration or advanced configuration."
+      - name: "Microsoft Excel"
+        use: "Referenced spreadsheets/documents while handling complaint details and operational records."
+      - name: "Google Docs"
+        use: "Created a reusable format for daily issue documentation."
+      - name: "Email"
+        use: "Complaint correspondence, assignments, escalations, and customer/manager updates."
+      - name: "Google Bard"
+        use: "Chat-based assistance to draft targeted emails from complaint, brand, employee, and case details."
     case_workflow:
-      - "Contacted customers to understand the reported issue."
-      - "Created portal tickets that notified the relevant brand manager, sales employee, and other staff involved."
-      - "Coordinated with the relevant store, CSJ department, brand manager, or brand employee until the case was addressed."
-      - "Recorded the final outcome, updated case status (such as resolved or unresolved), and tracked the assigned/responsible person."
-      - "Followed up with the brand manager and customer to verify the resolution before closing each case."
-    scope:
-      - reviewed customer complaints and tickets raised through Reliance's online portal for the assigned store sections/area
-      - owned cases from initial customer contact and ticket creation through coordination, resolution checks, and closure
-      - replied to customer emails, called customers, explained resolution steps, and updated or closed tickets
-      - resolved routine issues at store level, including refunds, replacements, coupons, credits, membership concerns, and billing-related problems
-      - coordinated with other stores and the CSJ department when cases required cross-store support
-      - contacted brand managers to check product availability and confirm options for refunds, replacements, or other remedies
-      - routed product damage and warranty cases to the relevant brand employee for inspection and handling
-      - recorded case outcomes, status, and responsible staff in the ticket workflow/local database
-      - used Excel and internal systems to review or maintain product movement and exchange data, including daily inward/outward information
-      - downloaded relevant reports and shared product or inventory updates with brand managers
-      - used SAP for basic stock checks, product record entry or updates, and routine inventory/billing tasks after manager training
-      - reported and helped address POS billing-system issues
+      intake:
+        - "Manually reviewed incoming and pending cases in the Reliance internal portal."
+        - "Identified the customer, issue description, product/brand, and relevant department."
+        - "Handled a mix of online and in-store complaints; many related to online orders, warehouse or stock delays, shipping/delivery damage, products, memberships, watches, jewellery, shoes, perfume, clothing, and other store departments."
+      investigation_and_routing:
+        - "Investigated the issue end to end and identified the team or person best placed to handle it."
+        - "Contacted brand managers, store managers, employees/cashiers, warehouse or delivery contacts, and other responsible staff as needed."
+        - "Manually assigned a responsible person and followed the case through the resolution process."
+        - "Escalated complex or higher-severity issues to relevant managers or senior authorities."
+      communication_and_closure:
+        - "Used email, calls, and direct follow-up to connect customers with the responsible employees or teams."
+        - "Checked progress and customer satisfaction with both the customer and the staff handling the case."
+        - "Recorded outcomes in the portal and supporting files; checked ticket status and escalated unresolved cases."
+        - "Looked for manager confirmation or a completed/green ticket before treating the case as closed, according to candidate recollection."
+      cross_store_cases:
+        - "Recalled a case where a transaction/product record was associated with another store and additional information had to be retrieved in person."
+        - "Travelled to the other store and coordinated with managers, product/brand staff, and warehouse contacts to investigate options."
+        - "Final outcome and measurable effect of this particular case were not established in the interview; do not claim a confirmed resolution result."
+    ai_assisted_process_improvement:
+      tool: "Google Bard (candidate's term for the tool used at the time)"
+      automation_level: semi_manual
+      previous_process:
+        - "Senior staff used a physical workbook and manual phone/email follow-up to record and route complaint details."
+        - "Case records and feedback also had to be transferred into spreadsheets and shown to relevant customer-service/management teams."
+      candidate_workflow:
+        - "Entered or referenced issue, brand, customer, employee, and case details in a chat-based Bard workflow."
+        - "Used the generated draft to prepare targeted emails for customers, brand managers, and store leadership."
+        - "Manually selected/tagged the people who needed to act; Bard did not automatically assign staff or update tickets."
+        - "Continued to investigate, assign, raise or update tickets, follow up, confirm resolution, and record outcomes manually."
+      reason_for_change: "Reduce repetitive email drafting and make case communications easier to prepare while retaining human control of operational decisions."
+      claimed_outcome:
+        - "Candidate recalls spending less time drafting emails and being able to work faster while maintaining communication quality."
+      boundaries:
+        - "This was AI-assisted communication within a semi-manual workflow, not an automated ticketing or case-resolution system."
+        - "No measured productivity, quality, customer-satisfaction, or resolution-time data is available."
+        - "Do not claim that Bard generated verified assignee lists automatically; the candidate manually identified and tagged responsible people."
+    documentation_improvement:
+      - "Created a Google Docs format for daily issue documentation, intended to make records easier for customer-service, cashier, and inventory staff to follow."
+      - "Shared operational information through internal Reliance channels/portal."
+      - "Whether the template was adopted by other staff or changed error rates/time is unknown."
+    recognition_and_hiring:
+      - "Candidate recalls personal praise from a brand manager and internal inventory manager for problem-solving and handling cases quickly."
+      - "Candidate says some suggestions influenced discussions about improving documentation/workflows; wider adoption is not confirmed."
+      - "Candidate recalls HR discussing a possible direct K2 position during a later interview based on profile and communication; candidate says this was separate from the work performed in the role."
+      - "Keep official employment title as Associate; do not describe K2 as a confirmed held title or promotion without documentation."
+    role_context:
+      store_environment: "Candidate described a five-floor store with multiple departments and the ability to contact staff across store locations."
+      channels: ["online", "in_store", "email", "phone"]
+      involved_teams: ["customer service", "brand managers", "store managers", "sales staff", "cashiers", "inventory", "warehouse", "delivery", "security", "other store locations"]
     presentation_preferences:
       use_for:
         - customer support
@@ -455,29 +545,19 @@ experience_inventory:
         - service operations
         - business operations
         - support operations
-      usually_omit_for:
-        - AI/ML engineering
-        - software engineering
-        - AI/ML research roles when space is limited
+        - AI adoption / business process improvement stories when relevant
       technical_resume_rule:
-        - "Do not discard this employment from the master facts inventory."
-        - "For AI/ML and software roles, omit it when technical experience and projects make better use of the space."
-        - "If employment history needs to be shown, compress to one neutral line focused on ticket workflows, issue resolution, and coordination; do not lead with retail/customer-service framing."
-      framing:
-        - emphasize end-to-end case ownership, ticket creation, cross-team coordination, and verified closure
-        - emphasize customer communication, brand escalation, case records, and operational reporting for relevant roles
-        - mention Excel, POS, and SAP only in proportion to the tasks actually performed
-        - describe SAP as basic, manager-trained use; do not imply expertise
-        - do not name the internal portal until its identity is confirmed
-        - do not lead with daily customer volume
-        - keep the official title Associate
-        - use resolution-rate estimates only after confirming how they were calculated
-        - do not connect store revenue to the candidate's personal performance
+        - "Keep this employment in the master data."
+        - "For AI/ML and software roles, present the AI-assisted workflow only as practical AI-tool use in an operational process, not as AI engineering."
+        - "Emphasize end-to-end case ownership, process analysis, prompt-based email drafting, routing judgement, escalation, and verification."
+        - "Avoid leading with retail framing when space is limited, but do not conceal the nature of the employer or work."
     constraints:
-      - preserve official title Associate
-      - do not present as software engineering or advanced SAP administration
-      - 50% improvement claim remains unverified
-      - do not invent resolution rates, satisfaction scores, revenue impact, or time savings
+      - "Preserve official title Associate and dates Jul 2024 – Oct 2024."
+      - "Do not present this role as software engineering or advanced SAP administration."
+      - "All candidate-reported metrics must keep confidence/status and caveats when serialized or used by resume generation."
+      - "Do not state unverified estimates as company-verified measurements."
+      - "Do not invent customer satisfaction, revenue, error-rate, or resolution-rate outcomes."
+
   - id: pes_research
     type: research_support
     title: Research / Library Assistant
