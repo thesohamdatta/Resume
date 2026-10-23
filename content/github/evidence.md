@@ -85,22 +85,16 @@ Evidence:
 - Analyst → Skeptic → Synthesizer evaluation/synthesis workflow.
 - Response comparison and synthesis.
 
-## Computer vision / AI-ML internship
+## AICTE–EduSkills AI/ML internship
 
 Evidence:
-- 10-week virtual AI/ML internship, Oct–Dec 2024.
-- AICTE (All India Council for Technical Education) internship ecosystem.
-- TensorFlow and TensorFlow Lite.
-- Google ML Kit.
-- Android/mobile inference.
-- Custom object detection and tracking.
-- EfficientDet-Lite.
-- TFLite Model Maker and Task Library.
-- Custom datasets.
-- Image classification and .tflite model integration.
-- Google Cloud Vision API and Colab workflows.
-
-No accepted evidence for exact accuracy, mAP, dataset size, latency, or production deployment.
+- Candidate's existing record: October–December 2024, ten weeks.
+- Candidate describes the program as guided learning with practical exercises; Google Colab was the main working environment.
+- Candidate confirms completing learning activities in object detection, image classification, custom object detection with TensorFlow Lite, custom image classification, visual product search with Google Cloud Vision API, and Colab/model training.
+- Relevant curriculum and tools identified in the attached 28-page report: Google ML Kit object detection/tracking; TensorFlow Lite Model Maker and Task Library; EfficientDet-Lite; custom image classification and .tflite export; Google Cloud Vision Product Search API workflow.
+- The attached report names a different student and institution. Use it only as curriculum/context evidence; do not attribute its exact implementation, screenshots, results, or certificate to the candidate.
+- The report states 93.85% training accuracy for its author's image-classification exercise. This is not the candidate's metric and must not appear in the candidate's resume.
+- No candidate-owned evidence currently confirms accuracy, mAP, dataset size, latency, or production deployment. Do not invent these metrics.
 
 ## Omi open-source contributions
 
