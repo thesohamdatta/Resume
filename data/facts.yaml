@@ -331,7 +331,7 @@ experience:
         - "The role was research/library support, not sole authorship of professor-led publications."
         - "A research-paper draft was routed through professor and librarian to the college domain; publication, formal credit, and final destination are unknown."
         - "The earlier 3,000+ page count was described by the candidate as a random guess; remove it from claimable experience bullets."
-        - "Keep 100+ resources and 22–50+ activities as candidate estimates unless checked against records."
+        - "Keep 100+ resources and approximately 22–30, possibly 50+, activities as candidate estimates unless checked against records."
         - "Do not claim student reach, measurable learning gains, efficiency improvement, or event outcomes without evidence."
         - "Do not describe archive organisation as Git/version control."
     bullets:
@@ -882,7 +882,6 @@ metrics:
     - "3 Omi PRs approved or positively reviewed by maintainers"
     - "52 speaker-clustering tests"
     - "10-week AI/ML internship"
-    - "3,000+ pages archived/organised in research/library work"
   context_only:
     - "120+ tests are documented across the Omi repository; this is repository-wide context, not a candidate-authored test count."
   hold:
