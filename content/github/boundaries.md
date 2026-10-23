@@ -101,16 +101,22 @@ Do not claim:
 ## Research / Library Assistant
 
 ### Can claim
-- Research / Library Assistant at Progressive Education Society's Modern College of Engineering.
-- Sep 2023 – Mar 2024 based on the accepted experience record.
-- Literature/resource discovery, research documentation, digitization, archive organisation, LaTeX, DELNET, OPAC, student digital-resource support, workshops and awareness activities.
-- 3,000+ pages of material archived/organised when the source figure is retained.
+- Research / Library Assistant at Progressive Education Society's Modern College of Engineering; dates Sep 2023 – Mar 2024 based on the accepted experience record.
+- Literature/resource discovery, research documentation, document digitisation and domain-based archive organisation, backups, OPAC, DELNET, student digital-resource guidance, and library/event support.
+- Scanning and organising books, articles, research papers, magazines, old documents, and academic/archival material; maintaining digital and offline copies and retrieving relevant material for users.
+- Support for orientations, workshops, and educational/commemorative activities, including maintaining records and reporting materials.
+- Preparation of a research-paper draft under professor guidance; publication status and formal credit are unknown.
+
+### Candidate-reported metrics — not verified
+- 100+ resources digitised/organised: candidate estimate, not inventory-verified.
+- Approximately 22–30 activities, possibly 50+ in a year: candidate estimate; check the event/archive log before using a firm number.
+- Probably 100+ students across campus libraries: low-confidence estimate; candidate did not know the exact count. Do not use without records.
 
 ### Do not claim
-- Sole authorship of professor-led publications.
-- Independent publications without direct evidence.
-- Git/version-control engineering.
-- Specific student reach, publication counts, or measurable learning outcomes without evidence.
+- The previous 3,000+ pages figure; candidate later said it was a random guess.
+- Sole authorship of professor-led publications, confirmed publication, or formal authorship credit.
+- Exact student reach, exact resource/event totals, or measurable learning/efficiency outcomes without supporting records.
+- Git/version-control engineering or that an archive was managed with version control.
 
 ## Reliance
 
