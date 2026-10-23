@@ -114,11 +114,23 @@ Do not claim:
 
 ## Reliance
 
-- Official title: Associate.
-- Jul 2024 – Oct 2024.
-- Can claim customer service, POS, memberships, vouchers, exchanges, inventory/store workflows, reporting, documentation, and coordination with managers/store teams.
-- Do not use the historical 50% improvement metric until independently verified.
-- Do not present the role as software engineering or advanced SAP administration.
+- Official title: Associate; dates Jul 2024 – Oct 2024.
+- Can claim customer support operations, end-to-end complaint/ticket coordination, cross-team escalation, customer follow-up, documentation, POS, Excel, and basic SAP use.
+- Can describe Google Bard use for email drafting as a practical AI-assisted workflow improvement; it was semi-manual and human-directed, not an automated ticketing or resolution system.
+- Candidate-reported estimates may be stored in facts.yaml for future API/resume selection, but must retain explicit candidate-estimate status and caveats:
+  - 30–60 new and pending cases reviewed/tracked per day.
+  - Approximately 80% of shared workload handled by candidate.
+  - Approximately 80% online-related workload.
+  - Email writing estimated at 60–70% of working time before Bard.
+  - Email-writing time estimated by candidate to have reduced 60–70% with Bard.
+- These metrics were not independently measured or verified. Do not present them as company-confirmed performance KPIs or state them without attribution/caveat.
+- Earlier 30–40% and 60–70% resolution-time improvement figures are ambiguous and remain on hold until their exact meaning is clear.
+- Do not invent customer satisfaction scores, business/revenue impact, error reductions, time savings outside the candidate estimate, or resolution rates.
+- Do not claim Bard automatically assigned employees, changed ticket status, or resolved complaints; candidate retained manual control of assignment, escalation, follow-up, and closure.
+- Candidate created a Google Docs documentation template; adoption and measurable effect are unconfirmed.
+- Candidate recalls a cross-store investigation involving travel to another store to retrieve product/transaction details; final outcome was not established.
+- Do not treat the K2 discussion as a confirmed title, promotion, or held position. Official title remains Associate.
+- Do not present this role as software engineering or advanced SAP administration.
 
 ## Mia
 
