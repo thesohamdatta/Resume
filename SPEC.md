@@ -61,7 +61,7 @@ The system uses these terms in a fixed sense. `AGENTS.md` owns naming; this file
   each with one owner:
   - **Fact** — a biographical or structural constant: name, contact, dates, titles, employers,
     education, certifications, and candidate-confirmed experience/project facts. Owner: `data/facts.yaml`.
-    Pre-written per-mode bullets are presentation examples or legacy defaults, not immutable candidate facts.
+    Experience and project records may contain concise evidence notes, but not polished resume bullets. Each run composes role-specific wording from selected facts and direct evidence.
   - **Evidence** — technical proof: repositories, file paths, algorithms, tests, issue and PR
     numbers. Owner: `content/github/evidence.md`.
   - **Boundary** — a claim, ownership, attribution, metric, or status limit: what must *not* be
@@ -178,7 +178,7 @@ Requirements are numbered so a reviewer can check the system against them. `MUST
 - **REQ-C4** — The system MUST remain portable: no absolute workstation paths, no dependency on
   the author's history or local machine layout.
 
-- **REQ-C5** — Experience and project facts MUST be stored independently of role-specific resume phrasing. A run MAY derive new wording from sourced facts, evidence, and the target role; it MUST NOT treat existing bullets as exhaustive or copy them mechanically.
+- **REQ-C5** — Experience and project facts MUST be stored independently of role-specific resume phrasing. `data/facts.yaml` MAY contain concise evidence notes and factual fragments, but MUST NOT store polished resume bullets. A run MUST select evidence for the target JD and compose new wording from scratch, not copy or lightly paraphrase the notes.
 - **REQ-C6** — Retrieved information MUST be distilled to relevant findings with direct source pointers, not dumped raw into active context.
 
 ### Verification
@@ -218,9 +218,9 @@ trade-off. Decisions that meet fewer than three live only in the conversation.
   is technical proof, boundaries are negative constraints. Merging them was rejected: it
   produced repeated facts that drifted and hid "do not claim" rules inside positive content.
   Trade-off: a fact must be filed in the right layer; the boundary file must be read.
-- **ADR-3 — Evidence-first bullets.** Bullets are derived from technical evidence, not from
-  pre-written templates, so that invisible proof surfaces. Trade-off: evidence must be complete
-  or bullets weaken.
+- **ADR-3 — Evidence-first bullets.** Resume bullets are composed per target JD from selected
+  facts and technical evidence. Evidence notes preserve prior thinking, metrics, and constraints
+  without prescribing final wording. Trade-off: evidence must be complete or bullets weaken.
 - **ADR-4 — Procedural pipeline, not an autonomous agent loop.** The phases are fixed code
   paths; the LLM supplies judgment inside them. This follows the Anthropic guidance to prefer a
   workflow when the steps are predictable and to keep the simplest solution that works. It is
