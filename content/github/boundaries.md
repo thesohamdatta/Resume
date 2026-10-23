@@ -18,6 +18,11 @@ This file is binding. No resume track may outrun these boundaries.
 
 ## Aura
 
+### Ongoing project-review rule
+- Aura changes frequently. Re-check current code, commits, tests, and notes before using project claims in a resume.
+- Apply progressive overload across review cycles: add one evidence-backed layer of detail or a measured result at a time; retain verified prior work, and distinguish implemented, tested, planned, and unknown.
+- Do not use stale snapshots as current implementation evidence when the repository has changed.
+
 ### Can claim
 - Independent wearable AI project under development.
 - Founder role.
