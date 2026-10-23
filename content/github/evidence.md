@@ -155,14 +155,40 @@ Evidence:
 Official title: Associate  
 Dates: Jul 2024 – Oct 2024
 
-Evidence:
-- Customer-service desk.
-- POS, memberships, vouchers, exchanges, inventory/store workflows.
-- Reporting/data maintenance.
-- Documentation and daily follow-up.
-- Coordination with managers and store teams.
+### Role and workflow
+- Reviewed new and pending customer complaints in the Reliance internal portal, identified the customer, issue type, product/brand, and relevant department, then coordinated investigation and assignment.
+- Candidate describes work spanning a five-floor store and multiple product departments, with both online and in-store cases. Common case themes included product queries, membership issues, warehouse/stock delays, shipping or delivery damage, and product-related complaints.
+- Contacted or coordinated with brand managers, store managers, sales staff, cashiers, inventory, warehouse/delivery staff, and other store locations.
+- Tracked cases, escalated complex issues, followed up with customers and staff, confirmed whether issues were resolved, and recorded outcomes in the portal and supporting files.
+- For one recalled cross-store case, travelled to another store to retrieve product/transaction details and coordinated with managers and warehouse/product contacts. The final outcome of this example was not established.
 
-Do not use the historical 50% improvement metric without new evidence.
+### AI-assisted email workflow
+- Candidate used Google Bard as a chat-based writing assistant to draft targeted emails using case, customer, brand, employee, and manager details.
+- Previously, complaint details and follow-up relied more heavily on manual workbook records and phone/email communication.
+- Candidate manually identified/tagged responsible people and continued to own investigation, assignment, ticket updates, escalations, follow-up, and resolution verification.
+- Characterize this as a semi-manual workflow with AI-assisted drafting, not an automated ticketing or case-resolution system.
+
+### Documentation improvement and recognition
+- Candidate created a reusable Google Docs format for daily issue documentation intended for customer-service, cashier, and inventory staff.
+- Whether other staff adopted it and whether it reduced errors or processing time are unconfirmed.
+- Candidate recalls positive feedback from brand and inventory managers for problem-solving and speed. Candidate also recalls HR discussing a possible K2 position during hiring, separate from the role; official title remains Associate.
+
+### Candidate-reported metrics — not independently verified
+- Approximately 30–60 new and pending cases reviewed/tracked per day, depending on workload.
+- Approximately 80% of shared case workload handled by the candidate, with about 20% handled by another person.
+- Approximately 80% of workload described as online-related.
+- Before Bard, email drafting recalled as taking about 60–70% of the candidate's working time.
+- Candidate estimates Bard reduced email-drafting time by about 60–70%.
+- Earlier 30–40% and 60–70% resolution-time improvement figures were mentioned, but the exact measures and basis were unclear; do not use as resume results until clarified.
+
+No independent portal reports, time logs, customer-satisfaction data, or before/after measurements were supplied for these figures. Retain them as candidate-reported estimates with caveats; never imply company-verified KPIs.
+
+### Resume boundaries
+- Do not use the historical 50% improvement metric without new evidence.
+- Do not present the role as software engineering or advanced SAP administration. SAP use was basic operational use.
+- Do not claim Bard automatically assigned staff or updated tickets.
+- Do not claim the Google Docs template was adopted or improved measurable outcomes without confirmation.
+- Do not claim a confirmed outcome or time saving for the cross-store example.
 
 ## Additional project-level implementation notes
 
