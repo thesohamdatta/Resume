@@ -24,6 +24,23 @@ Evidence snapshot:
 - Kubernetes-hosted Deepgram ASR integration, as documented in the existing engineering record.
 - Frontend/mobile/interface work, including an Android companion-app codebase.
 
+### Candidate-reported Aura work and repository artifacts
+- Candidate reports approximately 7-8 physical enclosure versions, exploring basic 3D-printed cases, aluminum in different colors, and other materials before arriving at a working DIY pendant case with a magnetic chest clip. The public repository contains a [CASE.stl model](https://github.com/thesohamdatta/aura/blob/main/hardware/CASE.stl); the artifact alone does not establish prototype count or physical test results.
+- Candidate reports Aura app logo/color changes, layout and interface-layer adjustments, and simplification across Tasks, Memory, Settings, and Capture. The public app directory does not contain the screen source needed to independently verify these UI changes.
+- Candidate reports combined camera/audio outdoor testing; images were low resolution and the visual evaluation was preliminary. No image-quality, accuracy, or robustness metric is established.
+- Candidate estimates about 2 hours from a full charge for the camera-and-audio prototype under average active use, varying with usage. Audio-only runtime is unresolved: earlier recollection of about a day conflicts with a later estimate of about 5 hours; the candidate is unsure. Battery capacity was recalled as around 250 mAh but is uncertain. Do not present either runtime as a measured resume metric.
+
+### Aura website front-end contributions
+- Verified candidate-authored commit adds a scroll-based hero interaction with parallax/light animation in JavaScript and CSS: [commit](https://github.com/thesohamdatta/aura/commit/a3367638).
+- Verified candidate-authored commits extract reusable visual classes and add design tokens/color-system updates: [component classes](https://github.com/thesohamdatta/aura/commit/4c61f13c), [design tokens](https://github.com/thesohamdatta/aura/commit/2c47f57d).
+- Verified candidate-authored commit removes 30+ unused CSS classes/keyframes: [CSS cleanup](https://github.com/thesohamdatta/aura/commit/13cf368c).
+- These commits support website/front-end implementation evidence; they do not verify changes to the mobile app's screen source.
+
+## Omi capture-health contribution
+- Verified: candidate-authored [Issue #14614](https://github.com/BasedHardware/omi/issues/14614) proposes separating capture-source, transcription, and local-durability status rather than treating recording as one boolean.
+- Verified: candidate-authored [fork PR #1](https://github.com/thesohamdatta/omi/pull/1) is open and marked draft. At the reviewed snapshot it adds a pure mobile capture-health projection, focused test code, and specifications across five files.
+- Status boundary: the PR is not merged. Its description says Flutter tests, formatting, preflight, and the real user-facing mobile path were not run and remain required. Describe this as draft implementation/proposal work, not a shipped Omi feature or verified app behavior.
+
 ### Boundary
 Aura backend work includes adaptation, integration, and extension of existing Omi ecosystem components. Do not describe the Omi backend as built from scratch or claim deep backend expertise.
 

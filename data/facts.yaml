@@ -448,6 +448,9 @@ open_source:
       - "Windows local file-indexing specification"
       - "Markdown export specification"
     selected_evidence:
+      - id: "issue_14614_capture_health"
+        summary: "Authored Omi issue #14614 and an open draft PR in a personal fork proposing a deterministic mobile capture-health projection with tests."
+        attribution: "Candidate-authored fork work; the PR is unmerged and its Flutter tests and real mobile flow were not executed per the PR description."
       - id: "issue_8438"
         summary: "Diagnosed Windows Electron/WebGL GPU/compositor issue; downstream resolution in PR #8902."
         attribution: "The downstream PR was not authored by the candidate."
@@ -484,6 +487,7 @@ open_source:
       - "Do not claim authorship of downstream PRs."
       - "Use authored, diagnosed, proposed, approved by maintainers, adopted downstream, or addressed downstream as appropriate."
   selected_evidence:
+    - "Authored Omi issue #14614 and draft fork PR #1 proposing mobile capture-health semantics; the PR remains unmerged and its required Flutter/app-path verification is outstanding."
     - "Diagnosed GPU/compositor issue #8438; downstream resolution in PR #8902."
     - "Authored offline speaker clustering in PR #8919 with 52 tests; adopted downstream in PR #12471."
     - "Authored speaker-grounding proposal in Issue #8918; adopted downstream in PR #12089."
@@ -512,7 +516,31 @@ experience_inventory:
     field_testing:
       - "Tested microphone/audio capture in metro and crowded public environments."
       - "Tested speaker performance, device heating, and wearable enclosure in person with project teammates."
+      - "Candidate reports testing combined camera and audio capture outdoors; low-resolution images were usable, but visual testing remains preliminary and is not a strong quality evaluation."
       - "Physical tests and observations were reported by the candidate; no measurements, photos, or formal test logs currently supplied."
+    candidate_reported_design_work:
+      enclosure:
+        approximate_physical_versions: "7-8, candidate estimate"
+        progression: "Started with basic 3D-printed cases, explored aluminum in blue and gold finishes and other materials, and currently uses a DIY pendant case while continuing design work."
+        current_case_reported_function:
+          - "Holds the components together in pendant form."
+          - "Uses a magnetic clip to attach on the chest."
+          - "Candidate reports the camera and microphones work during capture; no measured quality result is available."
+        public_artifact: "https://github.com/thesohamdatta/aura/blob/main/hardware/CASE.stl"
+      app_interface_and_branding:
+        candidate_reported_changes:
+          - "Changed the Aura logo and app colors."
+          - "Adjusted interface positioning and layers and simplified the interface across Tasks, Memory, Settings, and Capture."
+        attribution_limit: "Candidate-reported; the current public repository contains Android branding assets but does not include the app screen source needed to verify these UI changes."
+      backend_integration:
+        candidate_reported_scope: "Connected Aura with the Omi-derived backend and made some changes; exact personally authored backend code remains to be identified from source history."
+      repository_verified_website_work:
+        - "Candidate-authored Aura website commit adds a scroll-based hero interaction with parallax/light animation: https://github.com/thesohamdatta/aura/commit/a3367638"
+        - "Candidate-authored Aura website commits extract shared visual classes and add design tokens/color-system updates: https://github.com/thesohamdatta/aura/commit/4c61f13c and https://github.com/thesohamdatta/aura/commit/2c47f57d"
+        - "Candidate-authored CSS cleanup removes 30+ unused classes/keyframes: https://github.com/thesohamdatta/aura/commit/13cf368c"
+    unresolved_runtime_estimates:
+      - "Camera-and-audio prototype: candidate estimates about 2 hours from a full charge under average active use; runtime varies by usage and has no formal test log."
+      - "Audio-only runtime is unresolved: candidate earlier recalled about a day and later estimated about 5 hours, then said they were unsure which estimate was accurate. Battery capacity was recalled as around 250 mAh but is also uncertain. Do not use as a resume metric."
     confirmed_workflows_reported_by_candidate:
       - "Captured audio, transcribed speech to text, and generated a summary."
       - "Stored audio and text outputs in the companion application, organised into voice, memory, and task experiences."
@@ -543,6 +571,7 @@ experience_inventory:
       - no verified customers, revenue, funding, user traction, or production scale
       - no measured microphone accuracy, noise reduction, heating, latency, battery life, or performance claims
       - no formal test report or photos supplied for physical tests yet
+      - "Do not claim strong vision quality: candidate says outdoor visual testing is preliminary and images were low resolution."
       - do not claim the Omi backend was built from scratch
       - do not attribute all documented Omi database and memory architecture to Aura
       - verify which audio assets are persisted by Aura and where before naming specific storage systems

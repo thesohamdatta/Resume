@@ -38,6 +38,11 @@ This file is binding. No resume track may outrun these boundaries.
 - "Built the Omi backend."
 - Deep backend expertise.
 - Verified battery, latency, accuracy, or user metrics.
+- Candidate-reported 7-8 enclosure versions may be described as an approximate iteration count, not as a performance result.
+- Describe the current case as a candidate-reported working prototype with a magnetic chest clip; do not infer durability, comfort, image quality, or measured reliability.
+- Candidate reports Aura interface and branding changes across Tasks, Memory, Settings, and Capture, but the public repository does not include app screen source to verify implementation details. Avoid claiming specific shipped UI behavior unless further evidence is found.
+- Candidate's camera-plus-audio runtime estimate is approximate and usage-dependent; audio-only estimates conflict. Do not use either as a resume metric.
+- Candidate reports preliminary low-resolution outdoor images and no strong visual test; do not claim vision quality or accuracy.
 
 ## Omi open-source contributions
 
@@ -49,6 +54,7 @@ Omi contributions include issue-based problem identification, technical design/s
 - The 7 authored upstream PRs inspected in October 2026 were closed unmerged; some received maintainer approval or positive review.
 - PR #8919 reported 52 passing tests; this is a PR-reported result, not proof of production use or accuracy improvement.
 - Do not treat "120+ documented tests" as personal tests without tracing each test to candidate-authored work.
+- Omi issue #14614 and the candidate's fork PR #1 are separate from the seven upstream PR count. PR #1 is open/draft and unmerged; its Flutter/app-path verification is outstanding, so do not claim upstream acceptance or shipped behavior.
 
 ### Claim rules
 Allowed, when source-linked:
