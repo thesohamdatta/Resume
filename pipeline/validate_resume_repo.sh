@@ -112,7 +112,7 @@ version_dirs="$(cd "$ROOT" && find versions -maxdepth 1 -mindepth 1 -type d | se
 ok "version directories are exactly the canonical three"
 
 # --- fixed section order, stated once (REQ-O2) ---
-ORDER_TEXT='Header / Contact → Summary → Experience → Projects → Education → Technical Skills'
+ORDER_TEXT='Name / Contact → Summary → Education → Skills → Experience → Projects → Certifications'
 order_owners="$(cd "$ROOT" && grep -lF "$ORDER_TEXT" -- \
   AGENTS.md SPEC.md README.md RESUME_RULES.md DONT.MD docs/voice.md pipeline/README.md 2>/dev/null || true)"
 order_count="$(printf '%s\n' "$order_owners" | grep -c . || true)"
@@ -123,10 +123,10 @@ ok "section order is stated once ($(printf '%s\n' "$order_owners" | head -1))"
 section_rank() {
   case "$1" in
     Summary) echo 1 ;;
-    Experience) echo 2 ;;
-    *Projects*) echo 3 ;;
-    Education) echo 4 ;;
-    *Technical\ Skills*) echo 5 ;;
+    Education) echo 2 ;;
+    Skills|*Technical\ Skills*) echo 3 ;;
+    Experience) echo 4 ;;
+    *Projects*) echo 5 ;;
     Certifications) echo 6 ;;
     *) echo 0 ;;
   esac
