@@ -20,8 +20,6 @@ Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
 
 ## Experience
 
-## Experience
-
 ### AICTE · AI/ML Intern
 **Oct 2024 – Dec 2024** | 10-week AICTE program
 
@@ -65,13 +63,6 @@ Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
 [GitHub](https://github.com/thesohamdatta/LLM-Council)
 
 - Built a multi-model evaluation workflow using an Analyst → Skeptic → Synthesizer pipeline to compare and synthesize LLM responses.
-
-### Voice AI Systems
-**LiveKit · WebRTC · Silero VAD · Kotlin · Python**
-
-- Built and tested realtime voice-agent systems across streaming audio, VAD, STT, TTS, and tool calling.
-
-
 
 ### Open-source contributions
 **Omi · Speaker clustering · Python · SciPy · 52 tests** · [GitHub](https://github.com/BasedHardware/omi)
