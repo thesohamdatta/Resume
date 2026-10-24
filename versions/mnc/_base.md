@@ -21,8 +21,6 @@ Savitribai Phule Pune University · 2022 – Jun 2026
 
 ## Experience
 
-## Experience
-
 ### AICTE · AI/ML Intern
 **Oct 2024 – Dec 2024** | 10-week program
 
@@ -67,13 +65,8 @@ Savitribai Phule Pune University · 2022 – Jun 2026
 
 
 
-### John · Realtime Voice Client
-**Kotlin · Jetpack Compose · LiveKit · WebRTC · Python** · [GitHub](https://github.com/thesohamdatta/John)
-
-- Connected an Android client to a Python LiveKit agent over WebRTC, with voice interaction and tool-calling handlers for calendar and task actions.
-
 ### Open-source contributions
- [GitHub](https://github.com/BasedHardware/omi) · Agglomerative hierarchical clustering | SciPy cosine linkage
+**Omi · Speaker clustering · Python · SciPy · 52 tests** · [GitHub](https://github.com/BasedHardware/omi) · Agglomerative hierarchical clustering | SciPy cosine linkage
 
 - Authored an offline speaker-clustering implementation using agglomerative hierarchical clustering and SciPy cosine linkage, with 52 tests, in a closed unmerged PR; its approach was later adopted downstream.
 
