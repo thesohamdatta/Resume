@@ -126,7 +126,7 @@ Mechanisms make claims believable: "Kept continuous audio on-device at 16 kHz I2
 
 ## Section order
 
-Use the approved reference resume as the fixed structure: Name and contact (no headline under the name) → Summary → Education → Skills → Experience → Projects → Certifications (only when verified). Keep this order across modes. Within Projects, put the main build projects first and list open-source contributions as a distinct final entry. Do not reorder for novelty.
+Name / Contact → Summary → Education → Skills → Experience → Projects → Certifications. Use the approved reference resume as the fixed structure, with no headline under the name. Keep this order across modes. Within Projects, put the main build projects first and list open-source contributions as a distinct final entry. Do not reorder for novelty.
 
 ## Gates (blocking)
 
