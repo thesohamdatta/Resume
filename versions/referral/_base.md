@@ -1,6 +1,5 @@
 # Soham Karande
 
-**AI Engineer | AI/ML | GenAI | Software**
 
 Pune, India · thesohamdatta@gmail.com · +91 94209 84066 · [LinkedIn](https://www.linkedin.com/in/thesohamdatta/) · [GitHub](https://github.com/thesohamdatta) · [Portfolio](https://sohamdatta.framer.ai)
 
@@ -8,24 +7,32 @@ Pune, India · thesohamdatta@gmail.com · +91 94209 84066 · [LinkedIn](https://
 
 AI/ML engineer building practical systems across wearable AI, agents, voice systems, computer vision, and software.
 
+## Education
+
+**B.E. Artificial Intelligence & Machine Learning**  
+Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
+
+## Skills
+
+**AI:** LLMs, AI Agents, Computer Vision, TensorFlow, PyTorch, TFLite  
+**Engineering:** Python, TypeScript/JavaScript, FastAPI, React, Git/GitHub, Vitest  
+**Realtime/Systems:** LiveKit, WebRTC, ESP32-S3, FreeRTOS, I2S, Opus
+
 ## Experience
-
-### Aura · Founder
-**Jun 2026 – Present** | Wearable AI · Embedded Systems · AI Integration
-
-- Built Aura, an independent wearable AI system spanning hardware, firmware, software, and AI integrations.
-- Designed and iterated the wearable enclosure around an ESP32-S3 platform, then connected the device to AI and backend services.
-- Adapted and extended Omi ecosystem components while contributing software and open-source engineering work.
 
 ### AICTE · AI/ML Intern
 **Oct 2024 – Dec 2024** | 10-week AICTE program
 
 - Built computer-vision workflows using TensorFlow, TFLite, and Google ML Kit across custom object detection, image classification, and Android inference.
 
+
+
 ### Reliance · Associate
 **Jul 2024 – Oct 2024** | Customer Operations
 
 - Managed customer-service, POS, membership, voucher, exchange, documentation, and follow-up workflows while coordinating issue resolution with store teams.
+
+
 
 ### PES Modern College · Research / Library Assistant
 **Sep 2023 – Mar 2024** | Research Support · Digital Library
@@ -34,16 +41,22 @@ AI/ML engineer building practical systems across wearable AI, agents, voice syst
 
 ## Projects
 
+### Aura · Wearable AI
+Jun 2026 – Present · Founder · C/C++ · Android · ESP32-S3 · [GitHub](https://github.com/thesohamdatta/aura)
+
+- Built Aura, an independent wearable AI system spanning hardware, firmware, software, and AI integrations.
+- Designed and iterated the wearable enclosure around an ESP32-S3 platform, then connected the device to AI and backend services.
+- Adapted and extended Omi ecosystem components while contributing software and open-source engineering work.
+
+
+
 ### Mia · Personal AI Engineering OS
 **TypeScript · Bun · LLM Adapters · Vitest · JSONL**  
 [GitHub](https://github.com/thesohamdatta/Mia)
 
 - Built a TypeScript CLI that runs a staged engineering process with LLM model adapters, append-only JSONL state, and lint, typecheck, and test gates.
 
-### Voice AI Systems
-**LiveKit · WebRTC · Silero VAD · Kotlin · Python**
 
-- Built and tested realtime voice-agent systems across streaming audio, VAD, STT, TTS, and tool calling.
 
 ### LLM-Council
 **Python · FastAPI · React/Vite · OpenRouter**  
@@ -51,17 +64,10 @@ AI/ML engineer building practical systems across wearable AI, agents, voice syst
 
 - Built a multi-model evaluation workflow using an Analyst → Skeptic → Synthesizer pipeline to compare and synthesize LLM responses.
 
-## Education
+### Open-source contributions
+**Omi · Speaker clustering · Python · SciPy · 52 tests** · [GitHub](https://github.com/BasedHardware/omi)
 
-**B.E. Artificial Intelligence & Machine Learning**  
-Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
-
-
-## Technical Skills
-
-**AI:** LLMs, AI Agents, Computer Vision, TensorFlow, PyTorch, TFLite  
-**Engineering:** Python, TypeScript/JavaScript, FastAPI, React, Git/GitHub, Vitest  
-**Realtime/Systems:** LiveKit, WebRTC, ESP32-S3, FreeRTOS, I2S, Opus
+- Authored an offline speaker-clustering implementation using agglomerative hierarchical clustering and SciPy cosine linkage in a closed, unmerged pull request; the approach was later adopted downstream.
 
 ## Certifications
 

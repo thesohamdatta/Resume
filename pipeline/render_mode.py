@@ -44,11 +44,12 @@ def tex_text(value: str) -> str:
 
 def parse_header(lines: list[str]) -> list[str]:
     nonempty = [line.strip() for line in lines if line.strip()]
-    if len(nonempty) < 3 or not nonempty[0].startswith("# "):
-        raise ValueError("expected name, headline, and contact line before the first section")
+    if len(nonempty) < 2 or not nonempty[0].startswith("# "):
+        raise ValueError("expected name and contact line before the first section")
     name = nonempty[0][2:].strip()
-    headline = nonempty[1].strip("*").strip()
-    contact_line = nonempty[2]
+    has_headline = len(nonempty) >= 3
+    contact_line = nonempty[2] if has_headline else nonempty[1]
+    headline = nonempty[1].strip("*").strip() if has_headline else ""
     links = list(LINK_RE.finditer(contact_line))
     plain_contact = LINK_RE.sub("", contact_line)
     parts = [part.strip() for part in re.split(r"\s*·\s*", plain_contact) if part.strip()]
@@ -57,13 +58,14 @@ def parse_header(lines: list[str]) -> list[str]:
     location = parts[0]
     details = [part for part in parts[1:] if "@" in part or re.search(r"\+?\d[\d ()-]{6,}", part)]
     social = [r"\href{" + match.group(2) + "}{" + tex_text(match.group(1)) + "}" for match in links]
-    return [
-        r"\resumeHeader{" + tex_text(name) + "}{" + tex_text(location) + "}{"
-        + r" | ".join(tex_text(item) for item in details) + "}{"
+    output = [
+        r"\resumeHeader{" + tex_text(name) + "}{" + tex_text(location) + "}{" 
+        + r" | ".join(tex_text(item) for item in details) + "}{" 
         + r" | ".join(social) + "}",
-        r"{\small\bfseries " + tex_text(headline) + r"}\par\vspace{2pt}",
     ]
-
+    if has_headline:
+        output.append(r"{\small\bfseries " + tex_text(headline) + r"}\par\vspace{2pt}")
+    return output
 
 def split_sections(lines: list[str]) -> tuple[list[str], list[tuple[str, list[str]]]]:
     header: list[str] = []
@@ -230,8 +232,8 @@ def render_mode(mode: str) -> str:
             output.extend([r"\section{" + tex_text(title) + "}", *render_projects(body)])
         elif title == "Education":
             output.extend([r"\section{Education}", *render_education(body)])
-        elif title == "Technical Skills":
-            output.extend([r"\section{Technical Skills}", *render_skills(body)])
+        elif title in {"Skills", "Technical Skills"}:
+            output.extend([r"\section{Skills}", *render_skills(body)])
         elif title == "Certifications":
             output.extend([r"\section{Certifications}", *render_certifications(body)])
         else:
