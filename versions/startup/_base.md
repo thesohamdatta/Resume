@@ -43,7 +43,7 @@ Savitribai Phule Pune University (SPPU) · 2022 – Jun 2026
 ## Projects
 
 ### Aura · Wearable AI
-**Jun 2026 – Present** · Founder · C/C++ · Android · ESP32-S3
+Jun 2026 – Present · Founder · C/C++ · Android · ESP32-S3 · [GitHub](https://github.com/thesohamdatta/aura)
 
 - Built Aura, a wearable AI system across hardware, firmware, software, and AI integrations.
 - Designed and iterated its physical enclosure and wearable form factor, connecting the device to AI and backend services.
