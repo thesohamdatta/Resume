@@ -43,7 +43,7 @@ Savitribai Phule Pune University · 2022 – Jun 2026
 ## Projects
 
 ### Aura · Wearable AI
-**Jun 2026 – Present** · Founder · C/C++ · Android · ESP32-S3
+Jun 2026 – Present · Founder · C/C++ · Android · ESP32-S3 · [GitHub](https://github.com/thesohamdatta/aura)
 
 - Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates.
 - Adapted Omi software components for streaming audio, context extraction, knowledge-graph links, speaker identification, and AI integrations.
