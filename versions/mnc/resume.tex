@@ -2,15 +2,15 @@
 \documentclass{../../templates/1/resume}
 \begin{document}
 \resumeHeader{Soham Datta}{Pune, India}{thesohamdatta@gmail.com | +91 9420984066}{\href{https://www.linkedin.com/in/thesohamdatta/}{LinkedIn} | \href{https://github.com/thesohamdatta}{GitHub} | \href{https://sohamdatta.framer.ai}{Portfolio}}
-{\small\bfseries AI Engineer | LLM Systems | Software Engineer}\par\vspace{2pt}
 \tightpar{AI/ML graduate working across LLM applications, retrieval and context workflows, real-time voice, and computer vision. Built multi-model evaluation and voice-agent applications, and integrated FastAPI-based audio and memory components with a wearable device.}
+\section{Education}
+\resumeEducation{Savitribai Phule Pune University}{2022 -- Jun 2026}{*B.E. Artificial Intelligence \& Machine Learning*}
+\section{Skills}
+\resumeSkills{AI/ML:}{LLM applications, RAG, AI agents, tool calling, multi-model evaluation, computer vision, TensorFlow, TensorFlow Lite, PyTorch}
+\resumeSkills{Languages:}{Python, TypeScript/JavaScript, C/C++, Kotlin}
+\resumeSkills{Engineering:}{FastAPI, React, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest}
+\resumeSkills{Data \& Systems:}{Supabase/pgvector, Firebase, Pinecone, Redis, ESP32-S3, FreeRTOS, I2S, Opus, Kubernetes}
 \section{Experience}
-\resumeRole{Aura}{Founder}{Jun 2026 -- Present}{Independent wearable AI project | Under development}
-\begin{resumeitemize}
-\item Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates.
-\item Adapted Omi software components for streaming audio, context extraction, knowledge-graph links, speaker identification, and AI integrations.
-\item Connected wearable audio and image capture to backend workflows for transcription, vision analysis, AI chat, and searchable memory.
-\end{resumeitemize}
 \resumeRole{AICTE}{AI/ML Intern}{Oct 2024 -- Dec 2024}{10-week program}
 \begin{resumeitemize}
 \item Built computer-vision workflows for object detection and image classification, integrating TensorFlow Lite models with Android inference.
@@ -24,29 +24,24 @@
 \item Supported research documentation, literature discovery, and digitization; organized 3,000+ pages of archive material.
 \end{resumeitemize}
 \section{Projects}
-\resumeProject{Omi: Speaker Clustering}{\href{https://github.com/BasedHardware/omi}{GitHub}}{Agglomerative hierarchical clustering | SciPy cosine linkage}
+\resumeProject{Aura: Wearable AI}{}{*Jun 2026 -- Present** | Founder | C/C++ | Android | ESP32-S3}
 \begin{resumeitemize}
-\item Authored an offline speaker-clustering implementation using agglomerative hierarchical clustering and SciPy cosine linkage, with 52 tests, in a closed unmerged PR; its approach was later adopted downstream.
+\item Developed ESP32-S3 firmware in C/C++ for 16 kHz I2S DMA audio capture, Opus compression, FreeRTOS event handling, and OTA updates.
+\item Adapted Omi software components for streaming audio, context extraction, knowledge-graph links, speaker identification, and AI integrations.
+\item Connected wearable audio and image capture to backend workflows for transcription, vision analysis, AI chat, and searchable memory.
 \end{resumeitemize}
-\resumeProject{Mia: AI Engineering CLI}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}{TypeScript | Bun | LLM adapters | Vitest | JSONL}
+\resumeProject{Mia: AI Engineering CLI}{\href{https://github.com/thesohamdatta/Mia}{GitHub}}{*TypeScript | Bun | LLM adapters | Vitest | JSONL*}
 \begin{resumeitemize}
 \item Built a CLI for staged AI-assisted engineering workflows, with model adapters, append-only JSONL state, and lint, typecheck, and test gates.
 \end{resumeitemize}
-\resumeProject{LLM-Council: Multi-Model Evaluation}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}{Python | FastAPI | React | OpenRouter}
+\resumeProject{LLM-Council: Multi-Model Evaluation}{\href{https://github.com/thesohamdatta/LLM-Council}{GitHub}}{*Python | FastAPI | React | OpenRouter*}
 \begin{resumeitemize}
 \item Built a multi-model response workflow that uses Analyst, Skeptic, and Synthesizer stages to compare and combine LLM outputs.
 \end{resumeitemize}
-\resumeProject{John: Realtime Voice Client}{\href{https://github.com/thesohamdatta/John}{GitHub}}{Kotlin | Jetpack Compose | LiveKit | WebRTC | Python}
+\resumeProject{Open-source contributions}{\href{https://github.com/BasedHardware/omi}{GitHub}}{*Omi | Speaker clustering | Python | SciPy | 52 tests** |  | Agglomerative hierarchical clustering | SciPy cosine linkage}
 \begin{resumeitemize}
-\item Connected an Android client to a Python LiveKit agent over WebRTC, with voice interaction and tool-calling handlers for calendar and task actions.
+\item Authored an offline speaker-clustering implementation using agglomerative hierarchical clustering and SciPy cosine linkage, with 52 tests, in a closed unmerged PR; its approach was later adopted downstream.
 \end{resumeitemize}
-\section{Education}
-\resumeEducation{Savitribai Phule Pune University}{2022 -- Jun 2026}{B.E. Artificial Intelligence \& Machine Learning}
-\section{Technical Skills}
-\resumeSkills{AI/ML:}{LLM applications, RAG, AI agents, tool calling, multi-model evaluation, computer vision, TensorFlow, TensorFlow Lite, PyTorch}
-\resumeSkills{Languages:}{Python, TypeScript/JavaScript, C/C++, Kotlin}
-\resumeSkills{Engineering:}{FastAPI, React, LiveKit, WebRTC, REST APIs, Git/GitHub, Vitest}
-\resumeSkills{Data \& Systems:}{Supabase/pgvector, Firebase, Pinecone, Redis, ESP32-S3, FreeRTOS, I2S, Opus, Kubernetes}
 \section{Certifications}
 \tightpar{\href{https://www.credly.com/earner/earned/badge/a4a26284-f953-43f2-8434-07b36437bd38}{AWS Educate: Machine Learning Foundations} | \href{https://drive.google.com/file/d/1zfOHFEjJBrmqx_KJsSGkCA9fhwt4M_3G/view?usp=sharing}{AWS Cloud Practitioner Essentials} | \href{https://www.credly.com/earner/earned/badge/3990d7db-861a-405e-a0d1-5ad31a8d1d85}{Google AI Essentials} | \href{https://www.credly.com/earner/earned/badge/b3c25e65-bc43-4165-a169-25f12f222b7c}{AWS Educate: Generative AI}}
 \end{document}
